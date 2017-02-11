@@ -1,19 +1,7 @@
-import { BrowserModule } from '@angular/platform-browser'
-import { FormsModule, ReactiveFormsModule } from '@angular/forms'
-import { TextMaskModule } from 'angular2-text-mask'
-import { HttpModule } from '@angular/http'
 import { NgModule } from '@angular/core'
-
-import { AuthService, UserService, ProgressService, SharedDataService } from '../providers'
-import { LoggedInGuard } from '../guards'
-import { APP_ROUTER_PROVIDERS } from './app.routes'
-import { AppComponent } from './app.component'
-import { E403Component } from './e403/e403.component'
-import { E404Component } from './e404/e404.component'
-import { LoginModule } from './login/login.module'
-import { ThemeModule } from './theme/theme.module'
 import { CommonModule } from '@angular/common'
 import { RouterModule } from '@angular/router'
+import { ThemeModule } from './theme/theme.module'
 import { AdminComponent } from './admin.component'
 import { DashboardComponent } from './dashboard/dashboard.component'
 import { OrderIndexComponent } from './order/index.component'
@@ -38,52 +26,33 @@ import { SupportComponent } from './support/support.component'
 
 
 @NgModule({
+  imports: [
+    CommonModule,
+    RouterModule,
+    ThemeModule
+  ],
   declarations: [
     AdminComponent,
-    AppComponent,
-    BusinessFormComponent,
-    BusinessIndexComponent,
-    ConfigBonusComponent,
-    ConfigOrderComponent,
-    ConfigVehicleFormComponent,
-    ConfigVehicleIndexComponent,
     DashboardComponent,
-    DriverFormComponent,
-    DriverIndexComponent,
-    E403Component,
-    E404Component,
-    FaqFormComponent,
-    FaqIndexComponent,
-    OrderDetailsComponent,
     OrderIndexComponent,
-    SupportComponent,
-    SupportComponent,
-    TeamFormComponent,
-    TeamIndexComponent,
-    UserFormComponent,
+    OrderDetailsComponent,
     UserIndexComponent,
-    VehicleFormComponent,
+    UserFormComponent,
+    DriverIndexComponent,
+    DriverFormComponent,
+    BusinessIndexComponent,
+    BusinessFormComponent,
     VehicleIndexComponent,
-  ],
-  imports: [
-    APP_ROUTER_PROVIDERS,
-    BrowserModule,
-    CommonModule,
-    FormsModule,
-    HttpModule,
-    LoginModule,
-    ReactiveFormsModule,
-    RouterModule,
-    TextMaskModule,
-    ThemeModule,
-  ],
-  providers: [
-    AuthService,
-    LoggedInGuard,
-    ProgressService,
-    SharedDataService,
-    UserService
-  ],
-  bootstrap: [AppComponent]
+    VehicleFormComponent,
+    ConfigOrderComponent,
+    ConfigBonusComponent,
+    ConfigVehicleIndexComponent,
+    ConfigVehicleFormComponent,
+    TeamIndexComponent,
+    TeamFormComponent,
+    FaqIndexComponent,
+    FaqFormComponent,
+    SupportComponent
+  ]
 })
-export class AppModule { }
+export class AdminModule { }

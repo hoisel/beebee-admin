@@ -13,102 +13,77 @@
         <a [routerLink]="['/negocios/gerenciador']" *ngFor="let header of menus.headers">
           <i class="icon-hamburguer" aria-hidden="true"></i>
           <h2>
-            Gerenciador de Negócios:
+            Painel Administrativo
           </h2>
           <p>
-            {{header.nomeEmpresa}}
+            Admin BeeBee
           </p>
         </a>
       </div>
       <ul class="nav nav-sidebar">
         <li [routerLinkActive]="['active']">
-          <a href="#">
+          <a [routerLink]="['/dashboard']">
+            <i class="icon-wifi" aria-hidden="true"></i>
+            Dashboard
+          </a>
+        </li>
+        <li [routerLinkActive]="['active']">
+          <a [routerLink]="['/pedidos']">
+            <i class="icon-route" aria-hidden="true"></i>
+            Pedidos
+          </a>
+        </li>
+        <li [routerLinkActive]="['active']">
+          <a [routerLink]="['/usuarios']">
             <i class="icon-request-freight" aria-hidden="true"></i>
-            Pedir Frete
+            Usuários
           </a>
         </li>
         <li [routerLinkActive]="['active']">
-          <a href="#">
+          <a [routerLink]="['/motoristas']">
             <i class="icon-make-freight" aria-hidden="true"></i>
-            Fazer Frete
+            Motoristas
           </a>
         </li>
         <li [routerLinkActive]="['active']">
-          <a href="#">
-            <i class="icon-calendar" aria-hidden="true"></i>
-            Agenda
+          <a [routerLink]="['/empresas']">
+            <i class="icon-boss" aria-hidden="true"></i>
+            Empresas
           </a>
         </li>
-        <li class="dropdown" [routerLinkActive]="['active']">
+        <li [routerLinkActive]="['active']">
+          <a [routerLink]="['/veiculos']">
+            <i class="icon-truck" aria-hidden="true"></i>
+            Veículos
+          </a>
+        </li>
+		<li class="dropdown" [routerLinkActive]="['active']">
           <a class="dropdown-toggle" data-toggle="dropdown" role="button"aria-haspopup="true" aria-expanded="true">
-            <i class="icon-wallet" aria-hidden="true"></i>
-            Carteira
+            <i class="icon-cog" aria-hidden="true"></i>
+            Configurações
           </a>
           <ul class="dropdown-menu">
             <li [routerLinkActive]="['active']">
-              <a [routerLink]="['/carteira/resumo']">
-                Extrato
-              </a>
+              <a [routerLink]="['/configuracoes/veiculos']">Veículos</a>
             </li>
             <li [routerLinkActive]="['active']">
-              <a [routerLink]="['/carteira/recebimento']">
-                Meios de Recebimento
-              </a>
+              <a [routerLink]="['/configuracoes/fretes']">Cálculo Fretes</a>
             </li>
             <li [routerLinkActive]="['active']">
-              <a [routerLink]="['/carteira/pagamento']">
-                Meios de Pagamento
-              </a>
+              <a [routerLink]="['/configuracoes/fidelidade']">Cálculo Fidelidade</a>
             </li>
           </ul>
         </li>
         <li [routerLinkActive]="['active']">
-          <a [routerLink]="['/fidelidade']">
-            <i class="icon-bonus" aria-hidden="true"></i>
-            Fidelidade
-          </a>
-        </li>
-        <li class="dropdown" [routerLinkActive]="['active']">
-          <a class="dropdown-toggle" data-toggle="dropdown" role="button"aria-haspopup="true" aria-expanded="true">
+          <a [routerLink]="['/equipe']">
             <i class="icon-users" aria-hidden="true"></i>
-            Meu Negócio
-          </a>
-          <ul class="dropdown-menu">
-            <li [routerLinkActive]="['active']">
-              <a [routerLink]="['/negocios/dashboard']">Dashboard</a>
-            </li>
-            <li [routerLinkActive]="['active']">
-              <a [routerLink]="['/negocios/perfil']">
-                Perfil da Empresa
-              </a>
-            </li>
-            <li [routerLinkActive]="['active']">
-              <a [routerLink]="['/negocios/usuarios']">
-                Usuários
-              </a>
-            </li>
-            <li [routerLinkActive]="['active']">
-              <a [routerLink]="['/negocios/veiculos']">
-                Veículos
-              </a>
-            </li>
-            <li [routerLinkActive]="['active']">
-              <a [routerLink]="['/negocios/motoristas']">
-                Motoristas
-              </a>
-            </li>
-          </ul>
-        </li>
-        <li [routerLinkActive]="['active']">
-          <a [routerLink]="['/minha-conta']">
-            <i class="icon-user" aria-hidden="true"></i>
-            Minha Conta
+            Equipe BeeBee
           </a>
         </li>
         <li [routerLinkActive]="['active']">
-          <a [routerLink]="['/ajuda']">
+          <a [routerLink]="['/faq']">
             <i class="icon-help" aria-hidden="true"></i>
-            Ajuda
+            Perguntas Frequentes
           </a>
         </li>
         <li [routerLinkActive]="['active']">

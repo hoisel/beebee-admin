@@ -1,5 +1,11 @@
 <div class="wrapper">
   <div class="modo-tipousuario">
-    <router-outlet></router-outlet>
+    <app-header></app-header>
+    <div class="container-fluid">
+        <app-sidebar-left></app-sidebar-left>
+        <div class="wrapper-main">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
   </div>
 </div>

@@ -1,92 +1,120 @@
 import { ModuleWithProviders } from '@angular/core'
 import { Routes, RouterModule } from '@angular/router'
-import { LoggedInGuard } from '../guards'
 import { LOGIN_ROUTES } from './login/login.routes'
-import { LoginComponent } from './login/login.component'
-import { REGISTER_ROUTES } from './register/register.routes'
-import { RegisterComponent } from './register/register.component'
-import { PLATAFORMA_ROUTES } from './plataforma/plataforma.routes'
-import { PlataformaComponent } from './plataforma/plataforma.component'
-import { WALLET_ROUTES } from './wallet/wallet.routes'
-import { WalletComponent } from './wallet/wallet.component'
-import { BonusComponent } from './bonus/bonus.component'
-import { BUSINESS_ROUTES } from './business/business.routes'
-import { BusinessComponent } from './business/business.component'
-import { ProfileComponent } from './profile/profile.component'
-import { HelpComponent } from './help/help.component'
+import { DashboardComponent } from './dashboard/dashboard.component'
+import { OrderIndexComponent } from './order/index.component'
+import { OrderDetailsComponent } from './order/details.component'
+import { UserIndexComponent } from './user/index.component'
+import { UserFormComponent } from './user/form.component'
+import { DriverIndexComponent } from './driver/index.component'
+import { DriverFormComponent } from './driver/form.component'
+import { BusinessIndexComponent } from './business/index.component'
+import { BusinessFormComponent } from './business/form.component'
+import { VehicleIndexComponent } from './vehicle/index.component'
+import { VehicleFormComponent } from './vehicle/form.component'
+import { ConfigOrderComponent } from './config/order/order.component'
+import { ConfigBonusComponent } from './config/bonus/bonus.component'
+import { ConfigVehicleIndexComponent } from './config/vehicle/index.component'
+import { ConfigVehicleFormComponent } from './config/vehicle/form.component'
+import { TeamIndexComponent } from './team/index.component'
+import { TeamFormComponent } from './team/form.component'
+import { FaqIndexComponent } from './faq/index.component'
+import { FaqFormComponent } from './faq/form.component'
 import { SupportComponent } from './support/support.component'
-import { ADMIN_ROUTES } from './admin/admin.routes'
-import { AdminComponent } from './admin/admin.component'
+import { LoginComponent } from './login/login.component'
 import { E403Component } from './e403/e403.component'
 import { E404Component } from './e404/e404.component'
 
 export const APP_ROUTES: Routes = [
   {
-    path: '',
-    redirectTo: 'acesso',
-    pathMatch: 'full'
+      path: '',
+      redirectTo: 'dashboard',
+      pathMatch: 'full'
+  },
+  {
+      path: 'dashboard',
+      component: DashboardComponent
   },
   {
     path: 'acesso',
     component: LoginComponent,
     children: [...LOGIN_ROUTES]
+},
+  {
+      path: 'pedidos',
+      component: OrderIndexComponent
   },
   {
-    path: 'cadastro',
-    component: RegisterComponent,
-    children: [...REGISTER_ROUTES],
-    data: { name: 'Cadastro' }
+      path: 'pedidos/id',
+      component: OrderDetailsComponent
   },
   {
-    path: 'carteira',
-    component: WalletComponent,
-    children: [...WALLET_ROUTES],
-    //canActivate: [LoggedInGuard],
-    data: { name: 'Carteira' }
+      path: 'usuarios',
+      component: UserIndexComponent
   },
   {
-    path: 'fidelidade',
-    component: BonusComponent,
-    //canActivate: [LoggedInGuard],
-    data: { name: 'Fidelidade' }
+      path: 'usuarios/id',
+      component: UserFormComponent
   },
   {
-    path: 'negocios',
-    component: BusinessComponent,
-    children: [...BUSINESS_ROUTES],
-    //canActivate: [LoggedInGuard],
-    data: { name: 'Meu Negócio' }
+      path: 'motoristas',
+      component: DriverIndexComponent
   },
   {
-    path: 'plataforma',
-    component: PlataformaComponent,
-    children: [...PLATAFORMA_ROUTES ],
-    //canActivate: [LoggedInGuard]
+      path: 'motoristas/id',
+      component: DriverFormComponent
   },
   {
-    path: 'minha-conta',
-    component: ProfileComponent,
-    //canActivate: [LoggedInGuard],
-    data: { name: 'Minha Conta' }
+      path: 'empresas',
+      component: BusinessIndexComponent
   },
   {
-    path: 'ajuda',
-    component: HelpComponent,
-    //canActivate: [LoggedInGuard],
-    data: { name: 'Ajuda' }
+      path: 'empresas/id',
+      component: BusinessFormComponent
   },
   {
-    path: 'suporte',
-    component: SupportComponent,
-    //canActivate: [LoggedInGuard],
-    data: { name: 'Suporte' }
+      path: 'veiculos',
+      component: VehicleIndexComponent
   },
   {
-    path: 'admin',
-    component: AdminComponent,
-    children: [...ADMIN_ROUTES ],
-    // //canActivate: [LoggedInGuard],
-    data: { name: 'Administrativo' }
+      path: 'veiculos/id',
+      component: VehicleFormComponent
+  },
+  {
+      path: 'configuracoes/fretes',
+      component: ConfigOrderComponent
+  },
+  {
+      path: 'configuracoes/fidelidade',
+      component: ConfigBonusComponent
+  },
+  {
+      path: 'configuracoes/veiculos',
+      component: ConfigVehicleIndexComponent
+  },
+  {
+      path: 'configuracoes/veiculos/id',
+      component: ConfigVehicleFormComponent
+  },
+  {
+      path: 'equipe',
+      component: TeamIndexComponent
+  },
+  {
+      path: 'equipe/novo',
+      component: TeamFormComponent
+  },
+  {
+      path: 'faq',
+      component: FaqIndexComponent
+  },
+  {
+      path: 'faq/novo',
+      component: FaqFormComponent
+  },
+  {
+      path: 'suporte',
+      component: SupportComponent
   },
   {
     path: '403',

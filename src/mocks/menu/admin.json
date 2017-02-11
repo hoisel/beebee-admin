@@ -8,13 +8,13 @@
     "menus": [
         {
             "text": "Dashboard",
-            "href": "admin/dashboard",
+            "href": "/dashboard",
             "title": "Dashboard",
             "icon": "fa fa-dashboard"
         },
         {
             "text": "Cadastro de Empresa",
-            "href": "admin/empresa",
+            "href": "/empresa",
             "title": "Empresa",
             "icon": "fa fa-car"
         }
