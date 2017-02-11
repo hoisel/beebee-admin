@@ -1,0 +1,72 @@
+{
+  "project": {
+    "version": "1.0.0-beta.19-3",
+    "name": "beebee-plataforma"
+  },
+  "apps": [
+    {
+      "root": "./src",
+      "outDir": "./dist",
+      "assets": [
+        "assets",
+        "favicon.ico",
+        "mocks"
+      ],
+      "index": "index.html",
+      "main": "main.ts",
+      "test": "test.ts",
+      "tsconfig": "tsconfig.json",
+      "prefix": "app",
+      "mobile": false,
+      "styles": [
+        "../node_modules/nprogress/nprogress.css",
+        "../node_modules/bootstrap/dist/css/bootstrap.min.css",
+        "../node_modules/font-awesome/css/font-awesome.min.css",
+        "assets/beebee/css/styles.css",
+        "assets/beebee/css/theme.css",
+        "assets/icomoon/style.css"
+      ],
+      "scripts": [
+        "../node_modules/nprogress/nprogress.js",
+        "../node_modules/jquery/dist/jquery.min.js",
+        "../node_modules/bootstrap/dist/js/bootstrap.min.js",
+        "../node_modules/swiper/dist/js/swiper.jquery.min.js",
+        "../node_modules/twitter-bootstrap-wizard/jquery.bootstrap.wizard.min.js",
+        "assets/beebee/js/library.js"
+      ],
+      "environments": {
+        "source": "environments/environment.ts",
+        "dev": "environments/environment.ts",
+        "prod": "environments/environment.prod.ts"
+      }
+    }
+  ],
+  "addons": [],
+  "packages": [],
+  "e2e": {
+    "protractor": {
+      "config": "./protractor.conf.js"
+    }
+  },
+  "test": {
+    "karma": {
+      "config": "./karma.conf.js"
+    }
+  },
+  "defaults": {
+    "styleExt": "css",
+    "prefixInterfaces": false,
+    "inline": {
+      "style": false,
+      "template": false
+    },
+    "spec": {
+      "class": false,
+      "component": true,
+      "directive": true,
+      "module": false,
+      "pipe": true,
+      "service": true
+    }
+  }
+}

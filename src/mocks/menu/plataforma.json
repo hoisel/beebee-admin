@@ -1,0 +1,46 @@
+{
+    "headers": [
+        {
+            "nomeEmpresa": "Lifebrand",
+            "cnpj": "16.729.396/0001-42"
+        }
+    ],
+    "menus": [
+        {
+            "text": "Fazer Frete",
+            "href": "plataforma/fazer-frete",
+            "title": "Fazer Frete",
+            "icon": "fa fa-truck"
+        },
+        {
+            "text": "Agenda",
+            "href": "plataforma/agenda",
+            "title": "Agenda",
+            "icon": "fa fa-calendar"
+        },
+        {
+            "text": "Carteira",
+            "href": "plataforma/carteira",
+            "title": "Carteira",
+            "icon": "fa fa-credit-card"
+        },
+        {
+            "text": "Fidelidade",
+            "href": "plataforma/fidelidade",
+            "title": "Fidelidade",
+            "icon": "fa fa-users"
+        },
+        {
+            "text": "Minha Conta",
+            "href": "profile",
+            "title": "Minha Conta",
+            "icon": "fa fa-user-circle-o"
+        },
+        {
+            "text": "Fale Conosco",
+            "href": "plataforma/fale-conosco",
+            "title": "Fale Conosco",
+            "icon": "fa fa-comments"
+        }
+    ]
+}

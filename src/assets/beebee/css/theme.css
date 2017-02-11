@@ -1,0 +1,587 @@
+/* 	Styles
+	==========================================================================
+	========================================================================== */
+
+	/*	Styles > Main elements
+	————————————————————————————————————————————————————————————————————————— */
+
+	.wrapper > div {
+		height: 100%;
+	}
+
+
+/*	Typography
+	==========================================================================
+	========================================================================== */
+
+	body {
+		font-family: Roboto, Helvetica, Tahoma, Arial, sans-serif;
+	}
+
+	.wrapper-content p {
+		font-weight: 300;
+	}
+
+
+/*	Colors
+	==========================================================================
+	========================================================================== */
+
+	.flat-bg-primary-color 		{ background-color: #fef366; }
+	.flat-bg-secondary-color 	{ background-color: #383844; }
+	.flat-bg-dark  				{ background-color: #0E0E10; }
+
+	.light-container 			{ color: #0E0E10; }
+
+	.primary-color 				{ color: #fef366; }
+	.secondary-color 			{ color: #383844; }
+	.dark-color  				{ color: #0E0E10; }
+
+
+	.modo-particular .navmenu-sidebar,
+	.btn.btn-particular {
+		background-color: #73cade;
+	}
+
+	.modo-fretista .navmenu-sidebar,
+	.btn.btn-fretista {
+		background-color: #62439b;
+	}
+
+	.modo-empresa .navmenu-sidebar,
+	.btn.btn-empresa {
+		background-color: #008489;
+	}
+
+/* 	Login
+	==========================================================================
+	========================================================================== */
+
+	.login.sign-in,
+	.login.sign-up > header {
+		background-color: #fef366;
+	}
+
+	.login.sign-up > header {
+		border-bottom: 1px solid #D2D4DE;
+	}
+
+	.login.sign-up .heading h1 {
+		font-weight: 300;
+	}
+
+	.login.sign-up .heading h2 {
+		font-weight: 300;
+	}
+
+	.login.sign-up .register {
+		border-radius: 21px;
+		background-color: #ffffff;
+		border: 1px solid #e7e7e7;
+	}
+
+	.login button.btn.btn-block {
+		border-color: #545861;
+		background-color: #545861;
+		border-radius: 30px !important;
+		outline: 0;
+	}
+
+	.login button.btn.btn-block:hover {
+		border-color: #35383F;
+		background-color: #35383F;
+	}
+
+	.login .btn.btn-block small {
+		font-size: 13px;
+		font-weight: 300;
+	}
+
+
+/*	Navbar
+	==========================================================================
+	========================================================================== */
+
+
+/* 	Navmenu Sidebar
+	==========================================================================
+	========================================================================== */
+
+	.navmenu-header {
+		background-color: #fef366;
+	}
+
+	.navmenu-header button {
+		color: rgba(0,0,0,0.75);
+	}
+
+	.navmenu-header button:hover,
+	.navmenu-header button:focus,
+	.navmenu-header button:active {
+		color: rgba(0,0,0,0.9);
+	}
+
+	.navmenu-sidebar {
+		background-color: #1F1F1F;
+	}
+
+	.navmenu-sidebar .nav-quickview i[class*="icon-"] {
+		width: 30px;
+		font-size: 18px;
+		font-size: 1.8rem;
+		text-align: center;
+	}
+
+	.navmenu-sidebar .nav-quickview h2,
+	.navmenu-sidebar .nav-quickview p {
+		padding-left: 33px;
+	}
+
+	.navmenu-sidebar ul.nav-sidebar {
+		font-size: 15px;
+	}
+
+	.navmenu-sidebar ul.nav-sidebar li {
+		font-weight: 300;
+	}
+
+	.navmenu-sidebar ul.nav-sidebar li i[class*="icon-"] {
+		width: 30px;
+		float: left;
+		font-size: 24px;
+		font-size: 2.4rem;
+		text-align: center;
+	}
+
+	.navmenu-sidebar ul.nav-sidebar li ul li {
+		margin-left: 6px;
+	}
+
+
+	.navmenu-sidebar ul.nav-sidebar>li.active,
+	.navmenu-sidebar ul.nav-sidebar.nav li.open {
+		border-left-color: rgba(0,0,0,0.3);
+	}
+
+	.navmenu-sidebar .nav-footer .social {
+		float: none;
+	}
+
+
+/*	Main > Content
+	==========================================================================
+	========================================================================== */
+
+	@media (max-width: 767px) {
+		div.wrapper-content>section>header p {
+			font-size: 14px;
+		}
+	}
+
+	@media (min-width: 768px) {
+		div.wrapper-content>section>header p {
+			font-size: 15px;
+		}
+	}
+
+
+	/*	Panel Widget
+	————————————————————————————————————————————————————————————————————————— */
+
+	.panel.widget.panel-default {
+		background-color: #888484;
+		border-color: #888484;
+	}
+
+	.panel.widget.panel-primary {
+		background-color: #3388C1;
+		border-color: #3388C1;
+	}
+
+	.panel.widget.panel-success {
+		background-color: #09ccbb;
+		border-color: #09ccbb;
+	}
+
+	.panel.widget.panel-info {
+		background-color: #43A8EF;
+		border-color: #43A8EF;
+	}
+
+	.panel.widget.panel-warning {
+		background-color: #fbce1b;
+		border-color: #fbce1b;
+	}
+
+	.panel.widget.panel-danger {
+		background-color: #D44953;
+		border-color: #D44953;
+	}
+
+
+	/* Form
+	————————————————————————————————————————————————————————————————————————— */
+
+	form div.form-group > label {
+		font-weight: 300;
+	}
+
+	form .input-group .input-group-addon i[class*="icon-"] {
+		position: relative;
+		top: -3px;
+		font-size: 21px;
+		color: #c1c1c1;
+	}
+
+
+	/*	Table
+	————————————————————————————————————————————————————————————————————————— */
+
+	table.table .btn.btn-primary:hover {
+		color: #2B78AB;
+	}
+
+	table.table .btn.btn-success:hover {
+		color: #09ccbb;
+	}
+
+	table.table .btn.btn-info:hover {
+		color: #43A8EF;
+	}
+
+	table.table .btn.btn-warning:hover {
+		color: #fbce1b;
+	}
+
+	table.table .btn.btn-danger:hover {
+		color: #D44953;
+	}
+
+
+	/*	Panel Title Iconmoon
+	————————————————————————————————————————————————————————————————————————— */
+
+	.panel .panel-heading .panel-title i[class*="icon-"] {
+		font-size: 45px;
+		font-size: 4.5rem;
+	}
+
+
+	/*	Panel Body - Image-square-ratio
+	————————————————————————————————————————————————————————————————————————— */
+
+	.panel-body .form-group .image-square-ratio {
+		margin-bottom: 75px;
+		margin-bottom: 7.5rem;
+	}
+
+
+/* 	Stuffs
+	==========================================================================
+	========================================================================== */
+
+	/*	Buttons & Anchors
+	————————————————————————————————————————————————————————————————————————— */
+
+	.btn.btn-default {
+		background-color: #888484;
+		border-color: #888484;
+		color: #ffffff;
+	}
+
+	.btn.btn-default:hover {
+		background-color: #717070;
+		border-color: #717070;
+		color: #ffffff;
+	}
+
+	.btn.btn-primary {
+		background-color: #3388C1;
+		border-color: #3388C1;
+		color: #ffffff;
+	}
+
+	.btn.btn-primary:hover {
+		background-color: #2A76A8;
+		border-color: #2A76A8;
+		color: #ffffff;
+	}
+
+	.btn.btn-success {
+		background-color: #3c9690;
+		border-color: #3c9690;
+		color: #ffffff;
+	}
+
+	.btn.btn-success:hover {
+		background-color: #368985;
+		border-color: #368985;
+		color: #ffffff;
+	}
+
+	.btn.btn-info {
+		background-color: #43A8EF;
+		border-color: #43A8EF;
+		color: #ffffff;
+	}
+
+	.btn.btn-info:hover {
+		background-color: #3B9BDD;
+		border-color: #3B9BDD;
+		color: #ffffff;
+	}
+
+	.btn.btn-warning {
+		background-color: #fef366;
+		border-color: #fef366;
+		color: #ffffff;
+	}
+
+	.btn.btn-warning:hover {
+		background-color: #F18808;
+		border-color: #F18808;
+		color: #ffffff;
+	}
+
+	.btn.btn-danger {
+		background-color: #D44953;
+		border-color: #D44953;
+		color: #ffffff;
+	}
+
+	.btn.btn-danger:hover {
+		background-color: #C2434F;
+		border-color: #C2434F;
+		color: #ffffff;
+	}
+
+	.btn.btn-link {
+		border: 1px solid #808186;
+		color: #4A4C50;
+	}
+
+	.btn.btn-link:hover {
+		border: 1px solid #2E2F31;
+		color: #2E2F31;
+		text-decoration: none;
+	}
+
+	.btn.btn-particular,
+	.btn.btn-fretista,
+	.btn.btn-empresa {
+		color: #ffffff;
+	}
+
+
+
+
+/*	Steps
+	==========================================================================
+	========================================================================== */
+
+	.steps {
+		margin: 30px auto;
+		margin: 3.0rem auto;
+	}
+
+
+	/* Steps > Title
+	————————————————————————————————————————————————————————————————————————— */
+
+	.steps .steps-title {
+		max-width: 375px;
+		margin: 0 auto;
+		padding: 12px 0;
+		padding: 1.2rem 0;
+	}
+
+	.steps .steps-title div.step {
+		margin-left: auto;
+		margin-right: auto;
+		text-align: center;
+	}
+
+	.steps .steps-title div > span {
+		margin: 0;
+		padding: 0;
+		font-size: 12px;
+		font-weight: 600;
+	}
+
+	.steps .steps-title div.active > span {
+		color: #0f0f0f;
+	}
+
+	.steps .steps-title div:not(.active) > span {
+		color: #979797;
+	}
+
+
+	/* Steps > Bar
+	————————————————————————————————————————————————————————————————————————— */
+
+	.steps .steps-bar {
+		max-width: 240px;
+		margin: 0 auto;
+	}
+
+	.steps .steps-bar>div {
+		margin: 0;
+		padding: 0;
+	}
+
+	.steps .steps-bar div.step {
+		width: 100%;
+		position: relative;
+		display: block;
+	}
+
+	.steps .steps-bar div.step:before {
+		height: 15px;
+		content: '';
+		position: absolute;
+		top: 14px;
+		display: block;
+		border-top: 1px solid #e7e7e7;
+		border-bottom: 1px solid #e7e7e7;
+		background-color: #ffffff;
+		z-index: 0;
+	}
+
+	.steps .steps-bar div.step.active:after {
+		height: 7px;
+		content: '';
+		position: absolute;
+		top: 18px;
+		display: block;
+		background-color: #d1d1d1;
+		z-index: 0;
+	}
+
+	.steps .steps-bar div.step div.circle {
+		width: 42px;
+		height: 42px;
+		display: block;
+		border: 1px solid #e7e7e7;
+		background-color: #ffffff;
+		border-radius: 50%;
+		font-size: 18px;
+		font-weight: 700;
+		text-align: center;
+		line-height: 33px;
+	}
+
+	.steps .steps-bar div.step div.circle span {
+		width: 34px;
+		height: 34px;
+		content: '';
+		position: absolute;
+		top: 4px;
+		display: block;
+		border-radius: 50%;
+		z-index: 0;
+	}
+
+	.steps .steps-bar div.step div.circle.active span{
+		background-color: #d3d3d3;
+		color: #ffffff;
+	}
+
+	.steps .steps-bar div.step div.circle:not(.active) span {
+		background-color: #ffffff;
+		color: #d1d1d1;
+	}
+
+	.steps .steps-bar div.step div.circle.active span i {
+		padding-left: 8px;
+		font-size: 18px;
+		color: #ffffff;
+		line-height: 36px;
+	}
+
+
+	/* Steps > Side Positions
+	————————————————————————————————————————————————————————————————————————— */
+
+	.steps .steps-bar div.step-1:before {
+		left: 40px;
+		right: 0;
+	}
+
+	.steps .steps-bar div.step-2:before {
+		left: 0;
+		right: 40px;
+	}
+
+	.steps .steps-bar div.step-1.active:after {
+		left: 36px;
+		right: 0;
+	}
+
+	.steps .steps-bar div.step-2.active:after {
+		left: 0;
+		right: 36px;
+	}
+
+	.steps .steps-bar div.step-1 div.circle {
+		float: left;
+	}
+
+	.steps .steps-bar div.step-2 div.circle {
+		float: right;
+	}
+
+	.steps .steps-bar div.step-1 div.circle span {
+		left: 4px;
+	}
+
+	.steps .steps-bar div.step-2 div.circle span {
+		right: 4px;
+	}
+
+
+/* 	Custom
+	==========================================================================
+	========================================================================== */
+
+	.profile-button {
+		padding-left: 0;
+	}
+
+	.profile-button .btn {
+		height: 75px;
+		border: 1px solid #e3e3e3;
+		border-radius: 3px;
+		background-color: #eceef1;
+		margin: 9px 0;
+		font-size: 15px;
+		text-align: left;
+		text-transform: none;
+	}
+
+	.profile-button .btn.active,
+	.profile-button .btn.active:hover {
+		background-color: #545861;
+		color: #ffffff;
+		-webkit-box-shadow: none;
+		box-shadow: none;
+
+	}
+
+	.profile-button .btn:hover {
+		background-color: #D9D9E3;
+	}
+
+	.profile-button .btn h4 {
+		font-size: 15px;
+	}
+
+	.profile-button .btn small {
+		display: block;
+	}
+
+	.profile-button .btn img {
+		width: 60px;
+		height: 60px;
+		border-radius: 3px;
+	}
