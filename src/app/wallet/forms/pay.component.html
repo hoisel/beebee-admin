@@ -1,0 +1,71 @@
+ <div class="wrapper-content">
+	<app-bread-crumb></app-bread-crumb>
+	<section>
+		<header class="page-header">
+			<h2>Cadastro de Meios de Recebimento</h2>
+      <p>Informações de cartão de crédito para pagamentos</p>
+		</header>
+		<div class="row">
+			<div class="col-xs-12">
+				<section>
+					<div class="panel panel-default">
+						<div class="panel-body">
+              <form novalidate [formGroup]="form" (ngSubmit)="submitForm(form.value)">
+                <div class="form-group">
+                  <label for="referenceTitle">Título para referência:</label>
+                  <input  type="text" class="form-control" formControlName="referenceTitle">
+                </div>
+                <h4>
+                  Dados do Cartão
+                </h4>
+                <div class="form-group">
+                  <label for="cardNumber">Número do Cartão:</label>
+                  <input  type="text" class="form-control" formControlName="cardNumber">
+                </div>
+                <div class="row">
+                  <div class="col-sm-6 col-md-6">
+                    <div class="form-group">
+                      <label for="expiration">Validade:</label>
+                      <input  type="text" class="form-control" formControlName="expiration">
+                    </div>
+                  </div>
+                  <div class="col-sm-6 col-md-6">
+                    <div class="form-group">
+                      <label for="cvvCode">Código CVV:</label>
+                      <input  type="text" class="form-control" formControlName="cvvCode">
+                    </div>
+                  </div>
+                </div>
+                <h4>
+                  Dados do Titular
+                </h4>
+                <div class="form-group">
+                  <label for="holderName">Nome completo do titular:</label>
+                  <input  type="text" class="form-control" formControlName="holderName">
+                </div>
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label for="holderCpf">CPF do titular:</label>
+                      <input  type="text" class="form-control" formControlName="holderCpf">
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label for="holderZip">CEP da fatura:</label>
+                      <input  type="text" class="form-control" formControlName="holderZip">
+                    </div>
+                  </div>
+                </div>
+                <button type="submit" class="btn btn-success">
+                  <i class="fa fa-check" aria-hidden="true"></i>
+                  Salvar
+                </button>
+              </form>
+						</div>
+					</div>
+				</section>
+			</div>
+		</div>
+	</section>
+</div>

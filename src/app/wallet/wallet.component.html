@@ -1,0 +1,26 @@
+<app-header></app-header>
+<div class="container-fluid">
+  <app-sidebar-left></app-sidebar-left>
+  <div class="wrapper-main">
+    <div class="wrapper-heading">
+      <ul>
+        <li>
+          <a [routerLink]="['/carteira/resumo']" routerLinkActive="disabled">
+            Extrato
+          </a>
+        </li>
+        <li>
+          <a [routerLink]="['/carteira/recebimento']" routerLinkActive="disabled">
+            Meios de Recebimento
+          </a>
+        </li>
+        <li>
+          <a [routerLink]="['/carteira/pagamento']" routerLinkActive="disabled">
+            Meios de Pagamento
+          </a>
+        </li>
+      </ul>
+    </div>
+    <router-outlet></router-outlet>
+  </div>
+</div>

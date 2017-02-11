@@ -1,0 +1,265 @@
+<app-header></app-header>
+<div class="container-fluid">
+  <app-sidebar-left></app-sidebar-left>
+  <div class="wrapper-main">
+    <div class="wrapper-content">
+      <app-bread-crumb></app-bread-crumb>
+      <!-- Posição consolidada -->
+      <section>
+        <header class="page-header">
+          <h2>
+            Bônus Fidelidade
+          </h2>
+          <p>
+            Posição consolidada do seu Bônus Fidelidade
+          </p>
+          <div class="actions">
+            <a href="#" data-toggle="modal" data-target="#modalComoFunciona" class="btn btn-primary">
+              Como funciona?
+            </a>
+          </div>
+        </header>
+        <div class="jumbotron">
+          <p>
+            Seu código de indicação é:
+          </p>
+          <p>
+            <strong>{{codigoIndicacao}}</strong>
+          </p>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">
+              <i class="fa fa-line-chart"></i>Bonus de Fidelidade
+            </h3>
+          </div>
+          <div class="panel-body">
+            <p>
+              Neste mês:
+              <strong>
+                R$ 30,01
+              </strong>
+            </p>
+            <p>
+              Total acumulado:
+              <strong>
+                R$150,93
+              </strong>
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6 col-md-6">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title">
+                  <i class="fa fa-line-chart"></i>Bonus de Indicação Particular
+                </h3>
+              </div>
+              <div class="panel-body">
+                <p>
+                  Neste mês:
+                  <strong>
+                    R$ 30,01
+                  </strong>
+                </p>
+                <p>
+                  Total acumulado:
+                  <strong>
+                    R$150,93
+                  </strong>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-6">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title">
+                  <i class="fa fa-line-chart"></i>Bonus de Indicação Fretista
+                </h3>
+              </div>
+              <div class="panel-body">
+                <p>
+                  Neste mês:
+                  <strong>
+                    R$ 30,01
+                  </strong>
+                </p>
+                <p>
+                  Total acumulado:
+                  <strong>
+                    R$91,30
+                  </strong>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-6">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title">
+                  <i class="fa fa-line-chart"></i>Bonus de Consumo
+                </h3>
+              </div>
+              <div class="panel-body">
+                <p>
+                  Neste mês:
+                  <strong>
+                    R$ 30,01
+                  </strong>
+                </p>
+                <p>
+                  Total acumulado:
+                  <strong>
+                    R$150,93
+                  </strong>
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- Bonus Produtividade é aplicável somente para motoristas -->
+          <div class="col-sm-6 col-md-6">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title">
+                  <i class="fa fa-line-chart"></i>Bonus de Produtividade
+                </h3>
+              </div>
+              <div class="panel-body">
+                <p>
+                  Neste mês:
+                  <strong>
+                    R$ 30,01
+                  </strong>
+                </p>
+                <p>
+                  Total acumulado:
+                  <strong>
+                    R$150,93
+                  </strong>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Detalhamento do Bonus -->
+      <section>
+        <header class="page-header">
+          <h2>
+            Detalhamento:
+          </h2>
+          <p>
+            Detalhamento do seu Bônus Fidelidade
+          </p>
+          <div class="actions">
+            <form class="form-inline">
+              <div class="form-group">
+                <select name="action1" id="action1" class="form-control">
+                  <option value="all">Todos</option>
+                  <option value="">Bônus de Indicação</option>
+                  <option value="">Bônus de Consumo</option>
+                  <!-- Bonus Produtividade é aplicável somente para motoristas -->
+                  <option value="">Bônus de Produtividade</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <select name="action2" id="action2" class="form-control">
+                  <option value="areceber">Todos</option>
+                  <option value="areceber">À Receber</option>
+                  <option value="areceber">Recebido</option>
+                </select>
+              </div>
+              <button type="submit" class="btn btn-info">Filtrar</button>
+            </form>
+          </div>
+        </header>
+        <section>
+          <div class="panel panel-default">
+            <div class="panel-body no-padding-bottom">
+              <div class="table-responsive">
+                <table class="table table-hover table-striped">
+                  <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>Data</th>
+                      <th>Tipo</th>
+                      <th>Descrição</th>
+                      <th>Valor</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>0320</td>
+                      <td>20/09/16</td>
+                      <td>Indicação</td>
+                      <td>Felipe Lomeu</td>
+                      <td>R$ 10,00</td>
+                    </tr>
+                    <tr>
+                      <td>0359</td>
+                      <td>25/09/16</td>
+                      <td>Indicação</td>
+                      <td>Juliano Petronetto</td>
+                      <td>R$ 10,00</td>
+                    </tr>
+                    <tr>
+                      <td>0402</td>
+                      <td>05/10/16</td>
+                      <td>Consumo</td>
+                      <td>Pedido 0493034</td>
+                      <td>À Receber</td>
+                      <td>R$ 43,20</td>
+                    </tr>
+                    <tr>
+                      <td>0594</td>
+                      <td>19/12/16</td>
+                      <td>Produtividade</td>
+                      <td>Entrega 0493493</td>
+                      <td>R$ 91,00</td>
+                    </tr>
+                  </tbody>
+                  <tfoot>
+                    <tr>
+                      <td colspan="4" class="total">TOTAL</td>
+                      <td>R$ 154,20</td>
+                    </tr>
+                  </tfoot>
+                </table>
+              </div>
+            </div>
+          </div>
+        </section>
+      </section>
+      
+    </div>
+  </div>
+</div>
+
+
+
+<div class="modal" tabindex="-1" role="dialog" id="modalComoFunciona" aria-labelledby="myModalLabel">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Como funciona?</h4>
+      </div>
+      <div class="modal-body">
+        <p>
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy
+          text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen
+          book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially
+          unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
+          and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+        </p>
+      </div>
+      <div class="modal-footer">
+        <a href="#" class="btn btn-link" data-dismiss="modal">
+          Ok
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

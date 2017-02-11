@@ -1,0 +1,127 @@
+<div id="navmenu-collapse" class="collapse anim-left navbar-collapse">
+  <div class="navmenu-header">
+    <button type="button" class="navbar-toggle collapsed pull-right" data-toggle="collapse" data-target="#navmenu-collapse" aria-expanded="false">
+      <i class="icon-close" aria-hidden="true"></i>
+    </button>
+    <a class="brand" routerLink="/{{father}}">
+      <img class="logo" src="/assets/beebee/img/logo-beebee-black.png" alt="BeeBee">
+    </a>
+  </div>
+  <nav class="navmenu-sidebar">
+    <div class="wrapper-navmenu">
+      <div class="nav-quickview">
+        <a [routerLink]="['/negocios/gerenciador']" *ngFor="let header of menus.headers">
+          <i class="icon-hamburguer" aria-hidden="true"></i>
+          <h2>
+            Painel Administrativo
+          </h2>
+          <p>
+            Admin BeeBee
+          </p>
+        </a>
+      </div>
+      <ul class="nav nav-sidebar">
+        <li [routerLinkActive]="['active']">
+          <a [routerLink]="['/admin/dashboard']">
+            <i class="icon-wifi" aria-hidden="true"></i>
+            Dashboard
+          </a>
+        </li>
+        <li [routerLinkActive]="['active']">
+          <a [routerLink]="['/admin/pedidos']">
+            <i class="icon-route" aria-hidden="true"></i>
+            Pedidos
+          </a>
+        </li>
+        <li [routerLinkActive]="['active']">
+          <a [routerLink]="['/admin/usuarios']">
+            <i class="icon-request-freight" aria-hidden="true"></i>
+            Usuários
+          </a>
+        </li>
+        <li [routerLinkActive]="['active']">
+          <a [routerLink]="['/admin/motoristas']">
+            <i class="icon-make-freight" aria-hidden="true"></i>
+            Motoristas
+          </a>
+        </li>
+        <li [routerLinkActive]="['active']">
+          <a [routerLink]="['/admin/empresas']">
+            <i class="icon-boss" aria-hidden="true"></i>
+            Empresas
+          </a>
+        </li>
+        <li [routerLinkActive]="['active']">
+          <a [routerLink]="['/admin/veiculos']">
+            <i class="icon-truck" aria-hidden="true"></i>
+            Veículos
+          </a>
+        </li>
+		<li class="dropdown" [routerLinkActive]="['active']">
+          <a class="dropdown-toggle" data-toggle="dropdown" role="button"aria-haspopup="true" aria-expanded="true">
+            <i class="icon-cog" aria-hidden="true"></i>
+            Configurações
+          </a>
+          <ul class="dropdown-menu">
+            <li [routerLinkActive]="['active']">
+              <a [routerLink]="['/admin/configuracoes/veiculos']">Veículos</a>
+            </li>
+            <li [routerLinkActive]="['active']">
+              <a [routerLink]="['/admin/configuracoes/fretes']">Cálculo Fretes</a>
+            </li>
+            <li [routerLinkActive]="['active']">
+              <a [routerLink]="['/admin/configuracoes/fidelidade']">Cálculo Fidelidade</a>
+            </li>
+          </ul>
+        </li>
+        <li [routerLinkActive]="['active']">
+          <a [routerLink]="['/admin/equipe']">
+            <i class="icon-users" aria-hidden="true"></i>
+            Equipe BeeBee
+          </a>
+        </li>
+        <li [routerLinkActive]="['active']">
+          <a [routerLink]="['/admin/faq']">
+            <i class="icon-help" aria-hidden="true"></i>
+            Perguntas Frequentes
+          </a>
+        </li>
+        <li [routerLinkActive]="['active']">
+          <a [routerLink]="['/admin/suporte']">
+            <i class="icon-chat" aria-hidden="true"></i>
+            Suporte
+          </a>
+        </li>
+      </ul>
+      <div class="nav-footer">
+        <div class="mkt-place">
+          <a href="#" class="google-play">
+            <img src="/assets/beebee/img/link-badge-google-play.png" alt="Disponível no Google Play">
+          </a>
+          <a href="#" class="app-store">
+            <img src="/assets/beebee/img/link-badge-app-store.png" alt="Disponível na App Store">
+          </a>
+        </div>
+        <div class="social">
+          <ul class="nav-social">
+            <li>
+              <a href="#">
+                <i class="fa fa-facebook"></i>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fa fa-instagram"></i>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fa fa-twitter"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+</div>

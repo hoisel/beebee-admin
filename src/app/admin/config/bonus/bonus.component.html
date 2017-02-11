@@ -1,0 +1,63 @@
+ <div class="wrapper-content">
+	<app-bread-crumb></app-bread-crumb>
+	<section>
+		<header class="page-header">
+			<h2>Cálculo de Fidelidade</h2>
+      <p>Definições referentes às bonificações</p>
+		</header>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <form novalidate>
+          <div class="row">
+            <div class="col-md-6 margin-bottom-lg">
+              <h4>
+                Bônus de Indicação
+              </h4>
+              <div class="form-group">
+                <label for="bonus-particular">Particular:</label>
+                <div class="input-group">
+                  <div class="input-group-addon">R$</div>
+                  <input id="bonus-particular" name="bonus-particular" type="text" class="form-control" value="10,00">
+                </div>
+                <p class="help-block">Depois que o particular consumir R$ 00,00</p>
+              </div>
+              <div class="form-group">
+                <label for="bonus-fretista">Fretista:</label>
+                <div class="input-group">
+                  <div class="input-group-addon">R$</div>
+                  <input id="bonus-fretista" name="bonus-fretista" type="text" class="form-control" value="15,00">
+                </div>
+                <p class="help-block">Depois que o fretista produzir R$ 00,00</p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <h4>
+                Bônus de Utilização
+              </h4>
+              <div class="form-group">
+                <label for="bonus-consumo">Consumo:</label>
+                <div class="input-group">
+                  <div class="input-group-addon">%</div>
+                  <input id="bonus-consumo" name="bonus-consumo" type="text" class="form-control" value="2,00">
+                </div>
+                <p class="help-block">Creditado após compensação do pagamento</p>
+              </div>
+              <div class="form-group">
+                <label for="bonus-produtividade">Produtividade:</label>
+                <div class="input-group">
+                  <div class="input-group-addon">%</div>
+                  <input id="bonus-produtividade" name="bonus-produtividade" type="text" class="form-control" value="5,00">
+                </div>
+                <p class="help-block">Creditado após compensação do pagamento</p>
+              </div>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-success">
+            <i class="fa fa-check" aria-hidden="true"></i>
+            Salvar
+          </button>
+        </form>
+      </div>
+    </div>
+	</section>
+</div>

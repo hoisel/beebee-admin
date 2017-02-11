@@ -1,0 +1,62 @@
+<div class="panel panel-default">
+	<div class="panel-heading">
+	  <div class="panel-title background-line">
+	    <span>
+	      Entrar
+	    </span>
+	  </div>
+	</div>
+	<div class="panel-body">
+	  <div class="alert alert-danger" role="alert" *ngIf="message.length">
+	    {{message}}
+	  </div>
+	  <form id="loginform" role="form" (submit)="login($event)">
+	    <div class="form-group">
+	      <div class="input-group">
+	        <span class="input-group-addon">
+	          <i class="icon-user"></i>
+	        </span>
+	        <input type="text" class="form-control" name="cpf" [(ngModel)]="cpf" placeholder="CPF" required>
+	      </div>
+	    </div>
+	    <div class="form-group margin-bottom-xs">
+	      <div class="input-group">
+	        <span class="input-group-addon">
+	          <i class="icon-lock"></i>
+	        </span>
+	        <input type="password" class="form-control" name="password" [(ngModel)]="password" placeholder="Senha" required>
+	      </div>
+	    </div>
+	    <div class="row">
+	      <div class="col-xs-6">
+	        <div class="form-group">
+	          <div class="checkbox">
+	            <label>
+	              <input type="checkbox">
+	              Continuar conectado
+	            </label>
+	          </div>
+	        </div>
+	      </div>
+	      <div class="col-xs-6">
+	        <a routerLink="/acesso/esqueci-minha-senha" class="pull-right">
+	          Esqueceu sua senha?
+	        </a>
+	      </div>
+	    </div>
+	    <div class="form-group">
+	      <button type="submit" class="btn btn-block">
+	        Entrar
+	      </button>
+	    </div>
+	  </form>
+	</div>
+	<div class="cta">
+	  <a href="/cadastro">
+	    <small>
+	      Não é cadastrado?
+	    </small>
+	    Cadastre-se agora!
+	  </a>
+	</div>
+</div>

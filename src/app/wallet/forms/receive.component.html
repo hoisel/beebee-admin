@@ -1,0 +1,105 @@
+ <div class="wrapper-content">
+	<app-bread-crumb></app-bread-crumb>
+	<section>
+		<header class="page-header">
+			<h2>Cadastro de Meios de Recebimento</h2>
+      <p>Informações da conta bancária para recebimentos de pagamentos</p>
+		</header>
+		<div class="row">
+			<div class="col-xs-12">
+				<section>
+					<div class="panel panel-default">
+						<div class="panel-body">
+              <form novalidate [formGroup]="form" (ngSubmit)="submitForm(form.value)">
+                <div class="form-group">
+                  <label for="referenceTitle">Título para referência:</label>
+                  <input  type="text" class="form-control" formControlName="referenceTitle" 
+                    [class.has-error]="form.get('referenceTitle').errors && form.get('referenceTitle').touched">
+                  <p class="help-block" *ngIf="form.get('referenceTitle').errors && form.get('referenceTitle').touched">
+                    * Campo obrigatório.
+                  </p>
+                </div>
+                <h4>
+                  Dados da conta
+                </h4>
+                <div class="row">
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <label for="bankNumber">Número do banco:</label>
+                      <input  type="text" class="form-control" formControlName="bankNumber" 
+                        [class.has-error]="form.get('bankNumber').errors && form.get('bankNumber').touched">
+                      <p class="help-block" *ngIf="form.get('bankNumber').errors && form.get('bankNumber').touched">
+                        * Campo obrigatório.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <label for="agency">Agência:</label>
+                      <input  type="text" class="form-control" formControlName="agency" 
+                        [class.has-error]="form.get('agency').errors && form.get('agency').touched">
+                      <p class="help-block" *ngIf="form.get('agency').errors && form.get('agency').touched">
+                        * Campo obrigatório.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label for="account">Conta:</label>
+                      <input  type="text" class="form-control" formControlName="account" 
+                        [class.has-error]="form.get('account').errors && form.get('account').touched">
+                      <p class="help-block" *ngIf="form.get('account').errors && form.get('account').touched">
+                        * Campo obrigatório.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                    <div class="form-group">
+                      <label for="digit">Dígito:</label>
+                      <input  type="text" class="form-control" formControlName="digit" 
+                        [class.has-error]="form.get('digit').errors && form.get('digit').touched">
+                      <p class="help-block" *ngIf="form.get('digit').errors && form.get('digit').touched">
+                        * Campo obrigatório.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-8">
+                    <div class="form-group">
+                      <label for="holderName">Nome do titular:</label>
+                      <input  type="text" class="form-control" formControlName="holderName" 
+                        [class.has-error]="form.get('holderName').errors && form.get('holderName').touched">
+                      <p class="help-block" *ngIf="form.get('holderName').errors && form.get('holderName').touched">
+                        * Campo obrigatório.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label for="holderCpf">CPF do titular:</label>
+                      <input  type="text" class="form-control" formControlName="holderCpf" [textMask]="{mask: cpfMask}"
+                        [class.has-error]="form.get('holderCpf').errors && form.get('holderCpf').touched">
+                      <p class="help-block" *ngIf="form.get('holderCpf').hasError('required') 
+                        && form.get('holderCpf').touched">
+                        * Campo obrigatório.
+                      </p>
+                      <p class="help-block" *ngIf="form.get('holderCpf').hasError('invalidCPF') 
+                        && form.get('holderCpf').touched && !form.get('holderCpf').hasError('required')">
+                        * CPF enválido.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <button type="submit" class="btn btn-success" [disabled]="!form.valid">
+                  <i class="fa fa-check" aria-hidden="true"></i>
+                  Salvar
+                </button>
+              </form>
+						</div>
+					</div>
+				</section>
+			</div>
+		</div>
+	</section>
+</div>

@@ -1,0 +1,28 @@
+<app-header></app-header>
+<div class="container-fluid">
+  <app-sidebar-left></app-sidebar-left>
+  <div class="wrapper-main">
+    <div class="wrapper-content">
+      <app-bread-crumb></app-bread-crumb>
+      <section>
+        <header class="page-header">
+          <h2>
+            Perguntas Frequentes
+          </h2>
+          <p>
+            Confira abaixo as perguntas mais frequentes.
+          </p>
+        </header>
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <div class="margin-top-md margin-bottom-lg" *ngFor="let question of questions">
+              <h3>{{question.question}}</h3>
+              <p>{{question.answer}}</p>
+              <hr class="margin-top-lg margin-bottom-lg">
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+{
+    "headers": [
+        {
+            "nomeEmpresa": "Lifebrand",
+            "cnpj": "16.729.396/0001-42"
+        }
+    ],
+    "menus": [
+        {
+            "text": "Dashboard",
+            "href": "admin/dashboard",
+            "title": "Dashboard",
+            "icon": "fa fa-dashboard"
+        },
+        {
+            "text": "Cadastro de Empresa",
+            "href": "admin/empresa",
+            "title": "Empresa",
+            "icon": "fa fa-car"
+        }
+    ]
+}

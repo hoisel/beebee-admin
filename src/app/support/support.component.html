@@ -1,0 +1,71 @@
+<app-header></app-header>
+<div class="container-fluid">
+  <app-sidebar-left></app-sidebar-left>
+  <div class="wrapper-main">
+    <div class="wrapper-content">
+      <app-bread-crumb></app-bread-crumb>
+      <section>
+        <header class="page-header">
+          <h2>
+            Suporte
+          </h2>
+          <p>
+            Entre em contato para solucionar dúvidas, solicitar suporte ou informações específicas.
+          </p>
+        </header>
+        <div class="row">
+		  <div class="col-md-8">
+		    <section>
+		      <div class="panel panel-default">
+		        <div class="panel-heading">
+		          <h3 class="panel-title">Enviar Mensagem</h3>
+		        </div>
+		        <div class="panel-body">
+		          <p class="margin-bottom-lg">
+		          	Preencha o nosso formulário e entraremos em contato o mais breve possível.
+		          </p>
+		          <form (submit)="submit($event)">
+		            <div class="form-group">
+		              <input type="text" class="form-control" name="assunto" placeholder="Assunto" [(ngModel)]="assunto" required>
+		            </div>
+		            <div class="form-group">
+		              <input type="text" class="form-control" name="numeroPedido" placeholder="Número do pedido (opcional)'" [(ngModel)]="numeroPedido">
+		            </div>
+		            <div class="form-group">
+		              <textarea name="mensagem" class="form-control" cols="30" rows="10" placeholder="Mensagem" [(ngModel)]="mensagem" required></textarea>
+		            </div>
+		            <div class="form-group">
+		              <button type="submit" class="btn btn-primary">
+		                Enviar Mensagem
+		              </button>
+		            </div>
+		          </form>
+		        </div>
+		      </div>
+		    </section>
+		  </div>
+		  <div class="col-md-4">
+		    <h3 class="text-uppercase">Atendimento</h3>
+		    <p>
+		    	Email:
+		    	<a href="tel:{{email}}">
+		    		{{email}}
+		    	</a>
+		    </p>
+		    <p>
+		    	Hotline:
+		    	<a href="mailto:{{hotline}}">
+		    		{{hotline}}
+		    	</a>
+		   	</p>
+		    <hr class="margin-top-lg margin-bottom-lg">
+		    <h3 class="text-uppercase">Perguntas Frequentes</h3>
+		    <p>Conheça nossas perguntas e respostas mais frequêntes <br class="hidden-xs">e tire suas dúvidas sobre o BeeBee.</p>
+		    <p>Esse conteúdo irá te ajudar a esclarecer suas dúvidas.</p>
+		    <a routerLink="/ajuda">Ir para Perguntas Frequentes.</a>
+		  </div>
+		</div>
+      </section>
+    </div>
+  </div>
+</div>
