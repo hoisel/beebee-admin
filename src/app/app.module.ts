@@ -35,7 +35,6 @@ import { FaqIndexComponent } from './faq/index.component'
 import { FaqFormComponent } from './faq/form.component'
 import { SupportComponent } from './support/support.component'
 
-
 @NgModule({
   declarations: [
     AppComponent,
