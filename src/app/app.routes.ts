@@ -39,7 +39,7 @@ export const APP_ROUTES: Routes = [
     path: 'acesso',
     component: LoginComponent,
     children: [...LOGIN_ROUTES]
-},
+  },
   {
       path: 'pedidos',
       component: OrderIndexComponent

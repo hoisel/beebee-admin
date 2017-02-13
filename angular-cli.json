@@ -1,7 +1,7 @@
 {
   "project": {
     "version": "1.0.0-beta.19-3",
-    "name": "beebee-plataforma"
+    "name": "beebee-admin"
   },
   "apps": [
     {

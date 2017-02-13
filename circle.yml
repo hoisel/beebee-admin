@@ -20,7 +20,7 @@ dependencies:
   override:
     - npm install
     - npm run build
-    - docker build -t beebeeapp/beebee-front .
+    - docker build -t beebeeapp/beebee-admin .
 test:
   override:
       - curl www.google.com.br
@@ -35,8 +35,8 @@ deployment:
   prod:
     tag: /v[0-9]+(\.[0-9]+)+(-rev[0-9]+)?/ # v1.2.3 and v1.2.3-rev1
     commands:
-      - docker tag beebeeapp/beebee-front beebeeapp/beebee-front:$CIRCLE_TAG
+      - docker tag beebeeapp/beebee-admin beebeeapp/beebee-admin:$CIRCLE_TAG
       - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
-      - docker push beebeeapp/beebee-front:$CIRCLE_TAG
-      - gerencio-upgrade $SERVICENAME 40000 beebeeapp/beebee-front $CIRCLE_TAG
+      - docker push beebeeapp/beebee-admin:$CIRCLE_TAG
+      - gerencio-upgrade $SERVICENAME 40000 beebeeapp/beebee-admin $CIRCLE_TAG
 
