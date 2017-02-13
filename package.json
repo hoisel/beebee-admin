@@ -41,7 +41,7 @@
   },
   "devDependencies": {
     "@types/bootstrap": "^3.3.7",
-    "@types/jasmine": "^2.2.30",
+    "@types/jasmine": "2.2.30",
     "@types/jquery": "^2.0.34",
     "@types/jwt-decode": "^1.4.28",
     "@types/node": "^6.0.42",

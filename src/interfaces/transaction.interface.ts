@@ -2,7 +2,6 @@ import { IOrder } from './order.interface'
 import { IModel } from './model.interface'
 import { IUser } from './user.interface'
 
-
 export interface ITransaction extends IModel {
     user: IUser
     userTransactionId: string

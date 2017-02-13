@@ -14,7 +14,6 @@ import { LoginModule } from './login/login.module'
 import { ThemeModule } from './theme/theme.module'
 import { CommonModule } from '@angular/common'
 import { RouterModule } from '@angular/router'
-import { AdminComponent } from './admin.component'
 import { DashboardComponent } from './dashboard/dashboard.component'
 import { OrderIndexComponent } from './order/index.component'
 import { OrderDetailsComponent } from './order/details.component'
@@ -36,10 +35,8 @@ import { FaqIndexComponent } from './faq/index.component'
 import { FaqFormComponent } from './faq/form.component'
 import { SupportComponent } from './support/support.component'
 
-
 @NgModule({
   declarations: [
-    AdminComponent,
     AppComponent,
     BusinessFormComponent,
     BusinessIndexComponent,
