@@ -101,6 +101,10 @@ export const APP_ROUTES: Routes = [
       component: TeamIndexComponent
   },
   {
+      path: 'equipe/id',
+      component: TeamFormComponent
+  },
+  {
       path: 'equipe/novo',
       component: TeamFormComponent
   },
