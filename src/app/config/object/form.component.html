@@ -1,0 +1,52 @@
+ <div class="wrapper-content">
+	<app-bread-crumb></app-bread-crumb>
+	<section>
+		<header class="page-header">
+			<h2>Cadastro de Objetos</h2>
+      <p>Definições referentes aos objetos de referência</p>
+		</header>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <form novalidate>
+          <div class="form-group">
+            <label for="title">Título:</label>
+            <input id="title" name="title" type="text" class="form-control" placeholder="Título do Objeto">
+          </div>
+          <div class="form-group">
+            <label for="icon">Código do ícone:</label>
+            <input id="icon" name="icon" type="text" class="form-control" placeholder="icon-description">
+          </div>
+          <div class="form-group">
+            <label for="dimension">Dimensões aproximadas:</label>
+            <div class="row">
+              <div class="col-sm-4">
+                <input id="icon" name="icon" type="text" class="form-control" placeholder="Largura">
+              </div>
+              <div class="col-sm-4">
+                <input id="icon" name="icon" type="text" class="form-control" placeholder="Altura">
+              </div>
+              <div class="col-sm-4">
+                <input id="icon" name="icon" type="text" class="form-control" placeholder="Comprimento">
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="maximum-capacity">Peso entre:</label>
+            <div class="row">
+              <div class="col-sm-6">
+                <input id="min-kg" name="min-kg" type="text" class="form-control" placeholder="Em kg">
+              </div>
+              <div class="col-sm-6">
+                <input id="max-kg" name="max-kg" type="text" class="form-control" placeholder="Em kg">
+              </div>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-success">
+            <i class="fa fa-check" aria-hidden="true"></i>
+            Salvar
+          </button>
+        </form>
+      </div>
+    </div>
+	</section>
+</div>

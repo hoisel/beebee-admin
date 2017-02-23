@@ -1,3 +1,59 @@
-<p>
-  team works!
-</p>
+<div class="wrapper-content">
+  <app-bread-crumb></app-bread-crumb>
+  <section>
+    <header class="page-header">
+      <h2>
+        Cadastro de Equipe Administrativa
+      </h2>
+      <p>
+        Informações do usuário da equipe administrativa
+      </p>
+    </header>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <form novalidate>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="name">Nome completo:</label>
+                <input id="name" name="name" type="text" class="form-control">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="cpf">CPF:</label>
+                <input id="cpf" name="cpf" type="text" class="form-control">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="email">Email:</label>
+                <input id="email" name="email" type="email" class="form-control">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="mobile">Telefone Celular:</label>
+                <input id="mobile" name="mobile" type="text" class="form-control">
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="tipo">Tipo de acesso:</label>
+            <select name="access" class="form-control">
+              <option value="">Selecione o tipo de acesso</option>
+              <option value="">Administrador</option>
+              <option value="">Operador</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-success">
+            <i class="fa fa-check-circle-o" aria-hidden="true"></i>
+            Salvar Alterações
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+</div>

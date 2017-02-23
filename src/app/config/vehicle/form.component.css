@@ -1,0 +1,22 @@
+div.wrapper-content>section h3 {
+	margin-bottom: 30px;
+	margin-bottom: 3.0rem;
+}
+
+
+hr {
+	margin-top: 45px;
+	margin-top: 4.5rem;
+}
+
+label i {
+	width: 60px;
+	float: left;
+	font-size: 36px;
+	font-size: 3.6rem;
+	text-align: center;
+}
+
+label div {
+	padding-left: 60px;
+}

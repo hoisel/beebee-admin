@@ -1,0 +1,7 @@
+.panel .panel-heading ~ .panel-body {
+	padding-top: 0;
+}
+
+.panel-body p {
+	font-size: 14px;
+}
