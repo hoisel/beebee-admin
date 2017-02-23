@@ -29,6 +29,10 @@ import { ConfigOrderComponent } from './config/order/order.component'
 import { ConfigBonusComponent } from './config/bonus/bonus.component'
 import { ConfigVehicleIndexComponent } from './config/vehicle/index.component'
 import { ConfigVehicleFormComponent } from './config/vehicle/form.component'
+import { ConfigExtraIndexComponent } from './config/extra/index.component'
+import { ConfigExtraFormComponent } from './config/extra/form.component'
+import { ConfigObjectIndexComponent } from './config/object/index.component'
+import { ConfigObjectFormComponent } from './config/object/form.component'
 import { TeamIndexComponent } from './team/index.component'
 import { TeamFormComponent } from './team/form.component'
 import { FaqIndexComponent } from './faq/index.component'
@@ -44,6 +48,10 @@ import { SupportComponent } from './support/support.component'
     ConfigOrderComponent,
     ConfigVehicleFormComponent,
     ConfigVehicleIndexComponent,
+    ConfigExtraFormComponent,
+    ConfigExtraIndexComponent,
+    ConfigObjectFormComponent,
+    ConfigObjectIndexComponent,
     DashboardComponent,
     DriverFormComponent,
     DriverIndexComponent,

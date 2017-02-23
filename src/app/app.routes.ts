@@ -16,6 +16,10 @@ import { ConfigOrderComponent } from './config/order/order.component'
 import { ConfigBonusComponent } from './config/bonus/bonus.component'
 import { ConfigVehicleIndexComponent } from './config/vehicle/index.component'
 import { ConfigVehicleFormComponent } from './config/vehicle/form.component'
+import { ConfigExtraIndexComponent } from './config/extra/index.component'
+import { ConfigExtraFormComponent } from './config/extra/form.component'
+import { ConfigObjectIndexComponent } from './config/object/index.component'
+import { ConfigObjectFormComponent } from './config/object/form.component'
 import { TeamIndexComponent } from './team/index.component'
 import { TeamFormComponent } from './team/form.component'
 import { FaqIndexComponent } from './faq/index.component'
@@ -95,6 +99,21 @@ export const APP_ROUTES: Routes = [
   {
       path: 'configuracoes/veiculos/id',
       component: ConfigVehicleFormComponent
+  },
+  {
+      path: 'configuracoes/adicionais',
+      component: ConfigExtraIndexComponent
+  },
+  {
+      path: 'configuracoes/adicionais/id',
+      component: ConfigExtraFormComponent
+  },  {
+      path: 'configuracoes/objetos',
+      component: ConfigObjectIndexComponent
+  },
+  {
+      path: 'configuracoes/objetos/id',
+      component: ConfigObjectFormComponent
   },
   {
       path: 'equipe',

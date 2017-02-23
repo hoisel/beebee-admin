@@ -257,6 +257,14 @@
 		color: #D44953;
 	}
 
+	table i[class*="icon-"] {
+		position: relative;
+		top: 3px;
+		margin-right: 6px;
+		font-size: 24px;
+		font-size: 2.4rem;
+	}
+
 
 	/*	Panel Title Iconmoon
 	————————————————————————————————————————————————————————————————————————— */

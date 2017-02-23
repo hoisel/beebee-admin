@@ -2453,6 +2453,7 @@
 		border-radius: 3px;
 		font-size: 15px;
 		text-transform: none;
+		float: none !important;
 	}
 
 	.modal-content .modal-footer .btn.btn-link,
