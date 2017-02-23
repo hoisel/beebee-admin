@@ -1739,6 +1739,10 @@
 		font-size: 16px;
 	}
 
+	div.wrapper-content>section h4 {
+		font-size: 15px;
+	}
+
 	div.wrapper-content>section>div>p,
 	div.wrapper-content>section>div>a p {
 		font-weight: 300;
@@ -2449,6 +2453,7 @@
 		border-radius: 3px;
 		font-size: 15px;
 		text-transform: none;
+		float: none !important;
 	}
 
 	.modal-content .modal-footer .btn.btn-link,

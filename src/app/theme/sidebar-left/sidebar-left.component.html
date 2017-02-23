@@ -9,17 +9,6 @@
   </div>
   <nav class="navmenu-sidebar">
     <div class="wrapper-navmenu">
-      <div class="nav-quickview">
-        <a [routerLink]="['/negocios/gerenciador']" *ngFor="let header of menus.headers">
-          <i class="icon-hamburguer" aria-hidden="true"></i>
-          <h2>
-            Painel Administrativo
-          </h2>
-          <p>
-            Admin BeeBee
-          </p>
-        </a>
-      </div>
       <ul class="nav nav-sidebar">
         <li [routerLinkActive]="['active']">
           <a [routerLink]="['/dashboard']">
@@ -67,10 +56,13 @@
               <a [routerLink]="['/configuracoes/veiculos']">Veículos</a>
             </li>
             <li [routerLinkActive]="['active']">
-              <a [routerLink]="['/configuracoes/fretes']">Cálculo Fretes</a>
+              <a [routerLink]="['/configuracoes/adicionais']">Adicionais</a>
             </li>
             <li [routerLinkActive]="['active']">
-              <a [routerLink]="['/configuracoes/fidelidade']">Cálculo Fidelidade</a>
+              <a [routerLink]="['/configuracoes/objetos']">Objetos</a>
+            </li>
+            <li [routerLinkActive]="['active']">
+              <a [routerLink]="['/configuracoes/fidelidade']">Fidelidade</a>
             </li>
           </ul>
         </li>
