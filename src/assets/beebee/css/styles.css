@@ -175,9 +175,13 @@
 			padding:30px 24px 9px 24px;
 		}
 
-		.panel .panel-body,
-		.panel .panel-footer {
+		.panel .panel-body {
 			padding:24px 24px;
+		}
+
+		.panel .panel-footer {
+			padding:0px 24px 24px 24px;
+			text-align: center;
 		}
 	}
 
@@ -213,6 +217,10 @@
 			padding-top: 0px;
 			padding-bottom: 12px;
 		}
+
+		.panel .panel-footer div[class*="col-"] p {
+			text-align: right;
+		}
 	}
 
 	.panel.panel-default ~ .btn {
@@ -226,6 +234,11 @@
 
 	.panel.panel-default ~ .btn.btn-link i {
 		padding-right: 6px;
+	}
+
+	.panel .panel-footer div[class*="col-"] p {
+		font-size: 12px;
+		font-weight: 400;
 	}
 
 
@@ -935,7 +948,7 @@
 			float: none;
 			border: none;
 			background-color: transparent;
-			margin-top: 0;
+			margin-top: 3px;
 			padding: 0;
 			-webkit-box-shadow: none;
 					box-shadow: none;
@@ -946,6 +959,8 @@
 			background-color: transparent;
 			margin-left: 0;
 			margin-right: 0;
+			padding-top: 3px;
+			padding-bottom: 3px;
 			text-transform: none;
 		}
 
@@ -1975,8 +1990,16 @@
 		margin: 0;
 	}
 
-	.panel-footer .pagination {
-		margin-left: -24px;
+	@media (max-width: 767px) {
+		.panel-footer .pagination {
+			margin-bottom:9px;
+		}
+	}
+
+	@media (min-width: 768px) {
+		.panel-footer .pagination {
+			margin-left: -24px;
+		}
 	}
 
 	.pagination>li>a,
@@ -2437,7 +2460,6 @@
 	.modal-content .modal-body p {
 		font-size: 15px;
 	}
-
 
 	.modal-footer {
 		padding-top: 15px;
