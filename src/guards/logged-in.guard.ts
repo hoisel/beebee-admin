@@ -5,9 +5,9 @@ import { TypeUser } from '../interfaces'
 
 @Injectable()
 export class LoggedInGuard implements CanActivate {
-  constructor(private auth: AuthService, private router: Router, private user: UserService) { }
+  constructor (private auth: AuthService, private router: Router, private user: UserService) { }
 
-  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+  canActivate (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     const isLoggedIn = this.auth.isLoggedIn
     let isAllowed: boolean = isLoggedIn
     if (!isLoggedIn) {

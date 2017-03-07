@@ -15,7 +15,7 @@ export class ApiService {
   private header: Headers = DEFAULT_HEADERS
   private apiPrefix: string = 'api/v1'
 
-  constructor(private http: Http, private auth: AuthService) {
+  constructor (private http: Http, private auth: AuthService) {
     this.auth.session
       .subscribe(token => {
         if (token) {
@@ -27,7 +27,7 @@ export class ApiService {
   /**
    * Requisição dos menus da sidebar que são dinâmicos (A mesma sidebar para plataforma e admin).
    */
-  menus(type: TypeUser): Observable<IMenus> {
+  menus (type: TypeUser): Observable<IMenus> {
     let from: string
     switch (type) {
       case TypeUser.Administrator:
@@ -56,7 +56,7 @@ export class ApiService {
    * @param newPassword {string} - Nova senha do usuário
    * @return {Observable<IUser>} - Observable com os dados do usuário exceto a senha
    */
-  updatePassword(id: string, atualPassword: string, newPassword: string): Observable<IUser> {
+  updatePassword (id: string, atualPassword: string, newPassword: string): Observable<IUser> {
     const body = {
       password: atualPassword,
       newPassword: newPassword
@@ -84,7 +84,7 @@ export class ApiService {
    * @param updateObj {name?: string, telephone?: string, email?: string} - Objeto com as keys que irão ser atualizadas
    * @return {Observable<IUser>} - Observable com os novos dados do usuário exceto a senha
    */
-  updateProfile(id: string, password: string, updateObj: { name?: string, telephone?: string, email?: string }): Observable<IUser> {
+  updateProfile (id: string, password: string, updateObj: { name?: string, telephone?: string, email?: string }): Observable<IUser> {
     const body = {
       name: updateObj.name,
       email: updateObj.email,
@@ -124,7 +124,7 @@ export class ApiService {
    *  ex: /users/login => /api/v1/users/login
    * @param url: string - Rota da api para fazer a requisição
    */
-  private normalizeUri(url: string): string {
+  private normalizeUri (url: string): string {
     // Normalizando url sem '/'
     url = url[0] === '/' ? url.substr(1) : url
     // Transformando prefixo e url em array
@@ -138,7 +138,7 @@ export class ApiService {
    * Pega o json que a api respondeu e transforma em um objeto javascript válido
    * @param res: Response - Resposta do servidor
    */
-  private toJson(res: Response): any {
+  private toJson (res: Response): any {
     return res.json()
   }
 
@@ -146,7 +146,7 @@ export class ApiService {
    * Tratamento de erro retornado pela api
    * @param err: Error - Erro retornado pela api
    */
-  private handlerError(err: Response) {
+  private handlerError (err: Response) {
     const body = err.json()
 
     if (!isOnline) {

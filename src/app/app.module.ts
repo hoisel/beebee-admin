@@ -68,7 +68,7 @@ import { SupportComponent } from './support/support.component'
     UserFormComponent,
     UserIndexComponent,
     VehicleFormComponent,
-    VehicleIndexComponent,
+    VehicleIndexComponent
   ],
   imports: [
     APP_ROUTER_PROVIDERS,
@@ -80,7 +80,7 @@ import { SupportComponent } from './support/support.component'
     ReactiveFormsModule,
     RouterModule,
     TextMaskModule,
-    ThemeModule,
+    ThemeModule
   ],
   providers: [
     AuthService,

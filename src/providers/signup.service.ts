@@ -10,11 +10,11 @@ import { API_ENDPOINT } from './../app/app.config'
 @Injectable()
 export class SignupService extends BaseService {
 
-  constructor(public http: Http) {
+  constructor (public http: Http) {
     super(http)
   }
 
-  public register(model: any): Observable<any> {
+  public register (model: any): Observable<any> {
     return this.http
       .post(`${API_ENDPOINT}/signup`, model)
       .map(this.extractData)

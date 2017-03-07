@@ -16,9 +16,9 @@ export class BreadCrumbComponent implements OnInit, OnDestroy {
   public stack: Array<IRouteBc> = new Array<IRouteBc>()
   private subscription: Subscription
 
-  constructor(private router: Router, private route: ActivatedRoute) {}
+  constructor (private router: Router, private route: ActivatedRoute) {}
 
-    ngOnInit() {
+    ngOnInit () {
       this.subscription = this.router.events
         .filter(event => event instanceof NavigationEnd)
         .subscribe(event => {
@@ -41,7 +41,7 @@ export class BreadCrumbComponent implements OnInit, OnDestroy {
         })
     }
 
-    ngOnDestroy() {
+    ngOnDestroy () {
       this.subscription.unsubscribe()
     }
 }

@@ -8,12 +8,12 @@ import { Location } from '@angular/common'
 })
 export class E404Component implements OnInit {
 
-  constructor(private location: Location) { }
+  constructor (private location: Location) { }
 
-  ngOnInit() {
+  ngOnInit () {
   }
 
-  back(): void {
+  back (): void {
     return this.location.back()
   }
 

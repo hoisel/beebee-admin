@@ -14,7 +14,7 @@ export class AuthService {
   // Url que tentou ser acessada sem sessão ativa
   redirectLogin: Array<string> = ['plataforma']
 
-  constructor(private http: Http) {
+  constructor (private http: Http) {
     if (this.isLoggedIn) {
       this.token$.next(this.get(TypeAuthKeys.token))
     }
@@ -36,7 +36,7 @@ export class AuthService {
    * @param username: string - nome de usuário
    * @param password: string - senha do usuário
    */
-  login(cpf: string, password: string): Promise<boolean> {
+  login (cpf: string, password: string): Promise<boolean> {
     const body = { cpf: cpf, password: password }
     return this.http.post(`${API_ENDPOINT}/login`, body, { headers: DEFAULT_HEADERS })
       .map(res => res.json())
@@ -61,7 +61,7 @@ export class AuthService {
   /**
    * Destroi a sessão do usuário atual.
    */
-  logout(): void {
+  logout (): void {
     this.set(TypeAuthKeys.token, null)
     this.loggedIn = false
   }
@@ -70,7 +70,7 @@ export class AuthService {
    * Obtém um dado relativo à autenticação armazenado no navegador
    * @param key: TypeAuthKeys - Chave do dado que se quer
    */
-  get(key: TypeAuthKeys): any {
+  get (key: TypeAuthKeys): any {
     const auth: IAuth = JSON.parse(localStorage.getItem('auth'))
     if (!auth) { return null }
 
@@ -89,12 +89,12 @@ export class AuthService {
    * @param key: TypeAuthKeys - Chave do dado
    * @param data: string|IAuthUsers - Dado que se quer guardar (string para 'token' e IAuthUsers para 'users')
    */
-  set(key: TypeAuthKeys, data: string | IAuthUser): void {
+  set (key: TypeAuthKeys, data: string | IAuthUser): void {
     let auth: IAuth = JSON.parse(localStorage.getItem('auth')) || { token: null, users: [] }
 
     switch (key) {
       case TypeAuthKeys.token:
-        auth.token = <string> data
+        auth.token = data as string
         this.token$.next(auth.token)
         break
       case TypeAuthKeys.users:
@@ -102,7 +102,7 @@ export class AuthService {
         let index = -1
 
         auth.users.some((user, i) => {
-          if (user.name === (<IAuthUser> data).name && (<IAuthUser> data).email === user.email) {
+          if (user.name === (data as IAuthUser).name && (data as IAuthUser).email === user.email) {
             has = true
             index = i
           }
@@ -110,9 +110,9 @@ export class AuthService {
         })
 
         if (has) {
-          auth.users[index] = <IAuthUser> data
+          auth.users[index] = data as IAuthUser
         } else {
-          auth.users.push(<IAuthUser> data)
+          auth.users.push(data as IAuthUser)
         }
 
         break

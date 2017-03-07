@@ -13,16 +13,16 @@ export class SigninComponent implements OnInit, OnDestroy {
   public password: string
   message: string = ''
   loading: boolean = false
-  constructor(private router: Router, private auth: AuthService) { }
+  constructor (private router: Router, private auth: AuthService) { }
 
-  ngOnInit(): void {
+  ngOnInit (): void {
     if (this.auth.isLoggedIn) {
       this.router.navigate(['plataforma'])
       return
     }
   }
 
-  login(e: Event): void {
+  login (e: Event): void {
     e.preventDefault()
     this.loading = true
     this.auth.login(this.cpf, this.password)
@@ -35,6 +35,6 @@ export class SigninComponent implements OnInit, OnDestroy {
       })
   }
 
-  ngOnDestroy(): void {}
+  ngOnDestroy (): void {}
 
 }

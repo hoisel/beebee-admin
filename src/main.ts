@@ -1,4 +1,3 @@
-import './polyfills.ts'
 import 'swiper'
 
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic'

@@ -8,12 +8,12 @@ import { Router } from '@angular/router'
 })
 export class E403Component implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor (private router: Router) { }
 
-  ngOnInit() {
+  ngOnInit () {
   }
 
-  back(): void {
+  back (): void {
     this.router.navigate(['/'])
   }
 

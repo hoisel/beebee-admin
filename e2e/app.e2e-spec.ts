@@ -1,6 +1,6 @@
 import { BeebeePlataformaPage } from './app.po'
 
-describe('beebee-plataforma App', function() {
+describe('beebee-plataforma App', function () {
   let page: BeebeePlataformaPage
 
   beforeEach(() => {

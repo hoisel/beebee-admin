@@ -1,17 +1,21 @@
 {
+  "compileOnSave": false,
   "compilerOptions": {
-    "declaration": false,
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "lib": ["es6", "dom"],
-    "mapRoot": "./",
-    "module": "es6",
-    "moduleResolution": "node",
     "outDir": "../dist/out-tsc",
     "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
     "target": "es5",
+    "lib": [
+      "es2016", 
+      "dom"
+    ],
+    // "mapRoot": "./",
+    "module": "es6",
     "typeRoots": [
-      "../node_modules/@types"
+      "./node_modules/@types"
     ],
     "noImplicitAny": false,
     "noImplicitThis" : true,
@@ -20,3 +24,4 @@
     "noUnusedParameters" : false
   }
 }
+

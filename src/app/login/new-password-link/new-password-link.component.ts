@@ -7,9 +7,9 @@ import { Component, OnInit } from '@angular/core'
 })
 export class NewPasswordLinkComponent implements OnInit {
 
-  constructor() { }
+  constructor () { }
 
-  ngOnInit() {
+  ngOnInit () {
   }
 
 }

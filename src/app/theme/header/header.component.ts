@@ -14,7 +14,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   title: string
   father: string
 
-  constructor(
+  constructor (
     private theme: ThemeService,
     public user: UserService,
     private auth: AuthService,
@@ -25,7 +25,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     })
   }
 
-  ngOnInit(): void {
+  ngOnInit (): void {
     // Ouvindo alterações no título e alterando no header
     // Subscription do título da página
     this.subscriptions.push(
@@ -35,12 +35,12 @@ export class HeaderComponent implements OnInit, OnDestroy {
     )
   }
 
-  ngOnDestroy(): void {
+  ngOnDestroy (): void {
     // Unsubscribe em todos os subscriptions deste componente
     this.subscriptions.forEach(sub => sub.unsubscribe())
   }
 
-  logout(): void {
+  logout (): void {
     return this.auth.logout()
   }
 

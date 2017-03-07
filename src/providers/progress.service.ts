@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core'
+import * as NProgress from 'nprogress'
 
 @Injectable()
 export class ProgressService {
@@ -23,7 +24,7 @@ export class ProgressService {
    * Configuração NProgress lib
    */
   private configure(): void {
-    NProgress.configure({
+    NProgress.configure( {
       // template: `
       // <div class="bar" role="bar">
       //   <div class="peg"></div>

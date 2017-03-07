@@ -7,9 +7,9 @@ import { Component, OnInit } from '@angular/core'
 })
 export class ConfigObjectIndexComponent implements OnInit {
 
-  constructor() { }
+  constructor () { }
 
-  ngOnInit() {
+  ngOnInit () {
   }
 
 }

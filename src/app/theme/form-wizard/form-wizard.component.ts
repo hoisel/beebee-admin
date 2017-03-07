@@ -12,9 +12,9 @@ import { Component, OnInit, Input } from '@angular/core'
 })
 export class FormWizardComponent implements OnInit {
   @Input() id: string
-  constructor() { }
+  constructor () { }
 
-  ngOnInit() {
+  ngOnInit () {
     if (!this.id) {
       this.id = `wizard_${Math.round(Math.random() * 1024)}`
     }

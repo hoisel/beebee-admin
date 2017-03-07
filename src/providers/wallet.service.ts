@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core'
 @Injectable()
 export class WalletService extends BaseService {
 
-  constructor(http: Http) {
+  constructor (http: Http) {
     super.setResource('wallets')
     super(http)
   }

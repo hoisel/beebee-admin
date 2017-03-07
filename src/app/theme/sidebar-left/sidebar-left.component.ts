@@ -18,19 +18,19 @@ export class SidebarLeftComponent implements OnInit, OnDestroy {
   }
   father: string
 
-  constructor(
+  constructor (
     private api: ApiService,
     private router: Router,
     private theme: ThemeService,
     private route: ActivatedRoute
   ) { }
 
-  navigate(url: string): void {
+  navigate (url: string): void {
     this.router.navigate(url.split('/'))
     this.updateActive(url)
   }
 
-  ngOnInit(): void {
+  ngOnInit (): void {
     let from: TypeUser
     this.route.url.subscribe(u => {
       this.father = u[0].path !== 'plataforma' && u[0].path !== 'admin' ? '' : u[0].path
@@ -52,11 +52,11 @@ export class SidebarLeftComponent implements OnInit, OnDestroy {
     })
   }
 
-  ngOnDestroy(): void {
+  ngOnDestroy (): void {
     this.subscriptions.map(sub => sub.unsubscribe())
   }
 
-  private updateActive(url?: string): void {
+  private updateActive (url?: string): void {
     if (url) {
       this.menus.menus.map(menu => {
         menu.active = window.location.pathname.indexOf(url) && url === menu.href
