@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core'
 import { Http, Response, Headers } from '@angular/http'
-import { Observable, Subject } from 'rxjs'
+import { Observable } from 'rxjs/Observable'
+import { Subject } from 'rxjs/Subject'
+
 import { TypeUser, IMenus, IUser } from '../interfaces'
 import { AuthService } from './auth.service'
-import { API_ENDPOINT, DEFAULT_HEADERS } from '../app/app.config'
+import { API_ENDPOINT, DEFAULT_HEADERS } from '../app.config'
 
 let isOnline = true
 window.addEventListener( 'offline', () => isOnline = false )

@@ -1,8 +1,9 @@
 import { Component, OnInit, OnDestroy } from '@angular/core'
 import { ActivatedRoute } from '@angular/router'
+import { Subscription } from 'rxjs/Subscription'
+
 import { ThemeService } from '../theme.service'
-import { Subscription } from 'rxjs'
-import { UserService, AuthService } from '../../../providers'
+import { UserService, AuthService } from '../../providers'
 
 @Component( {
   selector: 'app-header',

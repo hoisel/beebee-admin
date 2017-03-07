@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core'
 import { Http } from '@angular/http'
-import { BehaviorSubject } from 'rxjs'
-import { IAuth, IAuthUser, TypeAuthKeys, TypeUser } from '../interfaces'
-import { API_ENDPOINT, DEFAULT_HEADERS } from '../app/app.config'
+import { BehaviorSubject } from 'rxjs/BehaviorSubject'
 import * as decode from 'jwt-decode'
+
+import { IAuth, IAuthUser, TypeAuthKeys, TypeUser } from '../interfaces'
+import { API_ENDPOINT, DEFAULT_HEADERS } from '../app.config'
 
 @Injectable()
 export class AuthService {

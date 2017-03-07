@@ -1,5 +1,5 @@
 import { Headers } from '@angular/http'
-import { environment } from './../environments/environment'
+import { environment } from '../../environments/environment'
 
 // Headers padrão
 let header: Headers = new Headers()

@@ -1,17 +1,15 @@
 import { Component, OnInit, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core'
 
 @Component( {
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: [ './app.component.css' ],
+  templateUrl: './client.component.html',
+  styleUrls: [ './client.component.css' ],
   encapsulation: ViewEncapsulation.Emulated,
   changeDetection: ChangeDetectionStrategy.Default
 } )
-export class AppComponent implements OnInit {
+export class ClientComponent implements OnInit {
 
   constructor () { }
 
   ngOnInit () {
   }
-
 }

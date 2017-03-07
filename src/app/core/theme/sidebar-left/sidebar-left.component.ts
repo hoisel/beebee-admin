@@ -1,8 +1,9 @@
 import { Component, OnInit, OnDestroy } from '@angular/core'
 import { ActivatedRoute, Router } from '@angular/router'
-import { ApiService } from '../../../providers'
-import { IMenus, TypeUser } from '../../../interfaces'
-import { Subscription } from 'rxjs'
+import { Subscription } from 'rxjs/Subscription'
+
+import { ApiService } from '../../providers'
+import { IMenus, TypeUser } from '../../interfaces'
 import { ThemeService } from '../theme.service'
 
 @Component( {

@@ -5,7 +5,7 @@ import 'rxjs/add/operator/map'
 import 'rxjs/add/operator/catch'
 
 import { BaseService } from './base.service'
-import { API_ENDPOINT } from './../app/app.config'
+import { API_ENDPOINT } from '../app.config'
 
 @Injectable()
 export class SignupService extends BaseService {

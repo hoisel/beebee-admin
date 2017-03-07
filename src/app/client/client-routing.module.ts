@@ -1,6 +1,6 @@
-import { ModuleWithProviders } from '@angular/core'
+import { NgModule } from '@angular/core'
 import { Routes, RouterModule } from '@angular/router'
-import { LOGIN_ROUTES } from './login/login.routes'
+
 import { DashboardComponent } from './dashboard/dashboard.component'
 import { OrderIndexComponent } from './order/index.component'
 import { OrderDetailsComponent } from './order/details.component'
@@ -25,11 +25,8 @@ import { TeamFormComponent } from './team/form.component'
 import { FaqIndexComponent } from './faq/index.component'
 import { FaqFormComponent } from './faq/form.component'
 import { SupportComponent } from './support/support.component'
-import { LoginComponent } from './login/login.component'
-import { E403Component } from './e403/e403.component'
-import { E404Component } from './e404/e404.component'
 
-export const APP_ROUTES: Routes = [
+export const routes: Routes = [
   {
     path: '',
     redirectTo: 'dashboard',
@@ -38,11 +35,6 @@ export const APP_ROUTES: Routes = [
   {
     path: 'dashboard',
     component: DashboardComponent
-  },
-  {
-    path: 'acesso',
-    component: LoginComponent,
-    children: [ ...LOGIN_ROUTES ]
   },
   {
     path: 'pedidos',
@@ -138,20 +130,11 @@ export const APP_ROUTES: Routes = [
   {
     path: 'suporte',
     component: SupportComponent
-  },
-  {
-    path: '403',
-    component: E403Component
-  },
-  {
-    path: '404',
-    component: E404Component
-  },
-  {
-    path: '**',
-    redirectTo: '/404',
-    pathMatch: 'full'
   }
 ]
 
-export const APP_ROUTER_PROVIDERS: ModuleWithProviders = RouterModule.forRoot( APP_ROUTES )
+@NgModule( {
+  imports: [ RouterModule.forChild( routes ) ],
+  exports: [ RouterModule ]
+} )
+export class ClientRoutingModule { }
