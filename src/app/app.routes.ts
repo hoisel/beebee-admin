@@ -31,113 +31,113 @@ import { E404Component } from './e404/e404.component'
 
 export const APP_ROUTES: Routes = [
   {
-      path: '',
-      redirectTo: 'dashboard',
-      pathMatch: 'full'
+    path: '',
+    redirectTo: 'dashboard',
+    pathMatch: 'full'
   },
   {
-      path: 'dashboard',
-      component: DashboardComponent
+    path: 'dashboard',
+    component: DashboardComponent
   },
   {
     path: 'acesso',
     component: LoginComponent,
-    children: [...LOGIN_ROUTES]
+    children: [ ...LOGIN_ROUTES ]
   },
   {
-      path: 'pedidos',
-      component: OrderIndexComponent
+    path: 'pedidos',
+    component: OrderIndexComponent
   },
   {
-      path: 'pedidos/id',
-      component: OrderDetailsComponent
+    path: 'pedidos/id',
+    component: OrderDetailsComponent
   },
   {
-      path: 'usuarios',
-      component: UserIndexComponent
+    path: 'usuarios',
+    component: UserIndexComponent
   },
   {
-      path: 'usuarios/id',
-      component: UserFormComponent
+    path: 'usuarios/id',
+    component: UserFormComponent
   },
   {
-      path: 'motoristas',
-      component: DriverIndexComponent
+    path: 'motoristas',
+    component: DriverIndexComponent
   },
   {
-      path: 'motoristas/id',
-      component: DriverFormComponent
+    path: 'motoristas/id',
+    component: DriverFormComponent
   },
   {
-      path: 'empresas',
-      component: BusinessIndexComponent
+    path: 'empresas',
+    component: BusinessIndexComponent
   },
   {
-      path: 'empresas/id',
-      component: BusinessFormComponent
+    path: 'empresas/id',
+    component: BusinessFormComponent
   },
   {
-      path: 'veiculos',
-      component: VehicleIndexComponent
+    path: 'veiculos',
+    component: VehicleIndexComponent
   },
   {
-      path: 'veiculos/id',
-      component: VehicleFormComponent
+    path: 'veiculos/id',
+    component: VehicleFormComponent
   },
   {
-      path: 'configuracoes/fretes',
-      component: ConfigOrderComponent
+    path: 'configuracoes/fretes',
+    component: ConfigOrderComponent
   },
   {
-      path: 'configuracoes/fidelidade',
-      component: ConfigBonusComponent
+    path: 'configuracoes/fidelidade',
+    component: ConfigBonusComponent
   },
   {
-      path: 'configuracoes/veiculos',
-      component: ConfigVehicleIndexComponent
+    path: 'configuracoes/veiculos',
+    component: ConfigVehicleIndexComponent
   },
   {
-      path: 'configuracoes/veiculos/id',
-      component: ConfigVehicleFormComponent
+    path: 'configuracoes/veiculos/id',
+    component: ConfigVehicleFormComponent
   },
   {
-      path: 'configuracoes/adicionais',
-      component: ConfigExtraIndexComponent
+    path: 'configuracoes/adicionais',
+    component: ConfigExtraIndexComponent
   },
   {
-      path: 'configuracoes/adicionais/id',
-      component: ConfigExtraFormComponent
-  },  {
-      path: 'configuracoes/objetos',
-      component: ConfigObjectIndexComponent
+    path: 'configuracoes/adicionais/id',
+    component: ConfigExtraFormComponent
+  }, {
+    path: 'configuracoes/objetos',
+    component: ConfigObjectIndexComponent
   },
   {
-      path: 'configuracoes/objetos/id',
-      component: ConfigObjectFormComponent
+    path: 'configuracoes/objetos/id',
+    component: ConfigObjectFormComponent
   },
   {
-      path: 'equipe',
-      component: TeamIndexComponent
+    path: 'equipe',
+    component: TeamIndexComponent
   },
   {
-      path: 'equipe/id',
-      component: TeamFormComponent
+    path: 'equipe/id',
+    component: TeamFormComponent
   },
   {
-      path: 'equipe/novo',
-      component: TeamFormComponent
+    path: 'equipe/novo',
+    component: TeamFormComponent
   },
   {
-      path: 'faq',
-      component: FaqIndexComponent
+    path: 'faq',
+    component: FaqIndexComponent
   },
   {
-      path: 'faq/novo',
-      component: FaqFormComponent
+    path: 'faq/novo',
+    component: FaqFormComponent
   },
   {
-      path: 'suporte',
-      component: SupportComponent
+    path: 'suporte',
+    component: SupportComponent
   },
   {
     path: '403',
@@ -154,4 +154,4 @@ export const APP_ROUTES: Routes = [
   }
 ]
 
-export const APP_ROUTER_PROVIDERS: ModuleWithProviders = RouterModule.forRoot(APP_ROUTES)
+export const APP_ROUTER_PROVIDERS: ModuleWithProviders = RouterModule.forRoot( APP_ROUTES )

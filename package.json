@@ -7,7 +7,7 @@
     "start": "ng serve --verbose --progress",
     "build": "ng build",
     "test": "ng test",
-    "lint": "ng lint",
+    "lint": "ng lint --fix --format=stylish",
     "e2e": "ng e2e"
   },
   "private": true,

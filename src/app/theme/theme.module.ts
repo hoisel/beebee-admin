@@ -11,15 +11,15 @@ import { SidebarLeftComponent } from './sidebar-left/sidebar-left.component'
 import { BreadCrumbComponent } from './bread-crumb/bread-crumb.component'
 import { FormWizardComponent } from './form-wizard/form-wizard.component'
 
-@NgModule({
-  declarations: [SidebarLeftComponent, HeaderComponent, BreadCrumbComponent, FormWizardComponent],
+@NgModule( {
+  declarations: [ SidebarLeftComponent, HeaderComponent, BreadCrumbComponent, FormWizardComponent ],
   imports: [
     BrowserModule,
     RouterModule,
     FormsModule,
     HttpModule
   ],
-  providers: [ApiService, ThemeService],
-  exports: [SidebarLeftComponent, HeaderComponent, BreadCrumbComponent, FormWizardComponent]
-})
+  providers: [ ApiService, ThemeService ],
+  exports: [ SidebarLeftComponent, HeaderComponent, BreadCrumbComponent, FormWizardComponent ]
+} )
 export class ThemeModule { }

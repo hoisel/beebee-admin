@@ -7,21 +7,21 @@ export class WizardService {
 
   private _active: string = null
   private _active$: Subject<string> = new Subject<string>()
-  constructor (private auth: AuthService) { }
+  constructor ( private auth: AuthService ) { }
 
-  get active$(): Observable<string> {
+  get active$ (): Observable<string> {
     return this._active$.asObservable()
   }
-  get active(): string {
+  get active (): string {
     return this._active
   }
-  set active(active: string) {
+  set active ( active: string ) {
     this._active = active
-    this._active$.next(active)
+    this._active$.next( active )
   }
 
-  stepComplete (step: string): boolean {
-    switch (step) {
+  stepComplete ( step: string ): boolean {
+    switch ( step ) {
       case 'user':
       case 'address':
         return this.auth.isLoggedIn

@@ -39,27 +39,27 @@ export class UserService extends BaseService implements IUser {
   clientOrders: Array<IOrder>
   transactions: Array<ITransaction>
 
-  constructor (public http: Http, private auth: AuthService) {
-    super(http)
-    super.setResource('users')
-    this.auth.session.subscribe(token => {
-      if (token) {
-        this.refresh(decode(token))
-        this.auth.set(TypeAuthKeys.users, { email: this.email, name: this.name })
+  constructor ( public http: Http, private auth: AuthService ) {
+    super( http )
+    super.setResource( 'users' )
+    this.auth.session.subscribe( token => {
+      if ( token ) {
+        this.refresh( decode( token ) )
+        this.auth.set( TypeAuthKeys.users, { email: this.email, name: this.name } )
       }
-    })
+    } )
   }
 
   /**
    * ID não pode ser escrito somente lido
    */
-  get id(): string { return this._id }
+  get id (): string { return this._id }
 
   /**
    * Atualiza os dados do usuário a partir de um objeto
    * com implementação de IUser.
    */
-  private refresh (user: IUser): void {
+  private refresh ( user: IUser ): void {
     this._id = user.id
     this.name = user.name
     this.insertedAt = user.insertedAt

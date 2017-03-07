@@ -7,31 +7,31 @@ import { NewPasswordChangeComponent } from './new-password-change/new-password-c
 import { NewPasswordOkComponent } from './new-password-ok/new-password-ok.component'
 
 export const LOGIN_ROUTES: Routes = [
-    {
-        path: '',
-        redirectTo: 'entrar',
-        pathMatch: 'full'
-      },
-    {
-        path: 'entrar',
-        component: SigninComponent
-    },
-    {
-        path: 'esqueci-minha-senha',
-        component: ForgotPasswordComponent
-    },
-    {
-        path: 'link-enviado',
-        component: NewPasswordLinkComponent
-    },
-    {
-        path: 'nova-senha',
-        component: NewPasswordChangeComponent
-    },
-    {
-        path: 'tudo-certo',
-        component: NewPasswordOkComponent
-    }
+  {
+    path: '',
+    redirectTo: 'entrar',
+    pathMatch: 'full'
+  },
+  {
+    path: 'entrar',
+    component: SigninComponent
+  },
+  {
+    path: 'esqueci-minha-senha',
+    component: ForgotPasswordComponent
+  },
+  {
+    path: 'link-enviado',
+    component: NewPasswordLinkComponent
+  },
+  {
+    path: 'nova-senha',
+    component: NewPasswordChangeComponent
+  },
+  {
+    path: 'tudo-certo',
+    component: NewPasswordOkComponent
+  }
 ]
 
-export const LOGIN_ROUTER_PROVIDERS: ModuleWithProviders = RouterModule.forChild(LOGIN_ROUTES)
+export const LOGIN_ROUTER_PROVIDERS: ModuleWithProviders = RouterModule.forChild( LOGIN_ROUTES )

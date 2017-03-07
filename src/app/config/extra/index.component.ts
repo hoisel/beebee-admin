@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core'
 
-@Component({
+@Component( {
   selector: 'app-config-extra-index',
   templateUrl: './index.component.html',
-  styleUrls: ['./index.component.css']
-})
+  styleUrls: [ './index.component.css' ]
+} )
 export class ConfigExtraIndexComponent implements OnInit {
 
   constructor () { }

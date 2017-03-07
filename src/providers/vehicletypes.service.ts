@@ -5,8 +5,8 @@ import { Injectable } from '@angular/core'
 @Injectable()
 export class VehicleTypesService extends BaseService {
 
-  constructor (http: Http) {
-    super.setResource('vehicletypes')
-    super(http)
+  constructor ( http: Http ) {
+    super.setResource( 'vehicletypes' )
+    super( http )
   }
 }

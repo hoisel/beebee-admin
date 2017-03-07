@@ -7,41 +7,41 @@ interface IRouteBc {
   item: string
 }
 
-@Component({
+@Component( {
   selector: 'app-bread-crumb',
   templateUrl: './bread-crumb.component.html',
-  styleUrls: ['./bread-crumb.component.css']
-})
+  styleUrls: [ './bread-crumb.component.css' ]
+} )
 export class BreadCrumbComponent implements OnInit, OnDestroy {
   public stack: Array<IRouteBc> = new Array<IRouteBc>()
   private subscription: Subscription
 
-  constructor (private router: Router, private route: ActivatedRoute) {}
+  constructor ( private router: Router, private route: ActivatedRoute ) { }
 
-    ngOnInit () {
-      this.subscription = this.router.events
-        .filter(event => event instanceof NavigationEnd)
-        .subscribe(event => {
-          let currentRoute = this.route.root
-          let urlMaped: any = []
-          while (currentRoute.children[0] !== undefined) {
-            currentRoute = currentRoute.children[0]
-            urlMaped.push({
-              name: currentRoute.snapshot.data['name'],
-              path: currentRoute.snapshot.url[0].path
-            })
+  ngOnInit () {
+    this.subscription = this.router.events
+      .filter( event => event instanceof NavigationEnd )
+      .subscribe( event => {
+        let currentRoute = this.route.root
+        let urlMaped: any = []
+        while ( currentRoute.children[ 0 ] !== undefined ) {
+          currentRoute = currentRoute.children[ 0 ]
+          urlMaped.push( {
+            name: currentRoute.snapshot.data[ 'name' ],
+            path: currentRoute.snapshot.url[ 0 ].path
+          } )
+        }
+
+        this.stack = urlMaped.map(( r, index ) => {
+          return {
+            item: r.name ? r.name : r.path.substr( 0, 1 ).toUpperCase() + r.path.substr( 1 ),
+            url: `/${urlMaped.map( u => u.path ).filter(( u, i ) => i <= index ).join( '/' )}`.toLowerCase()
           }
+        } )
+      } )
+  }
 
-          this.stack = urlMaped.map((r, index) => {
-            return {
-              item: r.name ? r.name : r.path.substr(0, 1).toUpperCase() + r.path.substr(1),
-              url: `/${urlMaped.map(u => u.path).filter((u, i) => i <= index).join('/')}`.toLowerCase()
-            }
-          })
-        })
-    }
-
-    ngOnDestroy () {
-      this.subscription.unsubscribe()
-    }
+  ngOnDestroy () {
+    this.subscription.unsubscribe()
+  }
 }

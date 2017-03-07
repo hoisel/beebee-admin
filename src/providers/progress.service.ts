@@ -4,26 +4,26 @@ import * as NProgress from 'nprogress'
 @Injectable()
 export class ProgressService {
 
-  constructor() {
+  constructor () {
     this.configure()
   }
 
-  start(): void {
+  start (): void {
     NProgress.start()
   }
 
-  finish(): void {
+  finish (): void {
     NProgress.done()
   }
 
-  increment(): void {
+  increment (): void {
     NProgress.inc()
   }
 
   /**
    * Configuração NProgress lib
    */
-  private configure(): void {
+  private configure (): void {
     NProgress.configure( {
       // template: `
       // <div class="bar" role="bar">
@@ -32,7 +32,7 @@ export class ProgressService {
       // `
       showSpinner: false,
       speed: 500
-    })
+    } )
   }
 
 }

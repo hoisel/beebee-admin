@@ -39,7 +39,7 @@ import { FaqIndexComponent } from './faq/index.component'
 import { FaqFormComponent } from './faq/form.component'
 import { SupportComponent } from './support/support.component'
 
-@NgModule({
+@NgModule( {
   declarations: [
     AppComponent,
     BusinessFormComponent,
@@ -89,6 +89,6 @@ import { SupportComponent } from './support/support.component'
     SharedDataService,
     UserService
   ],
-  bootstrap: [AppComponent]
-})
+  bootstrap: [ AppComponent ]
+} )
 export class AppModule { }

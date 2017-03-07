@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core'
 
-@Component({
+@Component( {
   selector: 'app-vehicle-form',
   templateUrl: './form.component.html',
-  styleUrls: ['./form.component.css']
-})
+  styleUrls: [ './form.component.css' ]
+} )
 export class VehicleFormComponent implements OnInit {
 
   constructor () { }

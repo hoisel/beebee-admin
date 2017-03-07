@@ -5,20 +5,20 @@ declare var $: any
 
 import { Component, OnInit, Input } from '@angular/core'
 
-@Component({
+@Component( {
   selector: 'app-form-wizard',
   templateUrl: './form-wizard.component.html',
-  styleUrls: ['./form-wizard.component.css']
-})
+  styleUrls: [ './form-wizard.component.css' ]
+} )
 export class FormWizardComponent implements OnInit {
   @Input() id: string
   constructor () { }
 
   ngOnInit () {
-    if (!this.id) {
-      this.id = `wizard_${Math.round(Math.random() * 1024)}`
+    if ( !this.id ) {
+      this.id = `wizard_${Math.round( Math.random() * 1024 )}`
     }
-    $(`#${this.id}`).bootstrapWizard()
+    $( `#${this.id}` ).bootstrapWizard()
   }
 
 }

@@ -9,7 +9,7 @@ import { NewPasswordLinkComponent } from './new-password-link/new-password-link.
 import { NewPasswordChangeComponent } from './new-password-change/new-password-change.component'
 import { NewPasswordOkComponent } from './new-password-ok/new-password-ok.component'
 
-@NgModule({
+@NgModule( {
   imports: [
     CommonModule,
     RouterModule,
@@ -24,5 +24,5 @@ import { NewPasswordOkComponent } from './new-password-ok/new-password-ok.compon
     NewPasswordChangeComponent,
     NewPasswordOkComponent
   ]
-})
+} )
 export class LoginModule { }

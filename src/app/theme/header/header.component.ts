@@ -4,11 +4,11 @@ import { ThemeService } from '../theme.service'
 import { Subscription } from 'rxjs'
 import { UserService, AuthService } from '../../../providers'
 
-@Component({
+@Component( {
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
-})
+  styleUrls: [ './header.component.css' ]
+} )
 export class HeaderComponent implements OnInit, OnDestroy {
   private subscriptions: Array<Subscription> = new Array<Subscription>()
   title: string
@@ -20,24 +20,24 @@ export class HeaderComponent implements OnInit, OnDestroy {
     private auth: AuthService,
     private route: ActivatedRoute
   ) {
-    this.route.url.subscribe(u => {
-      this.father = u[0].path !== 'plataforma' && u[0].path !== 'admin' ? '' : u[0].path
-    })
+    this.route.url.subscribe( u => {
+      this.father = u[ 0 ].path !== 'plataforma' && u[ 0 ].path !== 'admin' ? '' : u[ 0 ].path
+    } )
   }
 
   ngOnInit (): void {
     // Ouvindo alterações no título e alterando no header
     // Subscription do título da página
     this.subscriptions.push(
-      this.theme.getTitle$().subscribe(title => {
+      this.theme.getTitle$().subscribe( title => {
         this.title = title
-      })
+      } )
     )
   }
 
   ngOnDestroy (): void {
     // Unsubscribe em todos os subscriptions deste componente
-    this.subscriptions.forEach(sub => sub.unsubscribe())
+    this.subscriptions.forEach( sub => sub.unsubscribe() )
   }
 
   logout (): void {

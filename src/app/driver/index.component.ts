@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core'
 
-@Component({
+@Component( {
   selector: 'app-driver-index',
   templateUrl: './index.component.html',
-  styleUrls: ['./index.component.css']
-})
+  styleUrls: [ './index.component.css' ]
+} )
 export class DriverIndexComponent implements OnInit {
 
   constructor () { }

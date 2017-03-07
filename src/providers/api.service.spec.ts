@@ -2,14 +2,14 @@
 import { TestBed, async, inject } from '@angular/core/testing'
 import { ApiService } from './api.service'
 
-describe('Service: Api', () => {
+describe( 'Service: Api', () => {
   beforeEach(() => {
-    TestBed.configureTestingModule({
-      providers: [ApiService]
-    })
-  })
+    TestBed.configureTestingModule( {
+      providers: [ ApiService ]
+    } )
+  } )
 
-  it('should ...', inject([ApiService], (service: ApiService) => {
-    expect(service).toBeTruthy()
-  }))
-})
+  it( 'should ...', inject( [ ApiService ], ( service: ApiService ) => {
+    expect( service ).toBeTruthy()
+  } ) )
+} )

@@ -1,0 +1,13 @@
+{
+  "baseIndentSize": 0,
+  "indentSize": 2,
+  "tabSize": 2,
+  "indentStyle": 2,
+  "newLineCharacter": "\n",
+  "convertTabsToSpaces": true,
+  "insertSpaceAfterConstructor": true,
+  "insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": true,
+  "insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": true,
+  "insertSpaceAfterFunctionKeywordForAnonymousFunctions": true,
+  "insertSpaceBeforeFunctionParenthesis": true
+}
