@@ -3,13 +3,17 @@ import { Routes, RouterModule } from '@angular/router'
 
 import {
   E403Component,
-  E404Component,
+  E404Component
+} from './core'
+
+
+import {
   SigninComponent,
   ForgotPasswordComponent,
   NewPasswordLinkComponent,
   NewPasswordChangeComponent,
   NewPasswordOkComponent
-} from './core'
+} from './login'
 
 export const routes: Routes = [
   {
@@ -37,10 +41,10 @@ export const routes: Routes = [
     path: 'tudo-certo',
     component: NewPasswordOkComponent
   },
-  {
-    path: 'client',
-    loadChildren: './client/client-routing.module.ts#ClientRoutingModule'
-  },
+  // {
+  //   path: 'client',
+  //   loadChildren: './client/client-routing.module#ClientRoutingModule'
+  // },
   {
     path: '403',
     component: E403Component
@@ -57,7 +61,7 @@ export const routes: Routes = [
 ]
 
 @NgModule( {
-  imports: [ RouterModule.forChild( routes ) ],
+  imports: [ RouterModule.forRoot( routes ) ],
   exports: [ RouterModule ]
 } )
 export class AppRoutingModule { }

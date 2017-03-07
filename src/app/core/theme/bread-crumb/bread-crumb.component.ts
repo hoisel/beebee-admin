@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core'
 import { ActivatedRoute, Router, NavigationEnd } from '@angular/router'
-import { Subscription } from 'rxjs'
+import { Subscription } from 'rxjs/Subscription'
 
 interface IRouteBc {
   url: string

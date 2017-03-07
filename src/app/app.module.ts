@@ -6,6 +6,14 @@ import { AppComponent } from './app.component'
 import { CoreModule } from './core'
 import { SharedModule } from './shared'
 
+import {
+  SigninComponent,
+  ForgotPasswordComponent,
+  NewPasswordLinkComponent,
+  NewPasswordChangeComponent,
+  NewPasswordOkComponent
+} from './login'
+
 @NgModule( {
   imports: [
     BrowserModule,
@@ -14,7 +22,12 @@ import { SharedModule } from './shared'
     AppRoutingModule
   ],
   declarations: [
-    AppComponent
+    AppComponent,
+    SigninComponent,
+    ForgotPasswordComponent,
+    NewPasswordLinkComponent,
+    NewPasswordChangeComponent,
+    NewPasswordOkComponent
   ],
   bootstrap: [ AppComponent ]
 } )

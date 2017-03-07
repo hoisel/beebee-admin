@@ -2,70 +2,92 @@
 import {
   NgModule,
   Optional,
-  SkipSelf
+  SkipSelf,
+  CUSTOM_ELEMENTS_SCHEMA
 } from '@angular/core'
 import { CommonModule } from '@angular/common'
 import { HttpModule } from '@angular/http'
-
-// modules
-import { ThemeModule } from './theme/theme.module'
+// import { RouterModule } from '@angular/router'
+import { FormsModule } from '@angular/forms'
 
 // components
 import { E403Component, E404Component } from './errors'
 
-// import { DashboardComponent } from './dashboard/dashboard.component'
-// import { OrderIndexComponent } from './order/index.component'
-// import { OrderDetailsComponent } from './order/details.component'
-// import { UserIndexComponent } from './user/index.component'
-// import { UserFormComponent } from './user/form.component'
-// import { DriverIndexComponent } from './driver/index.component'
-// import { DriverFormComponent } from './driver/form.component'
-// import { BusinessIndexComponent } from './business/index.component'
-// import { BusinessFormComponent } from './business/form.component'
-// import { VehicleIndexComponent } from './vehicle/index.component'
-// import { VehicleFormComponent } from './vehicle/form.component'
-// import { ConfigOrderComponent } from './config/order/order.component'
-// import { ConfigBonusComponent } from './config/bonus/bonus.component'
-// import { ConfigVehicleIndexComponent } from './config/vehicle/index.component'
-// import { ConfigVehicleFormComponent } from './config/vehicle/form.component'
-// import { ConfigExtraIndexComponent } from './config/extra/index.component'
-// import { ConfigExtraFormComponent } from './config/extra/form.component'
-// import { ConfigObjectIndexComponent } from './config/object/index.component'
-// import { ConfigObjectFormComponent } from './config/object/form.component'
-// import { TeamIndexComponent } from './team/index.component'
-// import { TeamFormComponent } from './team/form.component'
-// import { FaqIndexComponent } from './faq/index.component'
-// import { FaqFormComponent } from './faq/form.component'
-// import { SupportComponent } from './support/support.component'
+// import {
+//   HeaderComponent,
+//   SidebarLeftComponent,
+//   BreadCrumbComponent,
+//   FormWizardComponent,
+//   ThemeService
+// } from './theme'
+
+// import {
+//   SigninComponent,
+//   ForgotPasswordComponent,
+//   NewPasswordLinkComponent,
+//   NewPasswordChangeComponent,
+//   NewPasswordOkComponent
+// } from './login'
 
 // services
-import { AuthService, UserService, ProgressService, SharedDataService } from './providers'
 import { LoggedInGuard } from './guards'
+import {
+  AuthService,
+  UserService,
+  ProgressService,
+  SharedDataService,
+  ApiService
+} from './providers'
 
 @NgModule( {
   imports: [
     CommonModule,
     HttpModule,
-    ThemeModule
+    // RouterModule,
+    FormsModule
   ],
   declarations: [
     E403Component,
     E404Component
+    // SigninComponent,
+    // ForgotPasswordComponent,
+    // NewPasswordLinkComponent,
+    // NewPasswordChangeComponent,
+    // NewPasswordOkComponent
+
+    // SidebarLeftComponent,
+    // HeaderComponent,
+    // BreadCrumbComponent,
+    // FormWizardComponent
   ],
   providers: [
     AuthService,
     UserService,
     ProgressService,
     SharedDataService,
-    LoggedInGuard
+    LoggedInGuard,
+    // ThemeService,
+    ApiService
   ],
   exports: [
-    CommonModule,
     E403Component,
-    E404Component,
-    ThemeModule
+    E404Component
+
+    // SigninComponent,
+    // ForgotPasswordComponent,
+    // NewPasswordLinkComponent,
+    // NewPasswordChangeComponent,
+    // NewPasswordOkComponent
+
+    // SidebarLeftComponent,
+    // HeaderComponent,
+    // BreadCrumbComponent,
+    // FormWizardComponent
+  ],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA
   ]
-} )
+})
 export class CoreModule {
 
   /**
@@ -74,7 +96,7 @@ export class CoreModule {
    *
    * @memberOf CoreModule
    */
-  constructor ( @Optional() @SkipSelf() parentModule: CoreModule ) {
+  constructor( @Optional() @SkipSelf() parentModule: CoreModule ) {
     if ( parentModule ) {
       throw new Error( 'CoreModule is already loaded. Import it in the AppModule only' )
     }
