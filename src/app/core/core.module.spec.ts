@@ -5,9 +5,9 @@ describe( 'CoreModule', () => {
 
   beforeEach(() => {
     coreModule = new CoreModule( undefined )
-  })
+  } )
 
   it( 'should create an instance', () => {
     expect( coreModule ).toBeTruthy()
-  })
-})
+  } )
+} )

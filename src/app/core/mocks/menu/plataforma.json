@@ -1,46 +1,82 @@
 {
-    "headers": [
+  "header": [
+    {
+      "nomeEmpresa": "Lifebrand",
+      "cnpj": "16.729.396/0001-42"
+    }
+  ],
+  "items": [
+    {
+      "text": "Dashboard",
+      "href": "./dashboard",
+      "title": "Dashboard",
+      "icon": "icon-wifi"
+    },
+    {
+      "text": "Pedidos",
+      "href": "./pedidos",
+      "title": "Pedidos",
+      "icon": "icon-route"
+    },
+    {
+      "text": "Usuários",
+      "href": "./usuarios",
+      "title": "Usuários",
+      "icon": "icon-request-freight"
+    },
+    {
+      "text": "Motoristas",
+      "href": "./motoristas",
+      "title": "Motoristas",
+      "icon": "icon-request-freight"
+    },
+    {
+      "text": "Empresas",
+      "href": "./empresas",
+      "title": "Empresas",
+      "icon": "icon-boss"
+    },
+    {
+      "text": "Veículos",
+      "href": "./veiculos",
+      "title": "Veículos",
+      "icon": "icon-truck"
+    },
+    {
+      "text": "Equipe",
+      "href": "./equipe",
+      "title": "Equipe",
+      "icon": "icon-users"
+    },
+    {
+      "text": "Perguntas Frequentes",
+      "href": "./faq",
+      "title": "Perguntas Frequentes",
+      "icon": "icon-help"
+    },
+    {
+      "text": "Suporte",
+      "href": "./suporte",
+      "title": "Suporte",
+      "icon": "icon-chat",
+      "subItems": [
         {
-            "nomeEmpresa": "Lifebrand",
-            "cnpj": "16.729.396/0001-42"
+          "text": "Veículos",
+          "href": "./configuracoes/veiculos"
+        },
+        {
+          "text": "Adicionais",
+          "href": "./configuracoes/adicionais"
+        },
+        {
+          "text": "Objetos",
+          "href": "./configuracoes/objetos"
+        },
+        {
+          "text": "Fidelidade",
+          "href": "./configuracoes/fidelidade"
         }
-    ],
-    "menus": [
-        {
-            "text": "Fazer Frete",
-            "href": "plataforma/fazer-frete",
-            "title": "Fazer Frete",
-            "icon": "fa fa-truck"
-        },
-        {
-            "text": "Agenda",
-            "href": "plataforma/agenda",
-            "title": "Agenda",
-            "icon": "fa fa-calendar"
-        },
-        {
-            "text": "Carteira",
-            "href": "plataforma/carteira",
-            "title": "Carteira",
-            "icon": "fa fa-credit-card"
-        },
-        {
-            "text": "Fidelidade",
-            "href": "plataforma/fidelidade",
-            "title": "Fidelidade",
-            "icon": "fa fa-users"
-        },
-        {
-            "text": "Minha Conta",
-            "href": "profile",
-            "title": "Minha Conta",
-            "icon": "fa fa-user-circle-o"
-        },
-        {
-            "text": "Fale Conosco",
-            "href": "plataforma/fale-conosco",
-            "title": "Fale Conosco",
-            "icon": "fa fa-comments"
-        }
-    ]
+      ]
+    }
+  ]
 }

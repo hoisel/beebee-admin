@@ -8,18 +8,20 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { NewPasswordLinkComponent } from './new-password-link/new-password-link.component'
 import { NewPasswordChangeComponent } from './new-password-change/new-password-change.component'
 import { NewPasswordOkComponent } from './new-password-ok/new-password-ok.component'
+import { AuthComponent } from './auth.component'
 
-@NgModule({
+@NgModule( {
   imports: [
     AuthRoutingModule,
     SharedModule
   ],
   declarations: [
+    AuthComponent,
     SigninComponent,
     ForgotPasswordComponent,
     NewPasswordLinkComponent,
     NewPasswordChangeComponent,
     NewPasswordOkComponent
   ]
-})
+} )
 export class AuthModule { }

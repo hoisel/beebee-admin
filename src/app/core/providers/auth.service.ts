@@ -3,7 +3,7 @@ import { Http } from '@angular/http'
 import { BehaviorSubject } from 'rxjs/BehaviorSubject'
 import * as decode from 'jwt-decode'
 
-import { IAuth, IAuthUser, TypeAuthKeys, TypeUser } from '../interfaces'
+import { IAuth, IAuthUser, TypeAuthKeys, UserRole } from '../model'
 import { API_ENDPOINT, DEFAULT_HEADERS } from '../app.config'
 
 @Injectable()
@@ -13,7 +13,7 @@ export class AuthService {
   private loggedIn: boolean = !!this.get( TypeAuthKeys.token )
 
   // Url que tentou ser acessada sem sessão ativa
-  redirectLogin: Array<string> = [ 'plataforma' ]
+  redirectLogin: string[] = [ 'plataforma' ]
 
   constructor ( private http: Http ) {
     if ( this.isLoggedIn ) {
@@ -48,7 +48,7 @@ export class AuthService {
       .then(( token: string ) => {
         let user = decode( token )
         // Redireciona para o painel admin caso seja um
-        if ( user.tpUsuario === TypeUser.Administrator ) {
+        if ( user.tpUsuario === UserRole.Administrator ) {
           // TODO: Descomentar isso assim que for criado o painel adm
           // this.redirectLogin = ['admin']
         }

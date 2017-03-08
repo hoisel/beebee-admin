@@ -1,49 +1,49 @@
 <header>
-	<nav id="navbar" class="navbar navbar-default navbar-fixed-top" role="navigation">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<a class="navbar-brand" routerLink="/{{father}}">
-					<img class="logo" src="/assets/beebee/img/logo-beebee-black.png" alt="BeeBee">
-				</a>
-				<div class="navbar-extra">
-					<!-- reservado para ícones no futuro -->
-				</div>
-			</div>
-			<div class="navbar-mobile">
-				<button type="button" class="navbar-toggle collapsed pull-left" data-toggle="collapse" data-target="#navmenu-collapse" aria-expanded="false">
+  <nav id="navbar" class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">
+          <img class="logo" src="/assets/beebee/img/logo-beebee-black.png" alt="BeeBee">
+        </a>
+        <div class="navbar-extra">
+          <!-- reservado para ícones no futuro -->
+        </div>
+      </div>
+      <div class="navbar-mobile">
+        <button type="button" class="navbar-toggle collapsed pull-left" data-toggle="collapse" data-target="#navmenu-collapse" aria-expanded="false">
 					<span class="sr-only">Navegação</span>
 					<i class="fa fa-bars" aria-hidden="true"></i>
 				</button>
-				<button type="button" class="navbar-toggle collapsed pull-right" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+        <button type="button" class="navbar-toggle collapsed pull-right" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
 					<span class="sr-only">Mais</span>
 					<i class="fa fa-user" aria-hidden="true"></i>
 				</button>
-			</div>
-			<div id="navbar-collapse" class="collapse anim-right navbar-collapse">
-				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+      </div>
+      <div id="navbar-collapse" class="collapse anim-right navbar-collapse">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
 					<i class="icon-close" aria-hidden="true"></i>
 				</button>
-				<ul class="nav navbar-nav navbar-right" role="tablist">
-					<li class="dropdown">
-						<a class="dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-							<i class="fa fa-user"></i> {{user.name}}
-							<i class="fa fa-chevron-down"></i>
-						</a>
-						<ul class="dropdown-menu">
-							<li>
-								<a [routerLink]="['/minha-conta']">
+        <ul class="nav navbar-nav navbar-right" role="tablist">
+          <li class="dropdown">
+            <a class="dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+              <i class="fa fa-user"></i> {{user.name}}
+              <i class="fa fa-chevron-down"></i>
+            </a>
+            <ul class="dropdown-menu">
+              <li>
+                <a [routerLink]="['/minha-conta']">
 									Meu perfil
 								</a>
-							</li>
-							<li>
-								<a href="#" (click)="logout()">
+              </li>
+              <li>
+                <a href="#" (click)="logout()">
 									Sair
 								</a>
-							</li>
-						</ul>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</nav>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 </header>

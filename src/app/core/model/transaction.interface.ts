@@ -12,7 +12,7 @@ export interface ITransaction extends IModel {
   status: TypePaymentStatusTransaction
   value: number
   paymentId: string
-  logs: Array<ITransactionLog>
+  logs: ITransactionLog[]
 }
 
 export interface ITransactionLog extends IModel {

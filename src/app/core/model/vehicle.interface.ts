@@ -7,8 +7,8 @@ export interface IVehicle extends IModel {
   vehicleType: IVehicleType
   userOwner: IUser
   userOwnerId: string
-  cargoTypes: Array<ICargoType>
-  optionals: Array<IOptional>
+  cargoTypes: ICargoType[]
+  optionals: IOptional[]
 }
 
 export interface IVehicleType extends IModel {

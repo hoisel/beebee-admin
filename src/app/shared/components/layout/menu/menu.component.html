@@ -1,0 +1,16 @@
+<ul class="nav nav-sidebar">
+  <li *ngFor="let item of model.items" [routerLinkActive]="['active']" [class.dropdown]="item.subItems" [attr.data-toogle]="item.subItems">
+    <a *ngIf="!item.subItems" [routerLink]="item.href">
+      <i [class]="item.icon" aria-hidden="true"></i> {{item.text}}
+    </a>
+
+    <a *ngIf="item.subItems" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">
+      <i [class]="item.icon" aria-hidden="true"></i> {{item.text}}
+    </a>
+    <ul *ngIf="item.subItems" class="dropdown-menu">
+      <li *ngFor="let subItem of item.subItems" [routerLinkActive]="['active']">
+        <a [routerLink]="subItem.href">{{subItem.text}}</a>
+      </li>
+    </ul>
+  </li>
+</ul>

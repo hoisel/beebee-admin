@@ -1,6 +1,6 @@
 import { Http } from '@angular/http'
 import { Injectable } from '@angular/core'
-import { IUser, TypeAuthKeys, TypePerson, TypeUser, IVehicle, IOrder, ITransaction } from '../interfaces'
+import { IUser, TypeAuthKeys, TypePerson, UserRole, IVehicle, IOrder, ITransaction } from '../model'
 import * as decode from 'jwt-decode'
 import { AuthService } from './auth.service'
 import { BaseService } from './base.service'
@@ -15,7 +15,7 @@ export class UserService extends BaseService implements IUser {
   userId: string
   updatedUserId: string
   tpPerson: TypePerson
-  tpUser: TypeUser
+  tpUser: UserRole
   active: boolean
   numDocFed: string
   telephone: string
@@ -34,10 +34,10 @@ export class UserService extends BaseService implements IUser {
   userIdContractor: string
   userIndicator: IUser
   userIdIndicator: string
-  vehicles: Array<IVehicle>
-  userOrders: Array<IOrder>
-  clientOrders: Array<IOrder>
-  transactions: Array<ITransaction>
+  vehicles: IVehicle[]
+  userOrders: IOrder[]
+  clientOrders: IOrder[]
+  transactions: ITransaction[]
 
   constructor ( public http: Http, private auth: AuthService ) {
     super( http )

@@ -16,7 +16,8 @@ import {
   ProgressService,
   SharedDataService,
   ApiService,
-  ThemeService
+  ThemeService,
+  UiStateStoreService
 } from './providers'
 
 @NgModule( {
@@ -32,12 +33,13 @@ import {
     SharedDataService,
     LoggedInGuard,
     ApiService,
-    ThemeService
+    ThemeService,
+    UiStateStoreService
   ],
   exports: [
     RouterModule
   ]
-})
+} )
 export class CoreModule {
 
   /**

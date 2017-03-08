@@ -1,4 +1,4 @@
-export const STATES: Array<any> = [
+export const STATES: any[] = [
   {
     'ID': '1',
     'abbr': 'AC',

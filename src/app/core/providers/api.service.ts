@@ -3,8 +3,9 @@ import { Http, Response, Headers } from '@angular/http'
 import { Observable } from 'rxjs/Observable'
 import { Subject } from 'rxjs/Subject'
 
-import { TypeUser, IMenus, IUser } from '../interfaces'
+import { IUser } from '../model'
 import { AuthService } from './auth.service'
+import { HttpBaseService } from './http-base.service'
 import { API_ENDPOINT, DEFAULT_HEADERS } from '../app.config'
 
 let isOnline = true
@@ -12,43 +13,14 @@ window.addEventListener( 'offline', () => isOnline = false )
 window.addEventListener( 'online', () => isOnline = true )
 
 @Injectable()
-export class ApiService {
+export class ApiService extends HttpBaseService {
 
   private header: Headers = DEFAULT_HEADERS
   private apiPrefix: string = 'api/v1'
 
   constructor ( private http: Http, private auth: AuthService ) {
-    this.auth.session
-      .subscribe( token => {
-        if ( token ) {
-          this.header.set( 'Authorization', token )
-        }
-      } )
-  }
-
-  /**
-   * Requisição dos menus da sidebar que são dinâmicos (A mesma sidebar para plataforma e admin).
-   */
-  menus ( type: TypeUser ): Observable<IMenus> {
-    let from: string
-    switch ( type ) {
-      case TypeUser.Administrator:
-        from = 'admin'
-        break
-      default:
-        from = 'plataforma'
-        break
-    }
-    let url = `mocks/menu/${from}.json`
-
-    const request$ = this.http.get( url, this.header ).map( this.toJson )
-
-    // Tratamento de erro
-    let subscription = request$.subscribe(() => {
-      subscription.unsubscribe()
-    }, this.handlerError )
-
-    return request$
+    super()
+    this.auth.session.subscribe( token => token && this.header.set( 'Authorization', token ) )
   }
 
   /**
@@ -66,7 +38,7 @@ export class ApiService {
 
     const observeable: Observable<IUser> = this.http.put( this.normalizeUri( `/users/${id}` ), body, { headers: this.header } )
       .catch( this.handlerError )
-      .map( this.toJson )
+      .map( this.extractData )
 
     let sub = observeable.subscribe( user => {
 
@@ -97,7 +69,7 @@ export class ApiService {
 
     const observeable: Observable<IUser> = this.http.put( this.normalizeUri( `/users/${id}` ), body, { headers: this.header } )
       .catch( this.handlerError )
-      .map( this.toJson )
+      .map( this.extractData )
 
     let sub = observeable.subscribe( user => {
       this.auth.logout()
@@ -130,18 +102,10 @@ export class ApiService {
     // Normalizando url sem '/'
     url = url[ 0 ] === '/' ? url.substr( 1 ) : url
     // Transformando prefixo e url em array
-    let _prefix: Array<string> = ( this.apiPrefix[ 0 ] === '/' ? this.apiPrefix.substr( 1 ) : this.apiPrefix ).split( '/' )
-    let _url: Array<string> = url.split( '/' )
+    let _prefix: string[] = ( this.apiPrefix[ 0 ] === '/' ? this.apiPrefix.substr( 1 ) : this.apiPrefix ).split( '/' )
+    let _url: string[] = url.split( '/' )
     // Retornando array para string formatando como path válido de api
     return API_ENDPOINT + ( !_prefix.join( '/' ).length ? '' : '/' + _prefix.join( '/' ) ) + '/' + _url.join( '/' )
-  }
-
-  /**
-   * Pega o json que a api respondeu e transforma em um objeto javascript válido
-   * @param res: Response - Resposta do servidor
-   */
-  private toJson ( res: Response ): any {
-    return res.json()
   }
 
   /**

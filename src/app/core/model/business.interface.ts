@@ -1,4 +1,4 @@
-import { IModel, IAddress } from '../interfaces'
+import { IModel, IAddress } from '.'
 
 export interface IBusiness extends IModel, IAddress {
   fantasyName: string

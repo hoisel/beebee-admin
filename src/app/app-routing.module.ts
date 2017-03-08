@@ -9,12 +9,12 @@ import {
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'acesso/entrar',
+    redirectTo: 'plataforma',
     pathMatch: 'full'
   },
   {
-    path: 'client',
-    loadChildren: './+client/client.module#ClientModule'
+    path: 'plataforma',
+    loadChildren: './+platform/platform.module#PlatformModule'
   },
   {
     path: '403',

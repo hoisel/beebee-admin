@@ -1,4 +1,4 @@
-export * from './auth.interface'
+export * from './auth'
 export * from './business.interface'
 export * from './menus.interface'
 export * from './model.interface'

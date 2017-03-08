@@ -1,11 +1,11 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core'
 
 // modules
-import { ClientRoutingModule } from './client-routing.module'
+import { PlatformRoutingModule } from './platform-routing.module'
 import { SharedModule } from '../shared'
 
 // components
-import { ClientComponent } from './client.component'
+import { PlatformComponent } from './platform.component'
 import { DashboardComponent } from './dashboard/dashboard.component'
 import { OrderIndexComponent } from './order/index.component'
 import { OrderDetailsComponent } from './order/details.component'
@@ -33,11 +33,11 @@ import { SupportComponent } from './support/support.component'
 
 @NgModule( {
   imports: [
-    ClientRoutingModule,
+    PlatformRoutingModule,
     SharedModule
   ],
   declarations: [
-    ClientComponent,
+    PlatformComponent,
     BusinessFormComponent,
     BusinessIndexComponent,
     ConfigBonusComponent,
@@ -67,5 +67,5 @@ import { SupportComponent } from './support/support.component'
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
   ]
-})
-export class ClientModule { }
+} )
+export class PlatformModule { }

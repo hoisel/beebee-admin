@@ -23,7 +23,10 @@
     "component-selector": [
       true,
       "element",
-      "app",
+      [
+        "app",
+        "bee"
+      ],
       "kebab-case"
     ],
     "use-input-property-decorator": true,

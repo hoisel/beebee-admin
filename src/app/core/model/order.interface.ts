@@ -8,14 +8,14 @@ export interface IOrder extends IModel {
   orderUserId: string
   clientUser: IUser
   clientUserId: string
-  transactions: Array<ITransaction>
+  transactions: ITransaction[]
   orderDate: Date
   paymentDate: Date
   acceptedDate: Date
   scheduleDate: Date
   closedDate: Date
-  itens: Array<IOrderItem>
-  options: Array<IOrderOptions>
+  itens: IOrderItem[]
+  options: IOrderOptions[]
   avaliation: number
   avaliationDate: Date
   avaliationComment: string

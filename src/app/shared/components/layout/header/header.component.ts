@@ -1,47 +1,30 @@
-import { Component, OnInit, OnDestroy } from '@angular/core'
-import { ActivatedRoute } from '@angular/router'
-import { Subscription } from 'rxjs/Subscription'
-
-import { UserService, AuthService, ThemeService } from '../../../../core'
+import { Component } from '@angular/core'
+import { UserService, AuthService } from '../../../../core'
 
 @Component( {
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: [ './header.component.css' ]
 } )
-export class HeaderComponent implements OnInit, OnDestroy {
-  private subscriptions: Array<Subscription> = new Array<Subscription>()
-  title: string
-  father: string
+export class HeaderComponent {
 
-  constructor (
-    private theme: ThemeService,
-    public user: UserService,
-    private auth: AuthService,
-    private route: ActivatedRoute
-  ) {
-    this.route.url.subscribe( u => {
-      this.father = u[ 0 ].path !== 'plataforma' && u[ 0 ].path !== 'admin' ? '' : u[ 0 ].path
-    } )
-  }
+  /**
+   * Creates an instance of HeaderComponent.
+   * @param {UserService} user
+   * @param {AuthService} auth
+   *
+   * @memberOf HeaderComponent
+   */
+  constructor ( public user: UserService, private auth: AuthService ) { }
 
-  ngOnInit (): void {
-    // Ouvindo alterações no título e alterando no header
-    // Subscription do título da página
-    this.subscriptions.push(
-      this.theme.getTitle$().subscribe( title => {
-        this.title = title
-      } )
-    )
-  }
-
-  ngOnDestroy (): void {
-    // Unsubscribe em todos os subscriptions deste componente
-    this.subscriptions.forEach( sub => sub.unsubscribe() )
-  }
-
+  /**
+   *
+   *
+   * @returns {void}
+   *
+   * @memberOf HeaderComponent
+   */
   logout (): void {
     return this.auth.logout()
   }
-
 }

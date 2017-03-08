@@ -11,6 +11,10 @@ import {
   BreadCrumbComponent,
   FormWizardComponent
 } from './components/layout'
+import { MenuComponent } from './components/layout/menu/menu.component'
+import { MarketPlaceComponent } from './components/layout/market-place/market-place.component'
+import { SocialMediaComponent } from './components/layout/social-media/social-media.component'
+import { BrandComponent } from './components/layout/brand/brand.component'
 
 @NgModule( {
   imports: [
@@ -24,7 +28,11 @@ import {
     SidebarLeftComponent,
     HeaderComponent,
     BreadCrumbComponent,
-    FormWizardComponent
+    FormWizardComponent,
+    MenuComponent,
+    MarketPlaceComponent,
+    SocialMediaComponent,
+    BrandComponent
   ],
   exports: [
     CommonModule,
@@ -34,10 +42,14 @@ import {
     SidebarLeftComponent,
     HeaderComponent,
     BreadCrumbComponent,
-    FormWizardComponent
+    FormWizardComponent,
+    MenuComponent,
+    MarketPlaceComponent,
+    SocialMediaComponent,
+    BrandComponent
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
   ]
-})
+} )
 export class SharedModule { }

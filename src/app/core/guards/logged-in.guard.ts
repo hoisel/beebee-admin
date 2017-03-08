@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core'
 import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router'
 import { AuthService, UserService } from '../providers'
-import { TypeUser } from '../interfaces'
+import { UserRole } from '../model'
 
 @Injectable()
 export class LoggedInGuard implements CanActivate {
@@ -14,7 +14,7 @@ export class LoggedInGuard implements CanActivate {
       this.auth.redirectLogin = state.url.split( '/' ).filter( r => r && r.length )
       this.router.navigate( [ 'login' ] )
     } else if ( route.url[ 0 ].path === 'admin' ) {
-      isAllowed = this.user.tpUser === TypeUser.Administrator
+      isAllowed = this.user.tpUser === UserRole.Administrator
       if ( !isAllowed ) {
         this.router.navigate( [ '403' ] )
       }

@@ -5,7 +5,7 @@ import { ITransaction } from './transaction.interface'
 
 export interface IUser extends IModel, IAddress {
   tpPerson: TypePerson
-  tpUser: TypeUser
+  tpUser: UserRole
   numDocFed: string
   rg?: string
   cnh?: string
@@ -19,10 +19,10 @@ export interface IUser extends IModel, IAddress {
   userIdContractor: string
   userIndicator: IUser
   userIdIndicator: string
-  vehicles: Array<IVehicle>
-  userOrders: Array<IOrder>
-  clientOrders: Array<IOrder>
-  transactions: Array<ITransaction>
+  vehicles: IVehicle[]
+  userOrders: IOrder[]
+  clientOrders: IOrder[]
+  transactions: ITransaction[]
 }
 
 export enum TypePerson {
@@ -30,7 +30,7 @@ export enum TypePerson {
   Enterprise = 1
 }
 
-export enum TypeUser {
+export enum UserRole {
   Client = 0,
   Freighter = 1,
   Operator = 2,

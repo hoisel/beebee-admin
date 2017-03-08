@@ -1,22 +1,16 @@
 {
-    "headers": [
-        {
-            "nomeEmpresa": "Lifebrand",
-            "cnpj": "16.729.396/0001-42"
-        }
-    ],
-    "menus": [
-        {
-            "text": "Dashboard",
-            "href": "/dashboard",
-            "title": "Dashboard",
-            "icon": "fa fa-dashboard"
-        },
-        {
-            "text": "Cadastro de Empresa",
-            "href": "/empresa",
-            "title": "Empresa",
-            "icon": "fa fa-car"
-        }
-    ]
+  "header": [
+    {
+      "nomeEmpresa": "Lifebrand",
+      "cnpj": "16.729.396/0001-42"
+    }
+  ],
+  "items": [
+    {
+      "text": "Empresas",
+      "href": "./empresa",
+      "title": "Empresas",
+      "icon": "icon-wifi"
+    }
+  ]
 }

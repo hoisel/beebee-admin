@@ -13,7 +13,7 @@ interface IRouteBc {
   styleUrls: [ './bread-crumb.component.css' ]
 } )
 export class BreadCrumbComponent implements OnInit, OnDestroy {
-  public stack: Array<IRouteBc> = new Array<IRouteBc>()
+  public stack: IRouteBc[] = []
   private subscription: Subscription
 
   constructor ( private router: Router, private route: ActivatedRoute ) { }
@@ -24,11 +24,13 @@ export class BreadCrumbComponent implements OnInit, OnDestroy {
       .subscribe( event => {
         let currentRoute = this.route.root
         let urlMaped: any = []
+
         while ( currentRoute.children[ 0 ] !== undefined ) {
           currentRoute = currentRoute.children[ 0 ]
+          const path = currentRoute.snapshot.url[ 0 ] ? currentRoute.snapshot.url[ 0 ].path : ''
           urlMaped.push( {
             name: currentRoute.snapshot.data[ 'name' ],
-            path: currentRoute.snapshot.url[ 0 ].path
+            path: path
           } )
         }
 
