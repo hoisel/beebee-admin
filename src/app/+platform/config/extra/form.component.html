@@ -1,87 +1,83 @@
- <div class="wrapper-content">
-	<app-bread-crumb></app-bread-crumb>
-	<section>
-		<header class="page-header">
-			<h2>Cadastro de Adicionais</h2>
-      <p>Definições referentes à adicionais para pedidos de fretes</p>
-		</header>
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <form novalidate>
-          <div class="form-group">
-            <label for="type">Tipo de Adicionais:</label>
-            <input id="type" name="type" type="text" class="form-control" placeholder="Tipo dos adicionais">
-          </div>
-          <div class="form-group">
-            <label for="config">Configuração:</label>
-            <select name="config" class="form-control">
+<section>
+  <header class="page-header">
+    <h2>Cadastro de Adicionais</h2>
+    <p>Definições referentes à adicionais para pedidos de fretes</p>
+  </header>
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <form novalidate>
+        <div class="form-group">
+          <label for="type">Tipo de Adicionais:</label>
+          <input id="type" name="type" type="text" class="form-control" placeholder="Tipo dos adicionais">
+        </div>
+        <div class="form-group">
+          <label for="config">Configuração:</label>
+          <select name="config" class="form-control">
               <option>Selecione...</option>
               <option>Somente uma opção (um adicional)</option>
               <option>Várias opções (mais que um adicional)</option>
             </select>
-          </div>
-          <hr>
-          <h3>
-            Adicionais
-          </h3>
-          <p>
-            Nenhum adicional cadastrado.
-          </p>
-          <table class="table table-hover table-striped margin-bottom-lg">
-            <thead>
-              <tr>
-                <th>
-                  ID
-                </th>
-                <th>
-                  Adicional
-                </th>
-                <th>
-                  Valor
-                </th>
-                <th>
-                  &nbsp;
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>
-                  001
-                </td>
-                <td class="text-nowrap">
-                  Lorem Ipsum
-                </td>
-                <td>
-                  R$ 30,00
-                </td>
-                <td>
-                  <div class="btn-group pull-right">
-                    <a [routerLink]="['/configuracoes/adicionais/id']" class="btn btn-info" data-toggle="tooltip" data-placement="top" title="Editar">
-                      <i class="fa fa-pencil" aria-hidden="true"></i>
-                    </a>
-                    <a href="#" class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Remover">
-                      <i class="fa fa-trash" aria-hidden="true"></i>
-                    </a>
-                  </div>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-          <button type="button" class="btn btn-default pull-left" data-toggle="modal" data-target="#modal">
+        </div>
+        <hr>
+        <h3>
+          Adicionais
+        </h3>
+        <p>
+          Nenhum adicional cadastrado.
+        </p>
+        <table class="table table-hover table-striped margin-bottom-lg">
+          <thead>
+            <tr>
+              <th>
+                ID
+              </th>
+              <th>
+                Adicional
+              </th>
+              <th>
+                Valor
+              </th>
+              <th>
+                &nbsp;
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                001
+              </td>
+              <td class="text-nowrap">
+                Lorem Ipsum
+              </td>
+              <td>
+                R$ 30,00
+              </td>
+              <td>
+                <div class="btn-group pull-right">
+                  <a [routerLink]="['/configuracoes/adicionais/id']" class="btn btn-info" data-toggle="tooltip" data-placement="top" title="Editar">
+                    <i class="fa fa-pencil" aria-hidden="true"></i>
+                  </a>
+                  <a href="#" class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Remover">
+                    <i class="fa fa-trash" aria-hidden="true"></i>
+                  </a>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <button type="button" class="btn btn-default pull-left" data-toggle="modal" data-target="#modal">
             <i class="fa fa-plus" aria-hidden="true"></i>
             Novo adicional
           </button>
-          <button type="submit" class="btn btn-success">
+        <button type="submit" class="btn btn-success">
             <i class="fa fa-check" aria-hidden="true"></i>
             Salvar
           </button>
-        </form>
-      </div>
+      </form>
     </div>
-	</section>
-</div>
-
+  </div>
+</section>
 
 <div class="modal" tabindex="-1" role="dialog" id="modal" aria-labelledby="myModalLabel">
   <div class="modal-dialog modal-sm" role="document">

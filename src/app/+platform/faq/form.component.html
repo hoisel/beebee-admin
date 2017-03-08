@@ -1,19 +1,17 @@
- <div class="wrapper-content">
-	<app-bread-crumb></app-bread-crumb>
-	<section>
-		<header class="page-header">
-			<h2>Cadastro de Perguntas Frequentes</h2>
-      <p>Informações de pergunta e respostas frequentes</p>
-		</header>
-		<div class="row">
-			<div class="col-xs-12">
-				<section>
-					<div class="panel panel-default">
-						<div class="panel-body">
-              <form novalidate>
-                <div class="form-group">
-                   <label for="tipo">Categoria:</label>
-                   <select name="tipo" class="form-control">
+<section>
+  <header class="page-header">
+    <h2>Cadastro de Perguntas Frequentes</h2>
+    <p>Informações de pergunta e respostas frequentes</p>
+  </header>
+  <div class="row">
+    <div class="col-xs-12">
+      <section>
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <form novalidate>
+              <div class="form-group">
+                <label for="tipo">Categoria:</label>
+                <select name="tipo" class="form-control">
                     <option>
                       Categoria
                     </option>
@@ -27,24 +25,23 @@
                       Lorem Ipsum
                     </option>
                   </select>
-                </div>
-                <div class="form-group">
-                  <label for="question">Pergunta:</label>
-                  <input id="question" name="question" type="text" class="form-control">
-                </div>
-                <div class="form-group">
-                  <label for="answer">Resposta:</label>
-                  <textarea class="form-control" rows="7" id="answer"></textarea>
-                </div>
-                <button type="submit" class="btn btn-success">
+              </div>
+              <div class="form-group">
+                <label for="question">Pergunta:</label>
+                <input id="question" name="question" type="text" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="answer">Resposta:</label>
+                <textarea class="form-control" rows="7" id="answer"></textarea>
+              </div>
+              <button type="submit" class="btn btn-success">
                   <i class="fa fa-check" aria-hidden="true"></i>
                   Salvar
                 </button>
-              </form>
-						</div>
-					</div>
-				</section>
-			</div>
-		</div>
-	</section>
-</div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</section>

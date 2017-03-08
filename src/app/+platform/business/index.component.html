@@ -1,146 +1,143 @@
-<div class="wrapper-content">
-  <app-bread-crumb></app-bread-crumb>
-  <section>
-    <header class="page-header">
-      <h2>
-        Empresas
-      </h2>
-      <p>
-        Relação de empresas cadastradas
-      </p>
-      <div class="actions">
-        <form class="form-inline">
-          <div class="form-group">
-            <select name="action1" id="action1" class="form-control">
+<section>
+  <header class="page-header">
+    <h2>
+      Empresas
+    </h2>
+    <p>
+      Relação de empresas cadastradas
+    </p>
+    <div class="actions">
+      <form class="form-inline">
+        <div class="form-group">
+          <select name="action1" id="action1" class="form-control">
               <option value="all">Todas</option>
             </select>
-          </div>
-          <div class="form-group">
-            <select name="action2" id="action2" class="form-control">
+        </div>
+        <div class="form-group">
+          <select name="action2" id="action2" class="form-control">
               <option value="">Todos</option>
             </select>
-          </div>
-          <button type="submit" class="btn btn-info">Filtrar</button>
-        </form>
-      </div>
-    </header>
-		<div class="panel panel-default">
-			<div class="panel-body">
-        <div class="table-responsive">
-          <table class="table table-hover table-striped">
-            <thead>
-              <tr>
-                <th>
-                  ID
-                </th>
-                <th>
-                  Empresa
-                </th>
-                <th>
-                  CNPJ
-                </th>
-                <th>
-                  Telefone
-                </th>
-                <th>
-                  Email
-                </th>
-                <th>
-                  Região
-                </th>
-                <th>
-                  Status
-                </th>
-                <th>
-                  &nbsp;
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td class="text-nowrap">
-                  001
-                </td>
-                <td>
-                  Millenium Comercial
-                </td>
-                <td class="text-nowrap">
-                  16.729.396/0001-42
-                </td>
-                <td class="text-nowrap">
-                  (27) 3024-2357
-                </td>
-                <td class="text-nowrap">
-                  contato@pixtoy.com
-                </td>
-                <td class="text-nowrap">
-                  Vitória - ES
-                </td>
-                <td class="text-nowrap">
-                  Pendente
-                </td>
-                <td>
-                  <div class="btn-group pull-right">
-                    <a [routerLink]="['/empresas/id']" class="btn btn-info" data-toggle="tooltip" data-placement="top" title="Mais informações">
-                      <i class="fa fa-folder-open" aria-hidden="true"></i>
-                    </a>
-                    <!-- se não tiver aprovado, exibe a opção de aprovar -->
-                    <a href="#" class="btn btn-success" data-toggle="tooltip" data-placement="top" title="Aprovar">
-                      <i class="fa fa-check-square-o" aria-hidden="true"></i>
-                    </a>
-                    <!-- se já tiver aprovado, exibe a opção de bloquear -->
-                    <!--
+        </div>
+        <button type="submit" class="btn btn-info">Filtrar</button>
+      </form>
+    </div>
+  </header>
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <div class="table-responsive">
+        <table class="table table-hover table-striped">
+          <thead>
+            <tr>
+              <th>
+                ID
+              </th>
+              <th>
+                Empresa
+              </th>
+              <th>
+                CNPJ
+              </th>
+              <th>
+                Telefone
+              </th>
+              <th>
+                Email
+              </th>
+              <th>
+                Região
+              </th>
+              <th>
+                Status
+              </th>
+              <th>
+                &nbsp;
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="text-nowrap">
+                001
+              </td>
+              <td>
+                Millenium Comercial
+              </td>
+              <td class="text-nowrap">
+                16.729.396/0001-42
+              </td>
+              <td class="text-nowrap">
+                (27) 3024-2357
+              </td>
+              <td class="text-nowrap">
+                contato@pixtoy.com
+              </td>
+              <td class="text-nowrap">
+                Vitória - ES
+              </td>
+              <td class="text-nowrap">
+                Pendente
+              </td>
+              <td>
+                <div class="btn-group pull-right">
+                  <a [routerLink]="['./id']" class="btn btn-info" data-toggle="tooltip" data-placement="top" title="Mais informações">
+                    <i class="fa fa-folder-open" aria-hidden="true"></i>
+                  </a>
+                  <!-- se não tiver aprovado, exibe a opção de aprovar -->
+                  <a href="#" class="btn btn-success" data-toggle="tooltip" data-placement="top" title="Aprovar">
+                    <i class="fa fa-check-square-o" aria-hidden="true"></i>
+                  </a>
+                  <!-- se já tiver aprovado, exibe a opção de bloquear -->
+                  <!--
                     <a href="#" class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Bloquear">
                       <i class="fa fa-ban" aria-hidden="true"></i>
                     </a>
                     -->
-                  </div>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="panel-footer">
+      <div class="row">
+        <div class="col-sm-6">
+          <nav aria-label="Page navigation">
+            <ul class="pagination pagination-sm">
+              <li>
+                <a href="#" aria-label="Previous">
+                  <span aria-hidden="true">&laquo;</span>
+                </a>
+              </li>
+              <li class="disabled">
+                <a href="#">1</a>
+              </li>
+              <li class="active">
+                <a href="#">2</a>
+              </li>
+              <li>
+                <a href="#">3</a>
+              </li>
+              <li>
+                <a href="#">4</a>
+              </li>
+              <li>
+                <a href="#">5</a>
+              </li>
+              <li>
+                <a href="#" aria-label="Next">
+                  <span aria-hidden="true">&raquo;</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <div class="col-sm-6">
+          <p>
+            Listando 230 itens
+          </p>
         </div>
       </div>
-      <div class="panel-footer">
-        <div class="row">
-          <div class="col-sm-6">
-            <nav aria-label="Page navigation">
-              <ul class="pagination pagination-sm">
-                <li>
-                  <a href="#" aria-label="Previous">
-                    <span aria-hidden="true">&laquo;</span>
-                  </a>
-                </li>
-                <li class="disabled">
-                  <a href="#">1</a>
-                </li>
-                <li class="active">
-                  <a href="#">2</a>
-                </li>
-                <li>
-                  <a href="#">3</a>
-                </li>
-                <li>
-                  <a href="#">4</a>
-                </li>
-                <li>
-                  <a href="#">5</a>
-                </li>
-                <li>
-                  <a href="#" aria-label="Next">
-                    <span aria-hidden="true">&raquo;</span>
-                  </a>
-                </li>
-              </ul>
-            </nav>
-          </div>
-          <div class="col-sm-6">
-            <p>
-              Listando 230 itens
-            </p>
-          </div>
-        </div>
-      </div>
-		</div>
-  </section>
-</div>
+    </div>
+  </div>
+</section>

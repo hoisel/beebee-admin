@@ -1,268 +1,266 @@
- <div class="wrapper-content">
-	<app-bread-crumb></app-bread-crumb>
-	<section>
-		<header class="page-header">
-			<h2>Cadastro de Categoria de Veículo</h2>
-      <p>Definições referentes à categoria de veículo disponível</p>
-		</header>
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <form novalidate>
-          <div class="form-group">
-            <label for="category">Categoria:</label>
-            <input id="category" name="category" type="text" class="form-control" placeholder="Categoria do Veículo">
+<section>
+  <header class="page-header">
+    <h2>Cadastro de Categoria de Veículo</h2>
+    <p>Definições referentes à categoria de veículo disponível</p>
+  </header>
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <form novalidate>
+        <div class="form-group">
+          <label for="category">Categoria:</label>
+          <input id="category" name="category" type="text" class="form-control" placeholder="Categoria do Veículo">
+        </div>
+        <div class="form-group">
+          <label for="icon">Código do ícone:</label>
+          <input id="icon" name="icon" type="text" class="form-control" placeholder="icon-description">
+        </div>
+        <div class="form-group">
+          <label for="dimension">Dimensões máximas:</label>
+          <div class="row">
+            <div class="col-sm-4">
+              <input id="icon" name="icon" type="text" class="form-control" placeholder="Largura">
+            </div>
+            <div class="col-sm-4">
+              <input id="icon" name="icon" type="text" class="form-control" placeholder="Altura">
+            </div>
+            <div class="col-sm-4">
+              <input id="icon" name="icon" type="text" class="form-control" placeholder="Comprimento">
+            </div>
           </div>
-          <div class="form-group">
-            <label for="icon">Código do ícone:</label>
-            <input id="icon" name="icon" type="text" class="form-control" placeholder="icon-description">
+        </div>
+        <div class="form-group">
+          <label for="maximum-capacity">Capacidade máxima de carga:</label>
+          <input id="maximum-capacity" name="maximum-capacity" type="text" class="form-control" placeholder="Em kg">
+        </div>
+        <hr>
+        <h3>
+          Tipos
+        </h3>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <div class="checkbox">
+                <label class="checkbox">
+                    <input type="checkbox">
+                    <span>Em atividade?</span>
+                  </label>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="desc2">Descrição:</label>
+              <input id="desc2" name="desc2" type="text" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="icon2">Código do ícone:</label>
+              <input id="icon2" name="icon2" type="text" class="form-control" placeholder="icon-description">
+            </div>
           </div>
-          <div class="form-group">
-            <label for="dimension">Dimensões máximas:</label>
+          <div class="col-sm-6">
+            <div class="form-group">
+              <div class="checkbox">
+                <label class="checkbox">
+                    <input type="checkbox">
+                    <span>Em atividade?</span>
+                  </label>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="desc3">Descrição:</label>
+              <input id="desc3" name="desc3" type="text" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="icon3">Código do ícone:</label>
+              <input id="icon3" name="icon3" type="text" class="form-control" placeholder="icon-description">
+            </div>
+          </div>
+        </div>
+        <hr>
+        <h3>
+          Cálculo de Fretes <small><i>(mvp)</i></small>
+        </h3>
+        <div class="row">
+          <div class="col-md-4">
+            <h4>
+              Origem à destino
+            </h4>
             <div class="row">
-              <div class="col-sm-4">
-                <input id="icon" name="icon" type="text" class="form-control" placeholder="Largura">
-              </div>
-              <div class="col-sm-4">
-                <input id="icon" name="icon" type="text" class="form-control" placeholder="Altura">
-              </div>
-              <div class="col-sm-4">
-                <input id="icon" name="icon" type="text" class="form-control" placeholder="Comprimento">
-              </div>
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="maximum-capacity">Capacidade máxima de carga:</label>
-            <input id="maximum-capacity" name="maximum-capacity" type="text" class="form-control" placeholder="Em kg">
-          </div>
-          <hr>
-          <h3>
-            Tipos
-          </h3>
-          <div class="row">
-            <div class="col-sm-6">
-              <div class="form-group">
-                  <div class="checkbox">
-                  <label class="checkbox">
-                    <input type="checkbox">
-                    <span>Em atividade?</span>
-                  </label>
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="desc2">Descrição:</label>
-                <input id="desc2" name="desc2" type="text" class="form-control">
-              </div>
-              <div class="form-group">
-                <label for="icon2">Código do ícone:</label>
-                <input id="icon2" name="icon2" type="text" class="form-control" placeholder="icon-description">
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="form-group">
-                  <div class="checkbox">
-                  <label class="checkbox">
-                    <input type="checkbox">
-                    <span>Em atividade?</span>
-                  </label>
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="desc3">Descrição:</label>
-                <input id="desc3" name="desc3" type="text" class="form-control">
-              </div>
-              <div class="form-group">
-                <label for="icon3">Código do ícone:</label>
-                <input id="icon3" name="icon3" type="text" class="form-control" placeholder="icon-description">
-              </div>
-            </div>
-          </div>
-          <hr>
-          <h3>
-            Cálculo de Fretes <small><i>(mvp)</i></small>
-          </h3>
-          <div class="row">
-            <div class="col-md-4">
-              <h4>
-                Origem à destino
-              </h4>
-              <div class="row">
-                <div class="col-sm-4 col-md-12">
-                  <div class="form-group">
-                    <label for="value-km">Valor por km:</label>
-                    <div class="input-group">
-                      <div class="input-group-addon">R$</div>
-                      <input id="value-km" name="value-km" type="text" class="form-control" value="15,00">
-                    </div>
+              <div class="col-sm-4 col-md-12">
+                <div class="form-group">
+                  <label for="value-km">Valor por km:</label>
+                  <div class="input-group">
+                    <div class="input-group-addon">R$</div>
+                    <input id="value-km" name="value-km" type="text" class="form-control" value="15,00">
                   </div>
                 </div>
-                <div class="col-sm-4 col-md-12">
-                  <div class="form-group">
-                    <label for="value-km">Bandeirada:</label>
-                    <div class="input-group">
-                      <div class="input-group-addon">R$</div>
-                      <input id="value-km" name="value-km" type="text" class="form-control" value="15,00">
-                    </div>
+              </div>
+              <div class="col-sm-4 col-md-12">
+                <div class="form-group">
+                  <label for="value-km">Bandeirada:</label>
+                  <div class="input-group">
+                    <div class="input-group-addon">R$</div>
+                    <input id="value-km" name="value-km" type="text" class="form-control" value="15,00">
                   </div>
                 </div>
-                <div class="col-sm-4 col-md-12">
-                  <div class="form-group">
-                    <label for="value-km">Sub-bandeirada:</label>
-                    <div class="input-group">
-                      <div class="input-group-addon">R$</div>
-                      <input id="value-km" name="value-km" type="text" class="form-control" value="15,00">
-                    </div>
+              </div>
+              <div class="col-sm-4 col-md-12">
+                <div class="form-group">
+                  <label for="value-km">Sub-bandeirada:</label>
+                  <div class="input-group">
+                    <div class="input-group-addon">R$</div>
+                    <input id="value-km" name="value-km" type="text" class="form-control" value="15,00">
                   </div>
                 </div>
               </div>
             </div>
-            <div class="col-md-4">
-              <h4>
-                Por hora
-              </h4>
-              <div class="form-group">
-                <label for="value-hour">Valor por hora:</label>
-                <div class="input-group">
-                  <div class="input-group-addon">R$</div>
-                  <input id="value-hour" name="value-hour" type="text" class="form-control" value="3,00">
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <h4>
-                Comissão
-              </h4>
-              <div class="form-group">
-                <label for="value-comission">Comissão BeeBee:</label>
-                <div class="input-group">
-                  <div class="input-group-addon">%</div>
-                  <input id="value-comission" name="value-comission" type="text" class="form-control" value="5,00">
-                </div>
+          </div>
+          <div class="col-md-4">
+            <h4>
+              Por hora
+            </h4>
+            <div class="form-group">
+              <label for="value-hour">Valor por hora:</label>
+              <div class="input-group">
+                <div class="input-group-addon">R$</div>
+                <input id="value-hour" name="value-hour" type="text" class="form-control" value="3,00">
               </div>
             </div>
           </div>
-          <hr>
-          <h3>
-            Adicionais
-          </h3>
-          <div class="row">
-            <div class="col-sm-6 col-lg-4">
-              <div class="form-group">
-                <label>Lorem Ipsum:</label>
-                <div class="checkbox">
-                  <label class="checkbox">
-                    <input type="checkbox">
-                    <span>Lorem Ipsum <small>(R$ 12,00)</small></span>
-                  </label>
-                  <label class="checkbox">
-                    <input type="checkbox">
-                    <span>Lorem Ipsum <small>(R$ 12,00)</small></span>
-                  </label>
-                  <label class="checkbox">
-                    <input type="checkbox">
-                    <span>Lorem Ipsum <small>(R$ 12,00)</small></span>
-                  </label>
-                  <label class="checkbox">
-                    <input type="checkbox">
-                    <span>Lorem Ipsum <small>(R$ 12,00)</small></span>
-                  </label>
-                  <label class="checkbox">
-                    <input type="checkbox">
-                    <span>Lorem Ipsum <small>(R$ 12,00)</small></span>
-                  </label>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-6 col-lg-4">
-              <div class="form-group">
-                <label>Lorem Ipsum:</label>
-                <div class="checkbox">
-                  <label class="checkbox">
-                    <input type="checkbox">
-                    <span>Lorem Ipsum <small>(R$ 12,00)</small></span>
-                  </label>
-                  <label class="checkbox">
-                    <input type="checkbox">
-                    <span>Lorem Ipsum <small>(R$ 12,00)</small></span>
-                  </label>
-                  <label class="checkbox">
-                    <input type="checkbox">
-                    <span>Lorem Ipsum <small>(R$ 12,00)</small></span>
-                  </label>
-                  <label class="checkbox">
-                    <input type="checkbox">
-                    <span>Lorem Ipsum <small>(R$ 12,00)</small></span>
-                  </label>
-                  <label class="checkbox">
-                    <input type="checkbox">
-                    <span>Lorem Ipsum <small>(R$ 12,00)</small></span>
-                  </label>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-6 col-lg-4">
-              <div class="form-group">
-                <label>Lorem Ipsum:</label>
-                <div class="checkbox">
-                  <label class="checkbox">
-                    <input type="checkbox">
-                    <span>Lorem Ipsum <small>(R$ 12,00)</small></span>
-                  </label>
-                  <label class="checkbox">
-                    <input type="checkbox">
-                    <span>Lorem Ipsum <small>(R$ 12,00)</small></span>
-                  </label>
-                  <label class="checkbox">
-                    <input type="checkbox">
-                    <span>Lorem Ipsum <small>(R$ 12,00)</small></span>
-                  </label>
-                  <label class="checkbox">
-                    <input type="checkbox">
-                    <span>Lorem Ipsum <small>(R$ 12,00)</small></span>
-                  </label>
-                  <label class="checkbox">
-                    <input type="checkbox">
-                    <span>Lorem Ipsum <small>(R$ 12,00)</small></span>
-                  </label>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-6 col-lg-4">
-              <div class="form-group">
-                <label>Lorem Ipsum:</label>
-                <div class="checkbox">
-                  <label class="checkbox">
-                    <input type="checkbox">
-                    <span>Lorem Ipsum <small>(R$ 12,00)</small></span>
-                  </label>
-                  <label class="checkbox">
-                    <input type="checkbox">
-                    <span>Lorem Ipsum <small>(R$ 12,00)</small></span>
-                  </label>
-                  <label class="checkbox">
-                    <input type="checkbox">
-                    <span>Lorem Ipsum <small>(R$ 12,00)</small></span>
-                  </label>
-                  <label class="checkbox">
-                    <input type="checkbox">
-                    <span>Lorem Ipsum <small>(R$ 12,00)</small></span>
-                  </label>
-                  <label class="checkbox">
-                    <input type="checkbox">
-                    <span>Lorem Ipsum <small>(R$ 12,00)</small></span>
-                  </label>
-                </div>
+          <div class="col-md-4">
+            <h4>
+              Comissão
+            </h4>
+            <div class="form-group">
+              <label for="value-comission">Comissão BeeBee:</label>
+              <div class="input-group">
+                <div class="input-group-addon">%</div>
+                <input id="value-comission" name="value-comission" type="text" class="form-control" value="5,00">
               </div>
             </div>
           </div>
-          <hr>
-          <h3>
-            Objetos de Referência
-          </h3>
-          <div class="row">
-            <div class="col-sm-6 col-lg-4">
-              <div class="form-group">
-                <div class="checkbox">
-                  <label class="checkbox">
+        </div>
+        <hr>
+        <h3>
+          Adicionais
+        </h3>
+        <div class="row">
+          <div class="col-sm-6 col-lg-4">
+            <div class="form-group">
+              <label>Lorem Ipsum:</label>
+              <div class="checkbox">
+                <label class="checkbox">
+                    <input type="checkbox">
+                    <span>Lorem Ipsum <small>(R$ 12,00)</small></span>
+                  </label>
+                <label class="checkbox">
+                    <input type="checkbox">
+                    <span>Lorem Ipsum <small>(R$ 12,00)</small></span>
+                  </label>
+                <label class="checkbox">
+                    <input type="checkbox">
+                    <span>Lorem Ipsum <small>(R$ 12,00)</small></span>
+                  </label>
+                <label class="checkbox">
+                    <input type="checkbox">
+                    <span>Lorem Ipsum <small>(R$ 12,00)</small></span>
+                  </label>
+                <label class="checkbox">
+                    <input type="checkbox">
+                    <span>Lorem Ipsum <small>(R$ 12,00)</small></span>
+                  </label>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4">
+            <div class="form-group">
+              <label>Lorem Ipsum:</label>
+              <div class="checkbox">
+                <label class="checkbox">
+                    <input type="checkbox">
+                    <span>Lorem Ipsum <small>(R$ 12,00)</small></span>
+                  </label>
+                <label class="checkbox">
+                    <input type="checkbox">
+                    <span>Lorem Ipsum <small>(R$ 12,00)</small></span>
+                  </label>
+                <label class="checkbox">
+                    <input type="checkbox">
+                    <span>Lorem Ipsum <small>(R$ 12,00)</small></span>
+                  </label>
+                <label class="checkbox">
+                    <input type="checkbox">
+                    <span>Lorem Ipsum <small>(R$ 12,00)</small></span>
+                  </label>
+                <label class="checkbox">
+                    <input type="checkbox">
+                    <span>Lorem Ipsum <small>(R$ 12,00)</small></span>
+                  </label>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4">
+            <div class="form-group">
+              <label>Lorem Ipsum:</label>
+              <div class="checkbox">
+                <label class="checkbox">
+                    <input type="checkbox">
+                    <span>Lorem Ipsum <small>(R$ 12,00)</small></span>
+                  </label>
+                <label class="checkbox">
+                    <input type="checkbox">
+                    <span>Lorem Ipsum <small>(R$ 12,00)</small></span>
+                  </label>
+                <label class="checkbox">
+                    <input type="checkbox">
+                    <span>Lorem Ipsum <small>(R$ 12,00)</small></span>
+                  </label>
+                <label class="checkbox">
+                    <input type="checkbox">
+                    <span>Lorem Ipsum <small>(R$ 12,00)</small></span>
+                  </label>
+                <label class="checkbox">
+                    <input type="checkbox">
+                    <span>Lorem Ipsum <small>(R$ 12,00)</small></span>
+                  </label>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4">
+            <div class="form-group">
+              <label>Lorem Ipsum:</label>
+              <div class="checkbox">
+                <label class="checkbox">
+                    <input type="checkbox">
+                    <span>Lorem Ipsum <small>(R$ 12,00)</small></span>
+                  </label>
+                <label class="checkbox">
+                    <input type="checkbox">
+                    <span>Lorem Ipsum <small>(R$ 12,00)</small></span>
+                  </label>
+                <label class="checkbox">
+                    <input type="checkbox">
+                    <span>Lorem Ipsum <small>(R$ 12,00)</small></span>
+                  </label>
+                <label class="checkbox">
+                    <input type="checkbox">
+                    <span>Lorem Ipsum <small>(R$ 12,00)</small></span>
+                  </label>
+                <label class="checkbox">
+                    <input type="checkbox">
+                    <span>Lorem Ipsum <small>(R$ 12,00)</small></span>
+                  </label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <h3>
+          Objetos de Referência
+        </h3>
+        <div class="row">
+          <div class="col-sm-6 col-lg-4">
+            <div class="form-group">
+              <div class="checkbox">
+                <label class="checkbox">
                     <input type="checkbox">
                     <i class="icon-sofa"></i>
                     <div>
@@ -279,13 +277,13 @@
                       </span>
                     </div>
                   </label>
-                </div>
               </div>
             </div>
-            <div class="col-sm-6 col-lg-4">
-              <div class="form-group">
-                <div class="checkbox">
-                  <label class="checkbox">
+          </div>
+          <div class="col-sm-6 col-lg-4">
+            <div class="form-group">
+              <div class="checkbox">
+                <label class="checkbox">
                     <input type="checkbox">
                     <i class="icon-sofa"></i>
                     <div>
@@ -302,13 +300,13 @@
                       </span>
                     </div>
                   </label>
-                </div>
               </div>
             </div>
-            <div class="col-sm-6 col-lg-4">
-              <div class="form-group">
-                <div class="checkbox">
-                  <label class="checkbox">
+          </div>
+          <div class="col-sm-6 col-lg-4">
+            <div class="form-group">
+              <div class="checkbox">
+                <label class="checkbox">
                     <input type="checkbox">
                     <i class="icon-sofa"></i>
                     <div>
@@ -325,13 +323,13 @@
                       </span>
                     </div>
                   </label>
-                </div>
               </div>
             </div>
-            <div class="col-sm-6 col-lg-4">
-              <div class="form-group">
-                <div class="checkbox">
-                  <label class="checkbox">
+          </div>
+          <div class="col-sm-6 col-lg-4">
+            <div class="form-group">
+              <div class="checkbox">
+                <label class="checkbox">
                     <input type="checkbox">
                     <i class="icon-sofa"></i>
                     <div>
@@ -348,13 +346,13 @@
                       </span>
                     </div>
                   </label>
-                </div>
               </div>
             </div>
-            <div class="col-sm-6 col-lg-4">
-              <div class="form-group">
-                <div class="checkbox">
-                  <label class="checkbox">
+          </div>
+          <div class="col-sm-6 col-lg-4">
+            <div class="form-group">
+              <div class="checkbox">
+                <label class="checkbox">
                     <input type="checkbox">
                     <i class="icon-sofa"></i>
                     <div>
@@ -371,16 +369,15 @@
                       </span>
                     </div>
                   </label>
-                </div>
               </div>
             </div>
           </div>
-          <button type="submit" class="btn btn-success">
+        </div>
+        <button type="submit" class="btn btn-success">
             <i class="fa fa-check" aria-hidden="true"></i>
             Salvar
           </button>
-        </form>
-      </div>
+      </form>
     </div>
-	</section>
-</div>
+  </div>
+</section>

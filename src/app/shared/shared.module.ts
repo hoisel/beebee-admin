@@ -3,12 +3,12 @@ import { CommonModule } from '@angular/common'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { RouterModule } from '@angular/router'
 
+import { Ng2BreadcrumbModule } from 'ng2-breadcrumb/ng2-breadcrumb'
 import { TextMaskModule } from 'angular2-text-mask'
 
 import {
   HeaderComponent,
   SidebarLeftComponent,
-  BreadCrumbComponent,
   FormWizardComponent
 } from './components/layout'
 import { MenuComponent } from './components/layout/menu/menu.component'
@@ -22,12 +22,12 @@ import { BrandComponent } from './components/layout/brand/brand.component'
     TextMaskModule,
     FormsModule,
     RouterModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    Ng2BreadcrumbModule.forRoot()
   ],
   declarations: [
     SidebarLeftComponent,
     HeaderComponent,
-    BreadCrumbComponent,
     FormWizardComponent,
     MenuComponent,
     MarketPlaceComponent,
@@ -41,12 +41,12 @@ import { BrandComponent } from './components/layout/brand/brand.component'
     ReactiveFormsModule,
     SidebarLeftComponent,
     HeaderComponent,
-    BreadCrumbComponent,
     FormWizardComponent,
     MenuComponent,
     MarketPlaceComponent,
     SocialMediaComponent,
-    BrandComponent
+    BrandComponent,
+    Ng2BreadcrumbModule
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA

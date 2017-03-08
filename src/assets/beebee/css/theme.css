@@ -173,13 +173,13 @@
 	========================================================================== */
 
 	@media (max-width: 767px) {
-		div.wrapper-content>section>header p {
+		div.wrapper-content section>header p {
 			font-size: 14px;
 		}
 	}
 
 	@media (min-width: 768px) {
-		div.wrapper-content>section>header p {
+		div.wrapper-content section>header p {
 			font-size: 15px;
 		}
 	}

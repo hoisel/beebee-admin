@@ -1,6 +1,0 @@
-<ol class="breadcrumb">
-  <li><a routerLink="/">Home</a></li>
-  <li *ngFor="let route of stack; let i = index;" [class.active]="i+1 === stack.length">
-    <a routerLink="{{route.url}}" [class.disabled]="i+1 === stack.length">{{route.item}}</a>
-  </li>
-</ol>
