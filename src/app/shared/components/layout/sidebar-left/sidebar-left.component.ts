@@ -2,9 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core'
 import { ActivatedRoute, Router } from '@angular/router'
 import { Subscription } from 'rxjs/Subscription'
 
-import { ApiService } from '../../providers'
-import { IMenus, TypeUser } from '../../interfaces'
-import { ThemeService } from '../theme.service'
+import { ApiService, IMenus, TypeUser, ThemeService } from '../../../../core'
 
 @Component( {
   selector: 'app-sidebar-left',

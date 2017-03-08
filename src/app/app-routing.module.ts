@@ -4,47 +4,18 @@ import { Routes, RouterModule } from '@angular/router'
 import {
   E403Component,
   E404Component
-} from './core'
-
-
-import {
-  SigninComponent,
-  ForgotPasswordComponent,
-  NewPasswordLinkComponent,
-  NewPasswordChangeComponent,
-  NewPasswordOkComponent
-} from './login'
+} from './errors'
 
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'entrar',
+    redirectTo: 'acesso/entrar',
     pathMatch: 'full'
   },
   {
-    path: 'entrar',
-    component: SigninComponent
+    path: 'client',
+    loadChildren: './+client/client.module#ClientModule'
   },
-  {
-    path: 'esqueci-minha-senha',
-    component: ForgotPasswordComponent
-  },
-  {
-    path: 'link-enviado',
-    component: NewPasswordLinkComponent
-  },
-  {
-    path: 'nova-senha',
-    component: NewPasswordChangeComponent
-  },
-  {
-    path: 'tudo-certo',
-    component: NewPasswordOkComponent
-  },
-  // {
-  //   path: 'client',
-  //   loadChildren: './client/client-routing.module#ClientRoutingModule'
-  // },
   {
     path: '403',
     component: E403Component

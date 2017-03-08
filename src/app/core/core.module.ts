@@ -2,32 +2,11 @@
 import {
   NgModule,
   Optional,
-  SkipSelf,
-  CUSTOM_ELEMENTS_SCHEMA
+  SkipSelf
 } from '@angular/core'
 import { CommonModule } from '@angular/common'
 import { HttpModule } from '@angular/http'
-// import { RouterModule } from '@angular/router'
-import { FormsModule } from '@angular/forms'
-
-// components
-import { E403Component, E404Component } from './errors'
-
-// import {
-//   HeaderComponent,
-//   SidebarLeftComponent,
-//   BreadCrumbComponent,
-//   FormWizardComponent,
-//   ThemeService
-// } from './theme'
-
-// import {
-//   SigninComponent,
-//   ForgotPasswordComponent,
-//   NewPasswordLinkComponent,
-//   NewPasswordChangeComponent,
-//   NewPasswordOkComponent
-// } from './login'
+import { RouterModule } from '@angular/router'
 
 // services
 import { LoggedInGuard } from './guards'
@@ -36,29 +15,15 @@ import {
   UserService,
   ProgressService,
   SharedDataService,
-  ApiService
+  ApiService,
+  ThemeService
 } from './providers'
 
 @NgModule( {
   imports: [
     CommonModule,
     HttpModule,
-    // RouterModule,
-    FormsModule
-  ],
-  declarations: [
-    E403Component,
-    E404Component
-    // SigninComponent,
-    // ForgotPasswordComponent,
-    // NewPasswordLinkComponent,
-    // NewPasswordChangeComponent,
-    // NewPasswordOkComponent
-
-    // SidebarLeftComponent,
-    // HeaderComponent,
-    // BreadCrumbComponent,
-    // FormWizardComponent
+    RouterModule
   ],
   providers: [
     AuthService,
@@ -66,26 +31,11 @@ import {
     ProgressService,
     SharedDataService,
     LoggedInGuard,
-    // ThemeService,
-    ApiService
+    ApiService,
+    ThemeService
   ],
   exports: [
-    E403Component,
-    E404Component
-
-    // SigninComponent,
-    // ForgotPasswordComponent,
-    // NewPasswordLinkComponent,
-    // NewPasswordChangeComponent,
-    // NewPasswordOkComponent
-
-    // SidebarLeftComponent,
-    // HeaderComponent,
-    // BreadCrumbComponent,
-    // FormWizardComponent
-  ],
-  schemas: [
-    CUSTOM_ELEMENTS_SCHEMA
+    RouterModule
   ]
 })
 export class CoreModule {
@@ -96,7 +46,7 @@ export class CoreModule {
    *
    * @memberOf CoreModule
    */
-  constructor( @Optional() @SkipSelf() parentModule: CoreModule ) {
+  constructor ( @Optional() @SkipSelf() parentModule: CoreModule ) {
     if ( parentModule ) {
       throw new Error( 'CoreModule is already loaded. Import it in the AppModule only' )
     }

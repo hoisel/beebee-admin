@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core'
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core'
 
 // modules
 import { ClientRoutingModule } from './client-routing.module'
@@ -63,6 +63,9 @@ import { SupportComponent } from './support/support.component'
     UserIndexComponent,
     VehicleFormComponent,
     VehicleIndexComponent
+  ],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA
   ]
 })
 export class ClientModule { }

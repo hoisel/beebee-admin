@@ -2,32 +2,26 @@ import { NgModule } from '@angular/core'
 import { BrowserModule } from '@angular/platform-browser'
 
 import { AppRoutingModule } from './app-routing.module'
-import { AppComponent } from './app.component'
+import { AuthModule } from './auth/auth.module'
 import { CoreModule } from './core'
 import { SharedModule } from './shared'
+import { AppComponent } from './app.component'
 
-import {
-  SigninComponent,
-  ForgotPasswordComponent,
-  NewPasswordLinkComponent,
-  NewPasswordChangeComponent,
-  NewPasswordOkComponent
-} from './login'
+// components
+import { E403Component, E404Component } from './errors'
 
 @NgModule( {
   imports: [
     BrowserModule,
     CoreModule,
     SharedModule,
+    AuthModule,
     AppRoutingModule
   ],
   declarations: [
     AppComponent,
-    SigninComponent,
-    ForgotPasswordComponent,
-    NewPasswordLinkComponent,
-    NewPasswordChangeComponent,
-    NewPasswordOkComponent
+    E403Component,
+    E404Component
   ],
   bootstrap: [ AppComponent ]
 } )
