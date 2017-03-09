@@ -9,7 +9,7 @@ import {
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'plataforma',
+    redirectTo: 'acesso/entrar',
     pathMatch: 'full'
   },
   {

@@ -30,7 +30,7 @@
     "jwt-decode": "^2.1.0",
     "ng2-breadcrumb": "^0.5.6",
     "nprogress": "^0.2.0",
-    "rxjs": "^5.1.0",
+    "rxjs": "^5.2.0",
     "swiper": "^3.4.0",
     "ts-helpers": "^1.1.1",
     "twitter-bootstrap-wizard": "^1.2.0",
@@ -60,7 +60,7 @@
     "ts-node": "~2.0.0",
     "tslint": "~4.4.2",
     "tslint-config-standard": "^4.0.0",
-    "typescript": "~2.0.0",
+    "typescript": "~2.1.5",
     "webdriver-manager": "10.2.5"
   }
 }

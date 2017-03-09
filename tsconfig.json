@@ -14,6 +14,7 @@
     ],
     // "mapRoot": "./",
     "module": "es6",
+    "baseDir":"./src",
     "typeRoots": [
       "./node_modules/@types"
     ],

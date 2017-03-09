@@ -1,29 +1,29 @@
-import { IModel } from './model.interface'
-import { IUser } from './user.interface'
-import { IVehicle, ICargoType, IOptional } from './vehicle.interface'
-import { ITransaction } from './transaction.interface'
+import { Model } from './model'
+import { User } from './user'
+import { Vehicle, CargoType, Optional } from './vehicle'
+import { Transaction } from './transaction'
 
-export interface IOrder extends IModel {
-  orderUser: IUser
+export class Order extends Model {
+  orderUser: User
   orderUserId: string
-  clientUser: IUser
+  clientUser: User
   clientUserId: string
-  transactions: ITransaction[]
+  transactions: Transaction[]
   orderDate: Date
   paymentDate: Date
   acceptedDate: Date
   scheduleDate: Date
   closedDate: Date
-  itens: IOrderItem[]
-  options: IOrderOptions[]
+  itens: OrderItem[]
+  options: OrderOptions[]
   avaliation: number
   avaliationDate: Date
   avaliationComment: string
 }
 
-export interface IOrderItem extends IModel {
-  vehicle: IVehicle
-  cargo: ICargoType
+export class OrderItem extends Model {
+  vehicle: Vehicle
+  cargo: CargoType
   unitValue: number
   qtd: number
   typeQtd: string
@@ -31,8 +31,8 @@ export interface IOrderItem extends IModel {
   totalValue: number
 }
 
-export interface IOrderOptions extends IModel {
-  optional: IOptional
+export class OrderOptions extends Model {
+  optional: Optional
   unitValue: number
   qtd: number
   discount: number

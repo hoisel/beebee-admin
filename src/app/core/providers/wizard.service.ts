@@ -25,7 +25,7 @@ export class WizardService {
     switch ( step ) {
       case 'user':
       case 'address':
-        return this.auth.isLoggedIn
+        return this.auth.isAuthenticated
     }
     return false
   }

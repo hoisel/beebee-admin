@@ -10,13 +10,13 @@
 	  <div class="alert alert-danger" role="alert" *ngIf="message.length">
 	    {{message}}
 	  </div>
-	  <form id="loginform" role="form" (submit)="login($event)">
+	  <form id="loginform" role="form" #loginform="ngForm" (ngSubmit)="login()" novalidate>
 	    <div class="form-group">
 	      <div class="input-group">
 	        <span class="input-group-addon">
 	          <i class="icon-user"></i>
 	        </span>
-	        <input type="text" class="form-control" name="cpf" [(ngModel)]="cpf" placeholder="Email" required>
+          <input type="text" class="form-control" name="cpf" [(ngModel)]="cpf" placeholder="CPF" [textMask]="{mask: CPF_MASK}" required>
 	      </div>
 	    </div>
 	    <div class="form-group margin-bottom-xs">

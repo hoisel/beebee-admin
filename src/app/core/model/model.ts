@@ -1,4 +1,4 @@
-export interface IModel {
+export abstract class Model {
   id: string
   name: string
   active: boolean

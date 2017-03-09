@@ -26,19 +26,19 @@
         <ul class="nav navbar-nav navbar-right" role="tablist">
           <li class="dropdown">
             <a class="dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-              <i class="fa fa-user"></i> {{user.name}}
+              <i class="fa fa-user"></i> {{auth.user.name || 'Visitante'}} 
               <i class="fa fa-chevron-down"></i>
             </a>
             <ul class="dropdown-menu">
               <li>
-                <a [routerLink]="['/minha-conta']">
+                <button [routerLink]="['/minha-conta']">
 									Meu perfil
-								</a>
+								</button>
               </li>
               <li>
-                <a href="#" (click)="logout()">
+                <button href="#" (click)="logout()">
 									Sair
-								</a>
+								</button>
               </li>
             </ul>
           </li>

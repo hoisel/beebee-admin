@@ -1,6 +1,6 @@
-import { IModel, IAddress } from '.'
+import { Model, Address } from '.'
 
-export interface IBusiness extends IModel, IAddress {
+export interface IBusiness extends Model, Address {
   fantasyName: string
   socialName: string
   cnpj: string

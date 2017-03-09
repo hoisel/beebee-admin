@@ -4,11 +4,10 @@ import { Observable } from 'rxjs/Observable'
 import { BehaviorSubject } from 'rxjs/BehaviorSubject'
 
 import { Menu, UserRole } from '../model'
-import { HttpBaseService } from './http-base.service'
-import { DEFAULT_HEADERS } from '../app.config'
+import { BaseService } from './base.service'
 
 @Injectable()
-export class UiStateStoreService extends HttpBaseService {
+export class UiStateStoreService extends BaseService {
 
   private menu$: BehaviorSubject<Menu>
 
@@ -56,7 +55,7 @@ export class UiStateStoreService extends HttpBaseService {
   private getMenu ( userRole: UserRole ): Observable<Menu> {
     const from = userRole === UserRole.Administrator ? 'admin' : 'plataforma'
 
-    return this.http.get( `src/app/core/mocks/menu/${from}.json`, DEFAULT_HEADERS )
+    return this.http.get( `src/app/core/mocks/menu/${from}.json` )
       .share()
       .map( this.extractData )
       .catch( this.handleError )

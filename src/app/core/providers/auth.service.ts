@@ -1,125 +1,96 @@
 import { Injectable } from '@angular/core'
 import { Http } from '@angular/http'
 import { BehaviorSubject } from 'rxjs/BehaviorSubject'
-import * as decode from 'jwt-decode'
+import { Observable } from 'rxjs/Observable'
 
-import { IAuth, IAuthUser, TypeAuthKeys, UserRole } from '../model'
-import { API_ENDPOINT, DEFAULT_HEADERS } from '../app.config'
+import { BaseService } from './base.service'
+import { User } from '../../core'
+import { API_ENDPOINT } from '../app.config'
 
 @Injectable()
-export class AuthService {
-
-  private token$: BehaviorSubject<string> = new BehaviorSubject<string>( this.get( TypeAuthKeys.token ) )
-  private loggedIn: boolean = !!this.get( TypeAuthKeys.token )
+export class AuthService extends BaseService {
 
   // Url que tentou ser acessada sem sessão ativa
-  redirectLogin: string[] = [ 'plataforma' ]
+  public redirectLogin: string[] = [ 'plataforma' ]
 
+  private onAuthChange$: BehaviorSubject<User>
+
+  /**
+   * Creates an instance of AuthService.
+   * @param {Http} http
+   *
+   * @memberOf AuthService
+   */
   constructor ( private http: Http ) {
-    if ( this.isLoggedIn ) {
-      this.token$.next( this.get( TypeAuthKeys.token ) )
-    }
+    super()
+    this.onAuthChange$ = new BehaviorSubject<User>( this.user )
   }
 
   /**
    * Retorna se tem usuário logado ou não.
    */
-  get isLoggedIn (): boolean { return this.loggedIn }
+  public get isAuthenticated(): boolean {
+    return this.user.isAuthenticated
+  }
 
   /**
    * Retorna um subject com o token.
    * Não pode ser escrito, apenas lido!
    */
-  get session (): BehaviorSubject<string> { return this.token$ }
+  public get session(): Observable<User> {
+    return this.onAuthChange$.asObservable()
+  }
 
   /**
    * Requisição de login para a api
    * @param username: string - nome de usuário
    * @param password: string - senha do usuário
    */
-  login ( cpf: string, password: string ): Promise<boolean> {
+  public login ( cpf: string, password: string ): Observable<User> {
+
     const body = { cpf: cpf, password: password }
-    return this.http.post( `${API_ENDPOINT}/login`, body, { headers: DEFAULT_HEADERS } )
-      .map( res => res.json() )
-      .catch( err => {
-        return Promise.reject( err )
-      } )
-      .toPromise()
-      .then(( token: string ) => {
-        let user = decode( token )
-        // Redireciona para o painel admin caso seja um
-        if ( user.tpUsuario === UserRole.Administrator ) {
-          // TODO: Descomentar isso assim que for criado o painel adm
-          // this.redirectLogin = ['admin']
-        }
-        // Sucesso na tentativa de login
-        this.set( TypeAuthKeys.token, token )
-        this.loggedIn = true
-        return true
-      } )
+
+    return this.http.post( `${ API_ENDPOINT }/login`, body )
+      .map( this.extractData )
+      .map(( resp: { token: string }) => {
+
+        this.user = new User( resp.token )
+
+        console.log( this.user )
+        return this.user
+      })
+      .catch( this.handleError )
   }
 
   /**
    * Destroi a sessão do usuário atual.
    */
-  logout (): void {
-    this.set( TypeAuthKeys.token, null )
-    this.loggedIn = false
+  public logout (): Promise<Date> {
+    this.user = User.NullUser()
+    return Promise.resolve( new Date() )
   }
 
   /**
-   * Obtém um dado relativo à autenticação armazenado no navegador
-   * @param key: TypeAuthKeys - Chave do dado que se quer
+   *
+   *
+   * @readonly
+   * @private
+   * @type {(string | undefined)}
+   * @memberOf AuthService
    */
-  get ( key: TypeAuthKeys ): any {
-    const auth: IAuth = JSON.parse( localStorage.getItem( 'auth' ) )
-    if ( !auth ) { return null }
-
-    switch ( key ) {
-      case TypeAuthKeys.token:
-        return auth.token
-      case TypeAuthKeys.users:
-        return auth.users
-      default:
-        return null
-    }
+  public get user(): User | undefined {
+    return this.storage.getItem( 'user' )
   }
+
+  public storage = { getItem ( k: string ): User { return null }, setItem ( K: string, obj: any ) { } }
 
   /**
    * Armazena um dado, relativo à autenticação, no navegador
    * @param key: TypeAuthKeys - Chave do dado
    * @param data: string|IAuthUsers - Dado que se quer guardar (string para 'token' e IAuthUsers para 'users')
    */
-  set ( key: TypeAuthKeys, data: string | IAuthUser ): void {
-    let auth: IAuth = JSON.parse( localStorage.getItem( 'auth' ) ) || { token: null, users: [] }
-
-    switch ( key ) {
-      case TypeAuthKeys.token:
-        auth.token = data as string
-        this.token$.next( auth.token )
-        break
-      case TypeAuthKeys.users:
-        let has = false
-        let index = -1
-
-        auth.users.some(( user, i ) => {
-          if ( user.name === ( data as IAuthUser ).name && ( data as IAuthUser ).email === user.email ) {
-            has = true
-            index = i
-          }
-          return has
-        } )
-
-        if ( has ) {
-          auth.users[ index ] = data as IAuthUser
-        } else {
-          auth.users.push( data as IAuthUser )
-        }
-
-        break
-    }
-
-    localStorage.setItem( 'auth', JSON.stringify( auth ) )
+  public set user( user: User | undefined ) {
+    this.storage.setItem( 'user', user )
+    this.onAuthChange$.next( user )
   }
-
 }

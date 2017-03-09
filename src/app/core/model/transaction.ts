@@ -1,21 +1,21 @@
-import { IOrder } from './order.interface'
-import { IModel } from './model.interface'
-import { IUser } from './user.interface'
+import { Order } from './order'
+import { Model } from './model'
+import { User } from './user'
 
-export interface ITransaction extends IModel {
-  user: IUser
+export class Transaction extends Model {
+  user: User
   userTransactionId: string
   urlBoleto: string
-  order: IOrder
+  order: Order
   orderId: string
   transactionDate: Date
   status: TypePaymentStatusTransaction
   value: number
   paymentId: string
-  logs: ITransactionLog[]
+  logs: TransactionLog[]
 }
 
-export interface ITransactionLog extends IModel {
+export class TransactionLog extends Model {
   date: Date
   status: TypePaymentStatusTransaction
   data: Object
