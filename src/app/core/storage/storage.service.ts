@@ -1,10 +1,77 @@
 import { Injectable } from '@angular/core'
+import { BehaviorSubject } from 'rxjs/BehaviorSubject'
+import { Observable } from 'rxjs/Observable'
+import { config } from '../app.config'
 
 @Injectable()
 export class StorageService {
 
+  public authToken$: BehaviorSubject<string>
+  private AUTH_TOKEN_NAME: string = config.tokenName
+
+  /**
+   * Creates an instance of StorageService.
+   *
+   * @memberOf StorageService
+   */
   constructor () {
-    console.log( 'StorageService' )
+    this.authToken$ = new BehaviorSubject<string>( this.getAuthToken() )
+  }
+
+  /**
+   * Retorna um subject com o token. Não pode ser escrito, apenas lido!
+   *
+   * @readonly
+   * @type {Observable<User>}
+   * @memberOf StorageService
+   */
+  public get token$(): Observable<string> {
+    return this.authToken$.asObservable()
+  }
+
+  /**
+   *
+   *
+   * @param {string} jwtToken
+   *
+   * @memberOf StorageService
+   */
+  public setAuthToken ( jwtToken: string ): void {
+    this.execAndNotify( () => localStorage.setItem( this.AUTH_TOKEN_NAME, jwtToken ) )
+  }
+
+  /**
+   *
+   *
+   * @returns {string}
+   *
+   * @memberOf StorageService
+   */
+  public getAuthToken (): string {
+    return localStorage.getItem( this.AUTH_TOKEN_NAME )
+  }
+
+  /**
+   *
+   *
+   * @returns {void}
+   *
+   * @memberOf StorageService
+   */
+  public clearAuthToken (): void {
+    this.execAndNotify( () => localStorage.removeItem( this.AUTH_TOKEN_NAME ) )
+  }
+
+  /**
+   *
+   *
+   * @param {Function} fn
+   *
+   * @memberOf StorageService
+   */
+  private execAndNotify ( fn: Function ) {
+    fn()
+    this.authToken$.next( this.getAuthToken() )
   }
 
   /**

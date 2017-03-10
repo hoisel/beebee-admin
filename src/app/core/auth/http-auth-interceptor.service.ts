@@ -1,39 +1,6 @@
 import { Http, Request, RequestOptions, RequestOptionsArgs, Response, ConnectionBackend, Headers } from '@angular/http'
 import { Observable } from 'rxjs/Observable'
-
-const DEFAULT_HEADER_NAME = 'Authorization'
-const DEFAULT_HEADER_PREFIX_BEARER = 'Bearer'
-
-/**
- *
- *
- * @export
- * @interface InterceptorConfigOptional
- */
-export interface InterceptorConfigOptional {
-  headerName?: string
-  headerPrefix?: string
-  noTokenError?: boolean
-}
-
-/**
- *
- *
- * @export
- * @class InterceptorConfig
- */
-export class InterceptorConfig {
-
-  headerName: string = DEFAULT_HEADER_NAME
-  headerPrefix: string = DEFAULT_HEADER_PREFIX_BEARER
-  noTokenError: boolean = false
-
-  constructor ( config?: InterceptorConfigOptional ) {
-    config = config || {}
-    Object.assign( this, config )
-  }
-}
-
+import { InterceptorConfig } from './interceptor.config'
 /**
  *
  *
@@ -54,7 +21,7 @@ export abstract class HttpAuthInterceptor extends Http {
    *
    * @memberOf HttpAuthInterceptor
    */
-  constructor ( backend: ConnectionBackend, defaultOptions: RequestOptions, private config: InterceptorConfig ) {
+  constructor ( backend: ConnectionBackend, defaultOptions: RequestOptions, private inteceptorConfig: InterceptorConfig ) {
     super( backend, defaultOptions )
   }
 
@@ -90,13 +57,13 @@ export abstract class HttpAuthInterceptor extends Http {
    */
   protected requestWithToken ( req: Request, token: any ): Observable<Response> {
     this.origRequest = req
-    if ( !this.config.noTokenError && !token ) {
+    if ( !this.inteceptorConfig.noTokenError && !token ) {
       return Observable.throw( new Error( 'No authorization token given' ) )
     } else {
-      req.headers.set( this.config.headerName, `${this.config.headerPrefix} ${token}` )
+      req.headers.set( this.inteceptorConfig.headerName, `${ this.inteceptorConfig.headerPrefix } ${ token }` )
     }
 
-    return this.intercept( super.request( req ) )
+    return super.request( req )
   }
 
   /**
@@ -119,7 +86,7 @@ export abstract class HttpAuthInterceptor extends Http {
       return super.request( req )
     }
 
-    return this.requestWithToken( req, this.getToken() )
+    return this.intercept( this.requestWithToken( req, this.getToken() ) )
   }
 
   /**
@@ -190,35 +157,62 @@ export abstract class HttpAuthInterceptor extends Http {
    * @memberOf HttpAuthInterceptor
    */
   protected intercept ( observable: Observable<Response> ): Observable<Response> {
-    return observable.catch(( error, source ) => {
-      if ( error.status === 401 ) {
-        console.log( 'Unauthorised need to refresh token' )
+    return observable.catch(( resp: Response, source: any ) => {
 
-        let orig = this.origRequest
+      let body = resp.json()
 
-        return this.refreshToken().mergeMap( res => {
-          if ( res ) {
-            let data = res.json()
-            if ( data.access_token ) {
-              return Observable.of( this.saveToken( data.access_token ) )
-            } else {
-              return Observable.create( '' )
-            }
-          }
-        }).mergeMap( token => {
-          return this.requestWithToken( orig, token )
-        })
-      } else {
-        return Observable.throw( error )
+      if ( resp.status === 401 && body.error === 'token_expired' ) {
+        return this.refreshToken()
+          .mergeMap(( resp: Response ) => this.saveNewToken( resp ) )
+          .mergeMap(( token: string ) => this.retryOriginalRequest( this.origRequest, token ) )
       }
+
+      if ( resp.status === 400 && body.error === 'token_invalid' ) {
+        this.removeToken()
+        return Observable.throw( { message: 'token inválido' } )
+      }
+
+      return Observable.throw( resp )
     })
   }
 
-  protected shouldIntercept ( req: Request ): boolean {
-    return !req.headers.has( 'noIntercept' )
+  /**
+   *
+   *
+   * @protected
+   * @param {Request} req
+   * @param {string} token
+   * @returns
+   *
+   * @memberOf HttpAuthInterceptor
+   */
+  protected retryOriginalRequest ( req: Request, token: string ): Observable<Response> {
+    return this.requestWithToken( this.origRequest, token )
   }
 
+  /**
+   *
+   *
+   * @protected
+   * @param {Response} res
+   * @returns {Observable<string>}
+   *
+   * @memberOf HttpAuthInterceptor
+   */
+  protected saveNewToken ( res: Response ): Observable<string> {
+    let data = res.json()
+    if ( data.refreshToken ) {
+      return Observable.of( this.saveToken( data.refreshToken ) )
+    } else {
+      return Observable.throw( new Error( 'Não foi possível fazer o refresh do token' ) )
+    }
+  }
+
+  protected abstract shouldIntercept ( req: Request ): boolean
+
   protected abstract getToken (): string
+
+  protected abstract removeToken (): void
 
   protected abstract saveToken ( token: string ): string
 

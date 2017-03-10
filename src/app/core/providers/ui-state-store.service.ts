@@ -53,9 +53,7 @@ export class UiStateStoreService extends BaseService {
    * @memberOf UiStateStoreService
    */
   private getMenu ( userRole: UserRole ): Observable<Menu> {
-    const from = userRole === UserRole.Administrator ? 'admin' : 'plataforma'
-
-    return this.http.get( `src/app/core/mocks/menu/${from}.json` )
+    return this.http.get( `src/app/core/mocks/menu/${ userRole }.json` )
       .share()
       .map( this.extractData )
       .catch( this.handleError )

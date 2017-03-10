@@ -6,7 +6,6 @@
           <img class="logo" src="/assets/beebee/img/logo-beebee-black.png" alt="BeeBee">
         </a>
         <div class="navbar-extra">
-          <!-- reservado para ícones no futuro -->
         </div>
       </div>
       <div class="navbar-mobile">
@@ -20,6 +19,11 @@
 				</button>
       </div>
       <div id="navbar-collapse" class="collapse anim-right navbar-collapse">
+          <button class="btn btn-primary" (click)="expired()">Expired</button>
+          <button class="btn btn-primary" (click)="invalid()">Expired</button>
+          <pre>
+          {{auth.user.token}}
+          </pre>
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
 					<i class="icon-close" aria-hidden="true"></i>
 				</button>

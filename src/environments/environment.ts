@@ -6,6 +6,6 @@
 export const environment = {
   production: false,
   envName: 'dev',
-  API_ENDPOINT: 'https://api.beebee.com.br'
+  apiEndpoint: 'https://api.beebee.com.br/api/v1'
   // API_ENDPOINT: 'http://localhost:3000'
 }

@@ -8,12 +8,9 @@ import { CommonModule } from '@angular/common'
 import { HttpModule } from '@angular/http'
 import { RouterModule } from '@angular/router'
 
-// services
-import { LoggedInGuard } from './guards'
-import { StorageService } from './store'
-import { httpProvider } from './auth/http.provider'
+import { StorageService } from './storage'
+import { httpProvider, AuthService, LoggedInGuard } from './auth'
 import {
-  AuthService,
   ProgressService,
   ThemeService,
   UiStateStoreService

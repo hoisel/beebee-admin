@@ -7,10 +7,16 @@
   ],
   "items": [
     {
-      "text": "Admin",
+      "text": "Super Admin",
       "href": "./empresa",
       "title": "Empresas",
       "icon": "icon-wifi"
+    },
+    {
+      "text": "Veículos",
+      "href": "./veiculos",
+      "title": "Veículos",
+      "icon": "icon-truck"
     }
   ]
 }

@@ -30,4 +30,12 @@ export class HeaderComponent {
       this.router.navigate( [ '/acesso/entrar' ] )
     })
   }
+
+  public expired () {
+    this.auth.expired().subscribe()
+  }
+
+  public invalid () {
+    this.auth.invalid().subscribe()
+  }
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core'
 import { BreadcrumbService } from 'ng2-breadcrumb/ng2-breadcrumb'
 
-import { UiStateStoreService, UserRole } from '../core'
+import { UiStateStoreService, AuthService } from '../core'
 
 @Component( {
   templateUrl: './platform.component.html',
@@ -18,7 +18,7 @@ export class PlatformComponent implements OnInit {
    *
    * @memberOf PlatformComponent
    */
-  constructor ( private uiStateStore: UiStateStoreService, private breadcrumbService: BreadcrumbService ) { }
+  constructor ( private auth: AuthService, private uiStateStore: UiStateStoreService, private breadcrumbService: BreadcrumbService ) { }
 
   /**
    *
@@ -27,7 +27,7 @@ export class PlatformComponent implements OnInit {
    * @memberOf PlatformComponent
    */
   public ngOnInit () {
-    this.uiStateStore.loadMenu( UserRole.Client )
+    this.uiStateStore.loadMenu( this.auth.user.role )
     this.configureBreadCrumb()
   }
 

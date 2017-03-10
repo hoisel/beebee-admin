@@ -1,48 +1,27 @@
-import { Model } from './model'
-import { Vehicle } from './vehicle'
-import { Order } from './order'
-import { Transaction } from './transaction'
+import { Model, Business, Address, UserRole } from '../model'
 import { JwtHelper } from '../auth'
 
-export class User extends Model implements Address {
+export class User extends Model {
 
   private jwt: JwtHelper = new JwtHelper()
 
-  public static NullUser (): User {
+  public static DefaultUser (): User {
     return new User()
   }
 
-  public tpPerson: PersonType
-  public tpUser: UserRole
-  public numDocFed: string = ''
-  public rg?: string = ''
-  public cnh?: string = ''
-  public maturityCnh?: Date
-  public telephone: string = ''
+  public address: Address
+  public companies: Business[] = []
+  public role: UserRole | undefined
   public cellphone: string = ''
+  public cpf: string = ''
+  public driverLicence: string = ''
+  public driverLicenceExpiration: string = ''
   public email: string = ''
-  public password: string = ''
-  public newPassword?: string = ''
-  public userContractor: User
-  public userIdContractor: string = ''
-  public userIndicator: User
-  public userIdIndicator: string = ''
-  public vehicles: Vehicle[] = []
-  public userOrders: Order[] = []
-  public clientOrders: Order[] = []
-  public transactions: Transaction[] = []
-
-  // address
-  public zipCode: string = ''
-  public address: string = ''
-  public number: string = ''
-  public complement: string = ''
-  public neighbor: string = ''
-  public city: string = ''
-  public state: string = ''
-  public country: string = ''
-
-  public token: string | undefined
+  public paymentAccounts: string = ''
+  public phone: string = ''
+  public receiptAccounts: string = ''
+  public rg: string = ''
+  private token: string | undefined
 
   /**
    * Creates an instance of User.
@@ -79,27 +58,4 @@ export class User extends Model implements Address {
   public get expirationDate(): Date {
     return this.jwt.getTokenExpirationDate( this.token )
   }
-}
-
-export enum PersonType {
-  Personal = 0,
-  Enterprise = 1
-}
-
-export enum UserRole {
-  Client = 0,
-  Freighter = 1,
-  Operator = 2,
-  Administrator = 3
-}
-
-export interface Address {
-  zipCode: string
-  address: string
-  number: string
-  complement: string
-  neighbor: string
-  city: string
-  state: string
-  country: string
 }

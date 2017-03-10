@@ -1,20 +1,42 @@
-import { API_ENDPOINT } from '../app.config'
 import { Injectable } from '@angular/core'
-import { Http, Response } from '@angular/http'
+import { Http } from '@angular/http'
 import { Observable } from 'rxjs/Observable'
 
+import { BaseService } from '../providers'
+import { config } from '../app.config'
+
 @Injectable()
-export class ApiBaseService {
-  resource: string
+export class ApiBaseService extends BaseService {
 
-  constructor ( public http: Http ) {
-    //
-  }
+  protected resource: string
 
+  /**
+   * Creates an instance of ApiBaseService.
+   * @param {Http} http
+   *
+   * @memberOf ApiBaseService
+   */
+  constructor ( public http: Http ) { super() }
+
+  /**
+   *
+   *
+   * @param {string} resource
+   *
+   * @memberOf ApiBaseService
+   */
   public setResource ( resource: string ): void {
-    this.resource = `api/v1/${resource}`
+    this.resource = '${resource}'
   }
 
+  /**
+   *
+   *
+   * @param {*} model
+   * @returns {Observable<any>}
+   *
+   * @memberOf ApiBaseService
+   */
   public save ( model: any ): Observable<any> {
     if ( model.id ) {
       return this.update( model )
@@ -22,47 +44,62 @@ export class ApiBaseService {
     return this.create( model )
   }
 
+  /**
+   *
+   *
+   * @param {*} model
+   * @returns {Observable<any>}
+   *
+   * @memberOf ApiBaseService
+   */
   public create ( model: any ): Observable<any> {
     return this.http
-      .post( `${API_ENDPOINT}/${this.resource}`, model )
+      .post( `${ config.apiEndPoint }/${ this.resource }`, model )
       .map( this.extractData )
       .catch( this.handleError )
   }
 
+  /**
+   *
+   *
+   * @param {*} model
+   * @returns {Observable<any>}
+   *
+   * @memberOf ApiBaseService
+   */
   public update ( model: any ): Observable<any> {
     return this.http
-      .put( `${API_ENDPOINT}/${this.resource}/${model.id}`, model )
+      .put( `${ config.apiEndPoint }/${ this.resource }/${ model.id }`, model )
       .map( this.extractData )
       .catch( this.handleError )
   }
 
+  /**
+   *
+   *
+   * @param {*} model
+   * @returns {Observable<any>}
+   *
+   * @memberOf ApiBaseService
+   */
   public delete ( model: any ): Observable<any> {
     return this.http
-      .delete( `${API_ENDPOINT}/${this.resource}/${model.id}` )
+      .delete( `${ config.apiEndPoint }/${ this.resource }/${ model.id }` )
       .map( this.extractData )
       .catch( this.handleError )
   }
 
+  /**
+   *
+   *
+   * @returns {Observable<any[]>}
+   *
+   * @memberOf ApiBaseService
+   */
   public get (): Observable<any[]> {
     return this.http
-      .get( `${API_ENDPOINT}/${this.resource}` )
+      .get( `${ config.apiEndPoint }/${ this.resource }` )
       .map( this.extractData )
       .catch( this.handleError )
-  }
-
-  public extractData ( res: Response ) {
-    let body = res.json()
-    return body
-  }
-
-  public handleError ( error: Response | any ) {
-    let errMsg: string
-    if ( error instanceof Response ) {
-      const body = error.json() || ''
-      errMsg = body.message || JSON.stringify( body )
-    } else {
-      errMsg = error.message ? error.message : error.toString()
-    }
-    return Observable.throw( errMsg )
   }
 }

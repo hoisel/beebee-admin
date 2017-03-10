@@ -48,7 +48,9 @@ export class SigninComponent implements OnInit, OnDestroy {
     this.loading = true
     this.auth.login( this.cpf, this.password )
       .subscribe( {
-        next: () => this.router.navigate( this.auth.redirectLogin ),
+        next: () => {
+          this.router.navigate( this.auth.redirectLogin )
+        },
         error: ( error: any ) => {
           if ( error.status === 401 ) {
             this.message = 'Usuário ou senha inválidos!'

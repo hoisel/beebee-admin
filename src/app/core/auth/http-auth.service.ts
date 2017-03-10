@@ -1,15 +1,12 @@
-import { Response, Headers, RequestOptions, ConnectionBackend } from '@angular/http'
+import { Response, Request, Headers, RequestOptions, ConnectionBackend } from '@angular/http'
 import { Observable } from 'rxjs/Observable'
 
-import { StorageService } from '../store'
-import { HttpAuthInterceptor, InterceptorConfig } from './http-auth-interceptor.service'
+import { InterceptorConfig } from './interceptor.config'
+import { HttpAuthInterceptor } from './http-auth-interceptor.service'
+import { StorageService } from '../storage'
+import { config } from '../app.config'
 
 export class HttpAuthService extends HttpAuthInterceptor {
-
-  // In production code do not put your API keys here make sure they are obtained some other way.
-  // perhaps a env variables.
-  ///const API_ACCESS_KEY = '...'
-  ///const API_ACCESS_SECRET = '...'
 
   /**
    * Creates an instance of HttpAuth.
@@ -19,7 +16,10 @@ export class HttpAuthService extends HttpAuthInterceptor {
    *
    * @memberOf HttpAuth
    */
-  constructor ( backend: ConnectionBackend, defaultOptions: RequestOptions, private storage: StorageService ) {
+  constructor (
+    backend: ConnectionBackend,
+    defaultOptions: RequestOptions,
+    private storage: StorageService ) {
     super( backend, defaultOptions, new InterceptorConfig( { noTokenError: true }) )
   }
 
@@ -32,8 +32,7 @@ export class HttpAuthService extends HttpAuthInterceptor {
    * @memberOf HttpAuth
    */
   protected getToken (): string {
-    const user = this.storage.getItem( 'user' )
-    return user ? user.token : undefined
+    return this.storage.getAuthToken()
   }
 
   /**
@@ -46,8 +45,19 @@ export class HttpAuthService extends HttpAuthInterceptor {
    * @memberOf HttpAuth
    */
   protected saveToken ( token: string ): string {
-    this.storage.updateItem( 'user', { token: token })
+    this.storage.setAuthToken( token )
     return token
+  }
+
+  /**
+   *
+   *
+   * @protected
+   *
+   * @memberOf HttpAuthService
+   */
+  protected removeToken () {
+    this.storage.clearAuthToken()
   }
 
   /**
@@ -59,9 +69,25 @@ export class HttpAuthService extends HttpAuthInterceptor {
    * @memberOf HttpAuth
    */
   protected refreshToken (): Observable<Response> {
-    return super.post( 'http://www.data.com/api/authenticate', {
-      // access_key_id: API_ACCESS_KEY,
-      // access_key_secret: API_ACCESS_SECRET
-    }, { headers: new Headers({ 'noIntercept': 'true' }) }  )
+    return super.get( `${ config.apiEndPoint }/refresh`, {
+      headers: new Headers( {
+        'noIntercept': 'true',
+        'Authorization': `Bearer ${ this.getToken() }`
+      })
+    })
   }
+
+  /**
+   *
+   *
+   * @protected
+   * @param {Request} req
+   * @returns {boolean}
+   *
+   * @memberOf HttpAuthService
+   */
+  protected shouldIntercept ( req: Request ): boolean {
+    return !req.headers.has( 'noIntercept' )
+  }
+
 }

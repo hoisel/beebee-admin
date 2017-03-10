@@ -14,12 +14,6 @@ import 'rxjs/add/operator/toPromise'
 import 'rxjs/add/operator/mergeMap'
 import 'rxjs/add/operator/filter'
 import 'rxjs/add/operator/share'
-// import 'rxjs/add/operator/scan'
-// import 'rxjs/add/operator/mergeMap'// flatMap
-// import 'rxjs/add/operator/share'
-// import 'rxjs/add/operator/timeout'
-// import 'rxjs/add/operator/retryWhen'
-// import 'rxjs/add/operator/finally'
 
 if ( environment.production ) {
   enableProdMode()

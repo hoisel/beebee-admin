@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core'
-import { AuthService } from './auth.service'
+import { AuthService } from '../auth'
 import { Subject } from 'rxjs/Subject'
 import { Observable } from 'rxjs/Observable'
 

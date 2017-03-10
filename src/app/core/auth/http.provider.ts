@@ -1,6 +1,6 @@
 import { RequestOptions, ConnectionBackend, Http, XHRBackend } from '@angular/http'
 import { HttpAuthService } from './http-auth.service'
-import { StorageService } from '../store'
+import { StorageService } from '../storage'
 
 /**
  *

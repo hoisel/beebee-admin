@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core'
-import { CanActivate, CanLoad, Route, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router'
-import { AuthService } from '../providers'
+import { CanActivate, CanLoad, Router, Route, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router'
+import { AuthService } from '../'
 import { Observable } from 'rxjs/Observable'
 
 @Injectable()
@@ -8,11 +8,12 @@ export class LoggedInGuard implements CanActivate, CanLoad {
 
   /**
    * Creates an instance of LoggedInGuard.
-   * @param {AuthService} aut
+   * @param {AuthService} auth
+   * @param {Router} router
    *
    * @memberOf LoggedInGuard
    */
-  constructor ( private auth: AuthService ) { }
+  constructor ( private auth: AuthService, private router: Router ) { }
 
   /**
    *
@@ -24,7 +25,16 @@ export class LoggedInGuard implements CanActivate, CanLoad {
    * @memberOf LoggedInGuard
    */
   public canActivate ( route: ActivatedRouteSnapshot, state: RouterStateSnapshot ): Observable<boolean> | Promise<boolean> | boolean {
-    return this.auth.isAuthenticated
+
+    // Store the attempted URL for redirecting
+    this.auth.redirectUrl = state.url
+
+    if ( this.auth.isAuthenticated ) {
+      return true
+    }
+
+    this.router.navigate( [ 'acesso/entrar' ] )
+    return false
   }
 
   /**
@@ -36,6 +46,12 @@ export class LoggedInGuard implements CanActivate, CanLoad {
    * @memberOf LoggedInGuard
    */
   public canLoad ( route: Route ): Observable<boolean> | Promise<boolean> | boolean {
-    return this.auth.isAuthenticated
+
+    if ( this.auth.isAuthenticated ) {
+      return true
+    }
+
+    this.router.navigate( [ 'acesso/entrar' ] )
+    return false
   }
 }

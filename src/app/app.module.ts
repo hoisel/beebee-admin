@@ -24,5 +24,5 @@ import { E403Component, E404Component } from './errors'
     E404Component
   ],
   bootstrap: [ AppComponent ]
-} )
+})
 export class AppModule { }
