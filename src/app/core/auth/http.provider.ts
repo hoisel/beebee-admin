@@ -1,6 +1,6 @@
 import { RequestOptions, ConnectionBackend, Http, XHRBackend } from '@angular/http'
 import { HttpAuthService } from './http-auth.service'
-import { NStorage } from '../store/storage'
+import { StorageService } from '../store'
 
 /**
  *
@@ -11,12 +11,12 @@ import { NStorage } from '../store/storage'
  * @param {Storage} storage
  * @returns
  */
-export function getHttpAuth ( backend: ConnectionBackend, defaultOptions: RequestOptions, storage: NStorage ) {
+export function getHttpAuth ( backend: ConnectionBackend, defaultOptions: RequestOptions, storage: StorageService ) {
   return new HttpAuthService( backend, defaultOptions, storage )
 }
 
 export const httpProvider = {
   provide: Http,
   useFactory: getHttpAuth,
-  deps: [ XHRBackend, RequestOptions, NStorage ]
+  deps: [ XHRBackend, RequestOptions, StorageService ]
 }

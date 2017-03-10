@@ -10,7 +10,7 @@ import { RouterModule } from '@angular/router'
 
 // services
 import { LoggedInGuard } from './guards'
-import { NStorage } from './store'
+import { StorageService } from './store'
 import { httpProvider } from './auth/http.provider'
 import {
   AuthService,
@@ -26,13 +26,13 @@ import {
     RouterModule
   ],
   providers: [
-    NStorage,
     httpProvider,
     ProgressService,
     LoggedInGuard,
     ThemeService,
     UiStateStoreService,
-    AuthService
+    AuthService,
+    StorageService
   ],
   exports: [
     RouterModule

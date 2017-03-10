@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core'
-import { Http } from '@angular/http'
+import { Http, Headers } from '@angular/http'
 import { BehaviorSubject } from 'rxjs/BehaviorSubject'
 import { Observable } from 'rxjs/Observable'
 
 import { BaseService } from './base.service'
-import { User } from '../../core'
+import { User } from '../model'
+import { StorageService } from '../store'
 import { API_ENDPOINT } from '../app.config'
 
 @Injectable()
@@ -21,7 +22,7 @@ export class AuthService extends BaseService {
    *
    * @memberOf AuthService
    */
-  constructor ( private http: Http ) {
+  constructor ( private http: Http, private storage: StorageService ) {
     super()
     this.onAuthChange$ = new BehaviorSubject<User>( this.user )
   }
@@ -30,7 +31,7 @@ export class AuthService extends BaseService {
    * Retorna se tem usuário logado ou não.
    */
   public get isAuthenticated(): boolean {
-    return this.user.isAuthenticated
+    return this.user && this.user.isAuthenticated
   }
 
   /**
@@ -50,13 +51,10 @@ export class AuthService extends BaseService {
 
     const body = { cpf: cpf, password: password }
 
-    return this.http.post( `${ API_ENDPOINT }/login`, body )
+    return this.http.post( `${ API_ENDPOINT }/login`, body, { headers: new Headers({ 'noIntercept': 'true' }) } )
       .map( this.extractData )
       .map(( resp: { token: string }) => {
-
         this.user = new User( resp.token )
-
-        console.log( this.user )
         return this.user
       })
       .catch( this.handleError )
@@ -82,7 +80,7 @@ export class AuthService extends BaseService {
     return this.storage.getItem( 'user' )
   }
 
-  public storage = { getItem ( k: string ): User { return null }, setItem ( K: string, obj: any ) { } }
+  // public storage = { getItem ( k: string ): User { return null }, setItem ( K: string, obj: any ) { } }
 
   /**
    * Armazena um dado, relativo à autenticação, no navegador

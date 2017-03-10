@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core'
 import { Routes, RouterModule } from '@angular/router'
 
+import { LoggedInGuard } from './core'
+
 import {
   E403Component,
   E404Component
@@ -14,6 +16,7 @@ export const routes: Routes = [
   },
   {
     path: 'plataforma',
+    canLoad: [ LoggedInGuard ],
     loadChildren: './+platform/platform.module#PlatformModule'
   },
   {

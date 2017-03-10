@@ -1,7 +1,7 @@
-import { Response, RequestOptions, ConnectionBackend } from '@angular/http'
+import { Response, Headers, RequestOptions, ConnectionBackend } from '@angular/http'
 import { Observable } from 'rxjs/Observable'
 
-import { NStorage } from '../store'
+import { StorageService } from '../store'
 import { HttpAuthInterceptor, InterceptorConfig } from './http-auth-interceptor.service'
 
 export class HttpAuthService extends HttpAuthInterceptor {
@@ -19,7 +19,7 @@ export class HttpAuthService extends HttpAuthInterceptor {
    *
    * @memberOf HttpAuth
    */
-  constructor ( backend: ConnectionBackend, defaultOptions: RequestOptions, private storage: NStorage ) {
+  constructor ( backend: ConnectionBackend, defaultOptions: RequestOptions, private storage: StorageService ) {
     super( backend, defaultOptions, new InterceptorConfig( { noTokenError: true }) )
   }
 
@@ -32,7 +32,8 @@ export class HttpAuthService extends HttpAuthInterceptor {
    * @memberOf HttpAuth
    */
   protected getToken (): string {
-    return this.storage.getItem( 'user' ).token
+    const user = this.storage.getItem( 'user' )
+    return user ? user.token : undefined
   }
 
   /**
@@ -45,7 +46,7 @@ export class HttpAuthService extends HttpAuthInterceptor {
    * @memberOf HttpAuth
    */
   protected saveToken ( token: string ): string {
-    this.storage.updateItem( 'user', { token: token } )
+    this.storage.updateItem( 'user', { token: token })
     return token
   }
 
@@ -61,6 +62,6 @@ export class HttpAuthService extends HttpAuthInterceptor {
     return super.post( 'http://www.data.com/api/authenticate', {
       // access_key_id: API_ACCESS_KEY,
       // access_key_secret: API_ACCESS_SECRET
-    }, null, true )
+    }, { headers: new Headers({ 'noIntercept': 'true' }) }  )
   }
 }
