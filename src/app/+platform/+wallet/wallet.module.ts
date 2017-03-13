@@ -3,11 +3,11 @@ import { WalletRoutingModule } from './wallet-routing.module'
 
 import { SharedModule } from '../../shared'
 import { WalletComponent } from './wallet.component'
-import { WalletSummaryComponent } from './wallet-summary/wallet-summary.component'
-import { WalletPaymentListComponent } from './wallet-payment-list/wallet-payment-list.component'
-import { WalletPaymentEditComponent } from './wallet-payment-edit/wallet-payment-edit.component'
-import { WalletReceiptEditComponent } from './wallet-receipt-edit/wallet-receipt-edit.component'
-import { WalletReceiptListComponent } from './wallet-receipt-list/wallet-receipt-list.component'
+import { SummaryComponent } from './summary/summary.component'
+import { PaymentListComponent } from './payment-list/payment-list.component'
+import { WalletPaymentEditComponent } from './payment-edit/payment-edit.component'
+import { ReceiptEditComponent } from './receipt-edit/receipt-edit.component'
+import { ReceiptListComponent } from './receipt-list/receipt-list.component'
 
 @NgModule( {
   imports: [
@@ -16,11 +16,11 @@ import { WalletReceiptListComponent } from './wallet-receipt-list/wallet-receipt
   ],
   declarations: [
     WalletComponent,
-    WalletSummaryComponent,
-    WalletPaymentListComponent,
+    SummaryComponent,
+    PaymentListComponent,
     WalletPaymentEditComponent,
-    WalletReceiptEditComponent,
-    WalletReceiptListComponent
+    ReceiptEditComponent,
+    ReceiptListComponent
   ]
 })
 export class WalletModule { }

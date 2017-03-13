@@ -5,9 +5,8 @@ import { CPF_MASK, CEP_MASK, CREDICARD_MASK, CVV_MASK, EXPIRATION_MASK } from '.
 import { isValidCPF } from '../../../core/validators'
 import { PaymentAccountsService } from '../../../core/providers'
 @Component( {
-  selector: 'app-wallet-payment-edit',
-  templateUrl: './wallet-payment-edit.component.html',
-  styleUrls: [ './wallet-payment-edit.component.css' ],
+  templateUrl: './payment-edit.component.html',
+  styleUrls: [ './payment-edit.component.css' ],
   encapsulation: ViewEncapsulation.Emulated,
   changeDetection: ChangeDetectionStrategy.Default
 })

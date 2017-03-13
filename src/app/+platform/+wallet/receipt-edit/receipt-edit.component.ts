@@ -6,11 +6,10 @@ import { isValidCPF } from '../../../core/validators'
 import { ReceiptAccountsService } from '../../../core/providers'
 
 @Component( {
-  selector: 'app-wallet-receipt-edit',
-  templateUrl: './wallet-receipt-edit.component.html',
-  styleUrls: [ './wallet-receipt-edit.component.css' ]
+  templateUrl: './receipt-edit.component.html',
+  styleUrls: [ './receipt-edit.component.css' ]
 })
-export class WalletReceiptEditComponent implements OnInit {
+export class ReceiptEditComponent implements OnInit {
 
   private form: FormGroup
   public states = STATES

@@ -3,11 +3,10 @@ import { Component, OnInit } from '@angular/core'
 import { PaymentAccountsService } from '../../../core'
 
 @Component( {
-  selector: 'app-wallet-payment-list',
-  templateUrl: './wallet-payment-list.component.html',
-  styleUrls: [ './wallet-payment-list.component.css' ]
+  templateUrl: './payment-list.component.html',
+  styleUrls: [ './payment-list.component.css' ]
 })
-export class WalletPaymentListComponent implements OnInit {
+export class PaymentListComponent implements OnInit {
 
   public paymentMethods: any[]
 

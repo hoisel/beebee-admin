@@ -43,5 +43,8 @@ export class PlatformComponent implements OnInit {
     this.breadcrumbService.addFriendlyNameForRoute( '/plataforma/dashboard', 'dashboard' )
     this.breadcrumbService.addFriendlyNameForRoute( '/plataforma/carteira/pagamento', 'meios de pagamento' )
     this.breadcrumbService.addFriendlyNameForRoute( '/plataforma/carteira/recebimento', 'meios de recebimento' )
+    this.breadcrumbService.addFriendlyNameForRoute( '/plataforma/fazer-frete', 'fazer frete' )
+    this.breadcrumbService.addFriendlyNameForRoute( '/plataforma/pedir-frete', 'pedir frete' )
+    this.breadcrumbService.addFriendlyNameForRoute( '/plataforma/minha-conta', 'minha conta' )
   }
 }

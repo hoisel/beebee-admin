@@ -3,11 +3,10 @@ import { Component, OnInit } from '@angular/core'
 import { ReceiptAccountsService } from '../../../core'
 
 @Component({
-  selector: 'app-wallet-receipt-list',
-  templateUrl: './wallet-receipt-list.component.html',
-  styleUrls: ['./wallet-receipt-list.component.css']
+  templateUrl: './receipt-list.component.html',
+  styleUrls: ['./receipt-list.component.css']
 })
-export class WalletReceiptListComponent implements OnInit {
+export class ReceiptListComponent implements OnInit {
 
   public receiptMethods: any[]
 

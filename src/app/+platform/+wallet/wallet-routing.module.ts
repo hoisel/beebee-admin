@@ -3,11 +3,11 @@ import { Routes, RouterModule } from '@angular/router'
 
 import { IsUserGuard } from '../../core'
 import { WalletComponent } from './wallet.component'
-import { WalletSummaryComponent } from './wallet-summary/wallet-summary.component'
-import { WalletPaymentListComponent } from './wallet-payment-list/wallet-payment-list.component'
-import { WalletPaymentEditComponent } from './wallet-payment-edit/wallet-payment-edit.component'
-import { WalletReceiptEditComponent } from './wallet-receipt-edit/wallet-receipt-edit.component'
-import { WalletReceiptListComponent } from './wallet-receipt-list/wallet-receipt-list.component'
+import { SummaryComponent } from './summary/summary.component'
+import { PaymentListComponent } from './payment-list/payment-list.component'
+import { WalletPaymentEditComponent } from './payment-edit/payment-edit.component'
+import { ReceiptEditComponent } from './receipt-edit/receipt-edit.component'
+import { ReceiptListComponent } from './receipt-list/receipt-list.component'
 
 const routes: Routes = [ {
   path: '',
@@ -21,21 +21,21 @@ const routes: Routes = [ {
     },
     {
       path: 'resumo',
-      component: WalletSummaryComponent
+      component: SummaryComponent
     },
     {
       path: 'recebimento',
-      component: WalletReceiptListComponent,
+      component: ReceiptListComponent,
       data: { name: 'Meios de Recebimento' }
     },
     {
       path: 'recebimento/novo',
-      component: WalletReceiptEditComponent,
+      component: ReceiptEditComponent,
       data: { name: 'Meios de Recebimento / Novo' }
     },
     {
       path: 'pagamento',
-      component: WalletPaymentListComponent, data: { name: 'Meios de Pagamento' }
+      component: PaymentListComponent, data: { name: 'Meios de Pagamento' }
     },
     {
       path: 'pagamento/novo',
