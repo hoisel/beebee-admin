@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core'
-import { CanActivate, CanLoad, Router, Route, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router'
-import { AuthService } from '../'
-import { Observable } from 'rxjs/Observable'
+import { Router } from '@angular/router'
+import { AuthService } from '../auth.service'
+import { LoggedInGuard } from './logged-in.guard'
 
 @Injectable()
-export class IsAdminGuard implements CanActivate, CanLoad {
+export class IsAdminGuard extends LoggedInGuard {
 
   /**
    * Creates an instance of LoggedInGuard.
@@ -13,46 +13,8 @@ export class IsAdminGuard implements CanActivate, CanLoad {
    *
    * @memberOf LoggedInGuard
    */
-  constructor ( private auth: AuthService, private router: Router ) { }
-
-  /**
-   *
-   *
-   * @param {ActivatedRouteSnapshot} route
-   * @param {RouterStateSnapshot} state
-   * @returns
-   *
-   * @memberOf LoggedInGuard
-   */
-  public canActivate ( route: ActivatedRouteSnapshot, state: RouterStateSnapshot ): Observable<boolean> | Promise<boolean> | boolean {
-
-    // Store the attempted URL for redirecting
-    this.auth.redirectUrl = state.url
-
-    if ( this.userHasAccess ) {
-      return true
-    }
-
-    this.router.navigate( [ 'acesso/entrar' ] )
-    return false
-  }
-
-  /**
-   *
-   *
-   * @param {Route} route
-   * @returns {(Observable<boolean> | Promise<boolean> | boolean)}
-   *
-   * @memberOf LoggedInGuard
-   */
-  public canLoad ( route: Route ): Observable<boolean> | Promise<boolean> | boolean {
-
-    if ( this.userHasAccess ) {
-      return true
-    }
-
-    this.router.navigate( [ 'acesso/entrar' ] )
-    return false
+  constructor ( auth: AuthService, router: Router ) {
+    super( auth, router )
   }
 
   /**
@@ -63,7 +25,7 @@ export class IsAdminGuard implements CanActivate, CanLoad {
    *
    * @memberOf IsUserGuard
    */
-  private get userHasAccess() {
-    return this.auth.isAuthenticated && this.auth.user.role === 'admin'
+  protected userHasAccess () {
+    return super.userHasAccess() && this.auth.user.role === 'admin'
   }
 }

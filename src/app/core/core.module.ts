@@ -13,7 +13,6 @@ import { StorageService } from './storage'
 import {
   httpProvider,
   AuthService,
-  LoggedInGuard,
   IsAdminGuard,
   IsSuperAdminGuard,
   IsUserGuard
@@ -22,7 +21,8 @@ import {
 import {
   ProgressService,
   ThemeService,
-  UiStateStoreService
+  UiStateStoreService,
+  UsersService
 } from './providers'
 
 @NgModule( {
@@ -34,14 +34,14 @@ import {
   providers: [
     httpProvider,
     ProgressService,
-    LoggedInGuard,
     IsAdminGuard,
     IsUserGuard,
     IsSuperAdminGuard,
     ThemeService,
     UiStateStoreService,
     AuthService,
-    StorageService
+    StorageService,
+    UsersService
   ],
   exports: [
     RouterModule

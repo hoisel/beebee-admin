@@ -1,71 +1,27 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core'
+import { CommonModule } from '@angular/common'
 
-// modules
 import { PlatformRoutingModule } from './platform-routing.module'
-import { SharedModule } from '../shared'
-
-// components
 import { PlatformComponent } from './platform.component'
+import { SharedModule } from '../shared'
+import { BonusComponent } from './bonus/bonus.component'
+import { InvitedComponent } from './bonus/invited/invited.component'
 import { DashboardComponent } from './dashboard/dashboard.component'
-import { OrderIndexComponent } from './order/index.component'
-import { OrderDetailsComponent } from './order/details.component'
-import { UserIndexComponent } from './user/index.component'
-import { UserFormComponent } from './user/form.component'
-import { DriverIndexComponent } from './driver/index.component'
-import { DriverFormComponent } from './driver/form.component'
-import { BusinessIndexComponent } from './business/index.component'
-import { BusinessFormComponent } from './business/form.component'
-import { VehicleIndexComponent } from './vehicle/index.component'
-import { VehicleFormComponent } from './vehicle/form.component'
-import { ConfigOrderComponent } from './config/order/order.component'
-import { ConfigBonusComponent } from './config/bonus/bonus.component'
-import { ConfigVehicleIndexComponent } from './config/vehicle/index.component'
-import { ConfigVehicleFormComponent } from './config/vehicle/form.component'
-import { ConfigExtraIndexComponent } from './config/extra/index.component'
-import { ConfigExtraFormComponent } from './config/extra/form.component'
-import { ConfigObjectIndexComponent } from './config/object/index.component'
-import { ConfigObjectFormComponent } from './config/object/form.component'
-import { TeamIndexComponent } from './team/index.component'
-import { TeamFormComponent } from './team/form.component'
-import { FaqIndexComponent } from './faq/index.component'
-import { FaqFormComponent } from './faq/form.component'
-import { SupportComponent } from './support/support.component'
+import { ProfileComponent } from './profile/profile.component'
 
 @NgModule( {
   imports: [
+    CommonModule,
     PlatformRoutingModule,
     SharedModule
   ],
   declarations: [
-    PlatformComponent,
-    BusinessFormComponent,
-    BusinessIndexComponent,
-    ConfigBonusComponent,
-    ConfigOrderComponent,
-    ConfigVehicleFormComponent,
-    ConfigVehicleIndexComponent,
-    ConfigExtraFormComponent,
-    ConfigExtraIndexComponent,
-    ConfigObjectFormComponent,
-    ConfigObjectIndexComponent,
+    BonusComponent,
+    InvitedComponent,
     DashboardComponent,
-    DriverFormComponent,
-    DriverIndexComponent,
-    FaqFormComponent,
-    FaqIndexComponent,
-    OrderDetailsComponent,
-    OrderIndexComponent,
-    SupportComponent,
-    SupportComponent,
-    TeamFormComponent,
-    TeamIndexComponent,
-    UserFormComponent,
-    UserIndexComponent,
-    VehicleFormComponent,
-    VehicleIndexComponent
+    ProfileComponent,
+    PlatformComponent
   ],
-  schemas: [
-    CUSTOM_ELEMENTS_SCHEMA
-  ]
-} )
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
+})
 export class PlatformModule { }

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core'
 import { Routes, RouterModule } from '@angular/router'
 
-import { LoggedInGuard } from '../core'
+// import { LoggedInGuard } from '../core'
 
 import { RegisterComponent } from './register.component'
 import { SignupComponent } from './signup/signup.component'
@@ -22,7 +22,7 @@ const routes: Routes = [ {
     },
     {
       path: 'comecar',
-      canActivate: [ LoggedInGuard ],
+      // canActivate: [ LoggedInGuard ],
       component: StartComponent
     }]
 }]

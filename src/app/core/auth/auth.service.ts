@@ -68,8 +68,6 @@ export class AuthService extends BaseService {
       .catch( this.handleError )
   }
 
-
-
   public invalid (): Observable<any> {
     return this.http.get( `${ config.apiEndPoint }/token-invalid` )
       .map( this.extractData )
@@ -108,6 +106,8 @@ export class AuthService extends BaseService {
    */
   private refreshCurrentUser ( newToken: Token ) {
     this.currentUser = new User( newToken )
+    this.currentUser.role = 'user'
+    this.redirectLogin = this.currentUser.role === 'user' ? [ 'plataforma' ] : [ 'admin' ]
     console.log( 'User: ', this.currentUser )
   }
 }

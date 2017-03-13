@@ -4,7 +4,7 @@ import { AuthService } from '../'
 import { Observable } from 'rxjs/Observable'
 
 @Injectable()
-export class LoggedInGuard implements CanActivate, CanLoad {
+export abstract class LoggedInGuard implements CanActivate, CanLoad {
 
   /**
    * Creates an instance of LoggedInGuard.
@@ -13,7 +13,7 @@ export class LoggedInGuard implements CanActivate, CanLoad {
    *
    * @memberOf LoggedInGuard
    */
-  constructor ( private auth: AuthService, private router: Router ) { }
+  constructor ( protected auth: AuthService, protected router: Router ) { }
 
   /**
    *
@@ -29,7 +29,7 @@ export class LoggedInGuard implements CanActivate, CanLoad {
     // Store the attempted URL for redirecting
     this.auth.redirectUrl = state.url
 
-    if ( this.auth.isAuthenticated ) {
+    if ( this.userHasAccess() ) {
       return true
     }
 
@@ -47,11 +47,23 @@ export class LoggedInGuard implements CanActivate, CanLoad {
    */
   public canLoad ( route: Route ): Observable<boolean> | Promise<boolean> | boolean {
 
-    if ( this.auth.isAuthenticated ) {
+    if ( this.userHasAccess() ) {
       return true
     }
 
     this.router.navigate( [ 'acesso/entrar' ] )
     return false
+  }
+
+  /**
+   *
+   *
+   * @readonly
+   * @protected
+   * @type {boolean}
+   * @memberOf LoggedInGuard
+   */
+  protected userHasAccess (): boolean {
+    return this.auth.isAuthenticated
   }
 }

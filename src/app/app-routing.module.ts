@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core'
 import { Routes, RouterModule } from '@angular/router'
 
-import { LoggedInGuard } from './core'
+import { IsUserGuard, IsAdminGuard } from './core'
 
 import {
   E403Component,
@@ -15,8 +15,13 @@ export const routes: Routes = [
     pathMatch: 'full'
   },
   {
+    path: 'admin',
+    canLoad: [ IsAdminGuard ],
+    loadChildren: './+admin/admin.module#AdminModule'
+  },
+  {
     path: 'plataforma',
-    canLoad: [ LoggedInGuard ],
+    canLoad: [ IsUserGuard ],
     loadChildren: './+platform/platform.module#PlatformModule'
   },
   {

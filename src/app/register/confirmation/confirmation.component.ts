@@ -49,9 +49,9 @@ export class ConfirmationComponent implements OnInit {
     // Capture the session ID if available
     this.userId = this.route.snapshot.queryParams[ 'token' ]
 
-    if ( !this.userId ) {
-      this.router.navigate( [ '/cadastro' ] )
-    }
+    // if ( !this.userId ) {
+    //   this.router.navigate( [ '/cadastro' ] )
+    // }
   }
 
   /**

@@ -4,13 +4,12 @@ import { BreadcrumbService } from 'ng2-breadcrumb/ng2-breadcrumb'
 import { UiStateStoreService, AuthService } from '../core'
 
 @Component( {
-  selector: 'app-platform',
-  templateUrl: './platform.component.html',
-  styleUrls: [ './platform.component.css' ],
+  templateUrl: './admin.component.html',
+  styleUrls: [ './admin.component.css' ],
   encapsulation: ViewEncapsulation.Emulated,
   changeDetection: ChangeDetectionStrategy.Default
 })
-export class PlatformComponent implements OnInit {
+export class AdminComponent implements OnInit {
 
   /**
    * Creates an instance of AdminComponent.
@@ -40,6 +39,11 @@ export class PlatformComponent implements OnInit {
    * @memberOf AdminComponent
    */
   private configureBreadCrumb () {
-    this.breadcrumbService.addFriendlyNameForRoute( '/plataforma/dashboard', 'dashboard' )
+    this.breadcrumbService.addFriendlyNameForRoute( '/admin/dashboard', 'dashboard' )
+    this.breadcrumbService.addFriendlyNameForRoute( '/admin/faq', 'perguntas frequentes' )
+    this.breadcrumbService.addFriendlyNameForRoute( '/admin/veiculos', 'veículos' )
+    this.breadcrumbService.addFriendlyNameForRoute( '/admin/usuarios', 'usuários' )
+    this.breadcrumbService.addFriendlyNameForRoute( '/admin/configuracoes', 'configurações' )
+    this.breadcrumbService.addFriendlyNameForRoute( '/admin/configuracoes/veiculos', 'veículos' )
   }
 }

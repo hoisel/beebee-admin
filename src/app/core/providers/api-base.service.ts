@@ -26,7 +26,7 @@ export class ApiBaseService extends BaseService {
    * @memberOf ApiBaseService
    */
   public setResource ( resource: string ): void {
-    this.resource = '${resource}'
+    this.resource = resource
   }
 
   /**
@@ -96,10 +96,25 @@ export class ApiBaseService extends BaseService {
    *
    * @memberOf ApiBaseService
    */
-  public get (): Observable<any[]> {
+  public get ( id?: string ): Observable<any> {
     return this.http
-      .get( `${ config.apiEndPoint }/${ this.resource }` )
+      .get( `${ config.apiEndPoint }/${ this.resource }/${ id || '' }` )
       .map( this.extractData )
       .catch( this.handleError )
+  }
+
+  /**
+   *
+   *
+   * @param {string} id
+   * @param {string} type
+   * @returns {Observable<any>}
+   *
+   * @memberOf ApiBaseService
+   */
+  public getImage ( id: string, type: string ): Observable<any> {
+    return this.http
+      .get( `${ config.apiEndPoint }/users/${ id }/assets/${ type }.jpg` )
+      .map( this.extractData )
   }
 }

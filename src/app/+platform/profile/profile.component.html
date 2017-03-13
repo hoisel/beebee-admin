@@ -1,0 +1,251 @@
+<div class="wrapper-content">
+  <breadcrumb></breadcrumb>
+  <section>
+    <header class="page-header">
+      <h2>Minha Conta:</h2>
+      <p>Gerencie suas informações pessoais e preferências</p>
+    </header>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Perfil</h3>
+      </div>
+      <div class="panel-body">
+
+        <!--<div class="alert alert-success">
+          <button type="button" class="close" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+          <span>Mensagem!</span>
+        </div>-->
+
+        <form novalidate [formGroup]="form" (ngSubmit)="submitForm(form.value)">
+          <div class="form-group">
+            <label for="name">Nome:</label>
+            <input type="text" class="form-control" formControlName="name" [class.has-error]="form.get('name').errors && form.get('name').touched">
+            <p class="help-block" *ngIf="form.get('name').errors && form.get('name').touched">
+              * Campo obrigatório
+            </p>
+            <p class="help-block" *ngIf="form.get('name').hasError('minlength') && form.get('name').touched">
+              * A quantidade de caracteres mínima é 5
+            </p>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="cpf">CPF:</label>
+                <input type="text" class="form-control" name="cpf" formControlName="cpf">
+                <span class="help-block">Por motivos de segurança, não é possível alterar seu CPF.</span>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="rg">RG:</label>
+                <input type="text" class="form-control" name="rg" formControlName="rg">
+              </div>
+            </div>
+          </div>
+          <!-- aplicavel somente para motoristas -->
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="driverLicence">CNH:</label>
+                <input type="text" class="form-control" name="driverLicence" formControlName="driverLicence">
+              </div>
+            </div>
+            <!-- aplicavel somente para motoristas -->
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="driverLicenceExpiration">Vencimento da CNH:</label>
+                <input type="text" class="form-control" name="driverLicenceExpiration" [textMask]="{mask: dateMask}" formControlName="driverLicenceExpiration">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="form-group">
+                <label for="cellphone">Telefone Celular:</label>
+                <input type="text" class="form-control" formControlName="cellphone" [textMask]="{mask: cellMask}" [class.has-error]="form.get('cellphone').errors && form.get('cellphone').touched">
+                <p class="help-block" *ngIf="form.get('cellphone').hasError('required')
+                      && form.get('cellphone').touched">
+                  * Campo obrigatório
+                  </p>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" class="form-control" formControlName="email" [class.has-error]="form.get('email').errors && form.get('email').touched">
+                <p class="help-block" *ngIf="form.get('email').hasError('required') && form.get('email').touched">
+                  * Campo obrigatório
+                </p>
+                <p class="help-block" *ngIf="form.get('email').hasError('invalidEmail')
+                      && form.get('email').touched && !form.get('email').hasError('required')">
+                  * O e-mail informado não é válido
+                  </p>
+              </div>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-success">
+                <i class="fa fa-check" aria-hidden="true"></i>
+                <span>Salvar</span>
+              </button>
+        </form>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Galeria de Imagens</h3>
+      </div>
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="row">
+              <div class="col-sm-6 col-md-6 col-lg-4">
+                <div class="form-group">
+                  <label>Foto de Perfil:</label>
+                  <div class="image-square-ratio">
+                    <div class="image-change">
+                      <div id="avatar" class="image-wrapper">
+                        <a href="#">
+                          <div class="overlay">
+                            Alterar imagem
+                          </div>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <input type="file" (change)="fileChange($event, 'avatarUrl')" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="row">
+              <div class="col-sm-6 col-md-6 col-lg-4">
+                <!-- aplicavel somente para motoristas -->
+                <div class="form-group">
+                  <label>Foto da CNH:</label>
+                  <div class="image-square-ratio">
+                    <div class="image-change">
+                      <div id="driverLicense" class="image-wrapper">
+                        <a href="#">
+                          <div class="overlay">
+                            Alterar imagem
+                          </div>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <input type="file" (change)="fileChange($event, 'driverLicenseUrl')" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Segurança</h3>
+          </div>
+          <div class="panel-body">
+            <h4>Atualizar senha</h4>
+            <br>
+            <form>
+              <div class="form-group">
+                <label for="atual-password">Digite sua senha atual:</label>
+                <input type="password" class="form-control" name="atualPass" required>
+              </div>
+              <div class="form-group">
+                <label for="new-password">Digite sua nova senha:</label>
+                <input type="password" class="form-control" name="newPass" required>
+              </div>
+              <div class="form-group">
+                <label for="repeat-password">Repetir a nova senha:</label>
+                <input type="password" class="form-control" name="repeatPass" required>
+              </div>
+              <button type="submit" class="btn btn-success">
+                    <i class="fa fa-check" aria-hidden="true"></i>
+                    Salvar
+                  </button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Preferências</h3>
+          </div>
+          <div class="panel-body">
+            <h4>Notificações</h4>
+            <form>
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="form-group">
+                    <label for="receberTorpedos" class="pull-left">Receber torpedos</label>
+                    <input name="receberTorpedos" type="checkbox" class="checkbox pull-right">
+                  </div>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="form-group">
+                    <label for="receberEmails" class="pull-left">Receber e-mails</label>
+                    <input name="receberEmails" type="checkbox" class="checkbox pull-right">
+                  </div>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="form-group">
+                    <label for="receberAlertasPush" class="pull-left">Receber alertas push</label>
+                    <input name="receberAlertasPush" type="checkbox" class="checkbox pull-right">
+                  </div>
+                </div>
+              </div>
+              <hr>
+              <button type="submit" class="btn btn-success">
+                    <i class="fa fa-check" aria-hidden="true"></i>
+                    <span>Salvar</span>
+                  </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="modal" tabindex="-1" role="dialog" id="modalPassword" aria-labelledby="modalPasswordLabel">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Por favor insira sua senha para atualizar os dados</h4>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="form-group">
+              <label for="passwordProfile">Senha:</label>
+              <input type="password" name="passwordProfile" class="form-control">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-link" data-dismiss="modal">
+					Cancelar
+				</a>
+        <a data-dismiss="modal" [class.disabled]="!password" class="btn btn-success">
+          <i class="fa fa-check"></i> Confirmar
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
