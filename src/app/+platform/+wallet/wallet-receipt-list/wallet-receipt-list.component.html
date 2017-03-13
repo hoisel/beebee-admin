@@ -1,0 +1,53 @@
+<div class="wrapper-content">
+  <breadcrumb></breadcrumb>
+  <section>
+    <header class="page-header">
+      <h2>
+        Meios de Recebimento
+      </h2>
+      <p>
+        Relação de contas bancárias cadastradas
+      </p>
+      <div class="actions">
+        <a [routerLink]="['../recebimento/novo']" class="btn btn-default">
+          <i class="fa fa-plus" aria-hidden="true"></i> Cadastrar
+        </a>
+      </div>
+    </header>
+    <div class="row">
+      <div class="col-sm-6 col-md-6 col-lg-4" *ngFor="let receipt of receiptMethods">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">
+              <i class="fa fa-star primary-color"></i>
+              <span>{{receipt.title}}</span>
+            </h3>
+          </div>
+          <div class="panel-body">
+            <p>
+              Banco: {{receipt.bankNumber}}
+              <br> Agência: {{receipt.agency}}
+              <br> C/c: {{receipt.account}}
+            </p>
+            <p>
+              <small>
+                Favorecido:
+                <br>
+                {{receipt.accountOwner}}
+                <br>
+                {{receipt.accountOwnerCpf}}
+              </small>
+            </p>
+            <hr>
+            <a href="#" class="btn btn-success btn-sm">
+              <i class="fa fa-star"></i> Principal
+            </a>
+            <div class="btn btn-default btn-sm" (click)="delete(receipt)">
+              <i class="fa fa-trash"></i> Apagar
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

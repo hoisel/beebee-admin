@@ -22,7 +22,9 @@ import {
   ProgressService,
   ThemeService,
   UiStateStoreService,
-  UsersService
+  UsersService,
+  PaymentAccountsService,
+  ReceiptAccountsService
 } from './providers'
 
 @NgModule( {
@@ -41,7 +43,9 @@ import {
     UiStateStoreService,
     AuthService,
     StorageService,
-    UsersService
+    UsersService,
+    PaymentAccountsService,
+    ReceiptAccountsService
   ],
   exports: [
     RouterModule

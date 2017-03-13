@@ -96,9 +96,23 @@ export class ApiBaseService extends BaseService {
    *
    * @memberOf ApiBaseService
    */
-  public get ( id?: string ): Observable<any> {
+  public get ( id: string ): Observable<any> {
     return this.http
-      .get( `${ config.apiEndPoint }/${ this.resource }/${ id || '' }` )
+      .get( `${ config.apiEndPoint }/${ this.resource }/${ id }` )
+      .map( this.extractData )
+      .catch( this.handleError )
+  }
+
+  /**
+   *
+   *
+   * @returns {Observable<any>}
+   *
+   * @memberOf ApiBaseService
+   */
+  public getAll (): Observable<any> {
+    return this.http
+      .get( `${ config.apiEndPoint }/${ this.resource }` )
       .map( this.extractData )
       .catch( this.handleError )
   }

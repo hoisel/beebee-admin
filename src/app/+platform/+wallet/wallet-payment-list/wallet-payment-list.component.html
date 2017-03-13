@@ -1,0 +1,92 @@
+<div class="wrapper-content">
+  <breadcrumb></breadcrumb>
+  <section>
+    <header class="page-header">
+      <h2>
+        Meios de Pagamento
+      </h2>
+      <p>
+        Relação de meios de pagamentos cadastrados
+      </p>
+      <div class="actions">
+        <a [routerLink]="['../pagamento/novo']" class="btn btn-default">
+          <i class="fa fa-plus" aria-hidden="true"></i> Cadastrar
+        </a>
+      </div>
+    </header>
+    <div class="row">
+      <div class="col-sm-6 col-md-6 col-lg-4">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">
+              <i class="fa fa-star"></i>Dinheiro
+            </h3>
+          </div>
+          <div class="panel-body">
+            <p>
+              Você paga
+              <br> diretamente o fretista
+              <br> à vista na entrega
+            </p>
+            <hr>
+            <a href="#" class="btn btn-success btn-sm">
+              <i class="fa fa-star"></i> Principal
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-6 col-lg-4">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">
+              <i class="fa fa-star"></i>Boleto Bancário
+            </h3>
+          </div>
+          <div class="panel-body">
+            <p>
+              Disponível para
+              <br> pagamentos de até
+              <br> R$ 300,00
+            </p>
+            <hr>
+            <a href="#" class="btn btn-success btn-sm">
+              <i class="fa fa-star"></i> Principal
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-6 col-lg-4" *ngFor="let card of paymentMethods">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">
+              <i class="fa fa-star primary-color"></i>
+              <span>{{card.title}}</span>
+            </h3>
+          </div>
+          <div class="panel-body">
+            <p>
+              Número: {{card.cardNumber}}
+              <br> Validade: {{card.expirationDate}}
+            </p>
+            <p>
+              <small>
+                Titular:
+                <br>
+                {{card.accountOwner}}
+                <br>
+                {{card.accountOwnerCpf}}
+              </small>
+            </p>
+            <hr>
+            <a href="#" class="btn btn-success btn-sm">
+              <i class="fa fa-star"></i> Principal
+            </a>
+            <div class="btn btn-default btn-sm" (click)="delete(card)">
+              <i class="fa fa-trash"></i> Apagar
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

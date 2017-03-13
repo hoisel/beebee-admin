@@ -41,5 +41,7 @@ export class PlatformComponent implements OnInit {
    */
   private configureBreadCrumb () {
     this.breadcrumbService.addFriendlyNameForRoute( '/plataforma/dashboard', 'dashboard' )
+    this.breadcrumbService.addFriendlyNameForRoute( '/plataforma/carteira/pagamento', 'meios de pagamento' )
+    this.breadcrumbService.addFriendlyNameForRoute( '/plataforma/carteira/recebimento', 'meios de recebimento' )
   }
 }

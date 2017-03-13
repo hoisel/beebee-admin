@@ -38,6 +38,10 @@ const routes: Routes = [ {
       path: 'fidelidade/indicados',
       component: InvitedComponent,
       data: { name: 'Indicados' }
+    },
+    {
+      path: 'carteira',
+      loadChildren: './+wallet/wallet.module#WalletModule'
     }
   ]
 }]
