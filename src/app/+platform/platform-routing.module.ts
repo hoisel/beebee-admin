@@ -54,6 +54,10 @@ const routes: Routes = [ {
     {
       path: 'carteira',
       loadChildren: './+wallet/wallet.module#WalletModule'
+    },
+    {
+      path: 'agenda',
+      loadChildren: './+schedule/schedule.module#ScheduleModule'
     }
   ]
 }]

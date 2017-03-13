@@ -46,5 +46,6 @@ export class PlatformComponent implements OnInit {
     this.breadcrumbService.addFriendlyNameForRoute( '/plataforma/fazer-frete', 'fazer frete' )
     this.breadcrumbService.addFriendlyNameForRoute( '/plataforma/pedir-frete', 'pedir frete' )
     this.breadcrumbService.addFriendlyNameForRoute( '/plataforma/minha-conta', 'minha conta' )
+    this.breadcrumbService.addFriendlyNameForRoute( '/plataforma/agenda/em-andamento', 'em andamento' )
   }
 }

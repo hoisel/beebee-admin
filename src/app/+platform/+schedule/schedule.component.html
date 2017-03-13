@@ -1,0 +1,20 @@
+<div class="wrapper-heading">
+  <ul>
+    <li>
+      <a [routerLink]="['./em-andamento']" routerLinkActive="disabled">
+            Em andamento
+          </a>
+    </li>
+    <li>
+      <a [routerLink]="['./agendado']" routerLinkActive="disabled">
+            Agendado
+          </a>
+    </li>
+    <li>
+      <a [routerLink]="['./historico']" routerLinkActive="disabled">
+            Histórico
+          </a>
+    </li>
+  </ul>
+</div>
+<router-outlet></router-outlet>
