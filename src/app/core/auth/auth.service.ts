@@ -6,6 +6,7 @@ import { User } from '../model'
 import { BaseService } from '../providers/base.service'
 import { StorageService } from '../storage'
 import { config } from '../app.config'
+import { Token } from './token.model'
 
 @Injectable()
 export class AuthService extends BaseService {
@@ -50,18 +51,24 @@ export class AuthService extends BaseService {
    * @param username: string - nome de usuário
    * @param password: string - senha do usuário
    */
-  public login ( cpf: string, password: string ): Observable<User> {
+  public login ( credentials: { cpf: string, password: string } | Token ): Observable<User> {
 
-    const body = { cpf: cpf, password: password }
+    // se for token, já salva direto
+    if ( typeof credentials === 'string' ) {
+      this.storage.setAuthToken( credentials )
+      return Observable.of( this.user )
+    }
 
-    return this.http.post( `${ config.apiEndPoint }/login`, body, { headers: new Headers( { 'noIntercept': 'true' }) })
+    return this.http.post( `${ config.apiEndPoint }/login`, credentials, { headers: new Headers( { 'noIntercept': 'true' }) })
       .map( this.extractData )
-      .map(( resp: { token: string }) => {
+      .map(( resp: { token: Token }) => {
         this.storage.setAuthToken( resp.token )
         return this.user
       })
       .catch( this.handleError )
   }
+
+
 
   public invalid (): Observable<any> {
     return this.http.get( `${ config.apiEndPoint }/token-invalid` )
@@ -95,11 +102,11 @@ export class AuthService extends BaseService {
    *
    *
    * @private
-   * @param {string} token
+   * @param {Token} token
    *
    * @memberOf AuthService
    */
-  private refreshCurrentUser ( newToken: string ) {
+  private refreshCurrentUser ( newToken: Token ) {
     this.currentUser = new User( newToken )
     console.log( 'User: ', this.currentUser )
   }

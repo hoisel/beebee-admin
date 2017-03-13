@@ -10,7 +10,7 @@
 	  <div class="alert alert-danger" role="alert" *ngIf="message.length">
 	    {{message}}
 	  </div>
-	  <form id="loginform" role="form" #loginform="ngForm" (ngSubmit)="login()" novalidate>
+	  <form id="loginform" role="form" #loginform="ngForm" (ngSubmit)="login(loginform.value)" novalidate>
 	    <div class="form-group">
 	      <div class="input-group">
 	        <span class="input-group-addon">
@@ -52,7 +52,7 @@
 	  </form>
 	</div>
 	<div class="cta">
-	  <a href="/cadastro">
+	  <a routerLink="/cadastro">
 	    <small>
 	      Não é cadastrado?
 	    </small>

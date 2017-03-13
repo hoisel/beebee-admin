@@ -5,6 +5,7 @@ import { InterceptorConfig } from './interceptor.config'
 import { HttpAuthInterceptor } from './http-auth-interceptor.service'
 import { StorageService } from '../storage'
 import { config } from '../app.config'
+import { Token } from './token.model'
 
 export class HttpAuthService extends HttpAuthInterceptor {
 
@@ -27,11 +28,11 @@ export class HttpAuthService extends HttpAuthInterceptor {
    *
    *
    * @protected
-   * @returns <string>
+   * @returns <Token>
    *
    * @memberOf HttpAuth
    */
-  protected getToken (): string {
+  protected getToken (): Token {
     return this.storage.getAuthToken()
   }
 
@@ -39,12 +40,12 @@ export class HttpAuthService extends HttpAuthInterceptor {
    *
    *
    * @protected
-   * @param {string} token
-   * @returns string>
+   * @param {Token} token
+   * @returns Token>
    *
    * @memberOf HttpAuth
    */
-  protected saveToken ( token: string ): string {
+  protected saveToken ( token: Token ): Token {
     this.storage.setAuthToken( token )
     return token
   }

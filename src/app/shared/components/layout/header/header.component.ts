@@ -31,11 +31,11 @@ export class HeaderComponent {
     })
   }
 
-  public expired () {
-    this.auth.expired().subscribe()
-  }
+  // public expired () {
+  //   this.auth.expired().subscribe()
+  // }
 
-  public invalid () {
-    this.auth.invalid().subscribe()
-  }
+  // public invalid () {
+  //   this.auth.invalid().subscribe()
+  // }
 }

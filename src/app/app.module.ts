@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser'
 
 import { AppRoutingModule } from './app-routing.module'
 import { AuthModule } from './auth/auth.module'
+import { RegisterModule } from './register/register.module'
 import { CoreModule } from './core'
 import { SharedModule } from './shared'
 import { AppComponent } from './app.component'
@@ -16,6 +17,7 @@ import { E403Component, E404Component } from './errors'
     CoreModule,
     SharedModule,
     AuthModule,
+    RegisterModule,
     AppRoutingModule
   ],
   declarations: [

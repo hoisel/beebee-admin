@@ -25,7 +25,7 @@ export const PHONE_MASK = [
   /\d/, /\d/, /\d/, /\d/
 ]
 
-export const CELL_MASK = [
+export const CELL_PHONE_MASK = [
   '(', /\d/, /\d/, ')', ' ',
   /\d/, ' ', /\d/, /\d/, /\d/, /\d/, '-',
   /\d/, /\d/, /\d/, /\d/

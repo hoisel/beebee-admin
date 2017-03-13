@@ -1,6 +1,7 @@
 import { Http, Request, RequestOptions, RequestOptionsArgs, Response, ConnectionBackend, Headers } from '@angular/http'
 import { Observable } from 'rxjs/Observable'
 import { InterceptorConfig } from './interceptor.config'
+import { Token } from './token.model'
 /**
  *
  *
@@ -50,12 +51,12 @@ export abstract class HttpAuthInterceptor extends Http {
    *
    * @protected
    * @param {Request} req
-   * @param {*} token
+   * @param {Token} token
    * @returns {Observable<Response>}
    *
    * @memberOf HttpAuthInterceptor
    */
-  protected requestWithToken ( req: Request, token: any ): Observable<Response> {
+  protected requestWithToken ( req: Request, token: Token ): Observable<Response> {
     this.origRequest = req
     if ( !this.inteceptorConfig.noTokenError && !token ) {
       return Observable.throw( new Error( 'No authorization token given' ) )
@@ -164,7 +165,7 @@ export abstract class HttpAuthInterceptor extends Http {
       if ( resp.status === 401 && body.error === 'token_expired' ) {
         return this.refreshToken()
           .mergeMap(( resp: Response ) => this.saveNewToken( resp ) )
-          .mergeMap(( token: string ) => this.retryOriginalRequest( this.origRequest, token ) )
+          .mergeMap(( token: Token ) => this.retryOriginalRequest( this.origRequest, token ) )
       }
 
       if ( resp.status === 400 && body.error === 'token_invalid' ) {
@@ -181,12 +182,12 @@ export abstract class HttpAuthInterceptor extends Http {
    *
    * @protected
    * @param {Request} req
-   * @param {string} token
+   * @param {Token} token
    * @returns
    *
    * @memberOf HttpAuthInterceptor
    */
-  protected retryOriginalRequest ( req: Request, token: string ): Observable<Response> {
+  protected retryOriginalRequest ( req: Request, token: Token ): Observable<Response> {
     return this.requestWithToken( this.origRequest, token )
   }
 
@@ -199,10 +200,10 @@ export abstract class HttpAuthInterceptor extends Http {
    *
    * @memberOf HttpAuthInterceptor
    */
-  protected saveNewToken ( res: Response ): Observable<string> {
-    let data = res.json()
-    if ( data.refreshToken ) {
-      return Observable.of( this.saveToken( data.refreshToken ) )
+  protected saveNewToken ( res: Response ): Observable<Token> {
+    let { refreshToken } = res.json()
+    if ( refreshToken ) {
+      return Observable.of( this.saveToken( refreshToken ) )
     } else {
       return Observable.throw( new Error( 'Não foi possível fazer o refresh do token' ) )
     }
@@ -214,7 +215,7 @@ export abstract class HttpAuthInterceptor extends Http {
 
   protected abstract removeToken (): void
 
-  protected abstract saveToken ( token: string ): string
+  protected abstract saveToken ( token: Token ): string
 
   protected abstract refreshToken (): Observable<Response>
 }

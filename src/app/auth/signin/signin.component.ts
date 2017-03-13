@@ -44,9 +44,9 @@ export class SigninComponent implements OnInit, OnDestroy {
    *
    * @memberOf SigninComponent
    */
-  login (): void {
+  login ( credentials: { cpf: string, password: string } ): void {
     this.loading = true
-    this.auth.login( this.cpf, this.password )
+    this.auth.login( credentials )
       .subscribe( {
         next: () => {
           this.router.navigate( this.auth.redirectLogin )

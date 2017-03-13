@@ -39,7 +39,7 @@ export class PlatformComponent implements OnInit {
    * @memberOf PlatformComponent
    */
   private configureBreadCrumb () {
-    this.breadcrumbService.addFriendlyNameForRoute( '/plataforma/dashboard', 'ashboard' )
+    this.breadcrumbService.addFriendlyNameForRoute( '/plataforma/dashboard', 'dashboard' )
     this.breadcrumbService.addFriendlyNameForRoute( '/plataforma/faq', 'perguntas frequentes' )
     this.breadcrumbService.addFriendlyNameForRoute( '/plataforma/veiculos', 'veículos' )
     this.breadcrumbService.addFriendlyNameForRoute( '/plataforma/usuarios', 'usuários' )

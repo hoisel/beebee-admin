@@ -1,0 +1,157 @@
+  <div class="heading">
+    <div class="container">
+      <h1>
+        Cadastro completamente gratuito
+      </h1>
+      <h2>
+        Segurança, comodidade e feito pra você
+      </h2>
+    </div>
+  </div>
+  <div class="steps">
+    <div class="container">
+      <div class="row steps-bar">
+        <div class="col-xs-6">
+          <div class="step step-1">
+            <div class="circle active">
+              <span>1</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-6">
+          <div class="step step-2">
+            <div class="circle">
+              <span>2</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row steps-title">
+        <div class="col-xs-6">
+          <div class="step step-1 active">
+            <span>
+              Crie sua conta
+            </span>
+          </div>
+        </div>
+        <div class="col-xs-6">
+          <div class="step step-2">
+            <span>
+              Lorem Ipsum
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="register">
+    <form novalidate [formGroup]="form" (ngSubmit)="submitForm(form.value)">
+      <div class="form-group">
+        <label for="name">Nome completo</label>
+        <input type="text" class="form-control" formControlName="name" 
+          [class.has-error]="form.get('name').errors && form.get('name').touched">
+        <p class="help-block" *ngIf="form.get('name').errors && form.get('name').touched">
+          * Campo obrigatório
+        </p>
+        <p class="help-block" *ngIf="form.get('name').hasError('minlength') && form.get('name').touched">
+          * A quantidade de caracteres mínima é 5
+        </p>
+      </div>
+      <div class="form-group">
+        <label for="cpf">CPF</label>
+        <input type="text" class="form-control" formControlName="cpf" [textMask]="{mask: cpfMask}"
+          [class.has-error]="form.get('cpf').errors && form.get('cpf').touched">
+        <p class="help-block" *ngIf="form.get('cpf').hasError('required')
+          && form.get('cpf').touched">
+          * Campo obrigatório
+        </p>
+        <p class="help-block" *ngIf="form.get('cpf').hasError('invalidCPF') 
+          && form.get('cpf').touched && !form.get('cpf').hasError('required')">
+          * O CPF informado não é válido
+        </p>
+      </div>
+      <div class="form-group">
+        <label for="cellphone">Telefone celular</label>
+        <input type="text" class="form-control" formControlName="cellphone" [textMask]="{mask: cellMask}"
+          [class.has-error]="form.get('cellphone').errors && form.get('cellphone').touched">
+        <p class="help-block" *ngIf="form.get('cellphone').hasError('required')
+          && form.get('cellphone').touched">
+          * Campo obrigatório
+        </p>
+      </div>
+      <div class="form-group">
+        <label for="email">E-mail</label>
+        <input type="email" class="form-control" formControlName="email"
+          [class.has-error]="form.get('email').errors && form.get('email').touched">
+        <p class="help-block" *ngIf="form.get('email').hasError('required') && form.get('email').touched">
+          * Campo obrigatório
+        </p>
+        <p class="help-block" *ngIf="form.get('email').hasError('invalidEmail')
+          && form.get('email').touched && !form.get('email').hasError('required')">
+          * O e-mail informado não é válido
+        </p>
+      </div>
+      <div class="form-group">
+        <label for="password">Senha</label>
+        <input type="password" class="form-control" formControlName="password"
+          [class.has-error]="form.get('password').errors && form.get('password').touched">
+        <p class="help-block" *ngIf="form.get('password').hasError('required') && form.get('password').touched">
+          * Campo obrigatório
+        </p>
+        <p class="help-block" *ngIf="form.get('password').hasError('minlength') && form.get('password').touched">
+          * A senha deve ter pelo menos 6 caractéres
+        </p>
+      </div>
+      <div class="form-group">
+        <label for="confirm">Repita a senha</label>
+        <input type="password" class="form-control" formControlName="confirm"
+          [class.has-error]="form.get('confirm').errors && form.get('confirm').touched">
+        <p class="help-block" *ngIf="form.get('confirm').hasError('required') && form.get('confirm').touched">
+          * Campo obrigatório
+        </p>
+        <p class="help-block" *ngIf="form.hasError('noMatchPassword') && form.get('confirm').touched 
+          && !form.get('confirm').hasError('required')">
+          * As senhas devem ser iguais
+        </p>
+      </div>
+      <div class="form-group">
+        <label for="source">Como conheceu o BeeBee:</label>
+        <select id="source" name="source"  class="form-control">
+          <option value="">Indicação</option>
+          <option value="">Televisão</option>
+          <option value="">Facebook</option>
+          <option value="">Blablabla</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="affiliate">Indique o código do seu amigo:</label>
+        <input id="affiliate" name="affiliate" type="text" class="form-control">
+      </div>
+      <div class="form-group margin-bottom-xs">
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" name="terms" formControlName="terms">
+            <small>Eu li e concordo com os <a href="/termos-de-uso" target="_blank">Termos de Uso</a>.</small>
+          </label>
+        </div>
+      </div>
+      <div class="form-group margin-bottom-xs">
+        <button type="submit" class="btn btn-block" [disabled]="!form.valid">
+          Confirmar cadastro
+        </button>
+      </div>
+      <div class="help">
+        <a href="#">
+          Precisa de ajuda? Fale com a nossa equipe!
+        </a>
+      </div>
+    </form>
+  </div>
+  <div class="cta">
+    <a routerLink="/">
+      <small>
+        Já é cadastrado?
+      </small>
+      Acesse sua conta!
+    </a>
+  </div>

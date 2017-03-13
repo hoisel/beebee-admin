@@ -1,11 +1,11 @@
 import { AbstractControl } from '@angular/forms'
-const CNPJ = require( 'cpf_cnpj' ).CNPJ
+import cpf_cnpj from 'cpf_cnpj'
 
 /**
  * Faz a validação de CNPJ
  */
 export const isValidCNPJ = ( control: AbstractControl ): { [ key: string ]: boolean } => {
-  return CNPJ.isValid( control.value )
+  return cpf_cnpj.CNPJ.isValid( control.value )
     ? null
     : { invalidCNPJ: true }
 }

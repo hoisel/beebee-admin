@@ -1,11 +1,11 @@
 import { AbstractControl } from '@angular/forms'
-const CPF = require( 'cpf_cnpj' ).CPF
+import cpf_cnpj from 'cpf_cnpj'
 
 /**
  * Faz a validação de CPF
  */
 export const isValidCPF = ( control: AbstractControl ): { [ key: string ]: boolean } => {
-  return CPF.isValid( control.value )
+  return cpf_cnpj.CPF.isValid( control.value )
     ? null
     : { invalidCPF: true }
 }

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core'
 import { BehaviorSubject } from 'rxjs/BehaviorSubject'
 import { Observable } from 'rxjs/Observable'
 import { config } from '../app.config'
+import { Token } from '../auth'
 
 @Injectable()
 export class StorageService {
@@ -15,7 +16,7 @@ export class StorageService {
    * @memberOf StorageService
    */
   constructor () {
-    this.authToken$ = new BehaviorSubject<string>( this.getAuthToken() )
+    this.authToken$ = new BehaviorSubject<Token>( this.getAuthToken() )
   }
 
   /**
@@ -25,7 +26,7 @@ export class StorageService {
    * @type {Observable<User>}
    * @memberOf StorageService
    */
-  public get token$(): Observable<string> {
+  public get token$(): Observable<Token> {
     return this.authToken$.asObservable()
   }
 
@@ -36,7 +37,7 @@ export class StorageService {
    *
    * @memberOf StorageService
    */
-  public setAuthToken ( jwtToken: string ): void {
+  public setAuthToken ( jwtToken: Token ): void {
     this.execAndNotify( () => localStorage.setItem( this.AUTH_TOKEN_NAME, jwtToken ) )
   }
 
@@ -47,7 +48,7 @@ export class StorageService {
    *
    * @memberOf StorageService
    */
-  public getAuthToken (): string {
+  public getAuthToken (): Token {
     return localStorage.getItem( this.AUTH_TOKEN_NAME )
   }
 

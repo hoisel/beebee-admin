@@ -1,0 +1,43 @@
+<div class="heading">
+	<div class="container">
+		<h1>
+			Confirmação de autenticidade
+		</h1>
+		<h2>
+			Confirme seu número de celular
+		</h2>
+	</div>
+</div>
+<div class="register">
+	<form novalidate [formGroup]="form" (ngSubmit)="submitForm(form.value)">
+		<p class="lead">
+			Enviamos para o telefone
+      <br class="hidden-xs">{{cellphone}}
+      <br class="hidden-xs">um código de confirmação
+      <br class="hidden-xs">para autenticar o seu cadastro.
+		</p>
+		<!--<div class="alert alert-danger" role="alert">Mensagem de erro</div>-->
+		<div class="form-group margin-top-lg text-center">
+			<label for="confirmationCode">Código de confirmação:</label>
+			<input formControlName="confirmationCode" name="confirmationCode" type="text" class="form-control">
+		</div>
+		<div class="form-group margin-bottom-xs">
+			<button type="submit" class="btn btn-block" [disabled]="!form.valid">
+				Confirmar autenticidade
+			</button>
+		</div>
+		<div class="help">
+			<a href="#">
+				Ainda não recebeu o código?
+			</a>
+		</div>
+	</form>
+</div>
+<div class="cta">
+	<a href="#">
+		<small>
+			Precisa de ajuda?
+		</small>
+		Fale com nossa equipe!
+	</a>
+</div>

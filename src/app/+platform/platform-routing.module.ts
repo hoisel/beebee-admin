@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core'
 import { Routes, RouterModule } from '@angular/router'
 
+import { IsUserGuard } from '../core'
+
 import { PlatformComponent } from './platform.component'
 import { DashboardComponent } from './dashboard/dashboard.component'
 import { OrderIndexComponent } from './order/index.component'
@@ -31,6 +33,8 @@ export const routes: Routes = [
   {
     path: '',
     component: PlatformComponent,
+    canLoad: [ IsUserGuard ],
+    canActivate: [ IsUserGuard ],
     children: [
       {
         path: '',

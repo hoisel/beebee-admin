@@ -1,5 +1,5 @@
 import { Model, Business, Address, UserRole } from '../model'
-import { JwtHelper } from '../auth'
+import { JwtHelper, Token } from '../auth'
 
 export class User extends Model {
 
@@ -21,7 +21,7 @@ export class User extends Model {
   public phone: string = ''
   public receiptAccounts: string = ''
   public rg: string = ''
-  private token: string | undefined
+  private token: Token | undefined
 
   /**
    * Creates an instance of User.
@@ -29,7 +29,7 @@ export class User extends Model {
    *
    * @memberOf User
    */
-  constructor ( token?: string ) {
+  constructor ( token?: Token ) {
     super()
 
     if ( token ) {

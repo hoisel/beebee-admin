@@ -9,7 +9,16 @@ import { HttpModule } from '@angular/http'
 import { RouterModule } from '@angular/router'
 
 import { StorageService } from './storage'
-import { httpProvider, AuthService, LoggedInGuard } from './auth'
+
+import {
+  httpProvider,
+  AuthService,
+  LoggedInGuard,
+  IsAdminGuard,
+  IsSuperAdminGuard,
+  IsUserGuard
+} from './auth'
+
 import {
   ProgressService,
   ThemeService,
@@ -26,6 +35,9 @@ import {
     httpProvider,
     ProgressService,
     LoggedInGuard,
+    IsAdminGuard,
+    IsUserGuard,
+    IsSuperAdminGuard,
     ThemeService,
     UiStateStoreService,
     AuthService,
@@ -34,7 +46,7 @@ import {
   exports: [
     RouterModule
   ]
-} )
+})
 export class CoreModule {
 
   /**

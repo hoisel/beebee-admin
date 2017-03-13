@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core'
-
+import { Token } from './token.model'
 /**
  * Extraído de https://github.com/auth0/angular2-jwt/blob/master/angular2-jwt.ts
  *
@@ -100,7 +100,7 @@ export class JwtHelper {
    *
    * @memberOf JwtHelper
    */
-  public decodeToken ( token: string ): any {
+  public decodeToken ( token: Token ): any {
     let parts = token.split( '.' )
 
     if ( parts.length !== 3 ) {
@@ -123,7 +123,7 @@ export class JwtHelper {
    *
    * @memberOf JwtHelper
    */
-  public getTokenExpirationDate ( token: string ): Date {
+  public getTokenExpirationDate ( token: Token ): Date {
     let decoded: any
     decoded = this.decodeToken( token )
 
@@ -146,7 +146,7 @@ export class JwtHelper {
    *
    * @memberOf JwtHelper
    */
-  public isTokenExpired ( token: string, offsetSeconds?: number ): boolean {
+  public isTokenExpired ( token: Token, offsetSeconds?: number ): boolean {
     let date = this.getTokenExpirationDate( token )
     offsetSeconds = offsetSeconds || 0
 
@@ -163,9 +163,9 @@ export class JwtHelper {
  * Checks for presence of token and that token hasn't expired.
  * For use with the @CanActivate router decorator and NgIf
  */
-export function tokenNotExpired ( jwt?: string ): boolean {
+export function tokenNotExpired ( jwt?: Token ): boolean {
 
-  const token: string = jwt
+  const token: Token = jwt
 
   const jwtHelper = new JwtHelper()
 
