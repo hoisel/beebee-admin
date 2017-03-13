@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 import { Title } from '@angular/platform-browser'
 import { Component, OnInit } from '@angular/core'
 
-import { AuthService } from '../../core'
+import { AuthService } from '../../../core'
 
 @Component( {
   selector: 'app-confirmation',

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core'
 
 import { AuthRoutingModule } from './auth-routing.module'
-import { SharedModule } from '../shared'
+import { SharedModule } from '../../shared'
 
 import { SigninComponent } from './signin/signin.component'
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component'

@@ -3,7 +3,7 @@ import { Router } from '@angular/router'
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 
 import { SignupService, Signup } from '../shared'
-import { Token, CPF_MASK, CELL_PHONE_MASK, isValidCPF, isValidEmail, passwordMatcher } from '../../core'
+import { Token, CPF_MASK, CELL_PHONE_MASK, isValidCPF, isValidEmail, passwordMatcher } from '../../../core'
 
 @Component( {
   templateUrl: './signup.component.html',

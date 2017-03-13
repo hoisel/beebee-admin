@@ -2,7 +2,7 @@ import { Http, Headers } from '@angular/http'
 import { Injectable } from '@angular/core'
 import { Observable } from 'rxjs/Observable'
 
-import { BaseService, config } from '../../core'
+import { BaseService, config } from '../../../core'
 
 @Injectable()
 export class SignupService extends BaseService {

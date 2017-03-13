@@ -6,7 +6,7 @@ import { IsUserGuard, IsAdminGuard } from './core'
 import {
   E403Component,
   E404Component
-} from './errors'
+} from './common/errors'
 
 export const routes: Routes = [
   {

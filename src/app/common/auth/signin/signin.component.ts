@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core'
 import { Router } from '@angular/router'
-import { AuthService, CPF_MASK } from '../../core'
+import { AuthService, CPF_MASK } from '../../../core'
 
 @Component( {
   selector: 'app-signin',
