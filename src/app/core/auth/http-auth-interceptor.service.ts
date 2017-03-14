@@ -22,7 +22,7 @@ export abstract class HttpAuthInterceptor extends Http {
    *
    * @memberOf HttpAuthInterceptor
    */
-  constructor ( backend: ConnectionBackend, defaultOptions: RequestOptions, private inteceptorConfig: InterceptorConfig ) {
+  constructor( backend: ConnectionBackend, defaultOptions: RequestOptions, private inteceptorConfig: InterceptorConfig ) {
     super( backend, defaultOptions )
   }
 
@@ -35,7 +35,7 @@ export abstract class HttpAuthInterceptor extends Http {
    *
    * @memberOf HttpAuthInterceptor
    */
-  private getRequestOptionArgs ( options?: RequestOptionsArgs ): RequestOptionsArgs {
+  private getRequestOptionArgs( options?: RequestOptionsArgs ): RequestOptionsArgs {
     if ( options == null ) {
       options = new RequestOptions()
     }
@@ -56,7 +56,7 @@ export abstract class HttpAuthInterceptor extends Http {
    *
    * @memberOf HttpAuthInterceptor
    */
-  protected requestWithToken ( req: Request, token: Token ): Observable<Response> {
+  protected requestWithToken( req: Request, token: Token ): Observable<Response> {
     this.origRequest = req
     if ( !this.inteceptorConfig.noTokenError && !token ) {
       return Observable.throw( new Error( 'No authorization token given' ) )
@@ -76,7 +76,7 @@ export abstract class HttpAuthInterceptor extends Http {
    *
    * @memberOf HttpAuthInterceptor
    */
-  request ( url: string | Request, options?: RequestOptionsArgs ): Observable<Response> {
+  request( url: string | Request, options?: RequestOptionsArgs ): Observable<Response> {
     if ( typeof url === 'string' ) {
       return this.get( url, options )
     }
@@ -86,7 +86,6 @@ export abstract class HttpAuthInterceptor extends Http {
     if ( !this.shouldIntercept( req ) ) {
       return super.request( req )
     }
-
     return this.intercept( this.requestWithToken( req, this.getToken() ) )
   }
 
@@ -100,7 +99,7 @@ export abstract class HttpAuthInterceptor extends Http {
    *
    * @memberOf HttpAuthInterceptor
    */
-  get ( url: string, options?: RequestOptionsArgs ): Observable<Response> {
+  get( url: string, options?: RequestOptionsArgs ): Observable<Response> {
     return super.get( url, options )
   }
 
@@ -115,7 +114,7 @@ export abstract class HttpAuthInterceptor extends Http {
    *
    * @memberOf HttpAuthInterceptor
    */
-  post ( url: string, body: any, options?: RequestOptionsArgs ): Observable<Response> {
+  post( url: string, body: any, options?: RequestOptionsArgs ): Observable<Response> {
     return super.post( url, body, this.getRequestOptionArgs( options ) )
   }
 
@@ -130,7 +129,7 @@ export abstract class HttpAuthInterceptor extends Http {
    *
    * @memberOf HttpAuthInterceptor
    */
-  put ( url: string, body: any, options?: RequestOptionsArgs ): Observable<Response> {
+  put( url: string, body: any, options?: RequestOptionsArgs ): Observable<Response> {
     return super.put( url, body, this.getRequestOptionArgs( options ) )
   }
 
@@ -144,7 +143,7 @@ export abstract class HttpAuthInterceptor extends Http {
    *
    * @memberOf HttpAuthInterceptor
    */
-  delete ( url: string, options?: RequestOptionsArgs ): Observable<Response> {
+  delete( url: string, options?: RequestOptionsArgs ): Observable<Response> {
     return super.delete( url, options )
   }
 
@@ -157,7 +156,7 @@ export abstract class HttpAuthInterceptor extends Http {
    *
    * @memberOf HttpAuthInterceptor
    */
-  protected intercept ( observable: Observable<Response> ): Observable<Response> {
+  protected intercept( observable: Observable<Response> ): Observable<Response> {
     return observable.catch(( resp: Response, source: any ) => {
 
       let body = resp.json()
@@ -170,7 +169,7 @@ export abstract class HttpAuthInterceptor extends Http {
 
       if ( resp.status === 400 && body.error === 'token_invalid' ) {
         this.removeToken()
-        return Observable.throw( { message: 'token inválido' } )
+        return Observable.throw( { message: 'token inválido' })
       }
 
       return Observable.throw( resp )
@@ -187,7 +186,7 @@ export abstract class HttpAuthInterceptor extends Http {
    *
    * @memberOf HttpAuthInterceptor
    */
-  protected retryOriginalRequest ( req: Request, token: Token ): Observable<Response> {
+  protected retryOriginalRequest( req: Request, token: Token ): Observable<Response> {
     return this.requestWithToken( this.origRequest, token )
   }
 
@@ -200,7 +199,7 @@ export abstract class HttpAuthInterceptor extends Http {
    *
    * @memberOf HttpAuthInterceptor
    */
-  protected saveNewToken ( res: Response ): Observable<Token> {
+  protected saveNewToken( res: Response ): Observable<Token> {
     let { refreshToken } = res.json()
     if ( refreshToken ) {
       return Observable.of( this.saveToken( refreshToken ) )
@@ -209,13 +208,13 @@ export abstract class HttpAuthInterceptor extends Http {
     }
   }
 
-  protected abstract shouldIntercept ( req: Request ): boolean
+  protected abstract shouldIntercept( req: Request ): boolean
 
-  protected abstract getToken (): string
+  protected abstract getToken(): string
 
-  protected abstract removeToken (): void
+  protected abstract removeToken(): void
 
-  protected abstract saveToken ( token: Token ): string
+  protected abstract saveToken( token: Token ): string
 
-  protected abstract refreshToken (): Observable<Response>
+  protected abstract refreshToken(): Observable<Response>
 }

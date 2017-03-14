@@ -17,7 +17,7 @@ export class HttpAuthService extends HttpAuthInterceptor {
    *
    * @memberOf HttpAuth
    */
-  constructor (
+  constructor(
     backend: ConnectionBackend,
     defaultOptions: RequestOptions,
     private storage: StorageService ) {
@@ -32,7 +32,7 @@ export class HttpAuthService extends HttpAuthInterceptor {
    *
    * @memberOf HttpAuth
    */
-  protected getToken (): Token {
+  protected getToken(): Token {
     return this.storage.getAuthToken()
   }
 
@@ -45,7 +45,7 @@ export class HttpAuthService extends HttpAuthInterceptor {
    *
    * @memberOf HttpAuth
    */
-  protected saveToken ( token: Token ): Token {
+  protected saveToken( token: Token ): Token {
     this.storage.setAuthToken( token )
     return token
   }
@@ -57,7 +57,7 @@ export class HttpAuthService extends HttpAuthInterceptor {
    *
    * @memberOf HttpAuthService
    */
-  protected removeToken () {
+  protected removeToken() {
     this.storage.clearAuthToken()
   }
 
@@ -69,7 +69,7 @@ export class HttpAuthService extends HttpAuthInterceptor {
    *
    * @memberOf HttpAuth
    */
-  protected refreshToken (): Observable<Response> {
+  protected refreshToken(): Observable<Response> {
     return super.get( `${ config.apiEndPoint }/refresh`, {
       headers: new Headers( {
         'noIntercept': 'true',
@@ -87,8 +87,13 @@ export class HttpAuthService extends HttpAuthInterceptor {
    *
    * @memberOf HttpAuthService
    */
-  protected shouldIntercept ( req: Request ): boolean {
-    return !req.headers.has( 'noIntercept' )
+  protected shouldIntercept( req: Request ): boolean {
+    const intercept = !req.headers.has( 'noIntercept' )
+    if ( !intercept ) {
+      req.headers.delete( 'noIntercept' )
+    }
+
+    return intercept
   }
 
 }

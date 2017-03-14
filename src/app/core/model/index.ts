@@ -1,4 +1,4 @@
-export * from './business'
+export * from './company'
 export * from './menus'
 export * from './model'
 export * from './user'

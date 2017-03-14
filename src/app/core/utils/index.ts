@@ -11,10 +11,8 @@ export * from './states/states.data'
  *
  * @memberOf ProfileComponent
  */
-export function pick ( obj: any, props: string[] ): any {
+export function pick( obj: any, props: string[] ): any {
   return Object.keys( obj )
     .filter(( key ) => props.indexOf( key ) >= 0 )
     .reduce(( newObj, key ) => Object.assign( newObj, { [ key ]: obj[ key ] }), {})
 }
-
-

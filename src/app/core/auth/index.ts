@@ -5,4 +5,4 @@ export * from './auth.service'
 export * from './guards'
 export * from './token.model'
 export * from './user-claims'
-
+export * from './profile.model'

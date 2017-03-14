@@ -1,12 +1,10 @@
 // Place your settings in this file to overwrite default and user settings.
 {
-  
-    "editor.tabSize": 2,
-    "editor.detectIndentation": false,
-
-    // Turns auto fix on save on or off.
-    "tslint.autoFixOnSave": true,
-    "standard.autoFixOnSave": true,
-    "editor.formatOnSave": true,
-    "editor.formatOnPaste": true
+  "editor.tabSize": 2,
+  "editor.detectIndentation": false,
+  // Turns auto fix on save on or off.
+  "tslint.autoFixOnSave": true,
+  "standard.autoFixOnSave": false,
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true
 }

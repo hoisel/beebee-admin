@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core'
 import { Http, Headers } from '@angular/http'
 import { Observable } from 'rxjs/Observable'
+import { BehaviorSubject } from 'rxjs/BehaviorSubject'
 
 import { UserClaims } from './user-claims'
 import { BaseService } from '../providers/base.service'
 import { StorageService } from '../storage'
 import { config } from '../app.config'
 import { Token } from './token.model'
+import { Profile, PersonalProfile } from './profile.model'
 
 @Injectable()
 export class AuthService extends BaseService {
@@ -15,6 +17,7 @@ export class AuthService extends BaseService {
   public redirectUrl: string | undefined
   public redirectLogin: string[] = [ 'plataforma' ]
   private currentUser: UserClaims
+  public profileSubject: BehaviorSubject<Profile>
 
   /**
    * Creates an instance of AuthService.
@@ -22,10 +25,10 @@ export class AuthService extends BaseService {
    *
    * @memberOf AuthService
    */
-  constructor ( private http: Http, private storage: StorageService ) {
+  constructor( private http: Http, private storage: StorageService ) {
     super()
     this.currentUser = UserClaims.DefaultUser()
-    this.storage.token$.subscribe( newToken => this.refreshCurrentUser( newToken ) )
+    this.profileSubject = new BehaviorSubject<Profile>( this.userProfile )
   }
 
   /**
@@ -51,7 +54,7 @@ export class AuthService extends BaseService {
    * @param username: string - nome de usuário
    * @param password: string - senha do usuário
    */
-  public login ( credentials: { cpf: string, password: string } | Token ): Observable<UserClaims> {
+  public login( credentials: { cpf: string, password: string } | Token ): Observable<UserClaims> {
 
     // se for token, já salva direto
     if ( typeof credentials === 'string' ) {
@@ -68,30 +71,43 @@ export class AuthService extends BaseService {
       .catch( this.handleError )
   }
 
-  public invalid (): Observable<any> {
-    return this.http.get( `${ config.apiEndPoint }/token-invalid` )
-      .map( this.extractData )
-      .map( resp => {
-        console.log( resp )
-        return resp
-      })
-      .catch( this.handleError )
+  /**
+   *
+   *
+   * @readonly
+   * @type {Observable<Profile>}
+   * @memberOf AuthService
+   */
+  public get userProfile$(): Observable<Profile> {
+    return this.profileSubject.asObservable()
   }
 
-  public expired (): Observable<any> {
-    return this.http.get( `${ config.apiEndPoint }/token-expired` )
-      .map( this.extractData )
-      .map( resp => {
-        console.log( resp )
-        return resp
-      })
-      .catch( this.handleError )
+  /**
+   *
+   *
+   * @readonly
+   * @type {Profile}
+   * @memberOf AuthService
+   */
+  public get userProfile(): Profile {
+    return this.storage.getItem( this.userProfileKey ) as Profile
+  }
+
+  /**
+   *
+   *
+   *
+   * @memberOf AuthService
+   */
+  public set userProfile( profile: Profile ) {
+    this.storage.setItem( this.userProfileKey, profile )
+    this.profileSubject.next( profile )
   }
 
   /**
    * Destroi a sessão do usuário atual.
    */
-  public logout (): Promise<Date> {
+  public logout(): Promise<Date> {
     this.storage.clearAuthToken()
     return Promise.resolve( new Date() )
   }
@@ -104,10 +120,25 @@ export class AuthService extends BaseService {
    *
    * @memberOf AuthService
    */
-  private refreshCurrentUser ( newToken: Token ) {
+  public refreshCurrentUser( newToken?: Token ) {
     this.currentUser = new UserClaims( newToken )
     this.currentUser.role = 'user'
     this.redirectLogin = this.currentUser.role === 'user' ? [ 'plataforma' ] : [ 'admin' ]
     console.log( 'User: ', this.currentUser )
+
+    // - re-salva e força uma publicação do profile
+    this.userProfile = this.userProfile || new PersonalProfile( this.currentUser.id, this.currentUser.name )
+  }
+
+  /**
+   *
+   *
+   * @readonly
+   * @private
+   * @type {string}
+   * @memberOf AuthService
+   */
+  private get userProfileKey(): string {
+    return `user-${ this.user.id }-profile`
   }
 }

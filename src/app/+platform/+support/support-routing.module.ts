@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core'
 import { Routes, RouterModule } from '@angular/router'
 
-
 import { IsUserGuard } from '../../core'
 import { CustomerServiceComponent } from './customer-service/customer-service.component'
 import { FaqComponent } from './faq/faq.component'
@@ -29,8 +28,6 @@ const routes: Routes = [ {
     }
   ]
 }]
-
-
 
 @NgModule( {
   imports: [ RouterModule.forChild( routes ) ],

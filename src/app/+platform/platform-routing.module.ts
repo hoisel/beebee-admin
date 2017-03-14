@@ -62,6 +62,10 @@ const routes: Routes = [ {
     {
       path: 'suporte',
       loadChildren: './+support/support.module#SupportModule'
+    },
+    {
+      path: 'negocios',
+      loadChildren: './+business/business.module#BusinessModule'
     }
   ]
 }]

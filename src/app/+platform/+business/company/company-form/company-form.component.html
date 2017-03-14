@@ -1,0 +1,191 @@
+<div class="panel panel-default">
+  <div class="panel-body">
+    <form novalidate [formGroup]="form" (ngSubmit)="submitForm(form.value)">
+      <input type="hidden" formControlName="id" />
+      <!--PERFIL DA EMPRESA-->
+      <h4>Perfil da Empresa</h4>
+      <div class="form-group">
+        <label>Selecione o perfil de uso da empresa:</label>
+        <div class="checkbox">
+          <label class="checkbox">
+            <input type="checkbox" formControlName="requestFreights">
+            <span>Pedir fretes</span>
+          </label>
+          <label class="checkbox">
+            <input type="checkbox" formControlName="makeFreights">
+            <span>Fazer entregas</span>
+          </label>
+        </div>
+      </div>
+      <h4>Dados da Empresa</h4>
+      <div class="row">
+        <div class="col-md-12">
+          <!--NOME FANTASIA-->
+          <div class="form-group">
+            <label for="tradingName">Nome Fantasia:</label>
+            <input formControlName="tradingName" [class.has-error]="form.get('tradingName').errors && form.get('tradingName').touched"
+              type="text" class="form-control">
+              <p class="help-block" *ngIf="form.get('tradingName').hasError('required') && form.get('tradingName').touched">
+                * Campo obrigatório.
+              </p>
+              <p class="help-block" *ngIf="form.get('tradingName').hasError('minlength') && form.get('tradingName').touched">
+                * A quantidade de caracteres mínima é 5.
+              </p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-8">
+          <!--RAZÃO SOCIAL-->
+          <div class="form-group">
+            <label for="companyName">Razão Social:</label>
+            <input formControlName="companyName" [class.has-error]="form.get('companyName').errors && form.get('companyName').touched"
+              type="text" class="form-control">
+              <p class="help-block" *ngIf="form.get('companyName').hasError('required') && form.get('companyName').touched">
+                * Campo obrigatório.
+              </p>
+              <p class="help-block" *ngIf="form.get('companyName').hasError('minlength') && form.get('companyName').touched">
+                * A quantidade de caracteres mínima é 5.
+              </p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <!--CNPJ-->
+          <div class="form-group">
+            <label for="cnpj">CNPJ:</label>
+            <input formControlName="cnpj" type="text" [textMask]="{mask: cnpjMask}" [class.has-error]="form.get('cnpj').errors && form.get('cnpj').touched"
+              class="form-control">
+              <p class="help-block" *ngIf="form.get('cnpj').hasError('required') && form.get('cnpj').touched">
+                * Campo obrigatório.
+              </p>
+              <p class="help-block" *ngIf="form.get('cnpj').hasError('invalidCNPJ') && form.get('cnpj').touched && !form.get('cnpj').hasError('required')">
+                * O CNPJ informado não é válido.
+              </p>
+          </div>
+        </div>
+      </div>
+
+      <h4>Endereço</h4>
+      <div class="row">
+        <div class="col-md-3 col-lg-2">
+          <!--CEP-->
+          <div class="form-group">
+            <label for="zipcode">CEP:</label>
+            <input formControlName="zipcode" [class.has-error]="form.get('zipcode').errors && form.get('zipcode').touched" [textMask]="{mask: cepMask}"
+              (blur)="getAddress()" class="form-control">
+              <p class="help-block" *ngIf="form.get('zipcode').errors && form.get('zipcode').touched">
+                * Campo obrigatório.
+              </p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <!--LOGRADOURO-->
+          <div class="form-group">
+            <label for="address">Endereço:</label>
+            <input formControlName="address" [class.has-error]="form.get('address').errors && form.get('address').touched" type="text"
+              class="form-control">
+              <p class="help-block" *ngIf="form.get('address').errors && form.get('address').touched">
+                * Campo obrigatório.
+              </p>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <!--NÚMERO-->
+          <div class="form-group">
+            <label for="number">Número:</label>
+            <input formControlName="number" [class.has-error]="form.get('number').errors && form.get('number').touched" type="number"
+              id="num" class="form-control">
+              <p class="help-block" *ngIf="form.get('number').errors && form.get('number').touched">
+                * Campo obrigatório.
+              </p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <!--COMPLEMENTO-->
+          <div class="form-group">
+            <label for="complement">Complemento:</label>
+            <input formControlName="complement" [class.has-error]="form.get('complement').errors && form.get('complement').touched" class="form-control">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <!--BAIRRO-->
+          <div class="form-group">
+            <label for="district">Bairro:</label>
+            <input formControlName="district" [class.has-error]="form.get('district').errors && form.get('district').touched" type="text"
+              class="form-control">
+              <p class="help-block" *ngIf="form.get('district').errors && form.get('district').touched">
+                * Campo obrigatório.
+              </p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <!--CIDADE-->
+          <div class="form-group">
+            <label for="city">Cidade:</label>
+            <input formControlName="city" [class.has-error]="form.get('city').errors && form.get('city').touched" type="text" class="form-control">
+            <p class="help-block" *ngIf="form.get('city').errors && form.get('city').touched">
+              * Campo obrigatório.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <!--ESTADO-->
+          <div class="form-group">
+            <label for="state">Estado:</label>
+            <select formControlName="state" [class.has-error]="form.get('state').errors && form.get('state').touched" class="form-control">
+                <option value="" hidden>Selecione...</option>
+                <option *ngFor="let state of states" [value]="state.abbr">{{state.abbr}}</option>
+                </select>
+            <p class="help-block" *ngIf="form.get('state').errors && form.get('state').touched">
+              * Campo obrigatório.
+            </p>
+          </div>
+        </div>
+      </div>
+      <h4>Contato</h4>
+      <div class="row">
+        <div class="col-md-4">
+          <!--E-MAIL-->
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input formControlName="email" [class.has-error]="form.get('email').errors && form.get('email').touched" type="email" class="form-control">
+            <p class="help-block" *ngIf="form.get('email').hasError('required') && form.get('email').touched">
+              * Campo obrigatório.
+            </p>
+            <p class="help-block" *ngIf="form.get('email').hasError('invalidEmail') && form.get('email').touched && !form.get('email').hasError('required')">
+              * O e-mail informado não é válido.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <!--CELULAR-->
+          <div class="form-group">
+            <label for="cellphone">Celular:</label>
+            <input formControlName="cellphone" [class.has-error]="form.get('cellphone').errors && form.get('cellphone').touched" type="text"
+              class="form-control" [textMask]="{mask: cellMask}">
+
+          </div>
+        </div>
+        <div class="col-md-4">
+          <!--TELEFONE-->
+          <div class="form-group">
+            <label for="phone">Telefone:</label>
+            <input formControlName="phone" [textMask]="{mask: phoneMask}" type="text" class="form-control">
+            <p class="help-block" *ngIf="form.get('phone').errors && form.get('phone').touched">
+              * Campo obrigatório.
+            </p>
+          </div>
+        </div>
+      </div>
+      <!--CADASTRAR/LIMPAR-->
+      <button type="submit" class="btn btn-success" [disabled]="!form.valid">
+        <i class="fa fa-check" aria-hidden="true"></i>
+        <span>Salvar</span>
+      </button>
+    </form>
+  </div>
+</div>

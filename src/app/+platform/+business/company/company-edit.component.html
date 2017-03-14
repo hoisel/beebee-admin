@@ -1,0 +1,13 @@
+<div class="wrapper-content">
+  <breadcrumb></breadcrumb>
+  <section>
+    <header class="page-header">
+      <h2>Perfil do Negócio</h2>
+      <p>Gerencie o perfil do seu negócio</p>
+    </header>
+    <div class="alert alert-info" role="alert" *ngIf="company && !company.approved">
+      O perfil do seu negócio está em revisão!
+    </div>
+    <bee-company-form [company]="company" (onSubmit)="onSubmit($event)"></bee-company-form>
+  </section>
+</div>

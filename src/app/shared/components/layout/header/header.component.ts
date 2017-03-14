@@ -15,7 +15,7 @@ export class HeaderComponent {
    *
    * @memberOf HeaderComponent
    */
-  constructor ( private auth: AuthService, private router: Router ) { }
+  constructor( private auth: AuthService, private router: Router ) { }
 
   /**
    *
@@ -24,18 +24,10 @@ export class HeaderComponent {
    *
    * @memberOf HeaderComponent
    */
-  public logout (): void {
+  public logout(): void {
     this.auth.logout().then( logoutDateTime => {
       console.log( `Deslogou em ${ logoutDateTime.toTimeString() }` )
       this.router.navigate( [ '/acesso/entrar' ] )
     })
   }
-
-  // public expired () {
-  //   this.auth.expired().subscribe()
-  // }
-
-  // public invalid () {
-  //   this.auth.invalid().subscribe()
-  // }
 }

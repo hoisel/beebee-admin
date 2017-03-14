@@ -6,5 +6,7 @@ export * from './base.service'
 export * from './api-base.service'
 
 export * from './users.service'
+export * from './company.service'
 export * from './payment-accounts.service'
 export * from './receipt-accounts.service'
+export * from './cep.service'

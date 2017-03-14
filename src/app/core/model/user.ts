@@ -1,8 +1,8 @@
-import { Model, Business, Address, UserRole } from '../model'
+import { Model, Company, Address, UserRole } from '../model'
 
 export class User extends Model {
   public address: Address
-  public companies: Business[] = []
+  public companies: Company[] = []
   public role: UserRole | undefined
   public cellphone: string = ''
   public cpf: string = ''

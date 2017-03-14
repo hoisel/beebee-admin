@@ -13,15 +13,8 @@ export class PaymentAccountsService extends ApiBaseService {
    *
    * @memberOf UserService
    */
-  constructor ( http: Http, private auth: AuthService ) {
+  constructor( http: Http, private auth: AuthService ) {
     super( http )
-
-    const resource = this.auth.user
-      ? `users/${ this.auth.user.id }/payment-accounts`
-      : `users/${ this.auth.user.id }/payment-accounts`
-      // todo
-      // : `companies/${ this.auth.user.loggedInCompany.id }/payment-accounts`
-
-    this.setResource( resource )
+    this.auth.userProfile$.subscribe( userProfile => this.setResource( `${ userProfile.resourceName }/${ userProfile.id }/payment-accounts` ) )
   }
 }
