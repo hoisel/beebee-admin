@@ -1,0 +1,18 @@
+<div class="wrapper-heading">
+  <ul>
+    <li>
+      <a [routerLink]="['./faq']" routerLinkActive="disabled">
+            Perguntas Frequentes
+          </a>
+    </li>
+    <li>
+      <a [routerLink]="['./atendimento']" routerLinkActive="disabled">
+            Atendimento
+          </a>
+    </li>
+  </ul>
+</div>
+<div class="wrapper-content">
+  <breadcrumb></breadcrumb>
+  <router-outlet></router-outlet>
+</div>

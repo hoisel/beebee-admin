@@ -1,0 +1,59 @@
+<section>
+  <header class="page-header">
+    <h2>
+      Perguntas Frequentes
+    </h2>
+    <p>
+      Confira abaixo as perguntas mais frequentes.
+    </p>
+  </header>
+  <div class="row">
+    <div class="col-md-8">
+      <section>
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <div class="margin-top-md margin-bottom-lg" *ngFor="let question of questions">
+              <h3>
+                <small class="flat-bg-primary-color">
+                    Pagamentos
+                  </small>
+              </h3>
+              <h4>
+                {{question.question}}
+              </h4>
+              <p>{{question.answer}}</p>
+              <h4>
+                {{question.question}}
+              </h4>
+              <p>{{question.answer}}</p>
+              <h4>
+                {{question.question}}
+              </h4>
+              <p>{{question.answer}}</p>
+              <hr class="margin-top-lg margin-bottom-lg">
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <div class="col-md-4">
+      <h3 class="text-uppercase">Atendimento</h3>
+      <p class="margin-bottom-sm">
+        Entre em contato para solucionar dúvidas,<br class="hidden-xs"> solicitar suporte ou informações específicas.
+      </p>
+      <p>
+        Email:
+        <a href="tel:{{email}}">
+            {{email}}
+          </a>
+      </p>
+      <p>
+        Hotline:
+        <a href="mailto:{{hotline}}">
+            {{hotline}}
+          </a>
+      </p>
+      <a routerLink="/suporte/atendimento" class="btn btn-sm btn-default margin-top-sm">Enviar Mensagem</a>
+    </div>
+  </div>
+</section>

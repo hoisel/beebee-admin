@@ -58,6 +58,10 @@ const routes: Routes = [ {
     {
       path: 'agenda',
       loadChildren: './+schedule/schedule.module#ScheduleModule'
+    },
+    {
+      path: 'suporte',
+      loadChildren: './+support/support.module#SupportModule'
     }
   ]
 }]

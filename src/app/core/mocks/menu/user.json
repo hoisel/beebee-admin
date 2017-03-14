@@ -67,7 +67,7 @@
       "icon": "icon-bonus"
     },
     {
-      "text": " Meu Negócio",
+      "text": "Meu Negócio",
       "icon": "icon-users",
       "subItems": [
         {
@@ -81,13 +81,11 @@
         {
           "text": "Usuários",
           "href": "./negocios/usuarios"
-        }
-        ,
+        },
         {
           "text": "Veículos",
           "href": "./negocios/veiculos"
-        }
-        ,
+        },
         {
           "text": "Motoristas",
           "href": "./negocios/motoristas"
@@ -99,6 +97,20 @@
       "href": "./minha-conta",
       "title": "Minha Conta",
       "icon": "icon-user"
+    },
+    {
+      "text": "Suporte",
+      "icon": "icon-help",
+      "subItems": [
+        {
+          "text": "Perguntas Frequentes",
+          "href": "./suporte/faq"
+        },
+        {
+          "text": "Atendimento",
+          "href": "./suporte/atendimento"
+        }
+      ]
     }
   ]
 }
