@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core'
 import { Http, Headers } from '@angular/http'
 import { Observable } from 'rxjs/Observable'
 
-import { User } from '../model'
+import { UserClaims } from './user-claims'
 import { BaseService } from '../providers/base.service'
 import { StorageService } from '../storage'
 import { config } from '../app.config'
@@ -14,7 +14,7 @@ export class AuthService extends BaseService {
   // Url que tentou ser acessada sem sessão ativa
   public redirectUrl: string | undefined
   public redirectLogin: string[] = [ 'plataforma' ]
-  private currentUser: User
+  private currentUser: UserClaims
 
   /**
    * Creates an instance of AuthService.
@@ -24,7 +24,7 @@ export class AuthService extends BaseService {
    */
   constructor ( private http: Http, private storage: StorageService ) {
     super()
-    this.currentUser = User.DefaultUser()
+    this.currentUser = UserClaims.DefaultUser()
     this.storage.token$.subscribe( newToken => this.refreshCurrentUser( newToken ) )
   }
 
@@ -42,7 +42,7 @@ export class AuthService extends BaseService {
    * @type {User}
    * @memberOf AuthService
    */
-  public get user(): User {
+  public get user(): UserClaims {
     return this.currentUser
   }
 
@@ -51,7 +51,7 @@ export class AuthService extends BaseService {
    * @param username: string - nome de usuário
    * @param password: string - senha do usuário
    */
-  public login ( credentials: { cpf: string, password: string } | Token ): Observable<User> {
+  public login ( credentials: { cpf: string, password: string } | Token ): Observable<UserClaims> {
 
     // se for token, já salva direto
     if ( typeof credentials === 'string' ) {
@@ -105,7 +105,7 @@ export class AuthService extends BaseService {
    * @memberOf AuthService
    */
   private refreshCurrentUser ( newToken: Token ) {
-    this.currentUser = new User( newToken )
+    this.currentUser = new UserClaims( newToken )
     this.currentUser.role = 'user'
     this.redirectLogin = this.currentUser.role === 'user' ? [ 'plataforma' ] : [ 'admin' ]
     console.log( 'User: ', this.currentUser )
