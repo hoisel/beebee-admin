@@ -22,7 +22,7 @@ export class ReceiptEditComponent implements OnInit {
    *
    * @memberOf WalletReceiptEditComponent
    */
-  public constructor(
+  public constructor (
     private formBuilder: FormBuilder,
     private receiptsService: ReceiptAccountsApiService
   ) { }
@@ -33,7 +33,7 @@ export class ReceiptEditComponent implements OnInit {
    *
    * @memberOf WalletReceiptEditComponent
    */
-  public ngOnInit() {
+  public ngOnInit () {
     this.form = this.formBuilder.group( {
       title: [ '', Validators.required ],
       bankNumber: [ '', Validators.required ],
@@ -52,7 +52,7 @@ export class ReceiptEditComponent implements OnInit {
    *
    * @memberOf WalletReceiptEditComponent
    */
-  public submitForm( data ) {
+  public submitForm ( data ) {
     if ( !this.form.valid ) {
       return
     }
@@ -62,9 +62,6 @@ export class ReceiptEditComponent implements OnInit {
         swal( 'Cadastro relizado', `O cadastro foi realizado com sucesso.`, 'success' )
         this.form.reset()
       })
-      .catch( err => {
-        swal( 'Erro', `Ocorreu algum erro ao salvar. Erro ${ err }`, 'error' )
-        console.error( err )
-      })
+      .catch( err => swal( 'Erro', `Ocorreu algum erro ao salvar. Erro ${ err }`, 'error' ) )
   }
 }

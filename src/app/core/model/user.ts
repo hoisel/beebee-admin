@@ -7,7 +7,7 @@ export class User extends Model {
   public cellphone: string = ''
   public cpf: string = ''
   public driverLicence: string = ''
-  public driverLicenceExpiration: string = ''
+  public driverLicenceExpiration: string
   public email: string = ''
   public paymentAccounts: string = ''
   public phone: string = ''

@@ -51,30 +51,15 @@ export class DriverEditComponent implements OnInit {
     this.driver.save( driver )
       .toPromise()
       .then( resp => {
-        swal(
-          'Cadastro relizado',
-          `O cadastro foi realizado com sucesso.`,
-          'success'
-        )
+        swal( 'Cadastro relizado', `O cadastro foi realizado com sucesso.`, 'success' )
         this.clearForm()
       })
       .catch( err => {
         if ( err.status === 404 ) {
-          swal(
-            'Não cadastrado',
-            'O CPF informado não está cadastrado em nossa base de dados. '
-            + 'Solicite ao usuário que efetue o cadastro e tente novamente.',
-            'info'
-          )
-
+          swal( 'Não cadastrado', 'O CPF informado não está cadastrado em nossa base de dados. ' + 'Solicite ao usuário que efetue o cadastro e tente novamente.', 'info' )
           return
         }
-        swal(
-          'Erro',
-          `Ocorreu algum erro ao salvar. Erro ${ err }`,
-          'error'
-        )
-        console.error( err )
+        swal( 'Erro', `Ocorreu algum erro ao salvar. Erro ${ err }`, 'error' )
       })
   }
 
@@ -85,8 +70,6 @@ export class DriverEditComponent implements OnInit {
    * @memberOf DriverEditComponent
    */
   public clearForm(): void {
-    this.form.reset( {
-      cpf: ''
-    })
+    this.form.reset( { cpf: '' })
   }
 }

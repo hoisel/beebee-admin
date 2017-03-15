@@ -21,7 +21,7 @@ export class UserEditComponent implements OnInit {
    *
    * @memberOf UserEditComponent
    */
-  constructor( private formBuilder: FormBuilder, private employeeService: DriverApiService ) { }
+  constructor ( private formBuilder: FormBuilder, private employeeService: DriverApiService ) { }
 
   /**
    *
@@ -29,7 +29,7 @@ export class UserEditComponent implements OnInit {
    *
    * @memberOf UserEditComponent
    */
-  public ngOnInit(): void {
+  public ngOnInit (): void {
     this.form = this.formBuilder.group( {
       cpf: [ '', [ Validators.required, isValidCPF ] ],
       name: [ '' ],
@@ -44,7 +44,7 @@ export class UserEditComponent implements OnInit {
    *
    * @memberOf UserEditComponent
    */
-  public submitForm( employee: any ): void {
+  public submitForm ( employee: any ): void {
     if ( !this.form.valid ) {
       return
     }
@@ -60,7 +60,6 @@ export class UserEditComponent implements OnInit {
           return
         }
         swal( 'Erro', `Ocorreu algum erro ao salvar. Erro ${ err }`, 'error' )
-        console.error( err )
       })
   }
 
@@ -70,7 +69,7 @@ export class UserEditComponent implements OnInit {
    *
    * @memberOf UserEditComponent
    */
-  public clearForm(): void {
+  public clearForm (): void {
     this.form.reset( { cpf: '' })
   }
 }

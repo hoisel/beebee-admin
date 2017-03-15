@@ -25,8 +25,8 @@ export class ProfileComponent implements OnInit {
    *
    * @memberOf ProfileComponent
    */
-  constructor( private formBuilder: FormBuilder,
-    // private progress: ProgressService,
+  constructor (
+    private formBuilder: FormBuilder,
     private auth: AuthService,
     private usersService: UsersApiService ) { }
 
@@ -36,7 +36,7 @@ export class ProfileComponent implements OnInit {
    *
    * @memberOf ProfileComponent
    */
-  public ngOnInit() {
+  public ngOnInit () {
     this.getImages()
     this.createForm()
     this.fillForm()
@@ -50,7 +50,7 @@ export class ProfileComponent implements OnInit {
    *
    * @memberOf ProfileComponent
    */
-  public fileChange( event, type ) {
+  public fileChange ( event, type ) {
     // let fileList: FileList = event.target.files
     // if ( fileList.length > 0 ) {
     //   // this.progress.start()
@@ -82,14 +82,13 @@ export class ProfileComponent implements OnInit {
    *
    * @memberOf ProfileComponent
    */
-  private getImages() {
+  private getImages () {
     this.usersService.getImage( this.auth.user.id, 'avatar' )
       .subscribe( image => this.avatarUrl = image )
 
     this.usersService.getImage( this.auth.user.id, 'driverLicense' )
       .subscribe( image => this.driverLicenseUrl = image )
   }
-
 
   /**
    *
@@ -98,52 +97,44 @@ export class ProfileComponent implements OnInit {
    *
    * @memberOf ProfileComponent
    */
-  public submitForm( data: any ) {
+  public submitForm ( user: User ) {
     if ( !this.form.valid ) {
       return
     }
+
     // Converter a data para YYYY-MM-DD
-    data.driverLicenceExpiration = this.convertDateToSql( data.driverLicenceExpiration )
-    // this.progress.start()
-    this.usersService.save( data )
-      .toPromise()
-      .then( resp => {
-        // this.progress.finish()
-        swal(
-          'Atualizado',
-          'Seus dados forão atualizados com sucesso.',
-          'success'
-        )
-      })
-      .catch( err => {
-        // this.progress.finish()
-        swal(
-          'Erro',
-          `Ocorreu algum erro ao salvar. Erro ${ err }`,
-          'error'
-        )
-        console.error( err )
-      })
+    user.driverLicenceExpiration = this.toDate( user.driverLicenceExpiration )
+
+    this.usersService.save( user )
+      .subscribe(() => swal( 'Atualizado', 'Seus dados forão atualizados com sucesso.', 'success' ),
+      error => swal( 'Erro', `Ocorreu algum erro ao salvar. Erro ${ error.message }`, 'error' ) )
   }
 
   /**
-   * Converte a data para YYYY-MM-DD
+   *
+   *
+   * @param {string} [date='']
+   * @returns {string}
+   *
+   * @memberOf ProfileComponent
    */
-  convertDateToSql( date: string ) {
-    let dateParts = date.split( '/' )
-    return `${ dateParts[ 0 ] }-${ dateParts[ 1 ] }-${ dateParts[ 2 ] }`
+  private toDate ( date: string = '' ): string {
+    let [ day, month, year ] = date.split( '/' )
+    return `${ year }-${ month }-${ day }`
   }
 
-  // TODO: solicitar senha ao fazer alguma alterção.
-  updatePassword( data ): void {
-    //
-  }
-
-  public getUrlStyle( url: string ) {
-
-    // sanitize the style expression
+  /**
+   *
+   *
+   * @param {string} url
+   * @returns
+   *
+   * @memberOf ProfileComponent
+   */
+  public getUrlStyle ( url: string ) {
     return `url(${ url })`
   }
+
   /**
    *
    *
@@ -151,7 +142,7 @@ export class ProfileComponent implements OnInit {
    *
    * @memberOf ProfileComponent
    */
-  private createForm(): void {
+  private createForm (): void {
     this.form = this.formBuilder.group( {
       id: [ '', Validators.required ],
       name: [ '', [ Validators.required, Validators.minLength( 5 ) ] ],
@@ -161,14 +152,14 @@ export class ProfileComponent implements OnInit {
       cellphone: [ '', Validators.required ],
       phone: [ '' ],
       driverLicence: [ '' ],
-      driverLicenceExpiration: [ '' ]
+      driverLicenceExpiration: [ '', Validators.required ]
     })
   }
 
   /**
    * Obtém os dados do usuário e preenche o form.
    */
-  private fillForm(): void {
+  private fillForm (): void {
     this.usersService.get( this.auth.user.id ).subscribe(( user: User ) => {
       this.form.setValue( pick( user, [ 'id', 'name', 'cpf', 'rg', 'email', 'cellphone', 'phone', 'driverLicence', 'driverLicenceExpiration' ] ) )
       this.form.get( 'cpf' ).disable()

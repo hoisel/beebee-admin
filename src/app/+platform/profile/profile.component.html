@@ -86,9 +86,9 @@
             </div>
           </div>
           <button type="submit" class="btn btn-success">
-                <i class="fa fa-check" aria-hidden="true"></i>
-                <span>Salvar</span>
-              </button>
+            <i class="fa fa-check" aria-hidden="true"></i>
+            <span>Salvar</span>
+          </button>
         </form>
       </div>
     </div>
@@ -105,7 +105,7 @@
                   <label>Foto de Perfil:</label>
                   <div class="image-square-ratio">
                     <div class="image-change">
-                      <div id="avatar" class="image-wrapper">
+                      <div id="avatar" class="image-wrapper" [ngStyle]="{'background-image': 'url(' + avatarUrl + ')'}">
                         <a href="#">
                           <div class="overlay">
                             Alterar imagem
@@ -127,7 +127,7 @@
                   <label>Foto da CNH:</label>
                   <div class="image-square-ratio">
                     <div class="image-change">
-                      <div id="driverLicense" class="image-wrapper">
+                      <div id="driverLicense" class="image-wrapper" [ngStyle]="{'background-image': 'url(' + driverLicenseUrl + ')'}">
                         <a href="#">
                           <div class="overlay">
                             Alterar imagem
