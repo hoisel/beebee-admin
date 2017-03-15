@@ -19,12 +19,12 @@ const routes: Routes = [ {
     {
       path: 'faq',
       component: FaqComponent,
-      data: { name: 'Perguntas Frequentes' }
+      data: { title: 'Suporte | Perguntas Frequentes' }
     },
     {
       path: 'atendimento',
       component: CustomerServiceComponent,
-      data: { name: 'Atendimento' }
+      data: { title: 'Suporte | Atendimento' }
     }
   ]
 }]

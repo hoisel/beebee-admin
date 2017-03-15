@@ -21,26 +21,28 @@ const routes: Routes = [ {
     },
     {
       path: 'resumo',
-      component: SummaryComponent
+      component: SummaryComponent,
+      data: { title: 'Carteira' }
     },
     {
       path: 'recebimento',
       component: ReceiptListComponent,
-      data: { name: 'Meios de Recebimento' }
+      data: { title: 'Carteira | Meios de Recebimento' }
     },
     {
       path: 'recebimento/novo',
       component: ReceiptEditComponent,
-      data: { name: 'Meios de Recebimento / Novo' }
+      data: { title: 'Carteira | Novo Meio de Recebimento' }
     },
     {
       path: 'pagamento',
-      component: PaymentListComponent, data: { name: 'Meios de Pagamento' }
+      component: PaymentListComponent,
+      data: { title: 'Carteira | Meios de Pagamento' }
     },
     {
       path: 'pagamento/novo',
       component: WalletPaymentEditComponent,
-      data: { name: 'Meios de Pagamento / Novo' }
+      data: { title: 'Carteira | Novo Meio de Pagamento' }
     }
   ]
 }]

@@ -24,32 +24,32 @@ const routes: Routes = [ {
     {
       path: 'dashboard',
       component: DashboardComponent,
-      data: { name: 'Dashboard' }
+      data: { title: 'Dashboard' }
     },
     {
       path: 'minha-conta',
       component: ProfileComponent,
-      data: { name: 'Minha Conta' }
+      data: { title: 'Minha Conta' }
     },
     {
       path: 'pedir-frete',
       component: RequestFreightComponent,
-      data: { name: 'Pedir Frete' }
+      data: { title: 'Pedir Frete' }
     },
     {
       path: 'fazer-frete',
       component: ProvideFreightComponent,
-      data: { name: 'Fazer Frete' }
+      data: { title: 'Fazer Frete' }
     },
     {
       path: 'fidelidade',
       component: BonusComponent,
-      data: { name: 'Fidelidade' }
+      data: { title: 'Fidelidade' }
     },
     {
       path: 'fidelidade/indicados',
       component: InvitedComponent,
-      data: { name: 'Indicados' }
+      data: { title: 'Indicados' }
     },
     {
       path: 'carteira',

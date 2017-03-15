@@ -21,17 +21,17 @@ const routes: Routes = [ {
     {
       path: 'em-andamento',
       component: InProgressComponent,
-      data: { name: 'Em andamento' }
+      data: { title: 'Agenda | Em andamento' }
     },
     {
       path: 'historico',
       component: HistoryComponent,
-      data: { name: 'Histórico' }
+      data: { title: 'Agenda | Histórico' }
     },
     {
       path: 'agendado',
       component: ScheduledComponent,
-      data: { name: 'Agendados' }
+      data: { title: 'Agenda | Agendados' }
     }
   ]
 }]

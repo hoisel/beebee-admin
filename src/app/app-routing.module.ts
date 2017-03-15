@@ -26,11 +26,13 @@ export const routes: Routes = [
   },
   {
     path: '403',
-    component: E403Component
+    component: E403Component,
+    data: { title: 'Erro 403' }
   },
   {
     path: '404',
-    component: E404Component
+    component: E404Component,
+    data: { title: 'Página não encontrada' }
   },
   {
     path: '**',
@@ -42,5 +44,5 @@ export const routes: Routes = [
 @NgModule( {
   imports: [ RouterModule.forRoot( routes ) ],
   exports: [ RouterModule ]
-} )
+})
 export class AppRoutingModule { }

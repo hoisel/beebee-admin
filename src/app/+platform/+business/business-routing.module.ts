@@ -28,67 +28,78 @@ const routes: Routes = [ {
     },
     {
       path: 'gerenciador',
-      component: ProfileSwitcherComponent
+      component: ProfileSwitcherComponent,
+      data: { title: 'Meu Negócio | Seleção de Perfil' }
     },
 
     {
       path: 'dashboard',
-      component: DashboardComponent
+      component: DashboardComponent,
+      data: { title: 'Meu Negócio | Dashboard' }
     },
     {
       path: 'perfil',
       component: CompanyEditComponent,
-      data: { name: 'Perfil de Negócios' }
+      data: { title: 'Meu Negócio | Perfil' }
     },
     {
       path: 'novo',
       component: CompanyRegisterComponent,
-      data: { name: 'Cadastro de Novo Negócio' }
+      data: { title: 'Meu Negócio | Novo' }
     },
     {
       path: 'usuarios',
       canActivate: [ IsCompanyProfileGuard ],
-      component: UserListComponent
+      component: UserListComponent,
+      data: { title: 'Meu Negócio | Usuários' }
     },
     {
       path: 'usuarios/editar/:id',
       canActivate: [ IsCompanyProfileGuard ],
-      component: UserEditComponent
+      component: UserEditComponent,
+      data: { title: 'Meu Negócio | Editar Usuário' }
     },
     {
       path: 'usuarios/novo',
       canActivate: [ IsCompanyProfileGuard ],
-      component: UserEditComponent
+      component: UserEditComponent,
+      data: { title: 'Meu Negócio | Novo Usuário' }
     },
     {
       path: 'motoristas',
       canActivate: [ IsCompanyProfileGuard ],
-      component: DriverListComponent
+      component: DriverListComponent,
+      data: { title: 'Meu Negócio | Motoristas' }
     },
     {
       path: 'motoristas/editar/:id',
       canActivate: [ IsCompanyProfileGuard ],
-      component: DriverEditComponent
+      component: DriverEditComponent,
+      data: { title: 'Meu Negócio | Editar Motorista' }
     },
     {
       path: 'motoristas/novo',
       canActivate: [ IsCompanyProfileGuard ],
-      component: DriverEditComponent
+      component: DriverEditComponent,
+      data: { title: 'Meu Negócio | Novo Motorista' }
     },
     {
       path: 'veiculos',
       canActivate: [ IsCompanyProfileGuard ],
-      component: VehicleListComponent
+      component: VehicleListComponent,
+      data: { title: 'Meu Negócio | Veículos' }
     },
     {
       path: 'veiculos/editar/:id',
       canActivate: [ IsCompanyProfileGuard ],
-      component: VehicleEditComponent
+      component: VehicleEditComponent,
+      data: { title: 'Meu Negócio | Editar Veículo' }
     },
     {
       path: 'veiculos/novo',
       canActivate: [ IsCompanyProfileGuard ],
-      component: VehicleEditComponent
+      component: VehicleEditComponent,
+      data: { title: 'Meu Negócio | ovo Veículo' }
     }
   ]
 }]
