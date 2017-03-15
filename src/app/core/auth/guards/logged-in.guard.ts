@@ -13,7 +13,7 @@ export abstract class LoggedInGuard implements CanActivate, CanLoad {
    *
    * @memberOf LoggedInGuard
    */
-  constructor ( protected auth: AuthService, protected router: Router ) { }
+  constructor( protected auth: AuthService, protected router: Router ) { }
 
   /**
    *
@@ -24,7 +24,7 @@ export abstract class LoggedInGuard implements CanActivate, CanLoad {
    *
    * @memberOf LoggedInGuard
    */
-  public canActivate ( route: ActivatedRouteSnapshot, state: RouterStateSnapshot ): Observable<boolean> | Promise<boolean> | boolean {
+  public canActivate( route: ActivatedRouteSnapshot, state: RouterStateSnapshot ): Observable<boolean> | Promise<boolean> | boolean {
 
     // Store the attempted URL for redirecting
     this.auth.redirectUrl = state.url
@@ -33,7 +33,7 @@ export abstract class LoggedInGuard implements CanActivate, CanLoad {
       return true
     }
 
-    this.router.navigate( [ 'acesso/entrar' ] )
+    this.handleCannotActivate( route, state )
     return false
   }
 
@@ -45,13 +45,13 @@ export abstract class LoggedInGuard implements CanActivate, CanLoad {
    *
    * @memberOf LoggedInGuard
    */
-  public canLoad ( route: Route ): Observable<boolean> | Promise<boolean> | boolean {
+  public canLoad( route: Route ): Observable<boolean> | Promise<boolean> | boolean {
 
     if ( this.userHasAccess() ) {
       return true
     }
 
-    this.router.navigate( [ 'acesso/entrar' ] )
+    this.handleCannotLoad( route )
     return false
   }
 
@@ -63,7 +63,32 @@ export abstract class LoggedInGuard implements CanActivate, CanLoad {
    * @type {boolean}
    * @memberOf LoggedInGuard
    */
-  protected userHasAccess (): boolean {
+  protected userHasAccess(): boolean {
     return this.auth.isAuthenticated
+  }
+
+  /**
+   *
+   *
+   * @protected
+   * @param {ActivatedRouteSnapshot} route
+   * @param {RouterStateSnapshot} state
+   *
+   * @memberOf LoggedInGuard
+   */
+  protected handleCannotActivate( route: ActivatedRouteSnapshot, state: RouterStateSnapshot ) {
+    this.router.navigate( [ 'acesso/entrar' ] )
+  }
+
+  /**
+   *
+   *
+   * @protected
+   * @param {Route} route
+   *
+   * @memberOf LoggedInGuard
+   */
+  protected handleCannotLoad( route: Route ) {
+    this.router.navigate( [ 'acesso/entrar' ] )
   }
 }

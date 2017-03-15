@@ -1,3 +1,50 @@
-<p>
-  user-edit works!
-</p>
+<div class="wrapper-content">
+  <breadcrumb></breadcrumb>
+  <section>
+    <header class="page-header">
+      <h2>Cadastro de Usuários</h2>
+      <p>Informações do usuário autorizado a gerenciar seu negócio</p>
+    </header>
+    <!-- Esse formulario abaixo só aparece no cadastro - a busca é pelo CPF. -->
+    <!-- se achar conveniente, pode jogar numa modal -->
+    <!-- Se encontrar o CPF, exibe o primeiro nome como forma de "confirmação" e o final do celular (ambos disabled) -->
+    <!-- Se não encontrar o CPF, exibe o campo de nome e celular para mandar o invite -->
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <form novalidate [formGroup]="form" (ngSubmit)="submitForm(form.value)">
+          <h4>Dados do Usuário</h4>
+          <div class="row">
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="cpf">CPF:</label>
+                <input type="text" class="form-control" formControlName="cpf" [textMask]="{mask: cpfMask}" [class.has-error]="form.get('cpf').errors && form.get('cpf').touched">
+                <p class="help-block" *ngIf="form.get('cpf').hasError('required') && form.get('cpf').touched">
+                  * Campo obrigatório
+                </p>
+                <p class="help-block" *ngIf="form.get('cpf').hasError('invalidCPF') && form.get('cpf').touched && !form.get('cpf').hasError('required')">
+                  * O CPF informado não é válido
+                </p>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="first-name">Nome:</label>
+                <input id="first-name" name="name" type="text" class="form-control">
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="invite-mobile">Telefone Celular:</label>
+                <input id="invite-mobile" name="invite-mobile" type="text" class="form-control" [textMask]="{mask: cellPhoneMask}">
+              </div>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-success" [disabled]="!form.valid">
+        <i class="fa fa-check" aria-hidden="true"></i>
+        Adiconar usuário
+      </button>
+        </form>
+      </div>
+    </div>
+  </section>
+</div>

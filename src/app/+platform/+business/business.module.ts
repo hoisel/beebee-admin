@@ -11,7 +11,8 @@ import { VehicleEditComponent } from './vehicle/vehicle-edit/vehicle-edit.compon
 import { VehicleListComponent } from './vehicle/vehicle-list/vehicle-list.component'
 import { DriverListComponent } from './driver/driver-list/driver-list.component'
 import { DriverEditComponent } from './driver/driver-edit/driver-edit.component'
-import { CompanyEditComponent } from './company/company-edit.component'
+import { CompanyEditComponent } from './company/company-edit/company-edit.component'
+import { CompanyRegisterComponent } from './company/company-register/company-register.component'
 import { CompanyFormComponent } from './company/company-form/company-form.component'
 import { ProfileSwitcherComponent } from './profile-switcher/profile-switcher.component'
 
@@ -31,7 +32,8 @@ import { ProfileSwitcherComponent } from './profile-switcher/profile-switcher.co
     DriverEditComponent,
     CompanyEditComponent,
     CompanyFormComponent,
-    ProfileSwitcherComponent
+    ProfileSwitcherComponent,
+    CompanyRegisterComponent
   ]
 })
 export class BusinessModule { }

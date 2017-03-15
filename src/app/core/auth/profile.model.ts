@@ -3,7 +3,7 @@ export abstract class Profile {
   public name: string = ''
   public resourceName: string
   public isPersonalProfile: boolean
-  public isCompanylProfile: boolean
+  public isCompanyProfile: boolean
 
   /**
    * Creates an instance of Profile.
@@ -14,23 +14,23 @@ export abstract class Profile {
    *
    * @memberOf Profile
    */
-  constructor ( id: string, name: string, resourceName: string, isPersonalAccount: boolean ) {
+  constructor( id: string, name: string, resourceName: string, isPersonalAccount: boolean ) {
     this.resourceName = resourceName
     this.name = name
     this.id = id
     this.isPersonalProfile = isPersonalAccount
-    this.isCompanylProfile = !isPersonalAccount
+    this.isCompanyProfile = !isPersonalAccount
   }
 }
 
 export class PersonalProfile extends Profile {
-  constructor ( id: string, name: string ) {
+  constructor( id: string, name: string ) {
     super( id, name, 'users', true )
   }
 }
 
 export class CompanyProfile extends Profile {
-  constructor ( id: string, name?: string ) {
+  constructor( id: string, name?: string ) {
     super( id, name, 'companies', false )
   }
 }

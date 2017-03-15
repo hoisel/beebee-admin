@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 
 import { CPF_MASK, CEP_MASK, CREDICARD_MASK, CVV_MASK, EXPIRATION_MASK } from '../../../core/utils'
 import { isValidCPF } from '../../../core/validators'
-import { PaymentAccountsService } from '../../../core/providers'
+import { PaymentAccountsApiService } from '../../../core/providers'
 @Component( {
   templateUrl: './payment-edit.component.html',
   styleUrls: [ './payment-edit.component.css' ],
@@ -26,7 +26,7 @@ export class WalletPaymentEditComponent implements OnInit {
    *
    * @memberOf WalletPaymentEditComponent
    */
-  public constructor ( private formBuilder: FormBuilder, private paymentsService: PaymentAccountsService ) { }
+  public constructor ( private formBuilder: FormBuilder, private paymentsService: PaymentAccountsApiService ) { }
 
   /**
    *
@@ -63,10 +63,6 @@ export class WalletPaymentEditComponent implements OnInit {
         swal( 'Cadastro relizado', `O cadastro foi realizado com sucesso.`, 'success' )
         this.form.reset()
       })
-      .catch( error => {
-        swal( 'Erro', `Ocorreu algum erro ao salvar. Erro ${ error }`, 'error'
-        )
-        console.error( error )
-      })
+      .catch( error => swal( 'Erro', `Ocorreu algum erro ao salvar. Erro ${ error }`, 'error' ) )
   }
 }

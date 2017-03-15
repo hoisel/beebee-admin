@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core'
 import { Http } from '@angular/http'
 import { Observable } from 'rxjs/Observable'
 
-import { BaseService } from '../providers'
-import { config } from '../app.config'
+import { BaseService } from '../../providers'
+import { config } from '../../app.config'
 
 @Injectable()
 export class ApiBaseService extends BaseService {
@@ -16,7 +16,7 @@ export class ApiBaseService extends BaseService {
    *
    * @memberOf ApiBaseService
    */
-  constructor ( public http: Http ) { super() }
+  constructor( public http: Http ) { super() }
 
   /**
    *
@@ -25,7 +25,7 @@ export class ApiBaseService extends BaseService {
    *
    * @memberOf ApiBaseService
    */
-  public setResource ( resource: string ): void {
+  public setResource( resource: string ): void {
     this.resource = resource
   }
 
@@ -37,7 +37,7 @@ export class ApiBaseService extends BaseService {
    *
    * @memberOf ApiBaseService
    */
-  public save ( model: any ): Observable<any> {
+  public save( model: any ): Observable<any> {
     if ( model.id ) {
       return this.update( model )
     }
@@ -52,7 +52,7 @@ export class ApiBaseService extends BaseService {
    *
    * @memberOf ApiBaseService
    */
-  public create ( model: any ): Observable<any> {
+  public create( model: any ): Observable<any> {
     return this.http
       .post( `${ config.apiEndPoint }/${ this.resource }`, model )
       .map( this.extractData )
@@ -67,7 +67,7 @@ export class ApiBaseService extends BaseService {
    *
    * @memberOf ApiBaseService
    */
-  public update ( model: any ): Observable<any> {
+  public update( model: any ): Observable<any> {
     return this.http
       .put( `${ config.apiEndPoint }/${ this.resource }/${ model.id }`, model )
       .map( this.extractData )
@@ -82,7 +82,7 @@ export class ApiBaseService extends BaseService {
    *
    * @memberOf ApiBaseService
    */
-  public delete ( model: any ): Observable<any> {
+  public delete( model: any ): Observable<any> {
     return this.http
       .delete( `${ config.apiEndPoint }/${ this.resource }/${ model.id }` )
       .map( this.extractData )
@@ -96,7 +96,7 @@ export class ApiBaseService extends BaseService {
    *
    * @memberOf ApiBaseService
    */
-  public get ( id: string ): Observable<any> {
+  public get( id: string ): Observable<any> {
     return this.http
       .get( `${ config.apiEndPoint }/${ this.resource }/${ id }` )
       .map( this.extractData )
@@ -110,7 +110,7 @@ export class ApiBaseService extends BaseService {
    *
    * @memberOf ApiBaseService
    */
-  public getAll (): Observable<any> {
+  public getAll(): Observable<any> {
     return this.http
       .get( `${ config.apiEndPoint }/${ this.resource }` )
       .map( this.extractData )
@@ -126,7 +126,7 @@ export class ApiBaseService extends BaseService {
    *
    * @memberOf ApiBaseService
    */
-  public getImage ( id: string, type: string ): Observable<any> {
+  public getImage( id: string, type: string ): Observable<any> {
     return this.http
       .get( `${ config.apiEndPoint }/users/${ id }/assets/${ type }.jpg` )
       .map( this.extractData )

@@ -19,7 +19,7 @@ export class SidebarLeftComponent implements OnInit, OnDestroy {
    *
    * @memberOf SidebarLeftComponent
    */
-  constructor( private auth: AuthService ) { }
+  constructor ( private auth: AuthService ) { }
 
   /**
    *
@@ -27,9 +27,8 @@ export class SidebarLeftComponent implements OnInit, OnDestroy {
    *
    * @memberOf SidebarLeftComponent
    */
-  public ngOnInit() {
+  public ngOnInit () {
     this.subscription = this.auth.userProfile$.subscribe( userProfile => {
-      console.log( userProfile )
       this.profileName = userProfile.name
     })
   }
@@ -40,7 +39,7 @@ export class SidebarLeftComponent implements OnInit, OnDestroy {
    *
    * @memberOf SidebarLeftComponent
    */
-  public ngOnDestroy() {
+  public ngOnDestroy () {
     this.subscription.unsubscribe()
   }
 

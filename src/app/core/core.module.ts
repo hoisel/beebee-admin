@@ -15,18 +15,23 @@ import {
   AuthService,
   IsAdminGuard,
   IsSuperAdminGuard,
-  IsUserGuard
+  IsUserGuard,
+  IsCompanyProfileGuard
 } from './auth'
 
 import {
   ProgressService,
   ThemeService,
   UiStateStoreService,
-  UsersService,
-  PaymentAccountsService,
-  ReceiptAccountsService,
-  CompanyService,
-  CepService
+  UsersApiService,
+  PaymentAccountsApiService,
+  ReceiptAccountsApiService,
+  CompaniesApiService,
+  CepService,
+  EmplyeeApiService,
+  DriverApiService,
+  VehiclesApiService,
+  CategoriesApiService
 } from './providers'
 
 @NgModule( {
@@ -36,20 +41,31 @@ import {
     RouterModule
   ],
   providers: [
-    httpProvider,
-    ProgressService,
+
+    // guards
     IsAdminGuard,
     IsUserGuard,
     IsSuperAdminGuard,
+    IsCompanyProfileGuard,
+
+    // general services
+    httpProvider,
+    ProgressService,
     ThemeService,
     UiStateStoreService,
     AuthService,
     StorageService,
-    UsersService,
-    PaymentAccountsService,
-    ReceiptAccountsService,
-    CompanyService,
-    CepService
+    CepService,
+
+    // api services
+    UsersApiService,
+    PaymentAccountsApiService,
+    ReceiptAccountsApiService,
+    CompaniesApiService,
+    EmplyeeApiService,
+    DriverApiService,
+    VehiclesApiService,
+    CategoriesApiService
   ],
   exports: [
     RouterModule

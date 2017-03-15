@@ -7,7 +7,7 @@ import { Token } from '../auth'
 @Injectable()
 export class StorageService {
 
-  private authToken$: BehaviorSubject<string>
+  private authToken$: BehaviorSubject<Token>
   private AUTH_TOKEN_NAME: string = config.tokenName
 
   /**
@@ -15,7 +15,7 @@ export class StorageService {
    *
    * @memberOf StorageService
    */
-  constructor() {
+  constructor () {
     this.authToken$ = new BehaviorSubject<Token>( this.getAuthToken() )
   }
 
@@ -37,7 +37,7 @@ export class StorageService {
    *
    * @memberOf StorageService
    */
-  public setAuthToken( jwtToken: Token ): void {
+  public setAuthToken ( jwtToken: Token ): void {
     this.execAndNotify(() => localStorage.setItem( this.AUTH_TOKEN_NAME, jwtToken ) )
   }
 
@@ -48,7 +48,7 @@ export class StorageService {
    *
    * @memberOf StorageService
    */
-  public getAuthToken(): Token {
+  public getAuthToken (): Token {
     return localStorage.getItem( this.AUTH_TOKEN_NAME )
   }
 
@@ -59,7 +59,7 @@ export class StorageService {
    *
    * @memberOf StorageService
    */
-  public clearAuthToken(): void {
+  public clearAuthToken (): void {
     this.execAndNotify(() => localStorage.removeItem( this.AUTH_TOKEN_NAME ) )
   }
 
@@ -70,7 +70,7 @@ export class StorageService {
    *
    * @memberOf StorageService
    */
-  private execAndNotify( fn: Function ) {
+  private execAndNotify ( fn: Function ) {
     fn()
     this.authToken$.next( this.getAuthToken() )
   }
@@ -83,7 +83,7 @@ export class StorageService {
    *
    * @memberOf Store
    */
-  public setItem( key: string, value: any ) {
+  public setItem ( key: string, value: any ) {
     localStorage.setItem( key, this.convertValue( value ) )
   }
 
@@ -95,7 +95,7 @@ export class StorageService {
    *
    * @memberOf Store
    */
-  public getItem( key: string ) {
+  public getItem ( key: string ) {
     let value = typeof key !== 'number' ? localStorage.getItem( key ) : localStorage.getItem( localStorage.key( key ) )
     return this.unconvertValue( value )
   }
@@ -107,7 +107,7 @@ export class StorageService {
    *
    * @memberOf Store
    */
-  public removeItem( key: string ) {
+  public removeItem ( key: string ) {
     localStorage.removeItem( key )
   }
 
@@ -119,7 +119,7 @@ export class StorageService {
    *
    * @memberOf Storage
    */
-  public updateItem( key: string, updates: any ) {
+  public updateItem ( key: string, updates: any ) {
     const obj = this.getItem( key )
     obj && this.setItem( key, Object.assign( obj, updates ) )
   }
@@ -130,7 +130,7 @@ export class StorageService {
    *
    * @memberOf Store
    */
-  public clear() {
+  public clear () {
     localStorage.clear()
   }
 
@@ -143,7 +143,7 @@ export class StorageService {
    *
    * @memberOf Store
    */
-  private convertValue( value: any ): any {
+  private convertValue ( value: any ): any {
     return typeof value !== 'object' ? value : JSON.stringify( value )
   }
 
@@ -156,7 +156,7 @@ export class StorageService {
    *
    * @memberOf Store
    */
-  private unconvertValue( value: string ) {
+  private unconvertValue ( value: string ) {
     if ( value !== null ) {
       if ( value.indexOf( '{' ) === 0 || value.indexOf( '[' ) === 0 ) {
         return JSON.parse( value )

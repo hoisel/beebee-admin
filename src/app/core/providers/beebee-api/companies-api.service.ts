@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core'
 import { Http } from '@angular/http'
 
-import { ApiBaseService } from '../providers'
+import { ApiBaseService } from './api-base.service'
 
 @Injectable()
-export class CompanyService extends ApiBaseService {
+export class CompaniesApiService extends ApiBaseService {
 
   /**
    * Creates an instance of BusinessService.

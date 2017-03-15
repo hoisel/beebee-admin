@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core'
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
-import { isValidEmail, DATE_MASK, CELL_PHONE_MASK, STATES, AuthService, UsersService, User, pick } from '../../core'
+import { isValidEmail, DATE_MASK, CELL_PHONE_MASK, STATES, AuthService, UsersApiService, User, pick } from '../../core'
 
 @Component( {
   selector: 'app-profile',
@@ -28,10 +28,10 @@ export class ProfileComponent implements OnInit {
    *
    * @memberOf ProfileComponent
    */
-  constructor( private formBuilder: FormBuilder,
+  constructor ( private formBuilder: FormBuilder,
     // private progress: ProgressService,
     private auth: AuthService,
-    private usersService: UsersService ) { }
+    private usersService: UsersApiService ) { }
 
   /**
    *
@@ -39,7 +39,7 @@ export class ProfileComponent implements OnInit {
    *
    * @memberOf ProfileComponent
    */
-  public ngOnInit() {
+  public ngOnInit () {
     this.getImages()
     this.createForm()
     this.fillForm()
@@ -53,7 +53,7 @@ export class ProfileComponent implements OnInit {
    *
    * @memberOf ProfileComponent
    */
-  public fileChange( event, type ) {
+  public fileChange ( event, type ) {
     // let fileList: FileList = event.target.files
     // if ( fileList.length > 0 ) {
     //   // this.progress.start()
@@ -85,7 +85,7 @@ export class ProfileComponent implements OnInit {
    *
    * @memberOf ProfileComponent
    */
-  private getImages() {
+  private getImages () {
     this.usersService.getImage( this.auth.user.id, 'avatar' )
       .subscribe( image => this.avatarUrl = image )
 
@@ -101,7 +101,7 @@ export class ProfileComponent implements OnInit {
    *
    * @memberOf ProfileComponent
    */
-  public submitForm( data: any ) {
+  public submitForm ( data: any ) {
     if ( !this.form.valid ) {
       return
     }
@@ -132,17 +132,17 @@ export class ProfileComponent implements OnInit {
   /**
    * Converte a data para YYYY-MM-DD
    */
-  convertDateToSql( date: string ) {
+  convertDateToSql ( date: string ) {
     let dateParts = date.split( '/' )
     return `${ dateParts[ 0 ] }-${ dateParts[ 1 ] }-${ dateParts[ 2 ] }`
   }
 
   // TODO: solicitar senha ao fazer alguma alterção.
-  updatePassword( data ): void {
+  updatePassword ( data ): void {
     //
   }
 
-  public getUrlStyle( url: string ) {
+  public getUrlStyle ( url: string ) {
 
     // sanitize the style expression
     return `url(${ url })`
@@ -154,7 +154,7 @@ export class ProfileComponent implements OnInit {
    *
    * @memberOf ProfileComponent
    */
-  private createForm(): void {
+  private createForm (): void {
     this.form = this.formBuilder.group( {
       id: [ '', Validators.required ],
       name: [ '', [ Validators.required, Validators.minLength( 5 ) ] ],
@@ -171,7 +171,7 @@ export class ProfileComponent implements OnInit {
   /**
    * Obtém os dados do usuário e preenche o form.
    */
-  private fillForm(): void {
+  private fillForm (): void {
     this.usersService.get( this.auth.user.id ).subscribe(( user: User ) => {
       this.form.setValue( pick( user, [ 'id', 'name', 'cpf', 'rg', 'email', 'cellphone', 'phone', 'driverLicence', 'driverLicenceExpiration' ] ) )
       this.form.get( 'cpf' ).disable()

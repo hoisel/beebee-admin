@@ -18,7 +18,7 @@ export class CustomerServiceComponent implements OnInit {
    *
    * @memberOf CustomerServiceComponent
    */
-  public ngOnInit () {
+  public ngOnInit() {
     $( 'html, body' ).animate( { scrollTop: 0 }, 500 )
   }
 
@@ -29,9 +29,8 @@ export class CustomerServiceComponent implements OnInit {
    *
    * @memberOf CustomerServiceComponent
    */
-  public submit ( e: Event ): void {
+  public submit( e: Event ): void {
     e.preventDefault()
-    console.log( this.assunto, this.numeroPedido, this.mensagem )
   }
 }
 

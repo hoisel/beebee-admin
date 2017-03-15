@@ -3,7 +3,7 @@ import { Observable } from 'rxjs/Observable'
 
 export class BaseService {
 
-  constructor () { }
+  constructor() { }
 
   /**
    *
@@ -13,7 +13,7 @@ export class BaseService {
    *
    * @memberOf BaseService
    */
-  protected extractData ( res: Response ) {
+  protected extractData( res: Response ) {
     let body = res.json()
     return body
   }
@@ -26,14 +26,16 @@ export class BaseService {
    *
    * @memberOf BaseService
    */
-  protected handleError ( error: Response | any ) {
-    let errMsg: string
+  protected handleError( error: Response | any ) {
+    let errorMsg: string
     if ( error instanceof Response ) {
       const body = error.json() || ''
-      errMsg = body.message || JSON.stringify( body )
+      errorMsg = body.message || JSON.stringify( body )
     } else {
-      errMsg = error.message ? error.message : error.toString()
+      errorMsg = error.message ? error.message : error.toString()
     }
-    return Observable.throw( errMsg )
+    error = { status: error.status, message: errorMsg }
+    console.error( error )
+    return Observable.throw( error )
   }
 }

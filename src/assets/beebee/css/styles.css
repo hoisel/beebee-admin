@@ -2088,6 +2088,15 @@
 		vertical-align: middle;
 	}
 
+  table.table>tbody>tr>td[colspan="100"],
+	table.table>tbody>tr>th[colspan="100"],
+	table.table>tfoot>tr>td[colspan="100"],
+	table.table>tfoot>tr>th[colspan="100"],
+	table.table>thead>tr>td[colspan="100"],
+	table.table>thead>tr>th[colspan="100"] {
+		text-align: center;
+	}
+
 	table.table>tfoot>tr>td,
 	table.table>tfoot>tr>th {
 		font-weight: 700;
@@ -2264,6 +2273,12 @@
 		border-radius: 0px;
 		font-size: 15px;
 		color: #454545;
+	}
+
+  .wrapper form input.form-control.ng-dirty.ng-invalid,
+	.wrapper form select.form-control.ng-dirty.ng-invalid,
+	.modal form input.form-control.ng-dirty.ng-invalid {
+		border-color: darkred;
 	}
 
 	.wrapper form select.form-control {

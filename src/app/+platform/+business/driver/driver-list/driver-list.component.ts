@@ -1,15 +1,31 @@
 import { Component, OnInit } from '@angular/core'
 
-@Component({
-  selector: 'app-driver-list',
+import { DriverApiService } from '../../../../core'
+
+@Component( {
   templateUrl: './driver-list.component.html',
-  styleUrls: ['./driver-list.component.css']
+  styleUrls: [ './driver-list.component.css' ]
 })
 export class DriverListComponent implements OnInit {
 
-  constructor () { }
+  public drivers: any[] = []
 
-  ngOnInit () {
+  /**
+   * Creates an instance of DriverListComponent.
+   * @param {EmployeeService} employee
+   *
+   * @memberOf DriverListComponent
+   */
+  constructor( private driverService: DriverApiService ) { }
+
+  /**
+   *
+   *
+   *
+   * @memberOf DriverListComponent
+   */
+  public ngOnInit() {
+    this.driverService.getAll()
+      .subscribe( drivers => this.drivers = drivers )
   }
-
 }

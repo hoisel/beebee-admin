@@ -1,3 +1,72 @@
-<p>
-  vehicle-list works!
-</p>
+<div class="wrapper-content">
+  <breadcrumb></breadcrumb>
+  <section>
+    <header class="page-header">
+      <h2>
+        Veículos
+      </h2>
+      <p>
+        Relação de veículos cadastrados
+      </p>
+      <div class="actions">
+        <a [routerLink]="['./novo']" class="btn btn-default">
+          <i class="fa fa-plus" aria-hidden="true"></i> Cadastrar
+        </a>
+      </div>
+    </header>
+    <div class="row">
+      <div class="col-xs-12">
+        <section>
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <div class="table-responsive">
+                <table class="table table-hover table-striped">
+                  <thead>
+                    <tr>
+                      <th>Categoria</th>
+                      <th>Modelo</th>
+                      <th>Marca</th>
+                      <th>Placa</th>
+                      <th>Status</th>
+                      <th>Opções</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let vehicle of vehicles">
+                      <td>{{vehicle.category}}</td>
+                      <td>{{vehicle.model}}</td>
+                      <td>{{vehicle.make}}</td>
+                      <td>{{vehicle.plate}}</td>
+                      <td>{{vehicle.status ? 'Ativo' : 'Inativo'}}</td>
+                      <td>
+                        <div class="btn-group pull-right">
+                          <a href="#" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Motoristas">
+                            <i class="fa fa-user" aria-hidden="true"></i>
+                          </a>
+                          <a href="#" class="btn btn-info" data-toggle="tooltip" data-placement="top" title="Editar">
+                            <i class="fa fa-pencil" aria-hidden="true"></i>
+                          </a>
+                          <a href="#" class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Bloquear disponibilidade">
+                            <i class="fa fa-ban" aria-hidden="true"></i>
+                          </a>
+                          <a href="#" class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Excluir">
+                            <i class="fa fa-trash" aria-hidden="true"></i>
+                          </a>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr *ngIf="!vehicles.length">
+                      <td colspan="100">
+                        Nenhum veículo cadastrado
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </section>
+</div>

@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core'
 
-import { ReceiptAccountsService } from '../../../core'
+import { ReceiptAccountsApiService } from '../../../core'
 
-@Component({
+@Component( {
   templateUrl: './receipt-list.component.html',
-  styleUrls: ['./receipt-list.component.css']
+  styleUrls: [ './receipt-list.component.css' ]
 })
 export class ReceiptListComponent implements OnInit {
 
@@ -16,7 +16,7 @@ export class ReceiptListComponent implements OnInit {
    *
    * @memberOf WalletPaymentListComponent
    */
-  constructor ( private paymentsService: ReceiptAccountsService ) { }
+  constructor ( private paymentsService: ReceiptAccountsApiService ) { }
 
   /**
    *
@@ -42,9 +42,6 @@ export class ReceiptListComponent implements OnInit {
         this.receiptMethods.splice( $.inArray( payment, this.receiptMethods ), 1 )
         swal( 'Removido', `O meio de recebimento foi removido com sucesso.`, 'success' )
       })
-      .catch( error => {
-        swal( 'Erro', `Ocorreu algum erro ao efeturar a remoção. Erro ${ error }`, 'error' )
-        console.error( error )
-      })
+      .catch( error => swal( 'Erro', `Ocorreu algum erro ao efeturar a remoção. Erro ${ error }`, 'error' ) )
   }
 }

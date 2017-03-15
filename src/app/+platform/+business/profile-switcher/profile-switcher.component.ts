@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core'
 
-import { AuthService, UsersService, User, Company, CompanyProfile, PersonalProfile } from '../../../core'
+import { AuthService, UsersApiService, User, Company, CompanyProfile, PersonalProfile } from '../../../core'
 
 @Component( {
   templateUrl: './profile-switcher.component.html',
@@ -18,7 +18,7 @@ export class ProfileSwitcherComponent implements OnInit {
    *
    * @memberOf ProfileSwitcherComponent
    */
-  constructor( private auth: AuthService, private userService: UsersService ) { }
+  constructor( private auth: AuthService, private userService: UsersApiService ) { }
 
   /**
    *

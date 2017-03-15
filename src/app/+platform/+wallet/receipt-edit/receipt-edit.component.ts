@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 
 import { CPF_MASK, STATES } from '../../../core/utils'
 import { isValidCPF } from '../../../core/validators'
-import { ReceiptAccountsService } from '../../../core/providers'
+import { ReceiptAccountsApiService } from '../../../core/providers'
 
 @Component( {
   templateUrl: './receipt-edit.component.html',
@@ -22,9 +22,9 @@ export class ReceiptEditComponent implements OnInit {
    *
    * @memberOf WalletReceiptEditComponent
    */
-  public constructor (
+  public constructor(
     private formBuilder: FormBuilder,
-    private receiptsService: ReceiptAccountsService
+    private receiptsService: ReceiptAccountsApiService
   ) { }
 
   /**
@@ -33,7 +33,7 @@ export class ReceiptEditComponent implements OnInit {
    *
    * @memberOf WalletReceiptEditComponent
    */
-  public ngOnInit () {
+  public ngOnInit() {
     this.form = this.formBuilder.group( {
       title: [ '', Validators.required ],
       bankNumber: [ '', Validators.required ],
@@ -52,7 +52,7 @@ export class ReceiptEditComponent implements OnInit {
    *
    * @memberOf WalletReceiptEditComponent
    */
-  public submitForm ( data ) {
+  public submitForm( data ) {
     if ( !this.form.valid ) {
       return
     }

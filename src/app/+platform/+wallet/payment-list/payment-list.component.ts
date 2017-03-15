@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core'
 
-import { PaymentAccountsService } from '../../../core'
+import { PaymentAccountsApiService } from '../../../core'
 
 @Component( {
   templateUrl: './payment-list.component.html',
@@ -16,7 +16,7 @@ export class PaymentListComponent implements OnInit {
    *
    * @memberOf WalletPaymentListComponent
    */
-  constructor ( private paymentsService: PaymentAccountsService ) { }
+  constructor ( private paymentsService: PaymentAccountsApiService ) { }
 
   /**
    *
@@ -42,9 +42,6 @@ export class PaymentListComponent implements OnInit {
         this.paymentMethods.splice( $.inArray( payment, this.paymentMethods ), 1 )
         swal( 'Removido', `O meio de pagamento foi removido com sucesso.`, 'success' )
       })
-      .catch( error => {
-        swal( 'Erro', `Ocorreu algum erro ao efeturar a remoção. Erro ${ error }`, 'error' )
-        console.error( error )
-      })
+      .catch( error => swal( 'Erro', `Ocorreu algum erro ao efeturar a remoção. Erro ${ error }`, 'error' ) )
   }
 }

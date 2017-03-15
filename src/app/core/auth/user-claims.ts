@@ -6,7 +6,7 @@ export class UserClaims {
 
   private jwt: JwtHelper = new JwtHelper()
 
-  public static DefaultUser (): UserClaims {
+  public static DefaultUser(): UserClaims {
     return new UserClaims()
   }
 
@@ -21,10 +21,8 @@ export class UserClaims {
    *
    * @memberOf UserClaims
    */
-  constructor ( token?: Token ) {
+  constructor( token?: Token ) {
     if ( token ) {
-      console.log( this.jwt.decodeToken( token ) )
-
       const userClaims = pick( this.jwt.decodeToken( token ), [ 'id', 'role', 'name' ] )
       Object.assign( this, userClaims, { token: token })
     }

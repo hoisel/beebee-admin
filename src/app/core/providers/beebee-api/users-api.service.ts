@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core'
 import { Http } from '@angular/http'
 
-import { ApiBaseService } from '../providers'
+import { ApiBaseService } from './api-base.service'
 
 @Injectable()
-export class UsersService extends ApiBaseService {
+export class UsersApiService extends ApiBaseService {
 
   /**
    * Creates an instance of UserService.
@@ -12,7 +12,7 @@ export class UsersService extends ApiBaseService {
    *
    * @memberOf UserService
    */
-  constructor ( http: Http ) {
+  constructor( http: Http ) {
     super( http )
     this.setResource( 'users' )
   }

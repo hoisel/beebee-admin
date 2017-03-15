@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core'
 import { Http } from '@angular/http'
 
-import { AuthService } from '../auth'
-import { ApiBaseService } from '../providers'
+import { AuthService } from '../../auth'
+import { ApiBaseService } from './api-base.service'
 
 @Injectable()
-export class PaymentAccountsService extends ApiBaseService {
+export class PaymentAccountsApiService extends ApiBaseService {
 
   /**
    * Creates an instance of UserService.
