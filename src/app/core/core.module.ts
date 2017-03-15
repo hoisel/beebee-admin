@@ -20,7 +20,6 @@ import {
 } from './auth'
 
 import {
-  ProgressService,
   ThemeService,
   UiStateStoreService,
   UsersApiService,
@@ -50,7 +49,6 @@ import {
 
     // general services
     httpProvider,
-    ProgressService,
     ThemeService,
     UiStateStoreService,
     AuthService,
@@ -79,7 +77,7 @@ export class CoreModule {
    *
    * @memberOf CoreModule
    */
-  constructor ( @Optional() @SkipSelf() parentModule: CoreModule ) {
+  constructor( @Optional() @SkipSelf() parentModule: CoreModule ) {
     if ( parentModule ) {
       throw new Error( 'CoreModule is already loaded. Import it in the AppModule only' )
     }

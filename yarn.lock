@@ -3237,10 +3237,6 @@ normalize-url@^1.4.0:
     gauge "~2.7.1"
     set-blocking "~2.0.0"
 
-nprogress@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/nprogress/-/nprogress-0.2.0.tgz#cb8f34c53213d895723fcbab907e9422adbcafb1"
-
 nth-check@~1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/nth-check/-/nth-check-1.0.1.tgz#9929acdf628fc2c41098deab82ac580cf149aae4"
@@ -3368,6 +3364,10 @@ osenv@0, osenv@^0.1.0, osenv@^0.1.4:
   dependencies:
     os-homedir "^1.0.0"
     os-tmpdir "^1.0.0"
+
+"pace@git+https://github.com/HubSpot/pace.git#v1.0.2":
+  version "1.0.2"
+  resolved "git+https://github.com/HubSpot/pace.git#c6846cbf6b928e9903b569269fa9fbf32f2554f4"
 
 package-json@^2.0.0:
   version "2.4.0"

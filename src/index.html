@@ -36,6 +36,16 @@
   <link rel="apple-touch-icon" sizes="144x144" href="/assets/common/favicon/beebee-favicon-144x144.png">
   <link rel="apple-touch-icon" sizes="152x152" href="/assets/common/favicon/beebee-favicon-152x152.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/common/favicon/beebee-favicon-180x180.png">
+  <script>
+    window.paceOptions = {
+      ajax: {
+        trackMethods: [ 'GET', 'POST', 'PUT', 'DELETE' ],
+      },
+      restartOnPushState: false,
+      restartOnRequestAfter: 350,
+      elements: { selectors: [ '.wrapper-content' ] }
+    }
+  </script>
 </head>
 
 <body>

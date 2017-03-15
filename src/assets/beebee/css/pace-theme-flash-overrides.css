@@ -1,0 +1,22 @@
+
+.pace .pace-progress {
+  height: 3px;
+}
+.pace .pace-activity {
+  display: block;
+  position: fixed;
+  z-index: 2000;
+  top: 15px;
+  right: 15px;
+  width: 24px;
+  height: 24px;
+  border: solid 3px transparent;
+  border-top-color: #fcd25a;
+  border-left-color: #fcd25a;
+  border-radius: 10px;
+  -webkit-animation: pace-spinner 400ms linear infinite;
+  -moz-animation: pace-spinner 400ms linear infinite;
+  -ms-animation: pace-spinner 400ms linear infinite;
+  -o-animation: pace-spinner 400ms linear infinite;
+  animation: pace-spinner 400ms linear infinite;
+}

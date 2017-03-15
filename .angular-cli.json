@@ -20,19 +20,20 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "../node_modules/nprogress/nprogress.css",
         "../node_modules/bootstrap/dist/css/bootstrap.min.css",
         "../node_modules/font-awesome/css/font-awesome.min.css",
+        "../node_modules/pace/themes/yellow/pace-theme-flash.css",
+        "assets/beebee/css/pace-theme-flash-overrides.css",
         "assets/beebee/css/styles.css",
         "assets/beebee/css/theme.css",
         "assets/icomoon/style.css"
       ],
       "scripts": [
-        "../node_modules/nprogress/nprogress.js",
         "../node_modules/jquery/dist/jquery.min.js",
         "../node_modules/bootstrap/dist/js/bootstrap.min.js",
         "../node_modules/swiper/dist/js/swiper.jquery.min.js",
         "../node_modules/twitter-bootstrap-wizard/jquery.bootstrap.wizard.min.js",
+        "../node_modules/pace/pace.js",
         "assets/beebee/js/library.js"
       ],
       "environmentSource": "environments/environment.ts",
@@ -101,9 +102,7 @@
       "flat": false,
       "module": true
     },
-    "interface": {
-      
-    },
+    "interface": {},
     "guard": {
       "spec": true,
       "flat": false,
