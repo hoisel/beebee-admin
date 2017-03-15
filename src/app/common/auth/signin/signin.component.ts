@@ -3,7 +3,6 @@ import { Router } from '@angular/router'
 import { AuthService, CPF_MASK } from '../../../core'
 
 @Component( {
-  selector: 'app-signin',
   templateUrl: './signin.component.html',
   styleUrls: [ './signin.component.css' ]
 })
@@ -22,7 +21,7 @@ export class SigninComponent implements OnInit, OnDestroy {
    *
    * @memberOf SigninComponent
    */
-  constructor ( private router: Router, private auth: AuthService ) { }
+  constructor( private router: Router, private auth: AuthService ) { }
 
   /**
    *
@@ -30,7 +29,7 @@ export class SigninComponent implements OnInit, OnDestroy {
    *
    * @memberOf SigninComponent
    */
-  ngOnInit (): void {
+  ngOnInit(): void {
     if ( this.auth.isAuthenticated ) {
       this.router.navigate( [ 'plataforma' ] )
       return
@@ -44,7 +43,7 @@ export class SigninComponent implements OnInit, OnDestroy {
    *
    * @memberOf SigninComponent
    */
-  login ( credentials: { cpf: string, password: string } ): void {
+  login( credentials: { cpf: string, password: string }): void {
     this.loading = true
     this.auth.login( credentials )
       .subscribe( {
@@ -60,6 +59,6 @@ export class SigninComponent implements OnInit, OnDestroy {
       })
   }
 
-  ngOnDestroy (): void { }
+  ngOnDestroy(): void { }
 
 }

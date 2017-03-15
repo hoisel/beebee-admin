@@ -1,17 +1,14 @@
-import { Component, OnInit, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core'
+import { Component, OnInit } from '@angular/core'
 
 @Component( {
-  selector: 'app-auth',
   templateUrl: './auth.component.html',
-  styleUrls: [ './auth.component.css' ],
-  encapsulation: ViewEncapsulation.Emulated,
-  changeDetection: ChangeDetectionStrategy.Default
-} )
+  styleUrls: [ './auth.component.css' ]
+})
 export class AuthComponent implements OnInit {
 
-  constructor () { }
+  constructor() { }
 
-  ngOnInit () {
+  ngOnInit() {
   }
 
 }

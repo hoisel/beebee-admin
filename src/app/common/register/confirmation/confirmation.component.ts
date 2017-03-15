@@ -6,7 +6,6 @@ import { Component, OnInit } from '@angular/core'
 import { AuthService } from '../../../core'
 
 @Component( {
-  selector: 'app-confirmation',
   templateUrl: './confirmation.component.html',
   styleUrls: [ './confirmation.component.css' ]
 })
@@ -24,7 +23,7 @@ export class ConfirmationComponent implements OnInit {
    *
    * @memberOf ConfirmationComponent
    */
-  constructor (
+  constructor(
     private title: Title,
     private route: ActivatedRoute,
     private router: Router,
@@ -38,7 +37,7 @@ export class ConfirmationComponent implements OnInit {
    *
    * @memberOf ConfirmationComponent
    */
-  public ngOnInit () {
+  public ngOnInit() {
 
     this.title.setTitle( 'Confirmação | BeeBee' )
 
@@ -61,7 +60,7 @@ export class ConfirmationComponent implements OnInit {
    *
    * @memberOf ConfirmationComponent
    */
-  public submitForm ( confirmationCode: string ) {
+  public submitForm( confirmationCode: string ) {
     console.log( confirmationCode + '   ' + this.userId )
 
     // this.signupService.validateConfirmationCode( this.userId, confirmationCode )

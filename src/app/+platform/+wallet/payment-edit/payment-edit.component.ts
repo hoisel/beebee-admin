@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core'
+import { Component, OnInit } from '@angular/core'
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 
 import { CPF_MASK, CEP_MASK, CREDICARD_MASK, CVV_MASK, EXPIRATION_MASK } from '../../../core/utils'
@@ -6,9 +6,7 @@ import { isValidCPF } from '../../../core/validators'
 import { PaymentAccountsApiService } from '../../../core/providers'
 @Component( {
   templateUrl: './payment-edit.component.html',
-  styleUrls: [ './payment-edit.component.css' ],
-  encapsulation: ViewEncapsulation.Emulated,
-  changeDetection: ChangeDetectionStrategy.Default
+  styleUrls: [ './payment-edit.component.css' ]
 })
 export class WalletPaymentEditComponent implements OnInit {
 
@@ -26,7 +24,7 @@ export class WalletPaymentEditComponent implements OnInit {
    *
    * @memberOf WalletPaymentEditComponent
    */
-  public constructor ( private formBuilder: FormBuilder, private paymentsService: PaymentAccountsApiService ) { }
+  public constructor( private formBuilder: FormBuilder, private paymentsService: PaymentAccountsApiService ) { }
 
   /**
    *
@@ -34,7 +32,7 @@ export class WalletPaymentEditComponent implements OnInit {
    *
    * @memberOf WalletPaymentEditComponent
    */
-  public ngOnInit () {
+  public ngOnInit() {
     this.form = this.formBuilder.group( {
       title: [ '', Validators.required ],
       cardNumber: [ '', Validators.required ],
@@ -53,7 +51,7 @@ export class WalletPaymentEditComponent implements OnInit {
    *
    * @memberOf WalletPaymentEditComponent
    */
-  public submitForm ( data ) {
+  public submitForm( data ) {
     if ( !this.form.valid ) {
       return
     }

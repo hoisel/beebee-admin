@@ -4,7 +4,6 @@ import { BreadcrumbService } from 'ng2-breadcrumb/ng2-breadcrumb'
 import { UiStateStoreService, AuthService } from '../core'
 
 @Component( {
-  selector: 'app-platform',
   templateUrl: './platform.component.html',
   styleUrls: [ './platform.component.css' ]
 })
@@ -17,7 +16,7 @@ export class PlatformComponent implements OnInit {
    *
    * @memberOf AdminComponent
    */
-  constructor( private auth: AuthService, private uiStateStore: UiStateStoreService, private breadcrumbService: BreadcrumbService ) { }
+  constructor ( private auth: AuthService, private uiStateStore: UiStateStoreService, private breadcrumbService: BreadcrumbService ) { }
 
   /**
    *
@@ -25,7 +24,7 @@ export class PlatformComponent implements OnInit {
    *
    * @memberOf AdminComponent
    */
-  public ngOnInit() {
+  public ngOnInit () {
     this.uiStateStore.loadMenu( this.auth.user.role )
     this.configureBreadCrumb()
   }
@@ -37,7 +36,7 @@ export class PlatformComponent implements OnInit {
    *
    * @memberOf AdminComponent
    */
-  private configureBreadCrumb() {
+  private configureBreadCrumb () {
     this.breadcrumbService.addFriendlyNameForRoute( '/plataforma/dashboard', 'dashboard' )
     this.breadcrumbService.addFriendlyNameForRoute( '/plataforma/carteira/pagamento', 'meios de pagamento' )
     this.breadcrumbService.addFriendlyNameForRoute( '/plataforma/carteira/recebimento', 'meios de recebimento' )

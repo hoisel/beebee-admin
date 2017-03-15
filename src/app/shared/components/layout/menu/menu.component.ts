@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation, ChangeDetectionStrategy, OnInit, OnDestroy } from '@angular/core'
+import { Component, OnInit, OnDestroy } from '@angular/core'
 import { Subscription } from 'rxjs/Subscription'
 
 import { Menu, UiStateStoreService } from '../../../../core'
@@ -6,10 +6,8 @@ import { Menu, UiStateStoreService } from '../../../../core'
 @Component( {
   selector: 'bee-menu',
   templateUrl: './menu.component.html',
-  styleUrls: [ './menu.component.css' ],
-  encapsulation: ViewEncapsulation.Emulated,
-  changeDetection: ChangeDetectionStrategy.Default
-} )
+  styleUrls: [ './menu.component.css' ]
+})
 export class MenuComponent implements OnInit, OnDestroy {
 
   public menuSubs: Subscription
@@ -28,7 +26,7 @@ export class MenuComponent implements OnInit, OnDestroy {
    *
    * @memberOf MenuComponent
    */
-  constructor ( private uiStateStore: UiStateStoreService ) { }
+  constructor( private uiStateStore: UiStateStoreService ) { }
 
   /**
    *
@@ -36,7 +34,7 @@ export class MenuComponent implements OnInit, OnDestroy {
    *
    * @memberOf MenuComponent
    */
-  public ngOnInit () {
+  public ngOnInit() {
     this.menuSubs = this.uiStateStore.menu.subscribe( menu => this.model = menu )
   }
 
@@ -46,7 +44,7 @@ export class MenuComponent implements OnInit, OnDestroy {
    *
    * @memberOf MenuComponent
    */
-  public ngOnDestroy () {
+  public ngOnDestroy() {
     this.menuSubs.unsubscribe()
   }
 }

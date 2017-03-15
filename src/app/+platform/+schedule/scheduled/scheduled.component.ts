@@ -1,15 +1,14 @@
 import { Component, OnInit } from '@angular/core'
 
-@Component({
-  selector: 'app-scheduled',
+@Component( {
   templateUrl: './scheduled.component.html',
-  styleUrls: ['./scheduled.component.css']
+  styleUrls: [ './scheduled.component.css' ]
 })
 export class ScheduledComponent implements OnInit {
 
-  constructor () { }
+  constructor() { }
 
-  ngOnInit () {
+  ngOnInit() {
   }
 
 }

@@ -1,13 +1,11 @@
-import { Component, OnInit, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core'
+import { Component, OnInit } from '@angular/core'
 import { BreadcrumbService } from 'ng2-breadcrumb/ng2-breadcrumb'
 
 import { UiStateStoreService, AuthService } from '../core'
 
 @Component( {
   templateUrl: './admin.component.html',
-  styleUrls: [ './admin.component.css' ],
-  encapsulation: ViewEncapsulation.Emulated,
-  changeDetection: ChangeDetectionStrategy.Default
+  styleUrls: [ './admin.component.css' ]
 })
 export class AdminComponent implements OnInit {
 
@@ -18,7 +16,7 @@ export class AdminComponent implements OnInit {
    *
    * @memberOf AdminComponent
    */
-  constructor ( private auth: AuthService, private uiStateStore: UiStateStoreService, private breadcrumbService: BreadcrumbService ) { }
+  constructor( private auth: AuthService, private uiStateStore: UiStateStoreService, private breadcrumbService: BreadcrumbService ) { }
 
   /**
    *
@@ -26,7 +24,7 @@ export class AdminComponent implements OnInit {
    *
    * @memberOf AdminComponent
    */
-  public ngOnInit () {
+  public ngOnInit() {
     this.uiStateStore.loadMenu( this.auth.user.role )
     this.configureBreadCrumb()
   }
@@ -38,7 +36,7 @@ export class AdminComponent implements OnInit {
    *
    * @memberOf AdminComponent
    */
-  private configureBreadCrumb () {
+  private configureBreadCrumb() {
     this.breadcrumbService.addFriendlyNameForRoute( '/admin/dashboard', 'dashboard' )
     this.breadcrumbService.addFriendlyNameForRoute( '/admin/faq', 'perguntas frequentes' )
     this.breadcrumbService.addFriendlyNameForRoute( '/admin/veiculos', 'veículos' )

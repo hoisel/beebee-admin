@@ -1,17 +1,14 @@
-import { Component, OnInit, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core'
+import { Component, OnInit } from '@angular/core'
 
 @Component( {
-  selector: 'app-schedule',
   templateUrl: './schedule.component.html',
-  styleUrls: [ './schedule.component.css' ],
-  encapsulation: ViewEncapsulation.Emulated,
-  changeDetection: ChangeDetectionStrategy.Default
+  styleUrls: [ './schedule.component.css' ]
 })
 export class ScheduleComponent implements OnInit {
 
-  constructor () { }
+  constructor() { }
 
-  ngOnInit () {
+  ngOnInit() {
   }
 
 }
