@@ -9,6 +9,7 @@ import { config } from '../../app.config'
 export class ApiBaseService extends BaseService {
 
   protected resource: string
+  protected apiEndPoint: string
 
   /**
    * Creates an instance of ApiBaseService.
@@ -27,6 +28,7 @@ export class ApiBaseService extends BaseService {
    */
   public setResource( resource: string ): void {
     this.resource = resource
+    this.apiEndPoint = `${ config.apiEndPoint }/${ this.resource }`
   }
 
   /**
@@ -54,7 +56,7 @@ export class ApiBaseService extends BaseService {
    */
   public create( model: any ): Observable<any> {
     return this.http
-      .post( `${ config.apiEndPoint }/${ this.resource }`, model )
+      .post( this.apiEndPoint, model )
       .map( this.extractData )
       .catch( this.handleError )
   }
@@ -69,7 +71,7 @@ export class ApiBaseService extends BaseService {
    */
   public update( model: any ): Observable<any> {
     return this.http
-      .put( `${ config.apiEndPoint }/${ this.resource }/${ model.id }`, model )
+      .put( `${ this.apiEndPoint }/${ model.id }`, model )
       .map( this.extractData )
       .catch( this.handleError )
   }
@@ -84,7 +86,7 @@ export class ApiBaseService extends BaseService {
    */
   public delete( model: any ): Observable<any> {
     return this.http
-      .delete( `${ config.apiEndPoint }/${ this.resource }/${ model.id }` )
+      .delete( `${ this.apiEndPoint }/${ model.id }` )
       .map( this.extractData )
       .catch( this.handleError )
   }
@@ -98,7 +100,7 @@ export class ApiBaseService extends BaseService {
    */
   public get( id: string ): Observable<any> {
     return this.http
-      .get( `${ config.apiEndPoint }/${ this.resource }/${ id }` )
+      .get( `${ this.apiEndPoint }/${ id }` )
       .map( this.extractData )
       .catch( this.handleError )
   }
@@ -112,23 +114,8 @@ export class ApiBaseService extends BaseService {
    */
   public getAll(): Observable<any> {
     return this.http
-      .get( `${ config.apiEndPoint }/${ this.resource }` )
+      .get( `${ this.apiEndPoint }` )
       .map( this.extractData )
       .catch( this.handleError )
-  }
-
-  /**
-   *
-   *
-   * @param {string} id
-   * @param {string} type
-   * @returns {Observable<any>}
-   *
-   * @memberOf ApiBaseService
-   */
-  public getImage( id: string, type: string ): Observable<any> {
-    return this.http
-      .get( `${ config.apiEndPoint }/users/${ id }/assets/${ type }.jpg` )
-      .map( this.extractData )
   }
 }

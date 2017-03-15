@@ -50,30 +50,33 @@ export class ProfileComponent implements OnInit {
    *
    * @memberOf ProfileComponent
    */
-  public fileChange ( event, type ) {
-    // let fileList: FileList = event.target.files
-    // if ( fileList.length > 0 ) {
-    //   // this.progress.start()
-    //   console.log( 'Entrou...' )
-    //   let file: File = fileList[ 0 ]
+  public onFileChange ( event ) {
 
-    //   this.usersService.upload( file, this.auth.user.id, type )
-    //     .then( res => {
-    //       console.log( res )
-    //       this.usersService.getImage( this.auth.user.id, type )
-    //         .subscribe( image => {
-    //           if ( type === 'avatar' ) {
-    //             $( '#avatar' ).css( { 'background-image': 'url("' + image + '")' })
-    //           }
-    //           if ( type === 'driverLicense' ) {
-    //             $( '#driverLicense' ).css( { 'background-image': 'url("' + image + '")' })
-    //           }
-    //           // this.progress.finish()
-    //         })
+    if ( !event.target.files.length ) { return }
+
+    this.usersService.uploadImage( this.auth.user.id, event.target.name, event.target.files[ 0 ] )
+      .subscribe( {
+        next: ( uploaded: number ) => console.log( 'Percentage: ', uploaded, '%' ),
+        complete: () => console.log( 'finish' )
+      })
+
+
+
+    // .then( res => {
+    //   console.log( res )
+    //   this.usersService.getImage( this.auth.user.id, type )
+    //     .subscribe( image => {
+    //       if ( type === 'avatar' ) {
+    //         $( '#avatar' ).css( { 'background-image': 'url("' + image + '")' })
+    //       }
+    //       if ( type === 'driverLicense' ) {
+    //         $( '#driverLicense' ).css( { 'background-image': 'url("' + image + '")' })
+    //       }
+
     //     })
-    //     // .catch( err => this.progress.finish() )
-    // }
+    // })
   }
+
 
   /**
    *
@@ -83,10 +86,10 @@ export class ProfileComponent implements OnInit {
    * @memberOf ProfileComponent
    */
   private getImages () {
-    this.usersService.getImage( this.auth.user.id, 'avatar' )
+    this.usersService.getAvatarImage( this.auth.user.id )
       .subscribe( image => this.avatarUrl = image )
 
-    this.usersService.getImage( this.auth.user.id, 'driverLicense' )
+    this.usersService.getDriverLicenseImage( this.auth.user.id )
       .subscribe( image => this.driverLicenseUrl = image )
   }
 
@@ -132,7 +135,7 @@ export class ProfileComponent implements OnInit {
    * @memberOf ProfileComponent
    */
   public getUrlStyle ( url: string ) {
-    return `url(${ url })`
+    return `url('${ url }')`
   }
 
   /**

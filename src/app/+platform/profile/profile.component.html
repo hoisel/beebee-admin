@@ -105,7 +105,7 @@
                   <label>Foto de Perfil:</label>
                   <div class="image-square-ratio">
                     <div class="image-change">
-                      <div id="avatar" class="image-wrapper" [ngStyle]="{'background-image': 'url(' + avatarUrl + ')'}">
+                      <div id="avatar" class="image-wrapper" [ngStyle]="{'background-image': getUrlStyle(avatarUrl)}">
                         <a href="#">
                           <div class="overlay">
                             Alterar imagem
@@ -114,7 +114,7 @@
                       </div>
                     </div>
                   </div>
-                  <input type="file" (change)="fileChange($event, 'avatarUrl')" />
+                  <input type="file" name="avatar " (change)="onFileChange($event)" />
                 </div>
               </div>
             </div>
@@ -127,7 +127,7 @@
                   <label>Foto da CNH:</label>
                   <div class="image-square-ratio">
                     <div class="image-change">
-                      <div id="driverLicense" class="image-wrapper" [ngStyle]="{'background-image': 'url(' + driverLicenseUrl + ')'}">
+                      <div id="driverLicense" class="image-wrapper" [ngStyle]="{'background-image': getUrlStyle(driverLicenseUrl)}">
                         <a href="#">
                           <div class="overlay">
                             Alterar imagem
@@ -136,7 +136,7 @@
                       </div>
                     </div>
                   </div>
-                  <input type="file" (change)="fileChange($event, 'driverLicenseUrl')" />
+                  <input type="file" name="driverLicense" (change)="onFileChange($event)" />
                 </div>
               </div>
             </div>
