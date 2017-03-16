@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing'
 
-import { ProfileComponent } from './profile.component'
+import { ProgressBarComponent } from './progress-bar.component'
 
-describe( 'ProfileComponent', () => {
-  let component: ProfileComponent
-  let fixture: ComponentFixture<ProfileComponent>
+describe( 'ProgressBarComponent', () => {
+  let component: ProgressBarComponent
+  let fixture: ComponentFixture<ProgressBarComponent>
 
   beforeEach( async(() => {
     TestBed.configureTestingModule( {
-      declarations: [ ProfileComponent ]
+      declarations: [ ProgressBarComponent ]
     })
       .compileComponents()
   }) )
 
   beforeEach(() => {
-    fixture = TestBed.createComponent( ProfileComponent )
+    fixture = TestBed.createComponent( ProgressBarComponent )
     component = fixture.componentInstance
     fixture.detectChanges()
   })
@@ -23,3 +23,4 @@ describe( 'ProfileComponent', () => {
     expect( component ).toBeTruthy()
   })
 })
+

@@ -48,15 +48,15 @@
           <div class="row">
             <div class="col-md-6">
               <div class="form-group">
-                <label for="driverLicence">CNH:</label>
-                <input type="text" class="form-control" name="driverLicence" formControlName="driverLicence">
+                <label for="driverLicense">CNH:</label>
+                <input type="text" class="form-control" name="driverLicense" formControlName="driverLicense">
               </div>
             </div>
             <!-- aplicavel somente para motoristas -->
             <div class="col-md-6">
               <div class="form-group">
-                <label for="driverLicenceExpiration">Vencimento da CNH:</label>
-                <input type="text" class="form-control" name="driverLicenceExpiration" [textMask]="{mask: dateMask}" formControlName="driverLicenceExpiration">
+                <label for="driverLicenseExpiration">Vencimento da CNH:</label>
+                <input type="text" class="form-control" name="driverLicenseExpiration" [textMask]="{mask: dateMask}" formControlName="driverLicenseExpiration">
               </div>
             </div>
           </div>
@@ -98,48 +98,11 @@
       </div>
       <div class="panel-body">
         <div class="row">
-          <div class="col-md-6">
-            <div class="row">
-              <div class="col-sm-6 col-md-6 col-lg-4">
-                <div class="form-group">
-                  <label>Foto de Perfil:</label>
-                  <div class="image-square-ratio">
-                    <div class="image-change">
-                      <div id="avatar" class="image-wrapper" [ngStyle]="{'background-image': getUrlStyle(avatarUrl)}">
-                        <a href="#">
-                          <div class="overlay">
-                            Alterar imagem
-                          </div>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                  <input type="file" name="avatar " (change)="onFileChange($event)" />
-                </div>
-              </div>
-            </div>
+          <div class="col-md-6 col-lg-3 col-md-4">
+            <bee-image-upload title="Foto do Perfil" [name]="'avatar'" (onComplete)="onUploaded($event)" [imageName]="avatar"></bee-image-upload>
           </div>
-          <div class="col-md-6">
-            <div class="row">
-              <div class="col-sm-6 col-md-6 col-lg-4">
-                <!-- aplicavel somente para motoristas -->
-                <div class="form-group">
-                  <label>Foto da CNH:</label>
-                  <div class="image-square-ratio">
-                    <div class="image-change">
-                      <div id="driverLicense" class="image-wrapper" [ngStyle]="{'background-image': getUrlStyle(driverLicenseUrl)}">
-                        <a href="#">
-                          <div class="overlay">
-                            Alterar imagem
-                          </div>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                  <input type="file" name="driverLicense" (change)="onFileChange($event)" />
-                </div>
-              </div>
-            </div>
+          <div class="col-md-6 col-lg-3 col-md-4">
+            <bee-image-upload title="Foto da CNH" [name]="'driverLicenseImg'" (onComplete)="onUploaded($event)" [imageName]="driverLicenseImg"></bee-image-upload>
           </div>
         </div>
       </div>

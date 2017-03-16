@@ -1621,9 +1621,9 @@
 	==========================================================================
 	========================================================================== */
 
-	div.wrapper-content section ~ section {
-		/* margin-top: 90px;*/
-	}
+	/*div.wrapper-content section ~ section {
+	 margin-top: 90px;
+	}*/
 
 	/* Main > Content > Header
 	————————————————————————————————————————————————————————————————————————— */
@@ -2539,9 +2539,9 @@
 		border-bottom: 1px solid #e7e7e7;
 	}
 
-	.wrapper-heading ul li {
+	/*.wrapper-heading ul li {
 		
-	}
+	}*/
 
 	@media (min-width: 768px) {
 		.wrapper-heading ul li {
@@ -3115,7 +3115,8 @@
 		display: block;
 		background-color: #eee; /* placeholder para foto */
 	}
-
+	.image-change .image-square-ratio { margin: 0}
+  .image-change input[type="file"]{ visibility: hidden; }
 	.image-change .image-wrapper {
 		width: 100%;
 		height: 100%;
@@ -3138,12 +3139,13 @@
 		right: 0;
 	}
 
-	.image-change .image-wrapper a:hover,
+	.image-change .image-wrapper:hover,
 	.image-change .image-wrapper button:hover {
 		background-color: rgba(255,255,255,0.15);
+    cursor: pointer
 	}
 
-	.image-change .image-wrapper a div.overlay,
+	.image-change .image-wrapper div.overlay,
 	.image-change .image-wrapper button div.overlay {
 		position: absolute;
 		bottom: -100px;
@@ -3156,7 +3158,7 @@
 		color: rgba(255,255,255,0.75);
 	}
 
-	.image-change .image-wrapper a:hover div.overlay,
+	.image-change .image-wrapper:hover div.overlay,
 	.image-change .image-wrapper button:hover div.overlay {
 		bottom: 0;
 	}

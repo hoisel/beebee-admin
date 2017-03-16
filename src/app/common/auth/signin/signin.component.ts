@@ -30,8 +30,8 @@ export class SigninComponent implements OnInit, OnDestroy {
    * @memberOf SigninComponent
    */
   ngOnInit(): void {
-    if ( this.auth.isAuthenticated ) {
-      this.router.navigate( [ 'plataforma' ] )
+    if ( this.auth.user.isAuthenticated ) {
+      this.router.navigate( this.auth.user.role === 'user' ? [ 'plataforma' ] : [ 'admin' ] )
       return
     }
   }
@@ -47,9 +47,7 @@ export class SigninComponent implements OnInit, OnDestroy {
     this.loading = true
     this.auth.login( credentials )
       .subscribe( {
-        next: () => {
-          this.router.navigate( this.auth.redirectLogin )
-        },
+        next: () => this.router.navigate( this.auth.redirectLogin ),
         error: ( error: any ) => {
           if ( error.status === 401 ) {
             this.message = 'Usuário ou senha inválidos!'

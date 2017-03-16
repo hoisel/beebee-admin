@@ -1,6 +1,13 @@
 import { Component, OnInit } from '@angular/core'
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
-import { isValidEmail, DATE_MASK, CELL_PHONE_MASK, STATES, AuthService, UsersApiService, User, pick } from '../../core'
+import {
+  isValidEmail, DATE_MASK, CELL_PHONE_MASK, STATES, AuthService,
+  UsersApiService,
+  User,
+  UploadInfo
+} from '../../core'
+
+// type UserImage = 'avatar' | 'driverLicense'
 
 @Component( {
   templateUrl: './profile.component.html',
@@ -13,22 +20,18 @@ export class ProfileComponent implements OnInit {
   public states = STATES
   public dateMask = DATE_MASK
   public cellMask = CELL_PHONE_MASK
-  public avatarUrl: string = '/assets/beebee/img/profile.png'
-  public driverLicenseUrl: string = '/assets/beebee/img/profile.png'
-  public file: any
+  public avatar: string
+  public driverLicenseImg: string
 
   /**
    * Creates an instance of ProfileComponent.
    * @param {FormBuilder} formBuilder
    * @param {AuthService} auth
-   * @param {UsersService} usersService
+   * @param {UsersApiService} usersApiService
    *
    * @memberOf ProfileComponent
    */
-  constructor (
-    private formBuilder: FormBuilder,
-    private auth: AuthService,
-    private usersService: UsersApiService ) { }
+  constructor( private formBuilder: FormBuilder, private auth: AuthService, private usersApiService: UsersApiService ) { }
 
   /**
    *
@@ -36,8 +39,7 @@ export class ProfileComponent implements OnInit {
    *
    * @memberOf ProfileComponent
    */
-  public ngOnInit () {
-    this.getImages()
+  public ngOnInit() {
     this.createForm()
     this.fillForm()
   }
@@ -45,52 +47,14 @@ export class ProfileComponent implements OnInit {
   /**
    *
    *
-   * @param {any} event
-   * @param {any} type
+   * @param {{ imageFile: File, imageName: string, fieldName: string }} uploadInfo
    *
    * @memberOf ProfileComponent
    */
-  public onFileChange ( event ) {
-
-    if ( !event.target.files.length ) { return }
-
-    this.usersService.uploadImage( this.auth.user.id, event.target.name, event.target.files[ 0 ] )
-      .subscribe( {
-        next: ( uploaded: number ) => console.log( 'Percentage: ', uploaded, '%' ),
-        complete: () => console.log( 'finish' )
-      })
-
-
-
-    // .then( res => {
-    //   console.log( res )
-    //   this.usersService.getImage( this.auth.user.id, type )
-    //     .subscribe( image => {
-    //       if ( type === 'avatar' ) {
-    //         $( '#avatar' ).css( { 'background-image': 'url("' + image + '")' })
-    //       }
-    //       if ( type === 'driverLicense' ) {
-    //         $( '#driverLicense' ).css( { 'background-image': 'url("' + image + '")' })
-    //       }
-
-    //     })
-    // })
-  }
-
-
-  /**
-   *
-   *
-   * @private
-   *
-   * @memberOf ProfileComponent
-   */
-  private getImages () {
-    this.usersService.getAvatarImage( this.auth.user.id )
-      .subscribe( image => this.avatarUrl = image )
-
-    this.usersService.getDriverLicenseImage( this.auth.user.id )
-      .subscribe( image => this.driverLicenseUrl = image )
+  public onUploaded( uploadInfo: UploadInfo ) {
+    const user: User = this.form.value
+    user[ uploadInfo.fieldName ] = uploadInfo.imageName
+    this.submitForm( user )
   }
 
   /**
@@ -100,15 +64,15 @@ export class ProfileComponent implements OnInit {
    *
    * @memberOf ProfileComponent
    */
-  public submitForm ( user: User ) {
+  public submitForm( user: User ) {
     if ( !this.form.valid ) {
       return
     }
 
     // Converter a data para YYYY-MM-DD
-    user.driverLicenceExpiration = this.toDate( user.driverLicenceExpiration )
+    user.driverLicenseExpiration = this.toDate( user.driverLicenseExpiration )
 
-    this.usersService.save( user )
+    this.usersApiService.save( user )
       .subscribe(() => swal( 'Atualizado', 'Seus dados forão atualizados com sucesso.', 'success' ),
       error => swal( 'Erro', `Ocorreu algum erro ao salvar. Erro ${ error.message }`, 'error' ) )
   }
@@ -121,21 +85,12 @@ export class ProfileComponent implements OnInit {
    *
    * @memberOf ProfileComponent
    */
-  private toDate ( date: string = '' ): string {
+  private toDate( date: string ): string {
+    if ( /^\d{4}-\d{2}-\d{2}$/.test( date ) || !date ) {
+      return date
+    }
     let [ day, month, year ] = date.split( '/' )
     return `${ year }-${ month }-${ day }`
-  }
-
-  /**
-   *
-   *
-   * @param {string} url
-   * @returns
-   *
-   * @memberOf ProfileComponent
-   */
-  public getUrlStyle ( url: string ) {
-    return `url('${ url }')`
   }
 
   /**
@@ -145,7 +100,7 @@ export class ProfileComponent implements OnInit {
    *
    * @memberOf ProfileComponent
    */
-  private createForm (): void {
+  private createForm(): void {
     this.form = this.formBuilder.group( {
       id: [ '', Validators.required ],
       name: [ '', [ Validators.required, Validators.minLength( 5 ) ] ],
@@ -154,17 +109,19 @@ export class ProfileComponent implements OnInit {
       email: [ '', [ Validators.required, isValidEmail ] ],
       cellphone: [ '', Validators.required ],
       phone: [ '' ],
-      driverLicence: [ '' ],
-      driverLicenceExpiration: [ '', Validators.required ]
+      driverLicense: [ '' ],
+      driverLicenseExpiration: [ '', Validators.required ]
     })
   }
 
   /**
    * Obtém os dados do usuário e preenche o form.
    */
-  private fillForm (): void {
-    this.usersService.get( this.auth.user.id ).subscribe(( user: User ) => {
-      this.form.setValue( pick( user, [ 'id', 'name', 'cpf', 'rg', 'email', 'cellphone', 'phone', 'driverLicence', 'driverLicenceExpiration' ] ) )
+  private fillForm(): void {
+    this.usersApiService.get( this.auth.user.id ).subscribe(( user: User ) => {
+      this.avatar = user.avatar
+      this.driverLicenseImg = user.driverLicenseImg
+      this.form.patchValue( user )
       this.form.get( 'cpf' ).disable()
     })
   }

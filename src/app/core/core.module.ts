@@ -20,7 +20,6 @@ import {
 } from './auth'
 
 import {
-  ThemeService,
   UiStateStoreService,
   UsersApiService,
   PaymentAccountsApiService,
@@ -30,7 +29,8 @@ import {
   EmplyeeApiService,
   DriverApiService,
   VehiclesApiService,
-  CategoriesApiService
+  CategoriesApiService,
+  AssetsApiService
 } from './providers'
 
 @NgModule( {
@@ -49,11 +49,11 @@ import {
 
     // general services
     httpProvider,
-    ThemeService,
     UiStateStoreService,
     AuthService,
     StorageService,
     CepService,
+    AssetsApiService,
 
     // api services
     UsersApiService,

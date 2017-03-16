@@ -11,10 +11,16 @@ import {
   SidebarLeftComponent,
   FormWizardComponent
 } from './components/layout'
+
 import { MenuComponent } from './components/layout/menu/menu.component'
 import { MarketPlaceComponent } from './components/layout/market-place/market-place.component'
 import { SocialMediaComponent } from './components/layout/social-media/social-media.component'
 import { BrandComponent } from './components/layout/brand/brand.component'
+import { ImageUploadComponent } from './components/image-upload/image-upload.component'
+
+import { StyleUrlPipe } from './pipes'
+import { SpinnerComponent } from './components/spinner/spinner.component'
+import { ProgressBarComponent } from './components/progress-bar/progress-bar.component'
 
 @NgModule( {
   imports: [
@@ -32,7 +38,11 @@ import { BrandComponent } from './components/layout/brand/brand.component'
     MenuComponent,
     MarketPlaceComponent,
     SocialMediaComponent,
-    BrandComponent
+    BrandComponent,
+    StyleUrlPipe,
+    ImageUploadComponent,
+    SpinnerComponent,
+    ProgressBarComponent
   ],
   exports: [
     CommonModule,
@@ -45,11 +55,15 @@ import { BrandComponent } from './components/layout/brand/brand.component'
     MenuComponent,
     MarketPlaceComponent,
     SocialMediaComponent,
+    ImageUploadComponent,
     BrandComponent,
-    Ng2BreadcrumbModule
+    Ng2BreadcrumbModule,
+    StyleUrlPipe,
+    SpinnerComponent,
+    ProgressBarComponent
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
   ]
-} )
+})
 export class SharedModule { }

@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing'
 
-import { ProfileComponent } from './profile.component'
+import { SpinnerComponent } from './spinner.component'
 
-describe( 'ProfileComponent', () => {
-  let component: ProfileComponent
-  let fixture: ComponentFixture<ProfileComponent>
+describe( 'SpinnerComponent', () => {
+  let component: SpinnerComponent
+  let fixture: ComponentFixture<SpinnerComponent>
 
   beforeEach( async(() => {
     TestBed.configureTestingModule( {
-      declarations: [ ProfileComponent ]
+      declarations: [ SpinnerComponent ]
     })
       .compileComponents()
   }) )
 
   beforeEach(() => {
-    fixture = TestBed.createComponent( ProfileComponent )
+    fixture = TestBed.createComponent( SpinnerComponent )
     component = fixture.componentInstance
     fixture.detectChanges()
   })
@@ -23,3 +23,4 @@ describe( 'ProfileComponent', () => {
     expect( component ).toBeTruthy()
   })
 })
+

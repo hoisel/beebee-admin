@@ -1,0 +1,6 @@
+i {
+  position: absolute; 
+  top: calc(50% - 15px); 
+  left: calc(50% - 15px);
+  color: #3c9690;
+}

@@ -1,0 +1,15 @@
+<div class="form-group">
+  <label *ngIf="title">{{title}}</label>
+  <div class="image-square-ratio">
+    <div *ngIf="imageUrl" class="image-change">
+      <div class="image-wrapper" (click)="uploadControl.click()" [ngStyle]="{'background-image': imageUrl | styleUrl}">
+        <div class="overlay">
+          Alterar imagem
+        </div>
+      </div>
+      <input type="file" accept="accept" name="name" (change)="onFileChange($event.target.files[ 0 ], $event.target.name)" #uploadControl/>
+      <bee-progress-bar [progress]="progress"></bee-progress-bar>
+    </div>
+    <bee-spinner *ngIf="!imageUrl"></bee-spinner>
+  </div>
+</div>

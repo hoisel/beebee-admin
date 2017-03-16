@@ -122,9 +122,9 @@ export class AuthService extends BaseService {
    */
   public refreshCurrentUser( newToken?: Token ) {
     this.currentUser = new UserClaims( newToken )
-    this.currentUser.role = 'user'
+    // this.currentUser.role = 'user'
     this.redirectLogin = this.currentUser.role === 'user' ? [ 'plataforma' ] : [ 'admin' ]
-    console.log( 'User: ', this.currentUser )
+    // console.log( 'User: ', this.currentUser )
 
     // - re-salva e força uma publicação do profile
     this.userProfile = this.userProfile || new PersonalProfile( this.currentUser.id, this.currentUser.name )
