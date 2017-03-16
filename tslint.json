@@ -4,6 +4,10 @@
     "node_modules/codelyzer"
   ],
   "rules": {
+    "space-before-function-paren": [
+      true,
+      "never"
+    ],
     "no-empty": false,
     "member-ordering": [
       false

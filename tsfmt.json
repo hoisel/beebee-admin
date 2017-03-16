@@ -9,5 +9,5 @@
   "insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": true,
   "insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": true,
   "insertSpaceAfterFunctionKeywordForAnonymousFunctions": true,
-  "insertSpaceBeforeFunctionParenthesis": true
+  "insertSpaceBeforeFunctionParenthesis": false
 }
