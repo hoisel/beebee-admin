@@ -1,0 +1,25 @@
+<bee-steps>
+  <step *ngFor="let step of steps;let i = index;" [number]="i+1" [active]="step.isActive" (click)="goToStep(step)">
+    {{step.title}}
+  </step>
+</bee-steps>
+
+<ng-content></ng-content>
+
+<div *ngIf="!isCompleted">
+  <button class="btn btn-success" (click)="previous()" *ngIf="hasPrevStep && activeStep.showPrev">
+    <i class="fa fa-left"></i>
+    <span>Anterior</span>
+  </button>
+
+  <button type="submit" class="btn btn-success" (click)="next()" [disabled]="!activeStep.isValid" *ngIf="hasNextStep && activeStep.showNext">
+    <i class="fa fa-right"></i>
+    <span>Próximo</span>
+  </button>
+
+  <button class="btn btn-success" (click)="complete()" [disabled]="!activeStep.isValid" *ngIf="!hasNextStep">
+    <i class="fa fa-check"></i>
+    <span>Finalizar</span>
+  </button>
+
+</div>

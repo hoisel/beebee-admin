@@ -3,9 +3,9 @@
     <h2>Cadastro de Veículo</h2>
     <p>Informações do veículo para atender pedidos de entregas para o seu negócio</p>
   </header>
-  <div class="alert alert-danger" role="alert">
+  <!--<div class="alert alert-danger" role="alert">
     Seu veículo não foi aprovado. Sugerimos enviar novas fotos.
-  </div>
+  </div>-->
 
   <div class="panel panel-default">
     <div class="panel-body">
@@ -116,112 +116,26 @@
       </h4>
       <div class="row">
         <div class="col-sm-6 col-md-4 col-xlg-2">
-          <div class="form-group">
-            <label>
-            Frente:
-          </label>
-            <div class="image-square-ratio">
-              <div class="image-change">
-                <div class="image-wrapper" style="background-image:url('http://lorempixel.com/120/120/transport');">
-                  <a href="#">
-                    <div class="overlay">
-                      Alterar imagem
-                    </div>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
+          <bee-image-upload title="Frente:" [name]="'frente'" (onComplete)="onUploaded($event)" [imageName]="'frente'" [imageUrlFallback]="'http://lorempixel.com/120/120/transport'"></bee-image-upload>
         </div>
         <div class="col-sm-6 col-md-4 col-xlg-2">
-          <div class="form-group">
-            <label>
-            Lateral do motorista:
-          </label>
-            <div class="image-square-ratio">
-              <div class="image-change">
-                <div class="image-wrapper" style="background-image:url('http://lorempixel.com/120/120/transport');">
-                  <a href="#">
-                    <div class="overlay">
-                      Alterar imagem
-                    </div>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
+          <bee-image-upload title="Lateral do Motorista:" [name]="'lateralMotorista'" (onComplete)="onUploaded($event)" [imageName]="'lateralMotorista'"
+            [imageUrlFallback]="'http://lorempixel.com/120/120/transport'"></bee-image-upload>
         </div>
         <div class="col-sm-6 col-md-4 col-xlg-2">
-          <div class="form-group">
-            <label>
-            Lateral do carona:
-          </label>
-            <div class="image-square-ratio">
-              <div class="image-change">
-                <div class="image-wrapper" style="background-image:url('http://lorempixel.com/120/120/transport');">
-                  <a href="#">
-                    <div class="overlay">
-                      Alterar imagem
-                    </div>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
+          <bee-image-upload title="Lateral do Carona:" [name]="'lateralCarona'" (onComplete)="onUploaded($event)" [imageName]="'lateralCarona'"
+            [imageUrlFallback]="'http://lorempixel.com/120/120/transport'"></bee-image-upload>
         </div>
         <div class="col-sm-6 col-md-4 col-xlg-2">
-          <div class="form-group">
-            <label>
-            Traseira:
-          </label>
-            <div class="image-square-ratio">
-              <div class="image-change">
-                <div class="image-wrapper" style="background-image:url('http://lorempixel.com/120/120/transport');">
-                  <a href="#">
-                    <div class="overlay">
-                      Alterar imagem
-                    </div>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
+          <bee-image-upload title="Traseira:" [name]="'traseira'" (onComplete)="onUploaded($event)" [imageName]="'traseira'" [imageUrlFallback]="'http://lorempixel.com/120/120/transport'"></bee-image-upload>
         </div>
         <div class="col-sm-6 col-md-4 col-xlg-2">
-          <div class="form-group">
-            <label>
-            Complementar:
-          </label>
-            <div class="image-square-ratio">
-              <div class="image-change">
-                <div class="image-wrapper" style="background-image:url('http://lorempixel.com/120/120/transport');">
-                  <a href="#">
-                    <div class="overlay">
-                      Alterar imagem
-                    </div>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
+          <bee-image-upload title="Complementar:" [name]="'complementar'" (onComplete)="onUploaded($event)" [imageName]="'complementar'"
+            [imageUrlFallback]="'http://lorempixel.com/120/120/transport'"></bee-image-upload>
         </div>
         <div class="col-sm-6 col-md-4 col-xlg-2">
-          <div class="form-group">
-            <label>
-            Complementar:
-          </label>
-            <div class="image-square-ratio">
-              <div class="image-change">
-                <div class="image-wrapper" style="background-image:url('http://lorempixel.com/120/120/transport');">
-                  <a href="#">
-                    <div class="overlay">
-                      Alterar imagem
-                    </div>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
+          <bee-image-upload title="Complementar:" [name]="'complementar'" (onComplete)="onUploaded($event)" [imageName]="'complementar'"
+            [imageUrlFallback]="'http://lorempixel.com/120/120/transport'"></bee-image-upload>
         </div>
       </div>
       <h4>
@@ -229,22 +143,8 @@
       </h4>
       <div class="row">
         <div class="col-sm-6 col-md-4 col-xlg-2">
-          <div class="form-group">
-            <label>
-            Documento (CRV):
-          </label>
-            <div class="image-square-ratio">
-              <div class="image-change">
-                <div class="image-wrapper" style="background-image:url('http://lorempixel.com/120/120/transport');">
-                  <a href="#">
-                    <div class="overlay">
-                      Alterar imagem
-                    </div>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
+          <bee-image-upload title="Documento (CRV):" [name]="'documento'" (onComplete)="onUploaded($event)" [imageName]="'documento'"
+            [imageUrlFallback]="'http://lorempixel.com/120/120/transport'"></bee-image-upload>
         </div>
       </div>
     </div>

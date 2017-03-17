@@ -1,12 +1,15 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, OnInit, Output, EventEmitter } from '@angular/core'
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 import { PLATE_MASK, YEAR_MASK, VehiclesApiService, CategoriesApiService } from '../../../../core'
 
 @Component( {
+  selector: 'bee-vehicle-edit',
   templateUrl: './vehicle-edit.component.html',
   styleUrls: [ './vehicle-edit.component.css' ]
 })
 export class VehicleEditComponent implements OnInit {
+
+  @Output() public onSave = new EventEmitter<any>()
 
   public vehicleTypes: any[]
   public plateMask: any = PLATE_MASK
@@ -52,14 +55,15 @@ export class VehicleEditComponent implements OnInit {
    *
    * @memberOf VehicleEditComponent
    */
-  public submitForm( data: any ) {
+  public submitForm( vehicle: any ) {
     if ( !this.form.valid ) {
       return
     }
-    data.year = `${ data.year }-01-01`
-    this.vehicleService.save( data )
+    vehicle.year = `${ vehicle.year }-01-01`
+    this.vehicleService.save( vehicle )
       .toPromise()
       .then( resp => {
+        this.onSave.emit( vehicle )
         swal( 'Cadastro relizado', `O cadastro foi realizado com sucesso.`, 'success' )
         this.clearForm()
       })

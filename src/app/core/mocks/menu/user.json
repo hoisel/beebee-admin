@@ -14,13 +14,13 @@
     },
     {
       "text": "Pedir Frete",
-      "href": "./pedir-frete",
+      "href": "./negocios/pedir-frete",
       "title": "Pedir Frete",
       "icon": "icon-request-freight"
     },
     {
       "text": "Fazer Frete",
-      "href": "./fazer-frete",
+      "href": "./negocios/fazer-frete",
       "title": "Fazer Frete",
       "icon": "icon-make-freight"
     },

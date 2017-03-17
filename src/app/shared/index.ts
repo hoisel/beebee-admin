@@ -1,2 +1,3 @@
 export * from './shared.module'
-export * from './components/layout'
+export * from './components'
+

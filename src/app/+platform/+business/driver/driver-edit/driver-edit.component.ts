@@ -1,13 +1,16 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, OnInit, Output, EventEmitter } from '@angular/core'
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 
 import { CPF_MASK, PHONE_MASK, CELL_PHONE_MASK, isValidCPF, DriverApiService } from '../../../../core'
 
 @Component( {
+  selector: 'bee-driver-edit',
   templateUrl: './driver-edit.component.html',
   styleUrls: [ './driver-edit.component.css' ]
 })
 export class DriverEditComponent implements OnInit {
+
+  @Output() public onSave = new EventEmitter<any>()
 
   private form: FormGroup
   public cpfMask = CPF_MASK
@@ -51,6 +54,7 @@ export class DriverEditComponent implements OnInit {
     this.driver.save( driver )
       .toPromise()
       .then( resp => {
+        this.onSave.emit( driver )
         swal( 'Cadastro relizado', `O cadastro foi realizado com sucesso.`, 'success' )
         this.clearForm()
       })

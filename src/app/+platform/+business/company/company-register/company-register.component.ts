@@ -1,13 +1,16 @@
-import { Component } from '@angular/core'
+import { Component, Input, Output, EventEmitter } from '@angular/core'
 import { Router } from '@angular/router'
 import { CompaniesApiService, AuthService, Company, CompanyProfile } from '../../../../core'
 
 @Component( {
+  selector: 'bee-company-register',
   templateUrl: './company-register.component.html',
   styleUrls: [ './company-register.component.css' ]
 })
 export class CompanyRegisterComponent {
 
+  @Input() public redirectAfterRegister = false
+  @Output() public onSave = new EventEmitter<Company>()
   public company: Company
 
   /**
@@ -32,7 +35,12 @@ export class CompanyRegisterComponent {
       .subscribe( {
         next: ( company: Company ) => {
           this.auth.userProfile = new CompanyProfile( company.id, company.tradingName )
-          this.router.navigate( [ '/plataforma/negocios/perfil' ] )
+
+          this.onSave.emit( company )
+
+          if ( this.redirectAfterRegister ) {
+            this.router.navigate( [ '/plataforma/negocios/perfil' ] )
+          }
 
           swal( 'Sucesso', 'O cadastro foi atualizado com sucesso.', 'success' )
         },

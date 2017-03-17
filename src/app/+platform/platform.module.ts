@@ -8,8 +8,6 @@ import { BonusComponent } from './bonus/bonus.component'
 import { InvitedComponent } from './bonus/invited/invited.component'
 import { DashboardComponent } from './dashboard/dashboard.component'
 import { ProfileComponent } from './profile/profile.component'
-import { RequestFreightComponent } from './freight/request-freight/request-freight.component'
-import { ProvideFreightComponent } from './freight/provide-freight/provide-freight.component'
 
 @NgModule( {
   imports: [
@@ -21,9 +19,7 @@ import { ProvideFreightComponent } from './freight/provide-freight/provide-freig
     InvitedComponent,
     DashboardComponent,
     ProfileComponent,
-    PlatformComponent,
-    RequestFreightComponent,
-    ProvideFreightComponent
+    PlatformComponent
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })

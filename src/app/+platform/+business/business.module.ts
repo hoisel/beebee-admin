@@ -15,6 +15,8 @@ import { CompanyEditComponent } from './company/company-edit/company-edit.compon
 import { CompanyRegisterComponent } from './company/company-register/company-register.component'
 import { CompanyFormComponent } from './company/company-form/company-form.component'
 import { ProfileSwitcherComponent } from './profile-switcher/profile-switcher.component'
+import { RequestFreightComponent } from './freight/request-freight/request-freight.component'
+import { ProvideFreightComponent } from './freight/provide-freight/provide-freight.component'
 
 @NgModule( {
   imports: [
@@ -33,7 +35,9 @@ import { ProfileSwitcherComponent } from './profile-switcher/profile-switcher.co
     CompanyEditComponent,
     CompanyFormComponent,
     ProfileSwitcherComponent,
-    CompanyRegisterComponent
+    CompanyRegisterComponent,
+    RequestFreightComponent,
+    ProvideFreightComponent
   ]
 })
 export class BusinessModule { }

@@ -1,25 +1,23 @@
-<div class="wrapper-content">
-  <breadcrumb></breadcrumb>
-  <section>
-    <header class="page-header">
-      <h2>
-        Gerenciador de Negócios
-      </h2>
-      <p>
-        Selecione o perfil de acesso que deseja utilizar
-      </p>
-      <div class="actions">
-        <a [routerLink]="['/plataforma/negocios/novo']" class="btn btn-default">
-          <i class="fa fa-plus" aria-hidden="true"></i> Cadastrar Negócio
-        </a>
-      </div>
-    </header>
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <div class="profile-button">
-          <div class="row">
-            <div class="col-sm-6 col-lg-4" (click)="switchProfile()">
-              <span href="#" class="btn btn-block">
+<section>
+  <header class="page-header">
+    <h2>
+      Gerenciador de Negócios
+    </h2>
+    <p>
+      Selecione o perfil de acesso que deseja utilizar
+    </p>
+    <div class="actions">
+      <a [routerLink]="['/plataforma/negocios/novo']" class="btn btn-default">
+        <i class="fa fa-plus" aria-hidden="true"></i> Cadastrar Negócio
+      </a>
+    </div>
+  </header>
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <div class="profile-button">
+        <div class="row">
+          <div class="col-sm-6 col-lg-4" (click)="switchProfile()">
+            <span href="#" class="btn btn-block">
 								<div class="media">
 									<div class="media-left">
 										<img src="../../../assets/beebee/img/profile.png">
@@ -37,10 +35,10 @@
 									</div>
 								</div>
 							</span>
-            </div>
+          </div>
 
-            <div class="col-sm-6 col-lg-4" *ngFor="let company of companies" (click)="switchProfile(company)">
-              <span class="btn btn-block">
+          <div class="col-sm-6 col-lg-4" *ngFor="let company of companies" (click)="switchProfile(company)">
+            <span class="btn btn-block">
 								<div class="media">
 									<div class="media-left">
 										<img src="../../../assets/beebee/img/profile.png">
@@ -58,10 +56,9 @@
 									</div>
 								</div>
 							</span>
-            </div>
           </div>
         </div>
       </div>
     </div>
-  </section>
-</div>
+  </div>
+</section>

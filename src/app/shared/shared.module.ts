@@ -9,20 +9,21 @@ import { TextMaskModule } from 'angular2-text-mask'
 import {
   HeaderComponent,
   SidebarLeftComponent,
-  FormWizardComponent
-} from './components/layout'
+  MenuComponent,
+  MarketPlaceComponent,
+  SocialMediaComponent,
+  BrandComponent,
+  ImageUploadComponent,
+  SpinnerComponent,
+  ProgressBarComponent,
+  StepsComponent,
+  StepComponent,
+  WizardComponent,
+  WizardStepComponent
+} from './components'
 
-import { MenuComponent } from './components/layout/menu/menu.component'
-import { MarketPlaceComponent } from './components/layout/market-place/market-place.component'
-import { SocialMediaComponent } from './components/layout/social-media/social-media.component'
-import { BrandComponent } from './components/layout/brand/brand.component'
-import { ImageUploadComponent } from './components/image-upload/image-upload.component'
 
 import { StyleUrlPipe } from './pipes'
-import { SpinnerComponent } from './components/spinner/spinner.component'
-import { ProgressBarComponent } from './components/progress-bar/progress-bar.component'
-import { StepsComponent } from './components/steps/steps.component'
-import { StepComponent } from './components/steps/step/step.component'
 
 @NgModule( {
   imports: [
@@ -36,7 +37,6 @@ import { StepComponent } from './components/steps/step/step.component'
   declarations: [
     SidebarLeftComponent,
     HeaderComponent,
-    FormWizardComponent,
     MenuComponent,
     MarketPlaceComponent,
     SocialMediaComponent,
@@ -46,7 +46,9 @@ import { StepComponent } from './components/steps/step/step.component'
     SpinnerComponent,
     ProgressBarComponent,
     StepsComponent,
-    StepComponent
+    StepComponent,
+    WizardComponent,
+    WizardStepComponent
   ],
   exports: [
     CommonModule,
@@ -55,7 +57,6 @@ import { StepComponent } from './components/steps/step/step.component'
     ReactiveFormsModule,
     SidebarLeftComponent,
     HeaderComponent,
-    FormWizardComponent,
     MenuComponent,
     MarketPlaceComponent,
     SocialMediaComponent,
@@ -66,7 +67,9 @@ import { StepComponent } from './components/steps/step/step.component'
     SpinnerComponent,
     ProgressBarComponent,
     StepsComponent,
-    StepComponent
+    StepComponent,
+    WizardComponent,
+    WizardStepComponent
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA

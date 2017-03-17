@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core'
 import { Subscription } from 'rxjs/Subscription'
 
-import { AuthService } from '../../../../core'
+import { AuthService } from '../../../core'
 
 @Component( {
   selector: 'app-sidebar-left',
@@ -19,7 +19,7 @@ export class SidebarLeftComponent implements OnInit, OnDestroy {
    *
    * @memberOf SidebarLeftComponent
    */
-  constructor ( private auth: AuthService ) { }
+  constructor( private auth: AuthService ) { }
 
   /**
    *
@@ -27,7 +27,7 @@ export class SidebarLeftComponent implements OnInit, OnDestroy {
    *
    * @memberOf SidebarLeftComponent
    */
-  public ngOnInit () {
+  public ngOnInit() {
     this.subscription = this.auth.userProfile$.subscribe( userProfile => {
       this.profileName = userProfile.name
     })
@@ -39,7 +39,7 @@ export class SidebarLeftComponent implements OnInit, OnDestroy {
    *
    * @memberOf SidebarLeftComponent
    */
-  public ngOnDestroy () {
+  public ngOnDestroy() {
     this.subscription.unsubscribe()
   }
 

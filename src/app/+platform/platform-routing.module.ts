@@ -8,8 +8,6 @@ import { BonusComponent } from './bonus/bonus.component'
 import { InvitedComponent } from './bonus/invited/invited.component'
 import { DashboardComponent } from './dashboard/dashboard.component'
 import { ProfileComponent } from './profile/profile.component'
-import { RequestFreightComponent } from './freight/request-freight/request-freight.component'
-import { ProvideFreightComponent } from './freight/provide-freight/provide-freight.component'
 
 const routes: Routes = [ {
   path: '',
@@ -30,16 +28,6 @@ const routes: Routes = [ {
       path: 'minha-conta',
       component: ProfileComponent,
       data: { title: 'Minha Conta' }
-    },
-    {
-      path: 'pedir-frete',
-      component: RequestFreightComponent,
-      data: { title: 'Pedir Frete' }
-    },
-    {
-      path: 'fazer-frete',
-      component: ProvideFreightComponent,
-      data: { title: 'Fazer Frete' }
     },
     {
       path: 'fidelidade',

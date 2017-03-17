@@ -91,3 +91,25 @@
 		left: 0;
 		width: 50%;
 	}
+
+
+  /* medium size */
+
+  :host-context(.step-size-lg) .step .step-content .circle span {
+		width: 60px;
+    height: 61px;
+	}
+  :host-context(.step-size-lg) .step .step-content .circle {
+		width: 62px;
+		height: 63px;
+		font-size: 35px;
+		line-height: 50px;
+	}
+  :host-context(.step-size-lg) .step:before {
+		height: 20px;
+		top: 20px;
+	}
+
+  :host-context(.step-size-lg) .step .step-content .title {
+		font-size: 13px;
+	}

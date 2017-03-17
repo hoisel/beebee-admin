@@ -29,8 +29,8 @@
               <i class="fa fa-chevron-down"></i>
             </a>
             <ul class="dropdown-menu">
-              <li>
-                <button [routerLink]="['/minha-conta']">
+              <li *ngIf="this.auth.user.role==='user'">
+                <button [routerLink]="['/plataforma/minha-conta']">
 									Meu perfil
 								</button>
               </li>

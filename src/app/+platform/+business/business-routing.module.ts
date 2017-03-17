@@ -14,6 +14,8 @@ import { DriverEditComponent } from './driver/driver-edit/driver-edit.component'
 import { CompanyEditComponent } from './company/company-edit/company-edit.component'
 import { CompanyRegisterComponent } from './company/company-register/company-register.component'
 import { ProfileSwitcherComponent } from './profile-switcher/profile-switcher.component'
+import { RequestFreightComponent } from './freight/request-freight/request-freight.component'
+import { ProvideFreightComponent } from './freight/provide-freight/provide-freight.component'
 
 const routes: Routes = [ {
   path: '',
@@ -31,7 +33,16 @@ const routes: Routes = [ {
       component: ProfileSwitcherComponent,
       data: { title: 'Meu Negócio | Seleção de Perfil' }
     },
-
+    {
+      path: 'pedir-frete',
+      component: RequestFreightComponent,
+      data: { title: 'Pedir Frete' }
+    },
+    {
+      path: 'fazer-frete',
+      component: ProvideFreightComponent,
+      data: { title: 'Fazer Frete' }
+    },
     {
       path: 'dashboard',
       component: DashboardComponent,

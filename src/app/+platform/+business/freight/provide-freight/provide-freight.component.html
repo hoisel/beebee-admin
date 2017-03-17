@@ -1,0 +1,11 @@
+<bee-wizard #wizard class="step-size-lg">
+  <wizard-step [title]="'Cadastro de Negócio'" [isValid]="hasCompany" [showPrev]="false" [showNext]="false" (onNext)="scrollToTop()">
+    <bee-company-register [redirectAfterRegister]="false" (onSave)="onCompanySaved()"></bee-company-register>
+  </wizard-step>
+  <wizard-step [title]="'Cadastro de Veículo'" [isValid]="hasVehicle" [showPrev]="false" [showNext]="false" (onNext)="scrollToTop()">
+    <bee-vehicle-edit (onSave)="onVehicleSaved()"></bee-vehicle-edit>
+  </wizard-step>
+  <wizard-step [title]="'Cadastro de Motorista'" [isValid]="hasDriver" [showPrev]="false" [showNext]="false" (onNext)="scrollToTop()">
+    <bee-driver-edit (onSave)="onDriverSaved()"></bee-driver-edit>
+  </wizard-step>
+</bee-wizard>
