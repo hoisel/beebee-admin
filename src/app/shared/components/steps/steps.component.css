@@ -1,0 +1,27 @@
+
+/*	Steps
+	==========================================================================
+	========================================================================== */
+
+  .steps {
+		margin: 30px auto;
+		margin: 3.0rem auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 150px;
+	}
+
+	/* Steps > Bar
+	————————————————————————————————————————————————————————————————————————— */
+
+	.steps .steps-bar {
+     display: flex;
+     justify-content: space-around;
+	}
+
+	:host /deep/ .steps .steps-bar div {
+		margin: 0;
+		padding: 0;
+	}
+  

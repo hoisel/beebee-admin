@@ -1,67 +1,40 @@
 <div class="heading">
-	<div class="container">
-		<h1>
-			Excelência para atender suas necessidades
-		</h1>
-		<h2>
-			Tudo para revolucionar o transporte de mercadorias no Brasil
-		</h2>
-	</div>
+  <div class="container">
+    <h1>
+      Excelência para atender suas necessidades
+    </h1>
+    <h2>
+      Tudo para revolucionar o transporte de mercadorias no Brasil
+    </h2>
+  </div>
 </div>
-
-<div class="steps">
-	<div class="container">
-		<div class="row steps-bar">
-			<div class="col-xs-6">
-				<div class="step step-1">
-					<div class="circle">
-						<span>1</span>
-					</div>
-				</div>
-			</div>
-			<div class="col-xs-6">
-				<div class="step step-2">
-					<div class="circle active">
-						<span>2</span>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="row steps-title">
-			<div class="col-xs-6">
-				<div class="step step-1">
-					<span>
-						Crie sua conta
-					</span>
-				</div>
-			</div>
-			<div class="col-xs-6">
-				<div class="step step-2 active">
-					<span>
-						Lorem Ipsum
-					</span>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-
+<bee-steps>
+  <step number="1">
+    Criar conta
+  </step>
+  <step number="2">
+    Validar código SMS
+  </step>
+  <step number="3" [active]="true">
+    Escolher perfil
+  </step>
+</bee-steps>
 <div class="register">
-	<a routerLink="/plataforma/dashboard" class="btn btn-block btn-lg btn-particular">
+  <a routerLink="/plataforma/dashboard" class="btn btn-block btn-lg btn-particular">
 		Sou Particular
 		<br>
 		<small>
 			(Quero pedir fretes)
 		</small>
 	</a>
-	<a routerLink="/plataforma/negocios/novo" class="btn btn-block btn-lg btn-fretista">
+  <a routerLink="/plataforma/negocios/novo" class="btn btn-block btn-lg btn-fretista">
 		Sou Empresa
 		<br>
 		<small>
 			(Minha empresa precisa pedir fretes)
 		</small>
 	</a>
-	<a routerLink="/plataforma/fazer-frete" class="btn btn-block btn-lg btn-empresa">
+  <a routerLink="/plataforma/fazer-frete" class="btn btn-block btn-lg btn-empresa">
 		Sou Fretista
 		<br>
 		<small>
@@ -70,10 +43,9 @@
 	</a>
 </div>
 <div class="cta">
-	<a href="#">
-		<small>
+  <a href="#">
+    <small>
 			Precisa de ajuda?
-		</small>
-		Fale com nossa equipe!
-	</a>
+		</small> Fale com nossa equipe!
+  </a>
 </div>

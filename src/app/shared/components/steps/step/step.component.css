@@ -1,0 +1,93 @@
+
+	:host {
+		position: relative;
+		flex: 1;
+    display: flex;
+    -ms-flex-pack: distribute;
+    flex-direction: column;
+	}
+
+
+	.step:before {
+		height: 15px;
+		content: '';
+		position: absolute;
+		top: 14px;
+		display: block;
+		border-top: 1px solid #e7e7e7;
+		border-bottom: 1px solid #e7e7e7;
+		background-color: #ffffff;
+		z-index: 0;
+	}
+
+  .step .step-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 999;
+  }
+
+  .step .step-content .title {
+		font-size: 12px;
+		font-weight: 600;
+    color: #979797;
+    margin: 10px auto;
+    text-align: center;
+	}
+
+	.step.active {
+		color: #0f0f0f;
+	}
+
+
+	.step .step-content .circle {
+		width: 42px;
+		height: 43px;
+		display: block;
+		border: 1px solid #e7e7e7;
+		background-color: #ffffff;
+		border-radius: 50%;
+		font-size: 18px;
+		font-weight: 700;
+		text-align: center;
+		line-height: 33px;
+	}
+
+	.step .step-content .circle span {
+		width: 40px;
+    height: 41px;
+    content: '';
+    background: transparent;
+    position: absolute;
+    display: block;
+    border-radius: 50%;
+    z-index: 0;
+    padding: 5px;
+	}
+
+	.step.active .step-content .circle span{
+		background-color: #e8b21a;
+		color: #ffffff;
+    border: 3px solid white;
+    padding: 3px;
+    z-index: 9999;
+	}
+
+	.step:not(.active) .step-content .circle span {
+		background-color: #ffffff;
+		color: #d1d1d1;
+    cursor: pointer;
+	}
+
+	:host:first-child .step:before {
+		left: 50%;
+		width: 50%;
+	}
+  .step:before {
+		left: 0;
+		width: 100%;
+	}
+  :host:last-child .step:before {
+		left: 0;
+		width: 50%;
+	}

@@ -61,6 +61,13 @@
 	.login.sign-up > header {
 		background-color: #fef366;
 	}
+  
+  .login.sign-up bee-steps {
+    max-width: 600px;
+      display: block;
+       margin: 0 auto;
+       height: 130px;
+}
 
 	.login.sign-up > header {
 		border-bottom: 1px solid #D2D4DE;
@@ -387,15 +394,15 @@
 	==========================================================================
 	========================================================================== */
 
-	.steps {
+	/*.steps {
 		margin: 30px auto;
 		margin: 3.0rem auto;
-	}
+	}*/
 
 
 	/* Steps > Title
 	————————————————————————————————————————————————————————————————————————— */
-
+/*
 	.steps .steps-title {
 		max-width: 375px;
 		margin: 0 auto;
@@ -422,13 +429,13 @@
 
 	.steps .steps-title div:not(.active) > span {
 		color: #979797;
-	}
+	}*/
 
 
 	/* Steps > Bar
 	————————————————————————————————————————————————————————————————————————— */
 
-	.steps .steps-bar {
+	/*.steps .steps-bar {
 		max-width: 240px;
 		margin: 0 auto;
 	}
@@ -505,13 +512,13 @@
 		font-size: 18px;
 		color: #ffffff;
 		line-height: 36px;
-	}
+	}*/
 
 
 	/* Steps > Side Positions
 	————————————————————————————————————————————————————————————————————————— */
 
-	.steps .steps-bar div.step-1:before {
+	/*.steps .steps-bar div.step-1:before {
 		left: 40px;
 		right: 0;
 	}
@@ -545,7 +552,7 @@
 
 	.steps .steps-bar div.step-2 div.circle span {
 		right: 4px;
-	}
+	}*/
 
 
 /* 	Custom

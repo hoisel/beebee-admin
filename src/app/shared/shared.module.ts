@@ -21,6 +21,8 @@ import { ImageUploadComponent } from './components/image-upload/image-upload.com
 import { StyleUrlPipe } from './pipes'
 import { SpinnerComponent } from './components/spinner/spinner.component'
 import { ProgressBarComponent } from './components/progress-bar/progress-bar.component'
+import { StepsComponent } from './components/steps/steps.component'
+import { StepComponent } from './components/steps/step/step.component'
 
 @NgModule( {
   imports: [
@@ -42,7 +44,9 @@ import { ProgressBarComponent } from './components/progress-bar/progress-bar.com
     StyleUrlPipe,
     ImageUploadComponent,
     SpinnerComponent,
-    ProgressBarComponent
+    ProgressBarComponent,
+    StepsComponent,
+    StepComponent
   ],
   exports: [
     CommonModule,
@@ -60,7 +64,9 @@ import { ProgressBarComponent } from './components/progress-bar/progress-bar.com
     Ng2BreadcrumbModule,
     StyleUrlPipe,
     SpinnerComponent,
-    ProgressBarComponent
+    ProgressBarComponent,
+    StepsComponent,
+    StepComponent
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
