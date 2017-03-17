@@ -1,249 +1,246 @@
-<div class="wrapper-content">
-  <breadcrumb></breadcrumb>
-  <section>
-    <header class="page-header">
-      <h2>Cadastro de Veículo</h2>
-      <p>Informações do veículo para atender pedidos de entregas para o seu negócio</p>
-    </header>
-    <div class="alert alert-danger" role="alert">
-      Seu veículo não foi aprovado. Sugerimos enviar novas fotos.
-    </div>
+<section>
+  <header class="page-header">
+    <h2>Cadastro de Veículo</h2>
+    <p>Informações do veículo para atender pedidos de entregas para o seu negócio</p>
+  </header>
+  <div class="alert alert-danger" role="alert">
+    Seu veículo não foi aprovado. Sugerimos enviar novas fotos.
+  </div>
 
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <form novalidate [formGroup]="form" (ngSubmit)="submitForm(form.value)">
-          <h4>Informações do modelo</h4>
-          <div class="form-group">
-            <label for="tipo">Categoria:</label>
-            <select name="tipo" class="form-control" formControlName="categoryId">
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <form novalidate [formGroup]="form" (ngSubmit)="submitForm(form.value)">
+        <h4>Informações do modelo</h4>
+        <div class="form-group">
+          <label for="tipo">Categoria:</label>
+          <select name="tipo" class="form-control" formControlName="categoryId">
           <option hidden value="0">Selecione...</option>
           <option *ngFor="let type of vehicleTypes" [value]="type.id">{{type.name}}</option>
         </select>
-            <p class="help-block" *ngIf="form.get('categoryId').hasError('required') && form.get('categoryId').touched">
-              * Campo obrigatório.
-            </p>
+          <p class="help-block" *ngIf="form.get('categoryId').hasError('required') && form.get('categoryId').touched">
+            * Campo obrigatório.
+          </p>
+        </div>
+        <div class="row">
+          <div class="col-md-5 col-lg-5">
+            <div class="form-group">
+              <label for="make">Marca:</label>
+              <input formControlName="make" [class.has-error]="form.get('make').errors && form.get('make').touched" type="text" class="form-control">
+              <p class="help-block" *ngIf="form.get('make').hasError('required') && form.get('make').touched">
+                * Campo obrigatório.
+              </p>
+            </div>
           </div>
-          <div class="row">
-            <div class="col-md-5 col-lg-5">
-              <div class="form-group">
-                <label for="make">Marca:</label>
-                <input formControlName="make" [class.has-error]="form.get('make').errors && form.get('make').touched" type="text" class="form-control">
-                <p class="help-block" *ngIf="form.get('make').hasError('required') && form.get('make').touched">
-                  * Campo obrigatório.
-                </p>
-              </div>
+          <div class="col-sm-6 col-md-4 col-lg-5">
+            <div class="form-group">
+              <label for="model">Modelo:</label>
+              <input formControlName="model" [class.has-error]="form.get('model').errors && form.get('model').touched" type="text" class="form-control">
+              <p class="help-block" *ngIf="form.get('model').hasError('required') && form.get('model').touched">
+                * Campo obrigatório.
+              </p>
             </div>
-            <div class="col-sm-6 col-md-4 col-lg-5">
-              <div class="form-group">
-                <label for="model">Modelo:</label>
-                <input formControlName="model" [class.has-error]="form.get('model').errors && form.get('model').touched" type="text" class="form-control">
-                <p class="help-block" *ngIf="form.get('model').hasError('required') && form.get('model').touched">
-                  * Campo obrigatório.
-                </p>
-              </div>
-            </div>
-            <div class="col-sm-6 col-md-3 col-lg-2">
-              <div class="form-group">
-                <label for="year">Ano do modelo:</label>
-                <input formControlName="year" [class.has-error]="form.get('year').errors 
+          </div>
+          <div class="col-sm-6 col-md-3 col-lg-2">
+            <div class="form-group">
+              <label for="year">Ano do modelo:</label>
+              <input formControlName="year" [class.has-error]="form.get('year').errors 
               && form.get('year').touched" type="text" class="form-control" [textMask]="{mask: yearMask}">
-                  <p class="help-block" *ngIf="form.get('year').hasError('required') && form.get('year').touched">
-                    * Campo obrigatório.
-                  </p>
-              </div>
+                <p class="help-block" *ngIf="form.get('year').hasError('required') && form.get('year').touched">
+                  * Campo obrigatório.
+                </p>
             </div>
           </div>
-          <h4>
-            Dados do veículo
-          </h4>
-          <div class="row">
-            <div class="col-sm-6">
-              <div class="form-group">
-                <label for="placa">Placa:</label>
-                <input formControlName="plate" [textMask]="{mask: plateMask}" (blur)="plateToUpper()" id="plate" [class.has-error]="form.get('plate').errors && form.get('plate').touched"
-                  type="text" class="form-control">
-                  <p class="help-block" *ngIf="form.get('plate').hasError('required') && form.get('plate').touched">
-                    * Campo obrigatório.
-                  </p>
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="form-group">
-                <label for="renavam">Renavam:</label>
-                <input formControlName="renavam" [class.has-error]="form.get('renavam').errors && form.get('renavam').touched" type="text"
-                  class="form-control">
-                  <p class="help-block" *ngIf="form.get('renavam').hasError('required') && form.get('renavam').touched">
-                    * Campo obrigatório.
-                  </p>
-              </div>
+        </div>
+        <h4>
+          Dados do veículo
+        </h4>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label for="placa">Placa:</label>
+              <input formControlName="plate" [textMask]="{mask: plateMask}" (blur)="plateToUpper()" id="plate" [class.has-error]="form.get('plate').errors && form.get('plate').touched"
+                type="text" class="form-control">
+                <p class="help-block" *ngIf="form.get('plate').hasError('required') && form.get('plate').touched">
+                  * Campo obrigatório.
+                </p>
             </div>
           </div>
-          <h4>
-            Características
-          </h4>
-          <div class="form-group">
-            <label>Variavel com itens excludente:</label>
-            <div class="radio">
-              <label class="radio"><input type="radio" name="optradio"> Lorem Ipsum</label>
-              <label class="radio"><input type="radio" name="optradio"> Lorem Ipsum</label>
-              <label class="radio"><input type="radio" name="optradio"> Lorem Ipsum</label>
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label for="renavam">Renavam:</label>
+              <input formControlName="renavam" [class.has-error]="form.get('renavam').errors && form.get('renavam').touched" type="text"
+                class="form-control">
+                <p class="help-block" *ngIf="form.get('renavam').hasError('required') && form.get('renavam').touched">
+                  * Campo obrigatório.
+                </p>
             </div>
           </div>
-          <div class="form-group">
-            <label>Variavel com itens não excludente:</label>
-            <div class="checkbox">
-              <label class="checkbox"><input type="checkbox"> Lorem Ipsum</label>
-              <label class="checkbox"><input type="checkbox"> Lorem Ipsum</label>
-              <label class="checkbox"><input type="checkbox"> Lorem Ipsum</label>
-            </div>
+        </div>
+        <h4>
+          Características
+        </h4>
+        <div class="form-group">
+          <label>Variavel com itens excludente:</label>
+          <div class="radio">
+            <label class="radio"><input type="radio" name="optradio"> Lorem Ipsum</label>
+            <label class="radio"><input type="radio" name="optradio"> Lorem Ipsum</label>
+            <label class="radio"><input type="radio" name="optradio"> Lorem Ipsum</label>
           </div>
-          <button type="submit" class="btn btn-success" [disabled]="!form.valid">
+        </div>
+        <div class="form-group">
+          <label>Variavel com itens não excludente:</label>
+          <div class="checkbox">
+            <label class="checkbox"><input type="checkbox"> Lorem Ipsum</label>
+            <label class="checkbox"><input type="checkbox"> Lorem Ipsum</label>
+            <label class="checkbox"><input type="checkbox"> Lorem Ipsum</label>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-success" [disabled]="!form.valid">
         <i class="fa fa-check" aria-hidden="true"></i>
         Salvar
       </button>
-        </form>
+      </form>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-title">
+      <div class="panel-heading">
+        <h3 class="panel-title">
+          Galeria de Imagens
+        </h3>
       </div>
     </div>
-    <div class="panel panel-default">
-      <div class="panel-title">
-        <div class="panel-heading">
-          <h3 class="panel-title">
-            Galeria de Imagens
-          </h3>
-        </div>
-      </div>
-      <div class="panel-body">
-        <h4>
-          Fotos
-        </h4>
-        <div class="row">
-          <div class="col-sm-6 col-md-4 col-xlg-2">
-            <div class="form-group">
-              <label>
+    <div class="panel-body">
+      <h4>
+        Fotos
+      </h4>
+      <div class="row">
+        <div class="col-sm-6 col-md-4 col-xlg-2">
+          <div class="form-group">
+            <label>
             Frente:
           </label>
-              <div class="image-square-ratio">
-                <div class="image-change">
-                  <div class="image-wrapper" style="background-image:url('http://lorempixel.com/120/120/transport');">
-                    <a href="#">
-                      <div class="overlay">
-                        Alterar imagem
-                      </div>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-6 col-md-4 col-xlg-2">
-            <div class="form-group">
-              <label>
-            Lateral do motorista:
-          </label>
-              <div class="image-square-ratio">
-                <div class="image-change">
-                  <div class="image-wrapper" style="background-image:url('http://lorempixel.com/120/120/transport');">
-                    <a href="#">
-                      <div class="overlay">
-                        Alterar imagem
-                      </div>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-6 col-md-4 col-xlg-2">
-            <div class="form-group">
-              <label>
-            Lateral do carona:
-          </label>
-              <div class="image-square-ratio">
-                <div class="image-change">
-                  <div class="image-wrapper" style="background-image:url('http://lorempixel.com/120/120/transport');">
-                    <a href="#">
-                      <div class="overlay">
-                        Alterar imagem
-                      </div>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-6 col-md-4 col-xlg-2">
-            <div class="form-group">
-              <label>
-            Traseira:
-          </label>
-              <div class="image-square-ratio">
-                <div class="image-change">
-                  <div class="image-wrapper" style="background-image:url('http://lorempixel.com/120/120/transport');">
-                    <a href="#">
-                      <div class="overlay">
-                        Alterar imagem
-                      </div>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-6 col-md-4 col-xlg-2">
-            <div class="form-group">
-              <label>
-            Complementar:
-          </label>
-              <div class="image-square-ratio">
-                <div class="image-change">
-                  <div class="image-wrapper" style="background-image:url('http://lorempixel.com/120/120/transport');">
-                    <a href="#">
-                      <div class="overlay">
-                        Alterar imagem
-                      </div>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-6 col-md-4 col-xlg-2">
-            <div class="form-group">
-              <label>
-            Complementar:
-          </label>
-              <div class="image-square-ratio">
-                <div class="image-change">
-                  <div class="image-wrapper" style="background-image:url('http://lorempixel.com/120/120/transport');">
-                    <a href="#">
-                      <div class="overlay">
-                        Alterar imagem
-                      </div>
-                    </a>
-                  </div>
+            <div class="image-square-ratio">
+              <div class="image-change">
+                <div class="image-wrapper" style="background-image:url('http://lorempixel.com/120/120/transport');">
+                  <a href="#">
+                    <div class="overlay">
+                      Alterar imagem
+                    </div>
+                  </a>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <h4>
-          Documentação
-        </h4>
-        <div class="row">
-          <div class="col-sm-6 col-md-4 col-xlg-2">
-            <div class="form-group">
-              <label>
+        <div class="col-sm-6 col-md-4 col-xlg-2">
+          <div class="form-group">
+            <label>
+            Lateral do motorista:
+          </label>
+            <div class="image-square-ratio">
+              <div class="image-change">
+                <div class="image-wrapper" style="background-image:url('http://lorempixel.com/120/120/transport');">
+                  <a href="#">
+                    <div class="overlay">
+                      Alterar imagem
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-xlg-2">
+          <div class="form-group">
+            <label>
+            Lateral do carona:
+          </label>
+            <div class="image-square-ratio">
+              <div class="image-change">
+                <div class="image-wrapper" style="background-image:url('http://lorempixel.com/120/120/transport');">
+                  <a href="#">
+                    <div class="overlay">
+                      Alterar imagem
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-xlg-2">
+          <div class="form-group">
+            <label>
+            Traseira:
+          </label>
+            <div class="image-square-ratio">
+              <div class="image-change">
+                <div class="image-wrapper" style="background-image:url('http://lorempixel.com/120/120/transport');">
+                  <a href="#">
+                    <div class="overlay">
+                      Alterar imagem
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-xlg-2">
+          <div class="form-group">
+            <label>
+            Complementar:
+          </label>
+            <div class="image-square-ratio">
+              <div class="image-change">
+                <div class="image-wrapper" style="background-image:url('http://lorempixel.com/120/120/transport');">
+                  <a href="#">
+                    <div class="overlay">
+                      Alterar imagem
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-xlg-2">
+          <div class="form-group">
+            <label>
+            Complementar:
+          </label>
+            <div class="image-square-ratio">
+              <div class="image-change">
+                <div class="image-wrapper" style="background-image:url('http://lorempixel.com/120/120/transport');">
+                  <a href="#">
+                    <div class="overlay">
+                      Alterar imagem
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <h4>
+        Documentação
+      </h4>
+      <div class="row">
+        <div class="col-sm-6 col-md-4 col-xlg-2">
+          <div class="form-group">
+            <label>
             Documento (CRV):
           </label>
-              <div class="image-square-ratio">
-                <div class="image-change">
-                  <div class="image-wrapper" style="background-image:url('http://lorempixel.com/120/120/transport');">
-                    <a href="#">
-                      <div class="overlay">
-                        Alterar imagem
-                      </div>
-                    </a>
-                  </div>
+            <div class="image-square-ratio">
+              <div class="image-change">
+                <div class="image-wrapper" style="background-image:url('http://lorempixel.com/120/120/transport');">
+                  <a href="#">
+                    <div class="overlay">
+                      Alterar imagem
+                    </div>
+                  </a>
                 </div>
               </div>
             </div>
@@ -251,5 +248,5 @@
         </div>
       </div>
     </div>
-  </section>
-</div>
+  </div>
+</section>

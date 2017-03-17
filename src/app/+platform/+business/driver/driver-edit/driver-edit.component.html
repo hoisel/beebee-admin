@@ -1,53 +1,50 @@
-<div class="wrapper-content">
-  <breadcrumb></breadcrumb>
-  <section>
-    <header class="page-header">
-      <h2>Cadastro de Motorista</h2>
-      <p>Informações do motorista autorizado a fazer fretes pelo seu negócio</p>
-    </header>
-    <div class="alert alert-danger" role="alert">
-      O cadastro do motorista não pode ser concluído. Favor corrigir os dados da CNH do motorista.
-    </div>
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <form novalidate [formGroup]="form" (ngSubmit)="submitForm(form.value)">
-          <h4>
-            Dados do Motorista
-          </h4>
-          <div class="row">
-            <div class="col-md-4">
-              <div class="form-group">
-                <label for="cpf">CPF:</label>
-                <input type="text" class="form-control" formControlName="cpf" [textMask]="{mask: cpfMask}" [class.has-error]="form.get('cpf').errors && form.get('cpf').touched">
-                <p class="help-block" *ngIf="form.get('cpf').hasError('required')
+<section>
+  <header class="page-header">
+    <h2>Cadastro de Motorista</h2>
+    <p>Informações do motorista autorizado a fazer fretes pelo seu negócio</p>
+  </header>
+  <div class="alert alert-danger" role="alert">
+    O cadastro do motorista não pode ser concluído. Favor corrigir os dados da CNH do motorista.
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <form novalidate [formGroup]="form" (ngSubmit)="submitForm(form.value)">
+        <h4>
+          Dados do Motorista
+        </h4>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="cpf">CPF:</label>
+              <input type="text" class="form-control" formControlName="cpf" [textMask]="{mask: cpfMask}" [class.has-error]="form.get('cpf').errors && form.get('cpf').touched">
+              <p class="help-block" *ngIf="form.get('cpf').hasError('required')
               && form.get('cpf').touched">
-                  * Campo obrigatório
-                  </p>
-                  <p class="help-block" *ngIf="form.get('cpf').hasError('invalidCPF') 
+                * Campo obrigatório
+                </p>
+                <p class="help-block" *ngIf="form.get('cpf').hasError('invalidCPF') 
               && form.get('cpf').touched && !form.get('cpf').hasError('required')">
-                    * O CPF informado não é válido
-                    </p>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="form-group">
-                <label for="first-name">Nome:</label>
-                <input id="first-name" name="name" type="text" class="form-control">
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="form-group">
-                <label for="invite-mobile">Telefone Celular:</label>
-                <input id="invite-mobile" name="invite-mobile" type="text" class="form-control" [textMask]="{mask: cellPhoneMask}">
-              </div>
+                  * O CPF informado não é válido
+                  </p>
             </div>
           </div>
-          <button type="submit" class="btn btn-success" [disabled]="!form.valid">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="first-name">Nome:</label>
+              <input id="first-name" name="name" type="text" class="form-control">
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="invite-mobile">Telefone Celular:</label>
+              <input id="invite-mobile" name="invite-mobile" type="text" class="form-control" [textMask]="{mask: cellPhoneMask}">
+            </div>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-success" [disabled]="!form.valid">
             <i class="fa fa-check" aria-hidden="true"></i>
             Vincular Motorista
           </button>
-        </form>
-      </div>
+      </form>
     </div>
-  </section>
-</div>
+  </div>
+</section>

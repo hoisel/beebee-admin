@@ -1,18 +1,15 @@
-<div class="wrapper-content">
-  <breadcrumb></breadcrumb>
-  <section>
-    <header class="page-header">
-      <h2>Perfil do Negócio</h2>
-      <p>Gerencie o perfil do seu negócio</p>
-      <div class="actions">
-        <a [routerLink]="['/plataforma/negocios/novo']" class="btn btn-default">
-          <i class="fa fa-plus" aria-hidden="true"></i> Cadastrar Novo Negócio
-        </a>
-      </div>
-    </header>
-    <div class="alert alert-info" role="alert" *ngIf="company && !company.approved">
-      O perfil do seu negócio está em revisão!
+<section>
+  <header class="page-header">
+    <h2>Perfil do Negócio</h2>
+    <p>Gerencie o perfil do seu negócio</p>
+    <div class="actions">
+      <a [routerLink]="['/plataforma/negocios/novo']" class="btn btn-default">
+        <i class="fa fa-plus" aria-hidden="true"></i> Cadastrar Novo Negócio
+      </a>
     </div>
-    <bee-company-form [company]="company" (onSubmit)="onSubmit($event)"></bee-company-form>
-  </section>
-</div>
+  </header>
+  <div class="alert alert-info" role="alert" *ngIf="company && !company.approved">
+    O perfil do seu negócio está em revisão!
+  </div>
+  <bee-company-form [company]="company" (onSubmit)="onSubmit($event)"></bee-company-form>
+</section>
