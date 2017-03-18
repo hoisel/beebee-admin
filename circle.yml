@@ -9,7 +9,7 @@ dependencies:
   override:
     - npm install
     - npm run build
-    - docker build -t beebeeapp/beebee-admin .
+    - docker build -t beebeeapp/beebee-front .
 test:
   override:
     - curl www.google.com.br
