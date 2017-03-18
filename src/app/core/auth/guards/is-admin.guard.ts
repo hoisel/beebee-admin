@@ -13,7 +13,7 @@ export class IsAdminGuard extends LoggedInGuard {
    *
    * @memberOf LoggedInGuard
    */
-  constructor ( auth: AuthService, router: Router ) {
+  constructor( auth: AuthService, router: Router ) {
     super( auth, router )
   }
 
@@ -25,7 +25,7 @@ export class IsAdminGuard extends LoggedInGuard {
    *
    * @memberOf IsUserGuard
    */
-  protected userHasAccess () {
-    return super.userHasAccess() && this.auth.user.role === 'admin'
+  protected userHasAccess() {
+    return super.userHasAccess() && ( this.auth.user.role === 'admin' || this.auth.user.role === 'sadmin' )
   }
 }
