@@ -74,7 +74,7 @@ export class ProfileComponent implements OnInit {
 
     this.usersApiService.save( user )
       .subscribe(() => swal( 'Atualizado', 'Seus dados forão atualizados com sucesso.', 'success' ),
-      error => swal( 'Erro', `Ocorreu algum erro ao salvar. Erro ${ error.message }`, 'error' ) )
+      error => swal( 'Erro', `Ocorreu algum erro ao salvar. Erro ${error.message}`, 'error' ) )
   }
 
   /**
@@ -90,7 +90,7 @@ export class ProfileComponent implements OnInit {
       return date
     }
     let [ day, month, year ] = date.split( '/' )
-    return `${ year }-${ month }-${ day }`
+    return `${year}-${month}-${day}`
   }
 
   /**
@@ -110,7 +110,7 @@ export class ProfileComponent implements OnInit {
       cellphone: [ '', Validators.required ],
       phone: [ '' ],
       driverLicense: [ '' ],
-      driverLicenseExpiration: [ '', Validators.required ]
+      driverLicenseExpiration: [ '' ]
     })
   }
 
