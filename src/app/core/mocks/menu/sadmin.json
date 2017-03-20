@@ -28,7 +28,7 @@
       "text": "Motoristas",
       "href": "./motoristas",
       "title": "Motoristas",
-      "icon": "icon-request-freight"
+      "icon": "icon-make-freight"
     },
     {
       "text": "Empresas",
@@ -43,22 +43,10 @@
       "icon": "icon-truck"
     },
     {
-      "text": "Equipe",
-      "href": "./equipe",
-      "title": "Equipe",
-      "icon": "icon-users"
-    },
-    {
-      "text": "Perguntas Frequentes",
-      "href": "./faq",
-      "title": "Perguntas Frequentes",
-      "icon": "icon-help"
-    },
-    {
-      "text": "Suporte",
-      "href": "./suporte",
-      "title": "Suporte",
-      "icon": "icon-chat",
+      "text": "Configurações",
+      "href": "./configuracoes",
+      "title": "Configurações",
+      "icon": "icon-cog",
       "subItems": [
         {
           "text": "Veículos",
@@ -77,6 +65,24 @@
           "href": "./configuracoes/fidelidade"
         }
       ]
+    },
+    {
+      "text": "Equipe BeeBee",
+      "href": "./equipe",
+      "title": "Equipe BeeBee",
+      "icon": "icon-users"
+    },
+    {
+      "text": "Perguntas Frequentes",
+      "href": "./faq",
+      "title": "Perguntas Frequentes",
+      "icon": "icon-help"
+    },
+    {
+      "text": "Suporte",
+      "href": "./suporte",
+      "title": "Suporte",
+      "icon": "icon-chat"
     }
   ]
 }
